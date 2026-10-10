@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SwapLabs Tasks — Swap skills for real tasks</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Post a task, offer a skill in return, and find a useful SwapLabs match.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/swapjobs.css?v=20260914-3">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+  <body>
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="swapjobs.html">SwapLabs Tasks</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="swapjobs-page" data-swapjobs-page>
+      <section class="swapjobs-hero">
+        <div class="container swapjobs-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-briefcase-alt-2"></i> Skill-powered task exchange</span>
+            <h1>Get useful work done. <span class="platform-accent">Give useful work back.</span></h1>
+            <p class="platform-hero-copy">SwapLabs Tasks connects a real task with the person who can do it and the skill you can offer in return. Post a poster request, find a website builder, or help someone for free while growing a visible portfolio.</p>
+            <div class="platform-hero-actions"><a class="btn btn-primary" href="#postSwapLabsTask"><i class="bx bx-plus-circle"></i> Post a SwapLabs Task</a><a class="btn" href="#swapjobDirectory"><i class="bx bx-search-alt"></i> Find a task</a></div>
+            <div class="swapjobs-proof"><span><i class="bx bx-transfer-alt"></i> Reciprocal offers</span><span><i class="bx bx-gift"></i> Volunteer for 25 points</span><span><i class="bx bx-id-card"></i> Portfolio proof</span></div>
+          </div>
+          <aside class="swapjobs-hero-card"><span class="hero-card-label">How the exchange works</span><div class="swapjobs-flow"><div><span>01</span><strong>Post</strong><small>Describe the task and what you can offer.</small></div><i class="bx bx-right-arrow-alt"></i><div><span>02</span><strong>Match</strong><small>Review people whose skills fit both sides.</small></div><i class="bx bx-right-arrow-alt"></i><div><span>03</span><strong>Complete</strong><small>Confirm the result and record the skill proof.</small></div></div><div class="swapjobs-point-note"><i class="bx bx-star"></i><div><strong>Every completed task counts.</strong><span>Volunteer work awards 25 points to the helper and adds the result to their portfolio.</span></div></div></aside>
+        </div>
+      </section>
+
+      <section class="platform-section" id="swapjobDirectory">
+        <div class="container">
+          <div class="swapjobs-section-head"><div class="platform-heading"><span class="platform-kicker"><i class="bx bx-git-compare"></i> Find your next useful match</span><h2>Tasks that meet skills halfway.</h2><p>Results are ranked by how well your teaching skills match the task and how well the poster's offer matches what you want to learn.</p></div><div class="swapjobs-stat-row"><span><strong id="swapjobOpenCount">0</strong><small>open tasks</small></span><span><strong id="swapjobMatchCount">0</strong><small>your matches</small></span><span><strong id="swapjobCompletedCount">0</strong><small>completed</small></span></div></div>
+          <div class="swapjobs-filters"><label class="swapjobs-search"><i class="bx bx-search"></i><input id="swapjobSearch" type="search" placeholder="Search posters, websites, design, writing, data…" autocomplete="off"></label><select id="swapjobCategory"><option value="">All categories</option></select><select id="swapjobMode"><option value="">Any return</option><option value="exchange">Skill exchange</option><option value="volunteer">Volunteer · 25 points</option><option value="credits">Time credits</option></select><button class="btn btn-sm" type="button" id="swapjobRefresh"><i class="bx bx-refresh"></i> Refresh</button></div>
+          <div class="swapjobs-match-banner" id="swapjobMatchBanner" hidden><i class="bx bx-sparkles"></i><div><strong>Best matches for your profile</strong><span>Complete your teaching and learning skills in <a href="profile.html">your profile</a> to make these results sharper.</span></div></div>
+          <div class="swapjob-grid" id="swapjobGrid"><div class="platform-loading"><i class="bx bx-loader-alt bx-spin"></i>Loading SwapLabs Tasks…</div></div>
+          <div class="feature-empty" id="swapjobEmpty" hidden><i class="bx bx-search-alt"></i><h3>No open task matches those filters.</h3><p>Try another skill or post the first task in this category.</p></div>
+        </div>
+      </section>
+
+      <section class="platform-section swapjobs-account-section" id="postSwapLabsTask">
+        <div class="container swapjobs-account-grid">
+          <div class="swapjobs-form-card" id="swapjobFormCard"><div class="platform-heading compact"><span class="platform-kicker"><i class="bx bx-edit-alt"></i> Create a task</span><h2>Ask for a useful outcome.</h2><p>Tell people exactly what needs doing, then make the return clear. You can trade a skill, pay time credits, or volunteer for 25 portfolio points.</p></div><div class="feature-empty" id="swapjobLoginPrompt"><i class="bx bx-lock-alt"></i><h3>Sign in to post or propose.</h3><p>SwapLabs Tasks are tied to real member profiles and protected conversations.</p><a class="btn btn-primary" href="login.html?next=swapjobs.html">Log in to continue</a></div><form id="swapjobCreateForm" hidden><div class="form-grid"><div class="field full"><label for="swapjobTitle">Task title</label><input id="swapjobTitle" name="title" required maxlength="140" placeholder="Create a poster for my student workshop"></div><div class="field full"><label for="swapjobDescription">What needs doing?</label><textarea id="swapjobDescription" name="description" required maxlength="2400" rows="4" placeholder="Describe the goal, audience, size, deadline, and what a good result looks like."></textarea></div><div class="field"><label for="swapjobCategoryInput">Category</label><input id="swapjobCategoryInput" name="category" required maxlength="60" placeholder="Design"></div><div class="field"><label for="swapjobSkills">Skills needed</label><input id="swapjobSkills" name="skills_needed" required placeholder="Poster design, Canva, typography"></div><div class="field full"><label for="swapjobDeliverable">Deliverable</label><input id="swapjobDeliverable" name="deliverable" maxlength="500" placeholder="A print-ready PNG and editable source file"></div><div class="field"><label for="swapjobModeInput">Return type</label><select id="swapjobModeInput" name="exchange_mode"><option value="exchange">Skill exchange</option><option value="volunteer">Volunteer · 25 points</option><option value="credits">Time credits</option></select></div><div class="field" id="swapjobCreditField"><label for="swapjobCreditReward">Credits offered</label><input id="swapjobCreditReward" name="credit_reward" type="number" min="0" max="100000" value="0"></div><div class="field full"><label for="swapjobOfferTitle">What can you offer in return?</label><input id="swapjobOfferTitle" name="offer_title" maxlength="140" placeholder="I can build your landing page"></div><div class="field full"><label for="swapjobOfferDescription">Describe your offer</label><textarea id="swapjobOfferDescription" name="offer_description" maxlength="1200" rows="3" placeholder="Explain the skill, scope, and outcome you can provide."></textarea></div><div class="field"><label for="swapjobOfferSkills">Offer skills</label><input id="swapjobOfferSkills" name="offer_skills" placeholder="HTML, CSS, JavaScript"></div><div class="field"><label for="swapjobDeadline">Deadline <small>optional</small></label><input id="swapjobDeadline" name="deadline" type="datetime-local"></div><div class="field"><label for="swapjobVisibility">Who can see this?</label><select id="swapjobVisibility" name="visibility"><option value="public">Public task board</option><option value="private">Only me</option></select></div><div class="field"><label for="swapjobPortfolioVisibility">Helper portfolio proof</label><select id="swapjobPortfolioVisibility" name="portfolio_visibility"><option value="public">Public when completed</option><option value="private">Keep it private</option></select></div></div><div class="form-actions"><button class="btn btn-primary" type="submit"><i class="bx bx-send"></i> Post SwapLabs Task</button><span class="form-status" id="swapjobCreateStatus" role="status"></span></div></form></div>
+          <aside class="swapjobs-my-card"><div class="platform-heading compact"><span class="platform-kicker"><i class="bx bx-folder-open"></i> Your workspace</span><h2>Keep every offer moving.</h2><p>Accepted proposals open a protected Inbox conversation. Confirm the result when the task is done and the helper earns their portfolio points.</p></div><div id="swapjobMine"><div class="feature-empty"><i class="bx bx-user"></i><h3>Sign in to see your tasks.</h3><p>Your postings and proposals will appear here.</p></div></div><a class="btn btn-soft" href="portfolio.html"><i class="bx bx-id-card"></i> Customize my portfolio</a></aside>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+
+    <dialog class="swapjob-dialog" id="swapjobProposalDialog"><form method="dialog" id="swapjobProposalForm"><button class="dialog-close" value="cancel" aria-label="Close proposal dialog"><i class="bx bx-x"></i></button><span class="platform-kicker"><i class="bx bx-send"></i> Propose to help</span><h2 id="swapjobDialogTitle">Join this task.</h2><p id="swapjobDialogDescription"></p><input type="hidden" name="job_id"><div class="field"><label for="swapjobProposalMessage">Your proposal</label><textarea id="swapjobProposalMessage" name="message" required maxlength="1800" rows="5" placeholder="Explain what you can make, how you would approach it, and when you can deliver."></textarea></div><div class="field"><label for="swapjobProposalSkills">Skills you will use</label><input id="swapjobProposalSkills" name="skills" placeholder="Separate with commas"></div><div class="field"><label for="swapjobProposalVisibility">Add the result to my portfolio</label><select id="swapjobProposalVisibility" name="portfolio_visibility"><option value="public">Yes, publicly</option><option value="private">Keep it private</option></select></div><div class="form-actions"><button class="btn" value="cancel">Cancel</button><button class="btn btn-primary" value="submit"><i class="bx bx-send"></i> Send proposal</button><span class="form-status" id="swapjobProposalStatus" role="status"></span></div></form></dialog>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-swapjobs.js?v=20260925-profile-links2"></script>
+  </body>
+</html>

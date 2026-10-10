@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Live Sessions — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="ops-page live-sessions-page" data-operations-page="live-sessions">
+
+      <section class="page-hero">
+        <div class="container live-session-hero-grid">
+          <div>
+            <span class="eyebrow"><i class="bx bx-video"></i> SwapLabs Live</span>
+            <h1>Meet, teach, and learn in a real member room.</h1>
+            <p>Every scheduled SwapLabs session can open into a protected browser-based video room with a device check, host-controlled waiting room, screen sharing, connection monitoring, and two-sided attendance confirmation.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="calendar.html"><i class="bx bx-calendar-plus"></i> Schedule a session</a>
+              <a class="btn" href="workshops.html"><i class="bx bx-group"></i> Browse workshops</a>
+            </div>
+          </div>
+          <aside class="live-session-hero-card">
+            <span class="live-pulse"><i class="bx bx-radio-circle-marked"></i> Room readiness</span>
+            <div class="live-readiness-list">
+              <span><i class="bx bx-check-shield"></i><strong>Host admission</strong><small>Invited members wait privately until admitted.</small></span>
+              <span><i class="bx bx-webcam"></i><strong>Camera and microphone test</strong><small>Check permissions and choose devices before joining.</small></span>
+              <span><i class="bx bx-wifi"></i><strong>Connection quality</strong><small>Monitor latency, packet loss, and network conditions.</small></span>
+              <span><i class="bx bx-list-check"></i><strong>Confirmed attendance</strong><small>Both learner and host verify that the session happened.</small></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-heading split">
+            <div>
+              <span class="eyebrow"><i class="bx bx-calendar-check"></i> Your room queue</span>
+              <h2>Upcoming sessions from your real calendar</h2>
+              <p>Only events belonging to the signed-in account appear here. Invited members see the same shared session on their own calendars.</p>
+            </div>
+            <a class="text-link" href="calendar.html">Manage calendar <i class="bx bx-right-arrow-alt"></i></a>
+          </div>
+
+          <div class="ops-auth-gate" id="opsAuthGate" hidden>
+            <i class="bx bx-lock-alt"></i>
+            <h2>Sign in to see your live rooms</h2>
+            <p>Your room queue is private and is built from the sessions and workshops connected to your account.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="login.html?next=live-sessions.html">Log in</a>
+              <a class="btn" href="register.html">Create account</a>
+            </div>
+          </div>
+
+          <div class="ops-loading" id="opsLoading">
+            <i class="bx bx-loader-alt bx-spin"></i>
+            <span>Loading your session rooms</span>
+          </div>
+
+          <div id="liveSessionsApp" hidden>
+            <div class="live-session-toolbar">
+              <label class="live-session-search"><i class="bx bx-search"></i><input id="liveSessionSearch" type="search" placeholder="Search your sessions, hosts, or skills"></label>
+              <select id="liveSessionFilter" aria-label="Filter live sessions">
+                <option value="upcoming">Upcoming</option>
+                <option value="all">All scheduled</option>
+                <option value="rooms">Rooms already opened</option>
+                <option value="hosted">Sessions I host</option>
+              </select>
+              <button class="btn" id="refreshLiveSessions" type="button"><i class="bx bx-refresh"></i> Refresh</button>
+            </div>
+            <div class="live-session-list" id="liveSessionList"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container">
+          <div class="section-heading centered">
+            <span class="eyebrow"><i class="bx bx-shield-quarter"></i> Before the conversation begins</span>
+            <h2>A calmer entrance to every live exchange</h2>
+            <p>The room separates preparation from the call so members can solve device problems without interrupting the session.</p>
+          </div>
+          <div class="grid-4 live-feature-grid">
+            <article class="card"><span class="feature-number">01</span><i class="bx bx-video icon-box"></i>
+              <h3>Private device preview</h3>
+              <p>Choose a camera and microphone, review your preview, and keep it local until you enter the call.</p>
+            </article>
+            <article class="card"><span class="feature-number">02</span><i class="bx bx-door-open icon-box"></i>
+              <h3>Waiting-room control</h3>
+              <p>The host sees who requested entry and can admit, decline, or remove an invited participant.</p>
+            </article>
+            <article class="card"><span class="feature-number">03</span><i class="bx bx-wifi icon-box"></i>
+              <h3>Quality diagnostics</h3>
+              <p>Browser network signals and live peer statistics create a simple excellent-to-poor connection status.</p>
+            </article>
+            <article class="card"><span class="feature-number">04</span><i class="bx bx-desktop icon-box"></i>
+              <h3>Screen sharing</h3>
+              <p>Share a project, lesson, or presentation and return to the camera without restarting the call.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark-section">
+        <div class="container live-session-flow">
+          <div>
+            <span class="eyebrow"><i class="bx bx-transfer-alt"></i> One connected workflow</span>
+            <h2>From a match to a verified learning record.</h2>
+            <p>Live rooms use the same members, events, reminders, time zones, conversations, attendance records, and privacy settings as the rest of SwapLabs.</p>
+            <a class="btn btn-light" href="skill-matching.html">Find a compatible member <i class="bx bx-right-arrow-alt"></i></a>
+          </div>
+          <ol class="live-flow-steps">
+            <li><span>1</span><div><strong>Match or invite</strong><p>Choose a member using explainable matching or your community connections.</p></div></li>
+            <li><span>2</span><div><strong>Agree on a time</strong><p>The shared event is saved for the host and every invited participant.</p></div></li>
+            <li><span>3</span><div><strong>Open the room</strong><p>Run device checks, request admission, and connect directly in the browser.</p></div></li>
+            <li><span>4</span><div><strong>Confirm attendance</strong><p>Member and host confirmation completes the downloadable session record.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid-3">
+          <article class="card"><i class="bx bx-calendar-check icon-box"></i>
+            <h3>Shared reservations</h3>
+            <p>Schedule a member, respect each account’s timezone, reschedule when needed, and export the event as an ICS calendar file.</p>
+          </article>
+          <article class="card"><i class="bx bx-note icon-box"></i>
+            <h3>Downloadable history</h3>
+            <p>Export session title, timing, role, room, attendance duration, and confirmation status as a CSV from Profile settings.</p>
+          </article>
+          <article class="card"><i class="bx bx-time-five icon-box"></i>
+            <h3>Age-aware safeguards</h3>
+            <p>Student accounts can be public or private, require accepted connections for direct sessions, and use guardian and specialist review controls.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-operations.js?v=20260930-invite-links1"></script>
+  </body>
+
+</html>

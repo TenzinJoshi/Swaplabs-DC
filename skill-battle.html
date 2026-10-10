@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Skill battle — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Join SwapLabs weekly skill challenges, submit entries, like useful work, and earn recognition through collaborative practice.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page feature-page" data-extension-page="skill-battle">
+      <section class="platform-hero feature-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-target-lock"></i> Skill battle</span>
+            <h1>Practice in public, improve with useful feedback.</h1>
+            <p class="platform-hero-copy">Skill battles are friendly community challenges where members submit small pieces of work, learn from examples, like strong entries, and build proof of progress.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="#battleEntryForm"><i class="bx bx-plus"></i> Submit entry</a>
+              <a class="btn" href="community-challenges.html"><i class="bx bx-target-lock"></i> Challenges</a>
+            </div>
+          </div>
+          <aside class="platform-hero-card">
+            <div class="hero-card-top"><span>Challenge activity</span><i class="bx bx-trophy"></i></div>
+            <div class="feature-mini-stats">
+              <span><strong data-feature-stat="open">0</strong><small>open battles</small></span>
+              <span><strong data-feature-stat="entries">0</strong><small>entries</small></span>
+              <span><strong data-feature-stat="likes">0</strong><small>likes</small></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section">
+        <div class="container">
+          <div class="platform-heading"><span class="platform-kicker"><i class="bx bx-bolt-circle"></i> Active challenges</span><h2>Choose a battle and submit something real.</h2><p>Small, finished entries beat perfect plans here.</p></div>
+          <div class="feature-grid" id="battleGrid"></div>
+        </div>
+      </section>
+
+      <section class="platform-section tint">
+        <div class="container">
+          <form class="platform-form platform-form-shell" id="battleEntryForm">
+            <div class="platform-form-head"><div><h2>Submit a skill battle entry</h2><p>Click a challenge above to fill the battle ID automatically.</p></div><i class="bx bx-upload"></i></div>
+            <div class="platform-form-grid">
+              <div class="field"><label>Battle ID</label><input id="battle_id" name="battle_id" required></div>
+              <div class="field"><label>Entry title</label><input name="title" required></div>
+              <div class="field full"><label>Summary</label><textarea name="summary" rows="5" required></textarea></div>
+              <div class="field full"><label>Evidence URL</label><input name="evidence_url" type="url" placeholder="https://"></div>
+              <div class="field full"><label>What did you learn?</label><textarea name="lesson" rows="4" required></textarea></div>
+            </div>
+            <div class="platform-form-actions"><p>Entries are visible to the community.</p><button class="btn btn-primary" type="submit">Publish entry</button></div>
+            <div class="feature-status" data-battle-status></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-extensions.js?v=20260930-invite-links1"></script>
+  </body>
+
+</html>

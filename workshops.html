@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Live Workshops — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Browse practical SwapLabs workshops, meet experienced member hosts, and reserve a saved place in a small live learning group.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page" data-platform-page="workshops">
+
+      <section class="platform-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-chalkboard"></i> Live, practical learning</span>
+            <h1>Do the work with people who <span class="platform-accent">know how to guide it.</span></h1>
+            <p class="platform-hero-copy">SwapLabs workshops are focused learning rooms with a real host, a clear outcome, limited seats, and something useful to finish. Search the complete schedule, reserve your place, and keep every registration connected to your account.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="#workshopSchedule"><i class="bx bx-calendar-check"></i> Browse the schedule</a>
+              <a class="btn" href="#hostWorkshop"><i class="bx bx-user-voice"></i> Host a workshop</a>
+            </div>
+            <div class="platform-hero-note"><i class="bx bx-check-shield"></i><span>Every host is connected to a community profile. Seat counts and your registration state update from saved platform data.</span></div>
+          </div>
+          <aside class="platform-hero-card">
+            <div class="hero-card-top"><span>Workshop standard</span><i class="bx bx-task"></i></div>
+            <h2 class="hero-card-title">Leave with evidence, not only notes.</h2>
+            <p class="hero-card-copy">Each workshop brief states what you will practice, what to prepare, and what you should have at the end.</p>
+            <ul class="hero-card-list">
+              <li><i class="bx bx-time-five"></i><span>Clear start time, duration, format, and location</span></li>
+              <li><i class="bx bx-group"></i><span>Protected seat limits for meaningful participation</span></li>
+              <li><i class="bx bx-file"></i><span>Exercises, templates, examples, or an artifact to complete</span></li>
+              <li><i class="bx bx-message-square-dots"></i><span>Time for questions, peer context, and useful follow-up</span></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section workshop-share-section" id="workshopShareView" data-workshop-share-view hidden aria-labelledby="workshopShareTitle">
+        <div class="container">
+          <div class="workshop-share-shell" data-workshop-share-content>
+            <div class="platform-loading"><i class="bx bx-loader-alt"></i>Loading this workshop link.</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="platform-stat-strip">
+        <div class="container platform-stat-shell">
+          <div class="platform-stat"><i class="bx bx-calendar-event"></i><strong id="workshopStatScheduled">0</strong><span>upcoming workshops</span></div>
+          <div class="platform-stat"><i class="bx bx-chair"></i><strong id="workshopStatSeats">0</strong><span>total learning places</span></div>
+          <div class="platform-stat"><i class="bx bx-user-check"></i><strong id="workshopStatRegistered">0</strong><span>confirmed registrations</span></div>
+          <div class="platform-stat"><i class="bx bx-user-voice"></i><strong id="workshopStatHosts">0</strong><span>experienced hosts</span></div>
+        </div>
+      </div>
+
+      <section class="platform-section" id="workshopSchedule">
+        <div class="container">
+          <div class="platform-section-head">
+            <div class="platform-heading">
+              <span class="platform-kicker"><i class="bx bx-search-alt"></i> Complete schedule</span>
+              <h2>Choose the room that moves your work forward.</h2>
+              <p>Search by topic or host, then narrow by category, level, and format. Sign in to reserve or cancel a place instantly.</p>
+            </div>
+            <a class="btn" href="profile.html"><i class="bx bx-user-circle"></i> View my account</a>
+          </div>
+          <div class="workshop-toolbar" aria-label="Workshop filters">
+            <input id="workshopSearch" type="search" placeholder="Search topic, host, outcome, or skill" aria-label="Search workshops">
+            <select id="workshopCategory" aria-label="Filter by category">
+              <option value="all">All categories</option>
+            </select>
+            <select id="workshopLevel" aria-label="Filter by level">
+              <option value="all">All levels</option>
+            </select>
+            <select id="workshopFormat" aria-label="Filter by format">
+              <option value="all">All formats</option>
+            </select>
+          </div>
+          <div class="workshop-results-head"><span id="workshopResultCount">Loading schedule</span><span>Times display in your device timezone</span></div>
+          <div class="workshop-grid" id="workshopGrid">
+            <div class="platform-loading"><i class="bx bx-loader-alt"></i>Loading the live workshop schedule.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section" id="hostWorkshop" aria-labelledby="hostWorkshopTitle">
+        <div class="container">
+          <div class="platform-heading"><span class="platform-kicker">Share what you know</span><h2 id="hostWorkshopTitle">Host a workshop</h2><p>Publish a practical session for other members. Your workshop gets a shared calendar event and meeting thread. No payment or time-credit charge is created automatically.</p></div>
+          <p id="hostWorkshopAuth">Sign in to host with your existing account. <a class="btn btn-primary" href="login.html">Sign in</a></p>
+          <form class="platform-form platform-form-shell" id="hostWorkshopForm" hidden>
+            <div class="platform-form-grid">
+              <div class="field full"><label for="hostTitle">Workshop title</label><input id="hostTitle" name="title" maxlength="160" required placeholder="Build your first Python automation"></div>
+              <div class="field full"><label for="hostDescription">What will participants do?</label><textarea id="hostDescription" name="description" rows="4" maxlength="2000" required placeholder="Describe the session, preparation and equipment needed."></textarea></div>
+              <div class="field"><label for="hostCategory">Category</label><input id="hostCategory" name="category" maxlength="60" required list="hostCategories"><datalist id="hostCategories"><option value="Technology"><option value="Design"><option value="Languages"><option value="Data"><option value="Arts"><option value="Life skills"></datalist></div>
+              <div class="field"><label for="hostLevel">Experience level</label><select id="hostLevel" name="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>All levels</option></select></div>
+              <div class="field"><label for="hostFormat">Format</label><select id="hostFormat" name="format"><option>Live online</option><option>Small group</option><option>Practice circle</option><option>Hybrid</option></select></div>
+              <div class="field"><label for="hostLocation">Public venue or room description</label><input id="hostLocation" name="location" value="SwapLabs Live Room" maxlength="180" required aria-describedby="hostLocationHelp"><small id="hostLocationHelp">Shown publicly. Do not put a home address or private meeting password here.</small></div>
+              <div class="field"><label for="hostStarts">Start date and time</label><input id="hostStarts" name="starts_at" type="datetime-local" required aria-describedby="hostTimeHelp"><small id="hostTimeHelp">Enter the local time in the timezone below, not necessarily your device timezone.</small></div>
+              <div class="field"><label for="hostTimezone">Timezone (IANA name)</label><input id="hostTimezone" name="timezone" maxlength="80" required placeholder="Asia/Kolkata" list="hostTimezones"><datalist id="hostTimezones"><option value="Asia/Kolkata"><option value="UTC"><option value="Europe/London"><option value="Europe/Zurich"><option value="America/New_York"><option value="Asia/Singapore"></datalist></div>
+              <div class="field"><label for="hostDuration">Duration in minutes</label><input id="hostDuration" name="duration_minutes" type="number" min="15" max="480" step="1" value="60" required></div>
+              <div class="field"><label for="hostSeats">Attendee places (excluding you)</label><input id="hostSeats" name="seat_limit" type="number" min="1" max="50" step="1" value="12" required></div>
+              <div class="field full"><label for="hostOutcomes">Learning outcomes — one per line</label><textarea id="hostOutcomes" name="outcomes" rows="3" maxlength="965" required placeholder="Write one working script&#10;Understand how to run it"></textarea><small>One to six outcomes, up to 160 characters each.</small></div>
+              <div class="field full"><label for="hostTags">Skill tags — separated by commas</label><input id="hostTags" name="tags" maxlength="609" placeholder="Python, Automation"><small>Up to ten tags. These help people find your workshop.</small></div>
+            </div>
+            <label class="platform-check"><input type="checkbox" name="hosting_agreement" required><span>I can lead this session, will provide accurate details, and agree to follow the community and student-safety rules.</span></label>
+            <p class="muted">Student-safety and blocked-member restrictions still apply when members join. After publishing, manage the schedule, cancel the workshop or confirm completion from your Calendar.</p>
+            <div class="platform-form-actions"><button class="btn btn-primary" type="submit">Publish workshop</button></div>
+            <div class="platform-form-status" data-platform-status role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="platform-section tint">
+        <div class="container">
+          <div class="platform-heading center"><span class="platform-kicker"><i class="bx bx-layer"></i> Designed for participation</span>
+            <h2>Four formats for four kinds of progress.</h2>
+            <p>The format tells you how the room will work before you reserve a place.</p>
+          </div>
+          <div class="platform-grid-4">
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-video"></i></span><span class="platform-mini-label">Live online</span>
+              <h3>Guided from anywhere</h3>
+              <p>A host demonstrates, participants practice, and the room pauses at planned checkpoints for questions and review.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-group"></i></span><span class="platform-mini-label">Small group</span>
+              <h3>Focused peer feedback</h3>
+              <p>Bring a draft, attempt, or decision. Structured turns ensure every participant receives useful attention.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-conversation"></i></span><span class="platform-mini-label">Practice circle</span>
+              <h3>Build confidence through repetition</h3>
+              <p>Ideal for languages, presentations, interviews, and other skills that improve by doing them with supportive people.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-buildings"></i></span><span class="platform-mini-label">Hybrid</span>
+              <h3>Connect local and remote rooms</h3>
+              <p>Join at a community venue or online, with one shared brief and accessible materials for both groups.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section">
+        <div class="container platform-grid-2">
+          <div>
+            <div class="platform-heading"><span class="platform-kicker"><i class="bx bx-list-check"></i> Before you join</span>
+              <h2>Know exactly how to arrive prepared.</h2>
+              <p>Workshop reminders include the host, room, expected level, equipment, and any optional preparation.</p>
+            </div>
+            <div class="platform-grid-2">
+              <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-envelope"></i></span>
+                <h3>Confirmation and reminder</h3>
+                <p>Your saved registration appears immediately and creates a notification. A workshop reference stays connected to the administration record.</p>
+              </article>
+              <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-transfer-alt"></i></span>
+                <h3>Cancel responsibly</h3>
+                <p>If plans change, cancel from the schedule. The place returns to the live seat count for another learner.</p>
+              </article>
+              <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-universal-access"></i></span>
+                <h3>Share access needs</h3>
+                <p>Contact support before the session for captions, pacing, materials, or participation adjustments.</p>
+              </article>
+              <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-file-find"></i></span>
+                <h3>Keep the outcome</h3>
+                <p>Save your finished artifact, reflection, or next step in your own learning record after the room closes.</p>
+              </article>
+            </div>
+          </div>
+          <aside class="platform-form-shell">
+            <div class="platform-form-head">
+              <div>
+                <h2>Host a rigorous workshop</h2>
+                <p>Turn one skill into an experience people can complete.</p>
+              </div><i class="bx bx-user-voice"></i>
+            </div>
+            <div class="platform-side-card">
+              <h3><i class="bx bx-bulb"></i> Start with one outcome</h3>
+              <p>“Participants will leave with a revised portfolio story” is clearer than “participants will understand portfolios.”</p>
+            </div>
+            <div class="platform-side-card">
+              <h3><i class="bx bx-ruler"></i> Protect the room size</h3>
+              <p>Choose the smallest seat limit that still makes the activity work. More places are not always more useful.</p>
+            </div>
+            <div class="platform-side-card">
+              <h3><i class="bx bx-check-shield"></i> Design for safety</h3>
+              <p>Use inclusive examples, clear boundaries, accessible materials, and a realistic plan for questions you cannot answer.</p>
+            </div>
+            <div class="platform-form-actions">
+              <p>Experienced members can apply to host workshops and structured learning rooms.</p><a class="btn btn-primary" href="#hostWorkshop">Host a workshop <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section soft-pink">
+        <div class="container">
+          <div class="platform-heading center"><span class="platform-kicker"><i class="bx bx-help-circle"></i> Workshop questions</span>
+            <h2>Clear expectations before you reserve.</h2>
+          </div>
+          <div class="faq-list" style="margin:auto">
+            <article class="faq-item"><button class="faq-q">Do workshops use time credits?<span>+</span></button>
+              <div class="faq-a">Each listing states its access model. Community workshops are normally included or use a clearly stated time-credit amount. No place is charged silently.</div>
+            </article>
+            <article class="faq-item"><button class="faq-q">Can I cancel a saved registration?<span>+</span></button>
+              <div class="faq-a">Yes. A registered button becomes a cancellation control. Cancelling updates the saved record and releases your seat immediately.</div>
+            </article>
+            <article class="faq-item"><button class="faq-q">What happens when a workshop is full?<span>+</span></button>
+              <div class="faq-a">The live schedule disables registration when no seats remain. If a participant cancels, the available count updates again.</div>
+            </article>
+            <article class="faq-item"><button class="faq-q">Where can I report a workshop problem?<span>+</span></button>
+              <div class="faq-a">Use the Complaint page for service or delivery problems, Contact Us for questions, and Report for harassment, fraud, unsafe behavior, or urgent safety concerns.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+  </body>
+
+</html>

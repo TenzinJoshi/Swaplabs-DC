@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Organisation admin — SwapLabs</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+  <body>
+    <div data-site-header></div>
+    <main class="account-main">
+      <section class="account-hero">
+        <div class="container"><span class="eyebrow">Organisation workspace</span><h1 id="orgName">Loading…</h1><p>Monitor your community, provision accounts, and control external access.</p></div>
+      </section>
+      <section class="account-section">
+        <div class="container">
+          <div id="orgGate" class="auth-card">Loading organisation workspace…</div>
+          <div id="orgPanel" hidden>
+            <div class="form-section">
+              <h2>Provision a member account</h2>
+              <form id="orgMemberForm" class="form-grid">
+                <div class="field"><label for="orgMemberName">Member name</label><input id="orgMemberName" name="display_name" placeholder="Student or colleague name" required></div>
+                <div class="field"><label for="orgMemberEmail">Member email</label><input id="orgMemberEmail" name="email" type="email" placeholder="member@example.com" required><small>They can use this email to sign in.</small></div>
+                <div class="field"><label for="orgMemberPassword">Temporary password</label><input id="orgMemberPassword" name="password" type="password" minlength="6" placeholder="At least 6 characters" autocomplete="new-password" required><small>Use uppercase, lowercase, a number, and a symbol.</small></div>
+                <button class="btn btn-primary" type="submit">Create account</button>
+              </form>
+              <div class="form-status" data-status></div>
+            </div>
+            <div class="form-section">
+              <h2>Access policy</h2>
+              <label class="check-row"><input id="allowExternal" type="checkbox"><span><strong>Allow members to connect with the wider SwapLabs platform</strong><span>Turn this off to keep conversations and discovery inside your organisation.</span></span></label>
+              <label class="field"><span>Blocked categories (comma separated)</span><input id="blockedCategories" placeholder="games, public events"></label>
+              <button id="savePolicy" class="btn">Save restrictions</button><div id="policyStatus" class="form-status"></div>
+            </div>
+            <div class="form-section"><h2>Members</h2><div id="orgMembers"></div></div>
+            <div class="form-section"><h2>Activity monitor</h2><div id="orgActivity"></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-organization.js?v=20261002-empty-state1"></script>
+  </body>
+</html>

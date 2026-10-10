@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Learning journal — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Track what you learned, session reflections, confidence, practice minutes, goals, and next steps in your SwapLabs learning journal.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page feature-page" data-extension-page="learning-journal">
+      <section class="platform-hero feature-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-notepad"></i> Learning journal</span>
+            <h1>Turn every session into a memory you can use later.</h1>
+            <p class="platform-hero-copy">Write short reflections, track confidence, record practice minutes, and choose whether an entry stays private or becomes part of your portfolio trail.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="#journalForm"><i class="bx bx-edit-alt"></i> Write entry</a>
+              <a class="btn" href="achievements.html"><i class="bx bx-badge-check"></i> See achievements</a>
+            </div>
+          </div>
+          <aside class="platform-hero-card">
+            <div class="hero-card-top"><span>Journal progress</span><i class="bx bx-line-chart"></i></div>
+            <div class="feature-mini-stats">
+              <span><strong data-feature-stat="entries">0</strong><small>entries</small></span>
+              <span><strong data-feature-stat="hours">0</strong><small>hours</small></span>
+              <span><strong data-feature-stat="skills">0</strong><small>skills</small></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section">
+        <div class="container feature-two-column">
+          <form class="platform-form platform-form-shell" id="journalForm">
+            <div class="platform-form-head"><div><h2>Add a reflection</h2><p>Keep it short, honest, and specific.</p></div><i class="bx bx-pencil"></i></div>
+            <div class="platform-form-grid">
+              <div class="field"><label>Title</label><input name="title" required></div>
+              <div class="field"><label>Skill</label><input name="skill" required></div>
+              <div class="field"><label>Minutes practiced</label><input name="minutes" type="number" min="0" max="1440" value="30"></div>
+              <div class="field"><label>Confidence</label><select name="confidence"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
+              <div class="field"><label>Mood</label><select name="mood"><option>focused</option><option>curious</option><option>stuck</option><option>confident</option><option>excited</option></select></div>
+              <div class="field"><label>Visibility</label><select name="visibility"><option value="private">Private</option><option value="portfolio">Portfolio</option></select></div>
+              <div class="field full"><label>Reflection</label><textarea name="reflection" rows="6" required></textarea></div>
+              <div class="field full"><label>Next step</label><textarea name="next_step" rows="3"></textarea></div>
+            </div>
+            <div class="platform-form-actions"><p>Private entries stay in your account export.</p><button class="btn btn-primary" type="submit">Save entry</button></div>
+            <div class="feature-status" data-journal-status></div>
+          </form>
+          <section>
+            <div class="platform-heading compact"><h2>Your entries</h2><p>Newest reflections appear first.</p></div>
+            <div class="feature-grid single" id="journalEntries"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-extensions.js?v=20260930-invite-links1"></script>
+  </body>
+
+</html>

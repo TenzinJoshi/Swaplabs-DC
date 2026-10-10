@@ -1,0 +1,13 @@
+{
+  "name": "swaplabs-local",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-worker.mjs",
+    "dev": "node scripts/local-start.mjs",
+    "start": "node scripts/local-start.mjs --open",
+    "check": "python3 tests/local_functional.py"
+  },
+  "devDependencies": {
+    "wrangler": "4.142.0"
+  }
+}

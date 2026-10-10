@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Browse Skills — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main>
+
+      <section class="page-hero">
+        <div class="container"><span class="eyebrow">Skill marketplace</span>
+          <h1>Find something worth learning.</h1>
+          <p>Search active teachers and match their expertise with something you can share in return.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="filter-row"><input class="search-input" id="skillSearch" aria-label="Search skills or real members" placeholder="Search skills or real members"><select id="skillCategory" aria-label="Skill area"><option value="all">All skill areas</option></select><select id="skillLevel" aria-label="Experience level"><option value="all">Any experience level</option><option value="Beginner">Beginner</option><option value="Intermediate">Intermediate</option><option value="Advanced">Advanced</option></select><button class="btn" id="skillReset" type="button">Reset</button></div>
+          <div class="real-skill-summary"><span><i class="bx bx-user-voice"></i><strong id="realSkillPeople">0</strong> active teachers</span><span><i class="bx bx-book-open"></i><strong id="realSkillCount">0</strong> teachable skills</span><span><i class="bx bx-message-square-check"></i> Requests open a real Inbox conversation for both members</span></div>
+          <div class="skill-list" id="realSkillList"><div class="community-loading"><i class="bx bx-loader-alt bx-spin"></i> Loading member skills…</div></div>
+          <div class="empty-state" id="skillEmpty"><span class="icon-box indigo"><i class="bx bx-bulb"></i></span><h3>No public skill listings match yet.</h3><p>Try a broader search, create a profile, or join updates while the community grows.</p><div class="live-empty-actions"><a class="btn btn-primary" href="register.html?intent=swap&amp;return_to=browse-skills.html">Create a profile</a><a class="btn" href="index.html#rsStory">Explore how it works</a></div></div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-community.js?v=20260925-profile-links2"></script>
+  </body>
+
+</html>

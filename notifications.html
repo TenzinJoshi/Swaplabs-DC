@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chats — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Full-screen SwapLabs messaging with a private AI assistant plus member and group conversations.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" as="script" href="scripts/swaplabs-auth.js?v=20261002-perf1">
+    <link rel="preload" as="script" href="scripts/swaplabs-operations.js?v=20261002-chat-readfast3">
+    <link rel="preload" as="script" href="scripts/swaplabs.js?v=20261010-global-contrast2">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body class="inbox-page-body">
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="ops-page inbox-page" data-operations-page="inbox">
+      <div class="server-required inbox-server-state" data-server-required><strong>Secure account service is temporarily unavailable.</strong> Refresh and try again. When running locally, start the app with <code>pnpm dev</code>.</div>
+      <div class="ops-auth-gate inbox-access-gate" id="opsAuthGate" hidden><i class="bx bx-lock-alt"></i>
+        <div>
+          <h2>Log in to open Chats</h2>
+          <p>Your conversations and files are private to your account.</p>
+        </div><a class="btn btn-primary" href="login.html">Log in</a>
+      </div>
+      <div class="ops-loading inbox-loading" id="opsLoading"><i class="bx bx-loader-alt bx-spin"></i><span>Opening your conversations</span></div>
+
+      <div class="inbox-app" id="inboxWorkspace" hidden>
+        <aside class="inbox-sidebar">
+          <div class="inbox-sidebar-head">
+            <div class="inbox-title-row">
+              <h1>Chats</h1><button class="inbox-more-button" type="button" id="inboxAccountTools" aria-label="Open account tools"><i class="bx bx-dots-horizontal-rounded"></i></button>
+            </div>
+            <div class="inbox-head-actions"><button class="inbox-action-button" id="inboxRefresh" type="button" aria-label="Refresh chats" title="Refresh chats"><i class="bx bx-refresh"></i></button><button class="inbox-action-button" id="inboxComposeToggle" type="button" aria-label="Start a new conversation" title="New conversation"><i class="bx bx-edit"></i></button></div>
+          </div>
+          <div class="inbox-new-chat" id="inboxNewChat" hidden><select id="newChatMember" aria-label="Choose a member">
+              <option value="">Choose a member</option>
+            </select><button class="inbox-start-button" id="newChatButton" type="button"><i class="bx bx-message-square-add"></i><span>Start chat</span></button><button class="inbox-start-button group-start-button" id="newGroupButton" type="button"><i class="bx bx-group"></i><span>New group</span></button></div>
+          <label class="ops-search inbox-search"><i class="bx bx-search"></i><input id="conversationSearch" type="search" placeholder="Search" aria-label="Search conversations"></label>
+          <div class="inbox-summary-row"><span><strong id="inboxUnreadCount">0</strong> unread</span><span><strong id="inboxConversationCount">0</strong> conversations</span></div>
+          <div class="conversation-list" id="conversationList"></div>
+        </aside>
+
+        <section class="chat-panel" id="chatPanel">
+          <div class="chat-empty" id="chatEmpty"><span class="chat-empty-icon"><i class="bx bx-message-rounded-dots"></i></span>
+            <h2>Your conversations live here</h2>
+            <p>SwapLabs AI can answer platform questions, create reminders, and help you move from chat to the right tool. Choose it or a member conversation to get started.</p>
+          </div>
+          <div class="chat-active" id="chatActive" hidden>
+
+            <header class="chat-header">
+              <button class="inbox-action-button inbox-back" id="inboxBack" type="button" aria-label="Back to conversations"><i class="bx bx-left-arrow-alt"></i></button>
+              <button class="chat-heading chat-heading-trigger" id="chatHeading" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open chat information and options"></button>
+              <div class="chat-header-actions"><button class="inbox-action-button call-action voice" id="chatVoiceCall" type="button" title="Start a voice call · 1 credit" aria-label="Start a voice call"><i class="bx bx-phone"></i></button><button class="inbox-action-button call-action video" id="chatVideoCall" type="button" title="Start a video call · 1 credit" aria-label="Start a video call"><i class="bx bx-video"></i></button><button class="inbox-action-button" id="chatSchedule" type="button" title="Quick schedule" aria-label="Quick schedule"><i class="bx bx-calendar-plus"></i></button><button class="inbox-action-button" id="chatInfoButton" type="button" title="Chat information and options" aria-label="Open chat information and options"><i class="bx bx-info-circle"></i></button></div>
+            </header>
+            <div class="message-stream" id="messageStream" aria-live="polite"></div>
+            <div class="typing-line" id="typingLine" hidden><span></span><span></span><span></span><em>Typing</em></div>
+            <form class="message-composer" id="messageComposer">
+              <label class="attachment-button" for="messageAttachment" title="Attach a file"><i class="bx bx-plus"></i><span>Attach</span></label><input id="messageAttachment" name="attachment" type="file" accept=".jpg,.jpeg,.png,.webp,.pdf,.txt,.md,.csv" hidden>
+              <div class="composer-input-wrap"><textarea id="messageBody" name="body" rows="1" maxlength="4000" placeholder="Type a message" aria-label="Type a message"></textarea>
+                <div class="attachment-preview" id="attachmentPreview" hidden></div>
+              </div>
+              <button class="message-send" type="submit" aria-label="Send message"><i class="bx bx-send"></i></button>
+            </form>
+          </div>
+        </section>
+
+        <aside class="inbox-details" id="inboxDetails" aria-label="Conversation and account tools">
+          <div class="inbox-details-head"><strong>Chat details</strong><button class="inbox-action-button" type="button" data-chat-details-close aria-label="Close details"><i class="bx bx-x"></i></button></div>
+          <div class="details-default" id="detailsDefault">
+            <span class="ops-overline">Account center</span>
+            <h2>Requests and shortcuts</h2>
+            <p>Manage follow requests and move from a conversation to a session.</p>
+            <div class="request-summary"><i class="bx bx-user-plus"></i>
+              <div><strong id="requestCount">0 follow requests</strong><span>Approve only people you recognize.</span></div>
+            </div>
+            <div class="follow-request-stack" id="followRequestStack"></div>
+            <div id="notificationLoading" hidden></div>
+            <div id="notificationLocked" hidden></div>
+            <section class="inbox-notification-center" id="notificationPanel" aria-label="Notifications">
+              <div class="inbox-notification-head"><div><span class="ops-overline">Updates</span><strong>What’s happening</strong></div><button class="inbox-notification-read-all" id="notificationsReadAll" type="button">Mark all read</button></div>
+              <div class="notification-empty" id="notificationEmpty" hidden><i class="bx bx-check-shield"></i><span>You are all caught up.</span></div>
+              <div class="notification-feed" id="notificationFeed"></div>
+            </section>
+            <div class="details-shortcuts"><a href="talent-directory.html"><i class="bx bx-user-find"></i><span><strong>Member directory</strong><small>Find people by skill</small></span><i class="bx bx-chevron-right"></i></a><a href="calendar.html"><i class="bx bx-calendar"></i><span><strong>Calendar</strong><small>Availability and sessions</small></span><i class="bx bx-chevron-right"></i></a><a href="credits.html"><i class="bx bx-wallet"></i><span><strong>Credit ledger</strong><small>Payments and disputes</small></span><i class="bx bx-chevron-right"></i></a></div>
+          </div>
+          <div class="details-conversation" id="detailsConversation" hidden></div>
+        </aside>
+        <button class="inbox-details-backdrop" id="inboxDetailsBackdrop" type="button" aria-label="Close conversation details"></button>
+      </div>
+
+      <div class="conversation-context-menu" id="conversationContextMenu" role="menu" hidden></div>
+
+      <div class="ops-modal chat-info-modal" id="chatInfoModal" hidden>
+        <div class="ops-modal-backdrop" data-close-chat-info></div>
+        <section class="ops-modal-card chat-info-modal-card" role="dialog" aria-modal="true" aria-labelledby="chatInfoTitle" aria-describedby="chatInfoSubtitle">
+          <button class="ops-modal-close" type="button" data-close-chat-info aria-label="Close chat information"><i class="bx bx-x"></i></button>
+          <span class="ops-kicker"><i class="bx bx-info-circle"></i> Chat information</span>
+          <h2 id="chatInfoTitle">Conversation details</h2>
+          <p id="chatInfoSubtitle">Members, shared content, and conversation controls.</p>
+          <div class="chat-info-content" id="chatInfoContent"></div>
+        </section>
+      </div>
+
+      <div class="ops-modal group-chat-modal" id="groupChatModal" hidden>
+        <div class="ops-modal-backdrop" data-close-group-modal></div>
+        <form class="ops-modal-card group-chat-modal-card" id="groupChatForm">
+          <button class="ops-modal-close" type="button" data-close-group-modal aria-label="Close group form"><i class="bx bx-x"></i></button>
+          <span class="ops-kicker"><i class="bx bx-group"></i> Group conversation</span>
+          <h2 id="groupChatModalTitle">Create a new group.</h2>
+          <p>Choose members or platform administrators, give the group a clear identity, and decide who can manage its settings.</p>
+
+          <div class="group-identity-grid">
+            <label class="group-logo-picker" for="groupLogoInput">
+              <span class="group-logo-preview" id="groupLogoPreview"><i class="bx bx-group"></i></span>
+              <span><strong>Group logo</strong><small>Optional JPG, PNG, or WebP up to 4 MB</small></span>
+              <i class="bx bx-upload"></i>
+            </label>
+            <input id="groupLogoInput" name="group_logo" type="file" accept=".jpg,.jpeg,.png,.webp" hidden>
+            <div class="group-name-fields">
+              <label class="ops-field"><span>Group name</span><input id="groupNameInput" name="name" maxlength="80" required placeholder="e.g. Design study circle"></label>
+              <label class="ops-field"><span>Description</span><textarea id="groupDescriptionInput" name="description" rows="3" maxlength="300" placeholder="What will this group learn, organize, or build?"></textarea></label>
+              <label class="group-remove-logo" id="groupRemoveLogoWrap" hidden><input id="groupRemoveLogo" type="checkbox"> Remove the current logo</label>
+            </div>
+          </div>
+
+          <div class="group-member-heading"><div><strong>Choose at least two people</strong><span>Platform administrators are clearly marked and can be invited like any other account.</span></div><span id="groupSelectedCount">0 selected</span></div>
+          <label class="ops-search group-member-search"><i class="bx bx-search"></i><input id="groupMemberSearch" type="search" placeholder="Search members or administrators" aria-label="Search group members"></label>
+          <div class="group-member-picker" id="groupMemberPicker"></div>
+          <div class="group-admin-note"><i class="bx bx-shield-quarter"></i><span>The creator is always a group administrator. Use “Group admin” to let another selected person edit the name, logo, members, and administrator list.</span></div>
+          <div class="ops-form-status" data-ops-status></div>
+          <div class="ops-form-actions"><button class="btn" type="button" data-close-group-modal>Cancel</button><button class="btn btn-primary" type="submit" id="groupChatSubmit"><i class="bx bx-group"></i> Create group</button></div>
+        </form>
+      </div>
+
+      <div class="ops-modal quick-schedule-modal" id="quickScheduleModal" hidden>
+        <div class="ops-modal-backdrop" data-close-quick-schedule></div>
+        <form class="ops-modal-card quick-schedule-card" id="quickScheduleForm">
+          <button class="ops-modal-close" type="button" data-close-quick-schedule aria-label="Close quick schedule"><i class="bx bx-x"></i></button>
+          <span class="ops-kicker"><i class="bx bx-calendar-plus"></i> Simple scheduling</span>
+          <h2>Set a time in seconds.</h2>
+          <p>Choose a title, start time, and length. The other member receives the session in this chat and Calendar.</p>
+          <label class="ops-field"><span>Session title</span><input name="title" maxlength="160" required placeholder="Skill exchange"></label>
+          <div class="ops-form-grid two quick-schedule-fields"><label class="ops-field"><span>Starts</span><input name="starts_at" type="datetime-local" required></label><label class="ops-field"><span>Duration</span><select name="duration"><option value="30">30 minutes</option><option value="60" selected>1 hour</option><option value="90">90 minutes</option><option value="120">2 hours</option></select></label></div>
+          <label class="quick-schedule-reminder"><input name="reminder" type="checkbox" checked><span>Remind us 1 hour before</span></label>
+          <div class="ops-form-status" data-ops-status></div>
+          <div class="ops-form-actions"><a class="btn" href="calendar.html" data-full-calendar><i class="bx bx-calendar"></i> Full calendar</a><button class="btn btn-primary" type="submit"><i class="bx bx-check"></i> Schedule session</button></div>
+        </form>
+      </div>
+
+      <div class="ops-modal shared-content-modal" id="sharedContentModal" hidden>
+        <div class="ops-modal-backdrop" data-close-content-modal></div>
+        <section class="ops-modal-card shared-content-modal-card" aria-labelledby="sharedContentTitle">
+          <button class="ops-modal-close" type="button" data-close-content-modal aria-label="Close shared content"><i class="bx bx-x"></i></button>
+          <span class="ops-kicker"><i class="bx bx-folder-open"></i> Shared content</span>
+          <h2 id="sharedContentTitle">Media, files and links</h2>
+          <p id="sharedContentSubtitle">Everything shared in this conversation, organized in one place.</p>
+          <div class="shared-content-tabs" role="tablist" aria-label="Shared content types">
+            <button class="active" type="button" role="tab" data-content-tab="media"><i class="bx bx-image"></i> Media <span data-content-count="media">0</span></button>
+            <button type="button" role="tab" data-content-tab="files"><i class="bx bx-file"></i> Files <span data-content-count="files">0</span></button>
+            <button type="button" role="tab" data-content-tab="links"><i class="bx bx-link"></i> Links <span data-content-count="links">0</span></button>
+          </div>
+          <div class="shared-content-grid" id="sharedContentGrid"></div>
+        </section>
+      </div>
+
+      <div class="ops-modal" id="reportModal" hidden>
+        <div class="ops-modal-backdrop" data-close-modal></div>
+        <form class="ops-modal-card" id="reportForm">
+          <button class="ops-modal-close" type="button" data-close-modal aria-label="Close report form"><i class="bx bx-x"></i></button>
+          <span class="ops-kicker"><i class="bx bx-flag"></i> Safety report</span>
+          <h2>Send the conversation to moderation.</h2>
+          <p>The administrator receives the complete conversation evidence, selected message, member activity, and your explanation.</p>
+          <label class="ops-field" id="reportMemberField"><span>Member to report</span><select name="reported_user_id" id="reportMember" required></select></label>
+          <label class="ops-field"><span>Category</span><select name="category" required>
+              <option value="">Choose a category</option>
+              <option value="harassment">Harassment</option>
+              <option value="spam">Spam</option>
+              <option value="unsafe_content">Unsafe content</option>
+              <option value="fraud">Fraud or payment concern</option>
+              <option value="privacy">Privacy violation</option>
+              <option value="other">Other</option>
+            </select></label>
+          <label class="ops-field"><span>Specific message</span><select name="message_id" id="reportMessage">
+              <option value="">Entire conversation</option>
+            </select></label>
+          <label class="ops-field"><span>What happened?</span><textarea name="details" rows="5" maxlength="2000" required placeholder="Describe the behavior, timing, and why it needs review."></textarea></label>
+          <div class="ops-form-status" data-ops-status></div>
+          <div class="ops-form-actions"><button class="btn" type="button" data-close-modal>Cancel</button><button class="btn btn-primary" type="submit"><i class="bx bx-shield-quarter"></i> Submit secure report</button></div>
+        </form>
+      </div>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+  </body>
+
+</html>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create your account — SwapLabs</title>
+    <link rel="shortcut icon" type="image/png" href="logo.jpg">
+    <meta name="description" content="Create a SwapLabs member account, choose what you can teach and want to learn, and add detailed interests.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/simplified-experience.css?v=20260926-interest-simplify1">
+    <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/account-flow-redesign.css?v=20261004-formonly1">
+    <link rel="stylesheet" href="styles/mobile-redesign.css?v=20261004-mobile-story4">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <main class="account-main auth-form-only-page quick-register-page direct-registration-page" data-auth-page="register">
+      <section class="account-section quick-register-section">
+        <div class="container">
+          <div class="server-required" data-server-required><strong>Account service is temporarily offline.</strong> Please try again shortly. Your details are not submitted until you press Create account.</div>
+
+          <div class="quick-register-layout">
+            <form id="registrationForm" class="auth-card quick-register-card" data-registration-mode="direct" novalidate>
+              <div class="quick-register-heading">
+              <div>
+                <span class="quick-register-kicker">Fast account setup</span>
+                  <h2 data-registration-form-title>Let’s get you in.</h2>
+                  <p data-registration-form-copy>Create your account now. We will guide you immediately through the few profile details that make matching useful.</p>
+              </div>
+                <span class="auth-card-icon"><i class="bx bx-user-plus" aria-hidden="true"></i></span>
+              </div>
+
+              <div class="child-registration-handoff" data-child-registration-handoff hidden role="alert" aria-live="polite">
+                <span class="child-registration-handoff-icon"><i class="bx bx-shield-quarter" aria-hidden="true"></i></span>
+                <div>
+                  <strong>Parent or guardian: please take over.</strong>
+                  <p>This date of birth is for a child aged 3–12. An adult should now complete the contact, password, consent, and Terms steps. The child can add learning interests later.</p>
+                  <ol>
+                    <li>Keep the child beside you.</li>
+                    <li>Enter the adult contact details below.</li>
+                    <li>Review the safety and consent message before creating the account.</li>
+                  </ol>
+                </div>
+              </div>
+
+              <div class="quick-register-form-block">
+                <div class="quick-register-block-heading"><span>01</span><div><strong data-registration-basics-title>Your basics</strong><small data-registration-basics-copy>Use the name you want connected to your account.</small></div></div>
+                <div class="quick-register-fields">
+                  <div class="field full"><label for="registrationFullName" data-registration-full-name-label>Full name</label><input id="registrationFullName" name="full_name" autocomplete="name" required maxlength="120" placeholder="Your first and last name"></div>
+                  <div class="field username-field"><label for="registrationUsername">Username</label><input id="registrationUsername" name="username" autocomplete="username" required pattern="[A-Za-z0-9._-]{3,30}" maxlength="30" placeholder="Choose a username" aria-describedby="registrationUsername-help registrationUsername-feedback"><small id="registrationUsername-help">3–30 letters, numbers, dots, dashes, or underscores.</small><small id="registrationUsername-feedback" class="username-live-feedback" data-username-feedback role="status" aria-live="polite" hidden></small></div>
+                  <div class="field"><label for="registrationContact" data-registration-contact-label>Email or phone number</label><input id="registrationContact" name="contact" autocomplete="email" required maxlength="254" inputmode="text" placeholder="you@example.com or +91 98765 43210"><small data-registration-contact-help>Use either one. It becomes your sign-in contact.</small></div>
+                  <p class="child-registration-skill-note" data-child-skill-note hidden role="status">Skills and learning interests can be added later by the parent or guardian.</p>
+                </div>
+              </div>
+
+              <section class="registration-interest-stage" data-registration-interests data-registration-interest-optional aria-labelledby="registrationInterestsTitle" hidden>
+                <div class="quick-register-block-heading">
+                  <span>02</span>
+                  <div>
+                    <strong id="registrationInterestsTitle">Choose your interests</strong>
+                    <small>Pick from 50 broad fields: what you can teach and what you want to learn.</small>
+                  </div>
+                </div>
+
+                <div class="registration-interest-child-note" data-interest-child-note hidden role="status">
+                  <i class="bx bx-shield-quarter" aria-hidden="true"></i>
+                  <span>A parent or guardian can add the child’s interests after the account is approved.</span>
+                </div>
+
+                <div class="registration-interest-progress" aria-label="Interest setup steps">
+                  <button type="button" class="is-active" data-interest-step="fields" aria-current="step"><span>1</span><strong>Pick fields</strong></button>
+                  <i class="bx bx-right-arrow-alt" aria-hidden="true"></i>
+                  <button type="button" data-interest-step="details" disabled><span>2</span><strong>Add specifics</strong></button>
+                </div>
+
+                <div class="registration-interest-panel" data-interest-panel="fields">
+                  <div class="registration-interest-columns">
+                    <section class="registration-interest-column" data-interest-mode="teach" aria-labelledby="registrationTeachTitle">
+                      <div class="registration-interest-column-head">
+                        <div><span class="registration-interest-label"><i class="bx bx-chalkboard" aria-hidden="true"></i> I can teach</span><h3 id="registrationTeachTitle">What are you good at?</h3></div>
+                        <strong data-interest-count="teach">0 selected</strong>
+                      </div>
+                      <label class="registration-interest-search"><i class="bx bx-search" aria-hidden="true"></i><span class="sr-only">Search fields you can teach</span><input type="search" data-interest-search="teach" placeholder="Search fields…" autocomplete="off"></label>
+                      <div class="registration-interest-list-meta"><span data-interest-list-meta="teach">Browse fields</span><button type="button" data-interest-clear="teach">Clear</button></div>
+                      <div class="registration-interest-options" data-interest-options="teach" role="listbox" aria-label="Fields you can teach"></div>
+                      <p class="registration-interest-empty" data-interest-empty="teach" hidden>No fields match that search.</p>
+                    </section>
+
+                    <section class="registration-interest-column" data-interest-mode="learn" aria-labelledby="registrationLearnTitle">
+                      <div class="registration-interest-column-head">
+                        <div><span class="registration-interest-label is-learning"><i class="bx bx-book-reader" aria-hidden="true"></i> I want to learn</span><h3 id="registrationLearnTitle">What would you like to explore?</h3></div>
+                        <strong data-interest-count="learn">0 selected</strong>
+                      </div>
+                      <label class="registration-interest-search"><i class="bx bx-search" aria-hidden="true"></i><span class="sr-only">Search fields you want to learn</span><input type="search" data-interest-search="learn" placeholder="Search fields…" autocomplete="off"></label>
+                      <div class="registration-interest-list-meta"><span data-interest-list-meta="learn">Browse fields</span><button type="button" data-interest-clear="learn">Clear</button></div>
+                      <div class="registration-interest-options" data-interest-options="learn" role="listbox" aria-label="Fields you want to learn"></div>
+                      <p class="registration-interest-empty" data-interest-empty="learn" hidden>No fields match that search.</p>
+                    </section>
+                  </div>
+                  <div class="registration-interest-actions">
+                    <p class="registration-interest-status" data-interest-status role="status" aria-live="polite"></p>
+                    <button class="btn btn-primary" type="button" data-interest-next>Continue to specifics <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+
+                <div class="registration-interest-panel" data-interest-panel="details" hidden>
+                  <div class="registration-interest-detail-head">
+                    <div><span class="registration-interest-label"><i class="bx bx-list-check" aria-hidden="true"></i> Step 2</span><h3>Choose your specifics</h3><p>Pick one topic at a time. You can remove a topic or search for a better match whenever you need.</p></div>
+                    <button class="btn btn-sm" type="button" data-interest-back><i class="bx bx-left-arrow-alt" aria-hidden="true"></i> Back to fields</button>
+                  </div>
+                  <div class="registration-interest-detail-groups" data-interest-detail-groups></div>
+                  <div class="registration-interest-actions">
+                    <p class="registration-interest-status" data-interest-detail-status role="status" aria-live="polite"></p>
+                    <button class="btn btn-primary" type="button" data-interest-finish>Return to account details <i class="bx bx-check" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+              </section>
+
+              <input name="skills_to_teach" id="registrationSkillsTeach" type="hidden">
+              <input name="skills_to_learn" id="registrationSkillsLearn" type="hidden">
+              <input name="interests" id="registrationInterests" type="hidden">
+              <input name="skill_details" id="registrationSkillDetails" type="hidden">
+
+              <div class="quick-register-form-block">
+                <div class="quick-register-block-heading"><span>03</span><div><strong>Keep it secure</strong><small>A password is the only account detail we need right now.</small></div></div>
+                <div class="quick-register-fields">
+                  <div class="field"><label for="registrationPassword" data-registration-password-label>Password</label><div class="password-input-shell"><input id="registrationPassword" name="password" type="password" autocomplete="new-password" required minlength="6" placeholder="Create a password"><button class="password-toggle" type="button" data-password-toggle="registrationPassword" aria-label="Show password"><i class="bx bx-show" aria-hidden="true"></i></button></div><small data-registration-password-help>At least 6 characters with uppercase, lowercase, a number, and a symbol.</small></div>
+                  <div class="field"><label for="registrationConfirm" data-registration-confirm-label>Confirm password</label><div class="password-input-shell"><input id="registrationConfirm" name="confirm_password" type="password" autocomplete="new-password" required minlength="6" placeholder="Repeat your password"><button class="password-toggle" type="button" data-password-toggle="registrationConfirm" aria-label="Show password"><i class="bx bx-show" aria-hidden="true"></i></button></div></div>
+                </div>
+              </div>
+
+              <div class="quick-register-form-block quick-register-safety-block">
+                <div class="quick-register-block-heading"><span>04</span><div><strong>One safety check</strong><small>We calculate age automatically from your date of birth. There is no age field to fill in.</small></div></div>
+                <div class="quick-register-fields quick-register-safety-fields">
+                  <div class="field"><label for="registrationDateOfBirth">Date of birth</label><input id="registrationDateOfBirth" name="date_of_birth" type="date" required data-age-date aria-describedby="registrationDateOfBirthHint registrationDateOfBirthError"><small id="registrationDateOfBirthHint">SwapLabs is for people aged 3–120.</small><small id="registrationDateOfBirthError" class="field-error" data-age-error role="alert" hidden></small></div>
+                  <div class="quick-register-age-result" role="status" aria-live="polite"><i class="bx bx-calendar-check" aria-hidden="true"></i><span><strong data-account-age-label>Age is calculated automatically</strong><small data-account-age-description>Enter your date of birth to check eligibility.</small><output id="registrationAgeDisplay" data-account-age-display>—</output></span></div>
+                  <input name="age" id="registrationAge" type="hidden">
+                </div>
+
+                <section class="form-section student-safety-section quick-register-guardian" id="registrationSafety" hidden data-registration-section="safety">
+                  <div class="form-section-head"><i class="bx bx-shield-quarter" aria-hidden="true"></i><div><h3 data-guardian-heading>Guardian consent</h3><p data-guardian-description>Members aged 3–12 need a parent or guardian to confirm this account. These fields only appear when they are needed.</p></div></div>
+                  <div class="quick-register-fields">
+                    <div class="field"><label for="registrationGuardianName">Guardian name</label><input id="registrationGuardianName" name="guardian_name" maxlength="120" autocomplete="name"></div>
+                    <div class="field"><label for="registrationGuardianEmail">Guardian email</label><input id="registrationGuardianEmail" name="guardian_email" type="email" maxlength="120" autocomplete="email"></div>
+                    <div class="field"><label for="registrationGuardianRelationship">Relationship</label><select id="registrationGuardianRelationship" name="guardian_relationship"><option value="">Choose relationship</option><option value="parent">Parent</option><option value="legal guardian">Legal guardian</option><option value="grandparent">Grandparent</option><option value="adult sibling">Adult sibling</option><option value="foster carer">Foster carer</option><option value="other guardian">Other guardian</option></select></div>
+                  </div>
+                  <label class="terms-row guardian-consent-row"><input name="guardian_consent_declared" type="checkbox"><span>I am the named guardian and consent to this student account.</span></label>
+                </section>
+              </div>
+
+              <input name="profile_visibility" type="hidden" value="public">
+              <input name="primary_language" type="hidden" value="English">
+              <p class="muted">Start with <strong>30 credits</strong>. Every account receives <strong>15 credits each month</strong> from 1 November 2026, credited on the first day of each month (UTC).</p>
+              <label class="terms-row quick-register-terms"><input name="terms" type="checkbox" required><span data-registration-terms-copy>I agree to the <a href="terms.html">Terms</a> and understand the <a href="privacy.html">Privacy Policy</a>.</span></label>
+              <div class="quick-register-actions"><span class="muted">Already have an account? <a href="login.html">Log in</a></span><button class="btn btn-primary" type="submit" data-registration-submit><i class="bx bx-user-plus" aria-hidden="true"></i> Create account</button></div>
+              <div class="form-status" data-status role="status" aria-live="polite"></div>
+            </form>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+  </body>
+
+</html>

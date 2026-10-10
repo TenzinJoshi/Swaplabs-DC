@@ -1,0 +1,26 @@
+# Local credentials and private archives
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+!.env.example
+.original-swaplabs/
+data/
+uploads/
+
+# Local runtime, generated output, and dependencies
+node_modules/
+dist/
+.wrangler/
+audits/
+.github-public-staging/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.wal
+*.shm
+*.log
+__pycache__/
+*.py[cod]
+.DS_Store

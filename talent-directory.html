@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Members directory — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Browse SwapLabs members, filter by skills and preferences, and discover people who may be a useful fit for you.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/member-directory.css?v=20260923-2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body class="member-directory-page">
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main data-member-directory>
+      <section class="member-directory-hero">
+        <div class="container member-directory-hero-grid">
+          <div>
+            <span class="eyebrow"><i class="bx bx-group"></i> Members directory</span>
+            <h1>Meet the people who make learning move.</h1>
+            <p>Browse every active member, find people who teach what you want to learn, and discover members whose goals and interests line up with yours.</p>
+            <div class="hero-actions"><a class="btn btn-primary" href="#allMembers"><i class="bx bx-search-alt"></i> Browse members</a><a class="btn" href="profile.html"><i class="bx bx-user-check"></i> Improve my suggestions</a></div>
+          </div>
+          <aside class="member-directory-hero-card">
+            <span class="member-directory-hero-icon"><i class="bx bx-sparkles"></i></span>
+            <span class="eyebrow">Built around you</span>
+            <h2>Start with a useful connection.</h2>
+            <p>Your suggestions use the skills, languages, interests, location, and learning context you choose to share.</p>
+            <div class="member-directory-hero-stats" aria-label="Directory statistics">
+              <div><strong data-directory-stat="members">—</strong><span>active members</span></div>
+              <div><strong data-directory-stat="skills">—</strong><span>skills listed</span></div>
+              <div><strong data-directory-stat="shown">—</strong><span>showing now</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section member-directory-section" aria-labelledby="memberDirectoryTitle">
+        <div class="container">
+          <div class="directory-loading" id="directoryLoading" role="status"><i class="bx bx-loader-alt bx-spin"></i><span>Loading the member directory…</span></div>
+
+          <div class="directory-access-card" id="directoryLocked" hidden>
+            <span class="icon-box indigo"><i class="bx bx-lock-alt"></i></span>
+            <div><span class="eyebrow">Members only</span><h2>Log in to explore the directory.</h2><p>The directory uses member profiles and privacy choices to create a safer, more useful discovery experience.</p></div>
+            <a class="btn btn-primary" href="login.html?next=talent-directory.html"><i class="bx bx-log-in"></i> Log in</a>
+          </div>
+
+          <div class="directory-error-card" id="directoryError" hidden>
+            <span class="icon-box pink"><i class="bx bx-wifi-off"></i></span>
+            <div><span class="eyebrow">Could not load the directory</span><h2>We’re reconnecting to member records.</h2><p data-directory-error-message>Try again in a moment.</p></div>
+            <button class="btn btn-primary" type="button" data-directory-retry><i class="bx bx-refresh"></i> Try again</button>
+          </div>
+
+          <div id="directoryApp" hidden>
+            <section class="directory-suggestions" aria-labelledby="suggestionsTitle">
+              <div class="directory-section-heading">
+                <div><span class="eyebrow"><i class="bx bx-sparkles"></i> Suggested for you</span><h2 id="suggestionsTitle">People with a little more in common.</h2><p>Ranked from the public parts of member profiles. Shared goals are a signal, not a guarantee—say hello and decide what feels right.</p></div>
+                <span class="directory-result-pill" data-suggestions-count>0 suggestions</span>
+              </div>
+              <div class="member-directory-suggestion-grid" data-suggestions-list aria-live="polite"></div>
+              <div class="directory-inline-empty" data-suggestions-empty hidden><i class="bx bx-compass"></i><div><strong>Your best suggestions are waiting for more context.</strong><span>Add a skill you can teach, a skill you want to learn, or a shared interest to make this section more personal.</span></div><a class="btn btn-sm" href="profile.html#learning">Update my profile</a></div>
+            </section>
+
+            <section class="directory-all-members" id="allMembers" aria-labelledby="memberDirectoryTitle">
+              <div class="directory-section-heading directory-all-heading">
+                <div><span class="eyebrow"><i class="bx bx-grid-alt"></i> The full directory</span><h2 id="memberDirectoryTitle">All active members.</h2><p>Use as many filters as you need. Every card links to the member’s public profile.</p></div>
+                <span class="directory-result-pill" data-directory-result-count>0 members</span>
+              </div>
+
+              <form class="member-directory-filters" data-directory-filters role="search" aria-label="Filter members">
+                <label class="directory-search-field"><i class="bx bx-search-alt" aria-hidden="true"></i><span class="sr-only">Search members</span><input type="search" data-directory-filter="search" placeholder="Search names, skills, interests, or locations" autocomplete="off"></label>
+                <label><span>Skill connection</span><select data-directory-filter="connection"><option value="all">Everyone</option><option value="can-teach-me">Can teach me</option><option value="can-learn-from-me">Wants to learn from me</option><option value="mutual">Two-way potential</option><option value="shared-interests">Shared interests</option></select></label>
+                <label><span>Skill</span><select data-directory-filter="skill"><option value="all">All listed skills</option></select></label>
+                <label><span>Country</span><select data-directory-filter="country"><option value="all">Every country</option></select></label>
+                <label><span>Profile visibility</span><select data-directory-filter="visibility"><option value="all">All profiles</option><option value="public">Public profiles</option><option value="private">Private profiles</option></select></label>
+                <label><span>Session format</span><select data-directory-filter="format"><option value="all">Any format</option></select></label>
+                <label><span>Experience</span><select data-directory-filter="level"><option value="all">Any level</option></select></label>
+                <label><span>Sort by</span><select data-directory-filter="sort"><option value="relevance">Best fit for me</option><option value="name">Name A–Z</option><option value="newest">Recently joined</option><option value="skills">Most skills listed</option></select></label>
+                <button class="btn btn-soft directory-clear-button" type="button" data-directory-clear><i class="bx bx-reset"></i> Clear filters</button>
+              </form>
+
+              <div class="directory-filter-summary" aria-live="polite"><i class="bx bx-filter-alt"></i><span data-directory-filter-summary>Showing every active member.</span></div>
+              <div class="member-directory-grid" data-directory-list aria-live="polite"></div>
+              <div class="directory-inline-empty" data-directory-empty hidden><i class="bx bx-search-alt"></i><div><strong>No members match those filters.</strong><span>Try clearing one filter or searching for a broader skill.</span></div><button class="btn btn-sm" type="button" data-directory-clear>Clear filters</button></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/member-directory.js?v=20260926-related-skills1"></script>
+  </body>
+
+</html>

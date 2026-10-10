@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Video session room — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Join a protected SwapLabs video session with a waiting room, screen sharing, attendance, and connection checks.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="video-page" data-video-page>
+
+      <section class="video-room-heading">
+        <div class="container video-room-heading-row">
+          <div>
+            <span class="ops-kicker"><i class="bx bx-video"></i> Protected live session</span>
+            <h1 id="videoPageTitle">Preparing your video room</h1>
+            <p id="videoPageSummary">Checking your account, room access, and device readiness.</p>
+          </div>
+          <div class="video-room-security"><i class="bx bx-shield-quarter"></i><span><strong>SwapLabs waiting room</strong><small>Members and invited guests can request access; the host controls entry.</small></span></div>
+        </div>
+      </section>
+
+      <section class="video-shell-section">
+        <div class="container">
+          <div class="server-required" data-server-required><strong>Start the SwapLabs Python server first.</strong> Video signaling and attendance use your protected account session.</div>
+
+          <div class="video-state-card video-loading-card" id="videoLoading">
+            <i class="bx bx-loader-alt bx-spin"></i>
+            <div><strong>Opening the live-session workspace</strong><span>Loading your invitation and video-room permissions.</span></div>
+          </div>
+
+          <div class="video-state-card" id="videoAuthGate" hidden>
+            <i class="bx bx-lock-alt"></i>
+            <div><strong>Log in before joining this session</strong><span>Room access, waiting-room decisions, and attendance are connected to a real member account.</span></div>
+            <a class="btn btn-primary" href="login.html">Log in</a>
+          </div>
+
+          <section class="video-guest-gate" id="videoGuestGate" hidden>
+            <div class="video-guest-gate-icon"><i class="bx bx-link-alt"></i></div>
+            <span class="eyebrow"><i class="bx bx-world"></i> Shared meeting invite</span>
+            <h2 id="videoGuestTitle">You’ve been invited to a SwapLabs room.</h2>
+            <p id="videoGuestSummary">Enter your name to request access. You do not need a SwapLabs account for this invite.</p>
+            <form id="videoGuestForm" class="video-guest-form">
+              <label><span>Your name</span><input id="videoGuestName" name="display_name" autocomplete="name" maxlength="80" required placeholder="Enter your name"></label>
+              <button class="btn btn-primary" id="videoGuestJoinButton" type="submit"><i class="bx bx-log-in-circle"></i> Continue to device check</button>
+            </form>
+            <div class="video-inline-status" id="videoGuestStatus" role="status" aria-live="polite"></div>
+          </section>
+
+          <div class="video-state-card video-error-card" id="videoError" hidden>
+            <i class="bx bx-error-circle"></i>
+            <div><strong>Video room unavailable</strong><span id="videoErrorMessage">The requested room could not be opened.</span></div>
+            <a class="btn" href="calendar.html">Return to Calendar</a>
+          </div>
+
+          <section class="video-preflight" id="videoPreflight" hidden>
+            <div class="video-preflight-copy">
+              <span class="eyebrow"><i class="bx bx-check-shield"></i> Before you enter</span>
+              <h2>Check your camera, microphone, and connection.</h2>
+              <p>A clear preflight reduces interruptions. Your device names stay in this browser; only a simple readiness and quality result is saved with attendance.</p>
+              <div class="video-check-grid">
+                <article id="cameraCheck"><i class="bx bx-video"></i><div><strong>Camera</strong><span>Not checked</span></div></article>
+                <article id="microphoneCheck"><i class="bx bx-microphone"></i><div><strong>Microphone</strong><span>Not checked</span></div></article>
+                <article id="networkCheck"><i class="bx bx-wifi"></i><div><strong>Connection</strong><span>Checking</span></div></article>
+              </div>
+              <div class="video-device-fields">
+                <label><span>Camera</span><select id="videoCameraSelect"><option value="">Default camera</option></select></label>
+                <label><span>Microphone</span><select id="videoMicrophoneSelect"><option value="">Default microphone</option></select></label>
+              </div>
+              <div class="video-preflight-actions">
+                <button class="btn" id="videoRetryDevices" type="button"><i class="bx bx-refresh"></i> Test devices again</button>
+                <button class="btn btn-primary" id="videoJoinButton" type="button"><i class="bx bx-log-in-circle"></i> Ask to join room</button>
+              </div>
+              <div class="video-inline-status" id="videoPreflightStatus" role="status" aria-live="polite"></div>
+            </div>
+            <div class="video-preview-shell">
+              <video id="videoPreview" autoplay playsinline muted></video>
+              <div class="video-preview-placeholder" id="videoPreviewPlaceholder"><i class="bx bx-video-off"></i><strong>Camera preview</strong><span>Allow camera access to see your preview.</span></div>
+              <div class="video-preview-label"><i class="bx bx-user"></i> You · preview</div>
+            </div>
+          </section>
+
+          <section class="video-waiting-state" id="videoWaiting" hidden>
+            <div class="waiting-orbit"><span></span><i class="bx bx-time-five"></i></div>
+            <span class="eyebrow">Waiting room</span>
+            <h2>The host has your request.</h2>
+            <p id="videoWaitingMessage">Keep this page open. You will enter automatically after the host admits you.</p>
+            <div class="video-waiting-actions"><button class="btn" id="videoCancelWaiting" type="button"><i class="bx bx-x"></i> Leave waiting room</button></div>
+          </section>
+
+          <section class="video-room-app" id="videoRoomApp" hidden>
+            <header class="video-session-bar">
+              <div><span class="video-live-dot"></span><div><strong id="videoRoomTitle">SwapLabs session</strong><small id="videoRoomMeta">Live room</small></div></div>
+              <div class="video-session-status"><div class="video-invite-share" id="videoInviteShare" hidden><button class="btn btn-sm" id="copyVideoInviteLink" type="button"><i class="bx bx-link"></i> Copy invite link</button><span id="videoInviteShareStatus" role="status" aria-live="polite"></span></div><button class="btn btn-sm video-call-add" id="videoCallAddParticipants" type="button" hidden><i class="bx bx-user-plus"></i> Add people</button><span id="videoCallTimer">00:00</span><span class="connection-pill unknown" id="videoQualityPill"><i class="bx bx-wifi"></i> Checking quality</span></div>
+            </header>
+
+            <div class="video-room-layout">
+              <section class="video-stage-panel">
+                <div class="video-grid" id="videoGrid">
+                  <article class="video-tile local" id="localVideoTile">
+                    <video id="localVideo" autoplay playsinline muted></video>
+                    <div class="video-tile-placeholder" id="localVideoPlaceholder" hidden></div>
+                    <div class="video-tile-name"><span>You</span><i class="bx bx-microphone" id="localMicIndicator"></i></div>
+                  </article>
+                </div>
+
+                <div class="video-controls" aria-label="Video call controls">
+                  <button type="button" id="toggleMicrophone" title="Mute microphone"><i class="bx bx-microphone"></i><span>Mute</span></button>
+                  <button type="button" id="toggleCamera" title="Turn camera off"><i class="bx bx-video"></i><span>Camera</span></button>
+                  <button type="button" id="shareScreen" title="Share your screen"><i class="bx bx-desktop"></i><span>Share</span></button>
+                  <button type="button" id="confirmAttendance" title="Confirm attendance"><i class="bx bx-check-shield"></i><span>Confirm</span></button>
+                  <button class="leave" type="button" id="leaveVideoRoom" title="Leave room"><i class="bx bx-phone-off"></i><span>Leave</span></button>
+                </div>
+              </section>
+
+              <aside class="video-side-panel">
+                <div class="video-side-tabs">
+                  <button class="active" type="button" data-video-tab="people"><i class="bx bx-group"></i> People</button>
+                  <button type="button" data-video-tab="attendance"><i class="bx bx-check-square"></i> Attendance</button>
+                </div>
+                <div class="video-side-view" id="videoPeoplePanel">
+                  <div class="video-side-heading"><div><strong>In this session</strong><span id="videoPeopleCount">0 invited</span></div></div>
+                  <div class="video-participant-list" id="videoParticipantList"></div>
+                  <div class="video-waiting-list-wrap" id="hostWaitingRoom" hidden>
+                    <div class="video-side-heading"><div><strong>Waiting for admission</strong><span>Host controls</span></div></div>
+                    <div class="video-waiting-list" id="videoWaitingList"></div>
+                  </div>
+                </div>
+                <div class="video-side-view" id="videoAttendancePanel" hidden>
+                  <div class="video-side-heading"><div><strong>Session confirmation</strong><span>Both member and host confirm</span></div></div>
+                  <div class="video-attendance-list" id="videoAttendanceList"></div>
+                  <div class="attendance-explainer"><i class="bx bx-check-shield"></i><p>Both members confirm attendance before the session record is finalized. Any applicable credit settlement is recorded after both confirmations.</p></div>
+                </div>
+              </aside>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-video.js?v=20261002-participant-tiles2"></script>
+  </body>
+
+</html>

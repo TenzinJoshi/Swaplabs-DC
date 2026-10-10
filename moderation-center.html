@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Moderation center — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="SwapLabs moderation center for reports, student idea review, guardian safety checks, disputes, mentor applications, and admin activity.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page feature-page" data-extension-page="moderation-center">
+      <section class="platform-hero feature-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-shield-quarter"></i> Moderation center</span>
+            <h1>One review desk for safety, trust, and platform operations.</h1>
+            <p class="platform-hero-copy">Administrators can scan message reports, credit disputes, student idea reviews, guardian-sensitive accounts, mentor applications, and recent audit activity from one dedicated page.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="admin.html"><i class="bx bx-shield"></i> Full admin panel</a>
+              <a class="btn" href="student-safety.html"><i class="bx bx-user-check"></i> Student safety</a>
+            </div>
+          </div>
+          <aside class="platform-hero-card">
+            <div class="hero-card-top"><span>Review queue</span><i class="bx bx-pulse"></i></div>
+            <div class="feature-mini-stats">
+              <span><strong data-feature-stat="open_reports">0</strong><small>reports</small></span>
+              <span><strong data-feature-stat="student_ideas_in_review">0</strong><small>student ideas</small></span>
+              <span><strong data-feature-stat="mentor_applications">0</strong><small>mentor apps</small></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section">
+        <div class="container feature-two-column wide-left">
+          <section>
+            <div class="platform-heading compact"><h2>Message and safety reports</h2><p>Open reports can be marked as reviewing here, then handled fully in the admin panel.</p></div>
+            <div class="feature-grid single" id="moderationReports"></div>
+          </section>
+          <aside>
+            <div class="platform-heading compact"><h2>Student idea review</h2></div>
+            <div class="feature-list" id="studentReviewQueue"></div>
+            <div class="platform-heading compact space-top"><h2>Mentor applications</h2></div>
+            <div class="feature-list" id="mentorReviewQueue"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-extensions.js?v=20260930-invite-links1"></script>
+  </body>
+
+</html>

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Calendar and Availability — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Schedule SwapLabs sessions quickly, invite members, convert timezones, set reminders, reschedule, cancel, and export events.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/calendar-quick-schedule.css?v=20260930-quick-schedule1">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="ops-page" data-operations-page="calendar">
+
+      <nav class="calendar-tabs" aria-label="Calendar workspace" data-calendar-tabs role="tablist">
+        <button class="calendar-tab active" id="calendarTabButton" role="tab" type="button" data-calendar-tab="calendar" aria-selected="true" aria-controls="calendarTabPanel">
+          <i class="bx bx-calendar"></i><span>Calendar</span><small>Every event, invitation, and reminder</small>
+        </button>
+        <button class="calendar-tab" id="schedulesTabButton" role="tab" type="button" data-calendar-tab="schedules" aria-selected="false" aria-controls="schedulesTabPanel">
+          <i class="bx bx-time-five"></i><span>Your schedules</span><small>Fast session planning</small>
+        </button>
+      </nav>
+
+      <section class="ops-shell-section" id="calendarWorkspace">
+        <div class="container">
+          <div class="server-required" data-server-required><strong>Start the SwapLabs Python server first.</strong> Scheduling requires your protected local account session.</div>
+          <div class="ops-auth-gate" id="opsAuthGate" hidden><i class="bx bx-lock-alt"></i>
+            <div>
+              <h2>Log in to manage your calendar</h2>
+              <p>Your availability, invitations, reminders, and exports are private account features.</p>
+            </div><a class="btn btn-primary" href="login.html">Log in</a>
+          </div>
+          <div class="ops-loading calendar-loading-skeleton" id="opsLoading" aria-label="Loading calendar"><span></span><span></span><span></span><small>Aligning your events and timezone</small></div>
+
+          <div id="calendarApp" hidden>
+            <section class="calendar-tab-panel" id="calendarTabPanel" data-calendar-panel="calendar" role="tabpanel" aria-labelledby="calendarTabButton">
+            <div class="ops-stat-grid">
+              <article><i class="bx bx-calendar-check"></i><strong id="calendarUpcoming">0</strong><span>Upcoming sessions</span></article>
+              <article><i class="bx bx-group"></i><strong id="calendarParticipants">0</strong><span>Member connections</span></article>
+              <article><i class="bx bx-bell"></i><strong id="calendarReminders">0</strong><span>Active reminders</span></article>
+              <article><i class="bx bx-globe"></i><strong id="calendarTimezoneShort">UTC</strong><span>Your saved timezone</span></article>
+            </div>
+
+            <section class="ops-panel calendar-board-panel" aria-labelledby="calendarBoardTitle">
+              <div class="calendar-board-toolbar">
+                <div>
+                  <span class="ops-overline">Interactive calendar</span>
+                  <h2 id="calendarBoardTitle">Your week, at a glance</h2>
+                  <p>Choose month, week, or day. Click any date or hourly slot to create a session there.</p>
+                </div>
+                <div class="calendar-toolbar-actions">
+                  <div class="calendar-nav-controls"><button class="ops-icon-button" id="calendarPrevious" type="button" aria-label="Previous period"><i class="bx bx-chevron-left"></i></button><button class="btn btn-sm" id="calendarToday" type="button">Today</button><button class="ops-icon-button" id="calendarNext" type="button" aria-label="Next period"><i class="bx bx-chevron-right"></i></button></div>
+                  <strong id="calendarPeriodLabel">Calendar</strong>
+                  <div class="ops-segmented calendar-view-switch" id="calendarViewSwitch"><button data-calendar-view="month" type="button">Month</button><button class="active" data-calendar-view="week" type="button">Week</button><button data-calendar-view="day" type="button">Day</button></div>
+                  <button class="btn btn-primary btn-sm" id="calendarNewEvent" type="button"><i class="bx bx-plus"></i> New event</button>
+                </div>
+              </div>
+              <div class="calendar-quickbar" id="calendarQuickbar">
+                <button type="button" data-calendar-template="meeting"><i class="bx bx-video"></i> Meeting</button>
+                <button type="button" data-calendar-template="workshop"><i class="bx bx-chalkboard"></i> Workshop</button>
+                <button type="button" data-calendar-template="one-to-one"><i class="bx bx-user-voice"></i> 1:1</button>
+                <button type="button" data-calendar-template="swap"><i class="bx bx-transfer-alt"></i> Swap</button>
+                <button type="button" data-calendar-template="review"><i class="bx bx-message-square-detail"></i> Review</button>
+              </div>
+              <aside class="calendar-credit-policy" aria-label="Session credit policy">
+                <span class="calendar-credit-policy-icon"><i class="bx bx-wallet"></i></span>
+                <div><strong>Simple session credits</strong><p>After a completed exchange, both members submit a progress report. A one-way exchange transfers 1 credit from the learner to the teacher; when both directions match, no credits transfer. Related skills, such as web design and web development, count as a match.</p></div>
+              </aside>
+              <div class="calendar-board-scroll"><div class="calendar-board" id="calendarBoard" aria-live="polite"></div></div>
+              <div class="calendar-board-legend"><span><i class="calendar-legend-dot host"></i> You host</span><span><i class="calendar-legend-dot invited"></i> You’re invited</span><span><i class="bx bx-pointer"></i> Click or drag to add</span><span><i class="bx bx-command"></i> N new · T today · 1/2/3 views</span></div>
+            </section>
+
+            </section>
+
+            <section class="calendar-tab-panel calendar-schedules-panel" id="schedulesTabPanel" data-calendar-panel="schedules" role="tabpanel" aria-labelledby="schedulesTabButton" hidden>
+              <div class="calendar-schedules-intro">
+                <span class="ops-overline">Quick schedule</span>
+                <h2 id="schedulesTabPanelTitle">Book a session in under a minute.</h2>
+                <p>Choose who, pick a time, and send the invite. Your timezone, duration, and reminders stay in one simple flow.</p>
+                <div class="quick-schedule-steps" aria-label="Scheduling steps"><span class="is-active"><b>1</b> Who</span><span><b>2</b> When</span><span><b>3</b> Send</span></div>
+              </div>
+
+              <div class="calendar-schedules-layout">
+
+              <aside class="calendar-compose-column">
+                <form class="ops-panel ops-form-panel quick-schedule-form" id="calendarEventForm">
+                  <div class="ops-panel-head compact">
+                    <div><span class="ops-overline">Start here</span>
+                      <h2 id="calendarFormTitle">Schedule a session</h2>
+                      <p class="quick-schedule-helper">The other person will receive the session in their inbox.</p>
+                    </div><i class="bx bx-calendar-plus"></i>
+                  </div>
+                  <input type="hidden" name="event_id">
+                  <input type="hidden" name="conversation_id" id="calendarConversationId">
+                  <section class="quick-schedule-block quick-schedule-block--who" aria-labelledby="quickScheduleWho">
+                    <div class="quick-schedule-block-head"><span>01</span><div><strong id="quickScheduleWho">Choose who is joining</strong><small>Invite one or more people you follow or who follow you.</small></div></div>
+                    <label class="ops-field"><span>Members</span><select name="participant_ids" id="calendarParticipantsSelect" multiple size="3"></select></label>
+                  </section>
+                  <section class="quick-schedule-block quick-schedule-block--when" aria-labelledby="quickScheduleWhen">
+                    <div class="quick-schedule-block-head"><span>02</span><div><strong id="quickScheduleWhen">Pick a time</strong><small>Everyone sees the correct local time automatically.</small></div></div>
+                    <div class="ops-form-grid two quick-schedule-time-grid">
+                      <label class="ops-field"><span>Date and time</span><input name="starts_at" type="datetime-local" required></label>
+                      <label class="ops-field"><span>Duration</span><select name="duration_minutes" aria-label="Session duration"><option value="15">15 min</option><option value="30">30 min</option><option value="45">45 min</option><option value="60" selected>1 hour</option><option value="90">90 min</option><option value="120">2 hours</option></select></label>
+                    </div>
+                    <input name="ends_at" type="hidden" required>
+                    <div class="quick-time-presets" aria-label="Quick time choices"><span>Quick pick</span><button type="button" data-schedule-preset="tomorrow">Tomorrow morning</button><button type="button" data-schedule-preset="this-evening">This evening</button><button type="button" data-schedule-preset="next-week">Next week</button></div>
+                  </section>
+                  <section class="quick-schedule-block quick-schedule-block--what" aria-labelledby="quickScheduleWhat">
+                    <div class="quick-schedule-block-head"><span>03</span><div><strong id="quickScheduleWhat">Give it a clear name</strong><small>A short goal helps everyone arrive ready.</small></div></div>
+                    <label class="ops-field"><span>Session title</span><input name="title" maxlength="160" required placeholder="Portfolio feedback exchange"></label>
+                    <label class="ops-field"><span>Note <small>(optional)</small></span><textarea name="description" rows="2" maxlength="2000" placeholder="What should you both leave with?"></textarea></label>
+                  </section>
+                  <details class="quick-schedule-more">
+                    <summary><span><i class="bx bx-sliders-alt"></i> More options</span><small>Location, repeats, and timezone</small></summary>
+                    <div class="quick-schedule-more-body">
+                      <label class="check-row calendar-all-day-check"><input name="all_day" type="checkbox"><span><strong>All-day event</strong><span>Place this above the hourly schedule.</span></span></label>
+                      <div class="ops-form-grid two">
+                        <label class="ops-field"><span>Repeat</span><select name="recurrence">
+                          <option value="none">Does not repeat</option>
+                          <option value="daily">Daily</option>
+                          <option value="weekly">Weekly</option>
+                          <option value="biweekly">Every 2 weeks</option>
+                          <option value="monthly">Monthly</option>
+                        </select></label>
+                        <label class="ops-field"><span>Times</span><input name="recurrence_count" type="number" min="1" max="52" value="1"></label>
+                      </div>
+                      <label class="ops-field"><span>Timezone</span><select name="timezone" id="calendarTimezone" required></select><small>We save the time safely and show it correctly for every participant.</small></label>
+                      <div class="ops-form-grid two">
+                        <label class="ops-field"><span>Location</span><input name="location" maxlength="180" placeholder="SwapLabs Live Room"></label>
+                        <label class="ops-field"><span>Meeting URL</span><input name="meeting_url" type="url" maxlength="400" placeholder="https://"></label>
+                      </div>
+                      <div class="calendar-form-actions-row"><button class="btn" id="calendarDuplicate" type="button"><i class="bx bx-copy"></i> Duplicate event</button><button class="btn" id="calendarJumpToday" type="button"><i class="bx bx-calendar"></i> Use today</button></div>
+                    </div>
+                  </details>
+                  <fieldset class="reminder-fieldset">
+                    <legend>Reminders</legend><label><input type="checkbox" name="reminder" value="1440" checked> 1 day before</label><label><input type="checkbox" name="reminder" value="60" checked> 1 hour before</label><label><input type="checkbox" name="reminder" value="15"> 15 minutes before</label>
+                  </fieldset>
+                  <div class="ops-form-status" data-ops-status></div>
+                  <div class="ops-form-actions"><button class="btn" id="calendarFormReset" type="button">Reset</button><button class="btn btn-primary" id="calendarSubmitButton" type="submit"><i class="bx bx-calendar-check"></i> Schedule session</button></div>
+                </form>
+              </aside>
+
+            <section class="ops-panel quick-schedule-guide" aria-labelledby="quickScheduleGuideTitle">
+              <div class="ops-panel-head">
+                <div><span class="ops-overline">Keep it simple</span>
+                  <h2 id="quickScheduleGuideTitle">Everything else is automatic.</h2>
+                  <p>No weekly grid to maintain. Send a specific invite now and adjust it later from your agenda.</p>
+                </div><i class="bx bx-sparkles"></i>
+              </div>
+              <div class="quick-schedule-guide-list">
+                <div><span class="quick-guide-icon"><i class="bx bx-time-five"></i></span><div><strong id="scheduleTimezoneSummary">Your timezone</strong><small>Times are converted for every participant.</small></div></div>
+                <div><span class="quick-guide-icon"><i class="bx bx-bell"></i></span><div><strong>Reminders included</strong><small>One day and one hour before by default.</small></div></div>
+                <div><span class="quick-guide-icon"><i class="bx bx-message-square-dots"></i></span><div><strong>Invite in their inbox</strong><small>The meeting thread is created automatically.</small></div></div>
+              </div>
+              <div class="quick-schedule-next"><div class="quick-schedule-next-head"><span class="ops-overline">Coming up</span><button class="btn btn-sm" type="button" data-schedule-agenda>View agenda</button></div><div id="scheduleUpcomingList"><span class="ops-muted">Your next sessions will appear here.</span></div></div>
+            </section>
+            </div>
+
+            <section class="ops-explainer soft calendar-portability-panel">
+              <div class="container">
+                <div class="ops-section-head">
+                  <div><span class="ops-kicker"><i class="bx bx-transfer-alt"></i> Portable plans</span>
+                    <h2>Your SwapLabs calendar should work with the calendar you already trust.</h2>
+                    <p>Every saved event can move to another calendar without losing its title, duration, description, location, or cancellation state.</p>
+                  </div>
+                </div>
+                <div class="ops-feature-grid three">
+                  <article><i class="bx bxl-google"></i>
+                    <h3>Google Calendar</h3>
+                    <p>Open a prefilled Google event with UTC-safe dates, the session description, and its meeting location.</p>
+                  </article>
+                  <article><i class="bx bxl-microsoft"></i>
+                    <h3>Outlook</h3>
+                    <p>Compose the same saved session in Outlook with start, end, body, and location already prepared.</p>
+                  </article>
+                  <article><i class="bx bx-download"></i>
+                    <h3>Universal ICS</h3>
+                    <p>Download a standards-based file for Apple Calendar, Thunderbird, mobile calendars, and other compatible tools.</p>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="ops-panel calendar-agenda-panel calendar-shared-agenda" aria-labelledby="calendarAgendaTitle">
+              <div class="ops-panel-head">
+                <div><span class="ops-overline">Your agenda</span>
+                  <h2 id="calendarAgendaTitle">Sessions and workshops</h2>
+                  <p>All event times below are converted for your device, with the event timezone preserved in the detail.</p>
+                </div>
+                <div class="ops-segmented" id="calendarFilters"><button data-calendar-filter="upcoming" type="button">Upcoming</button><button data-calendar-filter="unconfirmed" type="button">Awaiting confirmation</button><button data-calendar-filter="completed" type="button">Completed</button><button class="active" data-calendar-filter="all" type="button">All events</button><button data-calendar-filter="cancelled" type="button">Cancelled</button></div>
+              </div>
+              <div class="calendar-date-rail" id="calendarDateRail"></div>
+              <div class="calendar-event-list" id="calendarEventList"></div>
+            </section>
+            </section>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="ops-modal" id="sessionRatingModal" hidden aria-hidden="true">
+      <div class="ops-modal-backdrop" data-close-session-rating></div>
+      <form class="ops-modal-card session-rating-modal-card" id="sessionRatingForm" novalidate>
+        <button class="ops-modal-close" type="button" data-close-session-rating aria-label="Close session rating"><i class="bx bx-x"></i></button>
+        <span class="ops-overline"><i class="bx bx-star"></i> Session reflection</span>
+        <h2>How did this session go?</h2>
+        <p>Your rating helps keep exchanges useful. A normal rating awards private points automatically. If most ratings are poor, an administrator reviews the session transcript before points are finalized.</p>
+        <input type="hidden" name="event_id">
+        <fieldset class="session-rating-options" aria-label="Session rating">
+          <legend>Choose a rating</legend>
+          <label><input type="radio" name="rating" value="1" required><span><strong>1</strong><small>Needs attention</small></span></label>
+          <label><input type="radio" name="rating" value="2"><span><strong>2</strong><small>Below expectations</small></span></label>
+          <label><input type="radio" name="rating" value="3"><span><strong>3</strong><small>Okay</small></span></label>
+          <label><input type="radio" name="rating" value="4"><span><strong>4</strong><small>Good</small></span></label>
+          <label><input type="radio" name="rating" value="5"><span><strong>5</strong><small>Excellent</small></span></label>
+        </fieldset>
+        <label class="ops-field"><span>Private note <small>(optional)</small></span><textarea name="comment" rows="4" maxlength="1200" placeholder="What worked well, or what should improve?"></textarea></label>
+        <div class="ops-form-status" data-session-rating-status role="status" aria-live="polite"></div>
+        <div class="ops-form-actions"><button class="btn" type="button" data-close-session-rating>Not now</button><button class="btn btn-primary" type="submit"><i class="bx bx-check"></i> Save rating</button></div>
+      </form>
+    </div>
+
+    <div class="ops-modal" id="sessionProgressModal" hidden aria-hidden="true">
+      <div class="ops-modal-backdrop" data-close-session-progress></div>
+      <form class="ops-modal-card session-progress-modal-card" id="sessionProgressForm" novalidate>
+        <button class="ops-modal-close" type="button" data-close-session-progress aria-label="Close session progress report"><i class="bx bx-x"></i></button>
+        <span class="ops-overline"><i class="bx bx-line-chart"></i> Required after every session</span>
+        <h2>Record your exchange progress</h2>
+        <p>Both participants submit a short private report before this session’s credits are settled. Your report becomes a personal journey entry on your dashboard.</p>
+        <input type="hidden" name="event_id">
+        <label class="ops-field"><span>What happened? <small>(required)</small></span><textarea name="what_happened" rows="4" maxlength="4000" required placeholder="Describe what you worked on, discussed, or practised together."></textarea></label>
+        <label class="ops-field"><span>What progress was made? <small>(required)</small></span><textarea name="progress" rows="3" maxlength="2400" required placeholder="What can you do, understand, or try now that you could not before?"></textarea></label>
+        <fieldset class="session-rating-options" aria-label="Overall session rating">
+          <legend>How was the exchange overall? <small>(required)</small></legend>
+          <label><input type="radio" name="overall_rating" value="1" required><span><strong>1</strong><small>Needs attention</small></span></label>
+          <label><input type="radio" name="overall_rating" value="2"><span><strong>2</strong><small>Below expectations</small></span></label>
+          <label><input type="radio" name="overall_rating" value="3"><span><strong>3</strong><small>Okay</small></span></label>
+          <label><input type="radio" name="overall_rating" value="4"><span><strong>4</strong><small>Good</small></span></label>
+          <label><input type="radio" name="overall_rating" value="5"><span><strong>5</strong><small>Excellent</small></span></label>
+        </fieldset>
+        <label class="ops-field"><span>What is your next step? <small>(optional)</small></span><textarea name="next_step" rows="2" maxlength="1200" placeholder="Add a small follow-up goal for your learning journey."></textarea></label>
+        <div class="ops-form-status" data-session-progress-status role="status" aria-live="polite"></div>
+        <div class="ops-form-actions"><button class="btn" type="button" data-close-session-progress>Not now</button><button class="btn btn-primary" type="submit"><i class="bx bx-check"></i> Save progress report</button></div>
+      </form>
+    </div>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+  </body>
+
+</html>

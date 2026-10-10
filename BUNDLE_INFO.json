@@ -1,0 +1,23 @@
+{
+  "site": "http://localhost:8000",
+  "generated_by": "scripts/build-worker.mjs",
+  "excluded_directories": [
+    "audits",
+    "data",
+    "db",
+    "dist",
+    "font-lab",
+    "node_modules",
+    "output",
+    "screenshots",
+    "server",
+    "test",
+    "tests",
+    "tmp"
+  ],
+  "excluded_local_artifacts": [
+    ".DS_Store",
+    ".perf-originals",
+    "scripts/demo-*-seed.js"
+  ]
+}

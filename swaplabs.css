@@ -1,0 +1,21 @@
+/* relayskills canonical stylesheet entry point. Keep module order stable. */
+
+@import url('assets/vendor/boxicons/css/boxicons.min.css?v=20261001-local1');
+@import url('styles/boxicons-fallback.css?v=20261002-boxicons1');
+@import url('styles/tokens.css?v=20260913-4');
+@import url('styles/base.css?v=20260926-mobile2');
+@import url('styles/components.css?v=20260929-fixed-profile-save2');
+@import url('styles/layout.css?v=20260913-4');
+@import url('styles/pages.css?v=20261001-video-mobile1');
+@import url('styles/pages/feature-pages.css?v=20260913-4');
+@import url('styles/navigation.css?v=20260921-1');
+
+@import url('styles/themes.css?v=20260929-avatar-redesign1');
+@import url('styles/swapbot.css?v=20261002-overflow2');
+/* Platform-wide visual layer shared by every page and feature module. */
+@import url('styles/brand-refresh.css?v=20260923-3');
+@import url('styles/phonebook.css?v=20260923-2');
+@import url('styles/experience-flow.css?v=20260921-1');
+@import url('styles/mobile-experience.css?v=20260923-1');
+@import url('styles/footer-compact.css?v=20261001-footer-social2');
+@import url('styles/contrast-overrides.css?v=20261010-readable4');

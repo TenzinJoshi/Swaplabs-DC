@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Time-Credit Ledger — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Review an immutable SwapLabs credit history, pay members, inspect earnings and refunds, and open transparent disputes.">
+    <link rel="stylesheet" href="swaplabs.css?v=20260830-7">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="swaplabs.html"><img src="logo.jpg" alt="SwapLabs logo"><span>SwapLabs</span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="community.html">Community</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="ops-page" data-operations-page="credits">
+
+      <section class="ops-hero credit-hero">
+        <div class="container ops-hero-grid">
+          <div>
+            <span class="ops-kicker"><i class="bx bx-wallet"></i> Transparent exchange</span>
+            <h1>Every credit has a reason, a reference, and <span>a permanent place in your history.</span></h1>
+            <p>Pay another member, review what you earned, trace corrections and refunds, and dispute a payment without rewriting the original transaction.</p>
+            <div class="ops-hero-actions"><a class="btn btn-primary" href="#creditWorkspace"><i class="bx bx-transfer"></i> Open my ledger</a><a class="btn" href="how-it-works.html"><i class="bx bx-help-circle"></i> How time credits work</a></div>
+          </div>
+          <aside class="credit-balance-hero">
+            <div class="credit-balance-top"><span>Available balance</span><i class="bx bx-lock-alt"></i></div>
+            <strong id="heroCreditBalance">—</strong><small>time credits</small>
+            <div class="credit-balance-rule"></div>
+            <p>Ledger entries are append-only. A correction adds a new record and never edits the transaction it explains.</p>
+            <div class="credit-balance-meta"><span><i class="bx bx-check-shield"></i> Account protected</span><span><i class="bx bx-list-check"></i> Fully traceable</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="ops-shell-section" id="creditWorkspace">
+        <div class="container">
+          <div class="server-required" data-server-required><strong>Start the SwapLabs Python server first.</strong> Your credit ledger requires a protected local account session.</div>
+          <div class="ops-auth-gate" id="opsAuthGate" hidden><i class="bx bx-lock-alt"></i>
+            <div>
+              <h2>Log in to view your credit ledger</h2>
+              <p>Balances, member payments, refunds, corrections, and disputes are private financial account records.</p>
+            </div><a class="btn btn-primary" href="login.html">Log in</a>
+          </div>
+          <div class="ops-loading" id="opsLoading"><i class="bx bx-loader-alt bx-spin"></i><span>Verifying your immutable credit history</span></div>
+
+          <div id="creditApp" hidden>
+            <div class="ops-stat-grid credit-stats">
+              <article><i class="bx bx-wallet"></i><strong id="creditBalance">0</strong><span>Available balance</span></article>
+              <article><i class="bx bx-trending-up"></i><strong id="creditEarned">0</strong><span>Credits received</span></article>
+              <article><i class="bx bx-trending-down"></i><strong id="creditSpent">0</strong><span>Credits paid</span></article>
+              <article><i class="bx bx-error-circle"></i><strong id="creditDisputes">0</strong><span>Open disputes</span></article>
+            </div>
+
+            <div class="credit-layout">
+
+              <section class="ops-panel ledger-panel">
+                <div class="ops-panel-head">
+                  <div><span class="ops-overline">Append-only history</span>
+                    <h2>Your time-credit ledger</h2>
+                    <p>Newest records appear first. Search descriptions and filter by the exact event that changed or documented your balance.</p>
+                  </div><button class="btn btn-sm" id="creditRefresh" type="button"><i class="bx bx-refresh"></i> Refresh</button>
+                </div>
+                <div class="ledger-toolbar"><label class="ops-search"><i class="bx bx-search"></i><input id="ledgerSearch" type="search" placeholder="Search reference, member, or note"></label><select id="ledgerType">
+                    <option value="all">All record types</option>
+                    <option value="earned">Earnings</option>
+                    <option value="payment">Payments</option>
+                    <option value="refund">Refunds</option>
+                    <option value="correction">Corrections</option>
+                    <option value="dispute_opened">Disputes</option>
+                    <option value="initial_balance">Opening balance</option>
+                  </select></div>
+                <div class="ledger-table-wrap">
+                  <table class="ledger-table">
+                    <thead>
+                      <tr>
+                        <th>Record</th>
+                        <th>Type</th>
+                        <th>Member or source</th>
+                        <th>Change</th>
+                        <th>Balance</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="ledgerRows"></tbody>
+                  </table>
+                </div>
+                <div class="ledger-mobile-list" id="ledgerMobileList"></div>
+                <div class="ops-empty" id="ledgerEmpty" hidden><i class="bx bx-receipt"></i>
+                  <h3>No records match this view</h3>
+                  <p>Clear the search or choose another record type.</p>
+                </div>
+              </section>
+
+              <aside class="credit-side-column">
+                <form class="ops-panel ops-form-panel credit-transfer-form" id="creditTransferForm">
+                  <div class="ops-panel-head compact">
+                    <div><span class="ops-overline">Member payment</span>
+                      <h2>Transfer credits</h2>
+                    </div><i class="bx bx-transfer-alt"></i>
+                  </div>
+                  <p>Use a precise note so both members can recognize the exchange later.</p>
+                  <label class="ops-field"><span>Pay member</span><select name="recipient_id" id="creditRecipient" required>
+                      <option value="">Choose a member</option>
+                    </select></label>
+                  <label class="ops-field"><span>Amount</span>
+                    <div class="credit-amount-input"><input name="amount" type="number" min="1" max="10000" step="1" required placeholder="1"><span>credits</span></div>
+                  </label>
+                  <label class="ops-field"><span>Payment note</span><textarea name="description" rows="3" maxlength="300" required placeholder="One-hour Spanish conversation practice"></textarea></label>
+                  <div class="ops-trust-note"><i class="bx bx-info-circle"></i><span>The transfer creates linked payment and earning records. It cannot be silently edited later.</span></div>
+                  <div class="ops-form-status" data-ops-status></div><button class="btn btn-primary wide" type="submit"><i class="bx bx-send"></i> Confirm payment</button>
+                </form>
+
+                <section class="ops-panel dispute-summary-panel">
+                  <div class="ops-panel-head compact">
+                    <div><span class="ops-overline">Review trail</span>
+                      <h2>My disputes</h2>
+                    </div><i class="bx bx-shield-quarter"></i>
+                  </div>
+                  <div class="dispute-list" id="creditDisputeList"></div>
+                  <p class="ops-muted" id="creditDisputeEmpty">No payment disputes have been opened.</p>
+                </section>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ops-explainer soft">
+        <div class="container">
+          <div class="ops-section-head">
+            <div><span class="ops-kicker"><i class="bx bx-git-branch"></i> A record you can follow</span>
+              <h2>Corrections add context. They never erase history.</h2>
+              <p>The ledger keeps both sides of a member payment linked by one transaction reference, then records later decisions as new entries.</p>
+            </div>
+          </div>
+          <div class="ledger-flow">
+            <article><span>01</span><i class="bx bx-time-five"></i>
+              <h3>Earn</h3>
+              <p>A member receives credits for a confirmed contribution, session, or transfer.</p>
+            </article><i class="bx bx-right-arrow-alt"></i>
+            <article><span>02</span><i class="bx bx-transfer"></i>
+              <h3>Pay</h3>
+              <p>The sender and recipient receive linked records with balances calculated at that moment.</p>
+            </article><i class="bx bx-right-arrow-alt"></i>
+            <article><span>03</span><i class="bx bx-message-square-error"></i>
+              <h3>Dispute</h3>
+              <p>The outgoing payment stays intact while a separate dispute record enters review.</p>
+            </article><i class="bx bx-right-arrow-alt"></i>
+            <article><span>04</span><i class="bx bx-rotate-left"></i>
+              <h3>Resolve</h3>
+              <p>Any approved refund or correction appears as another traceable, administrator-authored entry.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="ops-modal" id="creditDisputeModal" hidden>
+        <div class="ops-modal-backdrop" data-close-credit-modal></div>
+        <form class="ops-modal-card" id="creditDisputeForm">
+          <button class="ops-modal-close" type="button" data-close-credit-modal aria-label="Close dispute form"><i class="bx bx-x"></i></button><span class="ops-kicker"><i class="bx bx-message-square-error"></i> Payment dispute</span>
+          <h2>Ask an administrator to review this payment.</h2>
+          <p id="creditDisputeContext">The original ledger entry will remain visible while the review is open.</p><input type="hidden" name="ledger_entry_id">
+          <label class="ops-field"><span>Reason</span><select name="reason" required>
+              <option value="">Choose a reason</option>
+              <option>Session did not happen</option>
+              <option>Incorrect amount</option>
+              <option>Duplicate payment</option>
+              <option>Service significantly differed</option>
+              <option>Payment was not authorized</option>
+              <option>Other</option>
+            </select></label>
+          <label class="ops-field"><span>Details and evidence</span><textarea name="details" rows="6" maxlength="2000" required placeholder="Explain the agreement, what happened, and the resolution you are requesting."></textarea></label>
+          <div class="ops-form-status" data-ops-status></div>
+          <div class="ops-form-actions"><button class="btn" type="button" data-close-credit-modal>Cancel</button><button class="btn btn-primary" type="submit"><i class="bx bx-shield-quarter"></i> Open dispute</button></div>
+        </form>
+      </div>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/swaplabs.js?v=20260830-7"></script>
+  </body>
+
+</html>

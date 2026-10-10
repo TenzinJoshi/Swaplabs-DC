@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Livestreams — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Watch, schedule, and host SwapLabs livestreams with live chat, credit donations, and broadcast milestones.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/livestreams.css?v=20260919-4">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+  <body>
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="livestreams.html">Livestreams</a><a href="gifts.html">Gifts &amp; vouchers</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page livestream-page" data-livestream-page>
+      <section class="platform-hero livestream-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-broadcast"></i> Live community rooms</span>
+            <h1>Watch people make progress <span class="platform-accent">in real time.</span></h1>
+            <p class="platform-hero-copy">SwapLabs livestreams are open rooms for teaching, building, practice, and conversation. Schedule a broadcast, let people find it, keep chat close to the action, and earn credit milestones for showing up consistently.</p>
+            <div class="platform-hero-actions"><a class="btn btn-primary" href="#liveDirectory"><i class="bx bx-play-circle"></i> Find a livestream</a><a class="btn" href="#hostBroadcast"><i class="bx bx-video-plus"></i> Schedule a broadcast</a><a class="btn" href="gifts.html"><i class="bx bx-gift"></i> Gift credits</a></div>
+            <div class="platform-hero-note"><i class="bx bx-shield-quarter"></i><span>Chat, donations, presence, and credit activity are saved to your SwapLabs account. Never share a private meeting link in public chat.</span></div>
+          </div>
+          <aside class="platform-hero-card livestream-hero-card">
+            <div class="hero-card-top"><span>Broadcast pulse</span><i class="bx bx-pulse"></i></div>
+            <div class="feature-mini-stats livestream-pulse-stats"><span><strong id="livestreamStatLive">0</strong><small>live now</small></span><span><strong id="livestreamStatViewers">0</strong><small>people watching</small></span><span><strong id="livestreamStatCredits">0</strong><small>credits donated</small></span></div>
+            <div class="livestream-tier-preview"><span class="platform-mini-label">Host milestones</span><div><strong>500</strong><small>at 30 min</small></div><div><strong>2,000</strong><small>at 1 hour</small></div><div><strong>4,000</strong><small>at 2 hours</small></div></div>
+            <p class="hero-card-copy">Milestones are paid once into the host’s time-credit ledger when the broadcast ends.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section" id="liveDirectory">
+        <div class="container">
+          <div class="platform-section-head"><div class="platform-heading"><span class="platform-kicker"><i class="bx bx-compass"></i> Live directory</span><h2>Find a room worth staying for.</h2><p>Search by topic or filter the directory to see active rooms first, then upcoming broadcasts and replay-ready rooms.</p></div><button class="btn" type="button" id="livestreamRefresh"><i class="bx bx-refresh"></i> Refresh directory</button></div>
+          <div class="livestream-toolbar" role="search"><label class="livestream-search"><i class="bx bx-search-alt"></i><input id="livestreamSearch" type="search" placeholder="Search topics, hosts, or tags" aria-label="Search livestreams"></label><select id="livestreamStatus" aria-label="Filter by status"><option value="all">All broadcasts</option><option value="live">Live now</option><option value="scheduled">Coming up</option><option value="ended">Past broadcasts</option><option value="cancelled">Cancelled</option></select><select id="livestreamCategory" aria-label="Filter by category"><option value="">All categories</option></select></div>
+          <div class="livestream-results-head"><span id="livestreamResultCount">Loading livestreams</span><span>Times display in your device timezone.</span></div>
+          <div class="livestream-grid" id="livestreamGrid"><div class="platform-loading"><i class="bx bx-loader-alt bx-spin"></i>Loading the live directory.</div></div>
+        </div>
+      </section>
+
+      <section class="platform-section livestream-watch-section" id="watchRoom" hidden>
+        <div class="container">
+          <div class="platform-section-head"><div class="platform-heading"><span class="platform-kicker"><i class="bx bx-tv"></i> Watch room</span><h2 id="watchRoomTitle">Choose a broadcast</h2><p id="watchRoomMeta">Join a live room to see the conversation and support the host.</p></div><button class="btn" type="button" id="closeWatchRoom"><i class="bx bx-x"></i> Close room</button></div>
+          <div class="livestream-watch-layout">
+            <div class="livestream-stage-shell"><div class="livestream-stage" id="livestreamStage"><div class="stage-placeholder"><i class="bx bx-broadcast"></i><strong>Live room ready</strong><span>Join the room to take part in chat.</span></div><video id="hostPreview" autoplay muted playsinline hidden></video><video id="remoteStream" autoplay muted controls playsinline hidden></video><span class="stage-live-badge" id="stageLiveBadge">OFFLINE</span><span class="stage-viewer-count" id="stageViewerCount"><i class="bx bx-group"></i> 0 watching</span></div><div class="livestream-watch-controls"><div><strong id="watchHostName">SwapLabs host</strong><span id="watchRoomCategory">Community</span></div><div class="watch-control-actions"><button class="btn btn-primary" type="button" id="joinLivestream"><i class="bx bx-log-in-circle"></i> Join room</button><button class="btn" type="button" id="leaveLivestream" hidden><i class="bx bx-log-out-circle"></i> Leave room</button><button class="btn" type="button" id="enableLivestreamAudio" hidden><i class="bx bx-volume-full"></i> Enable sound</button><button class="btn btn-danger" type="button" id="endLivestream" hidden><i class="bx bx-stop-circle"></i> End broadcast</button></div></div></div>
+            <aside class="livestream-chat-panel"><div class="livestream-chat-head"><div><span class="platform-mini-label">Room chat</span><strong id="chatAudience">Everyone can read</strong></div><span class="chat-live-dot"><i class="bx bxs-circle"></i> Live</span></div><div class="livestream-chat-stream" id="livestreamChat" aria-live="polite"><div class="chat-empty"><i class="bx bx-message-square-dots"></i><p>Chat appears here when people join.</p></div></div><form class="livestream-chat-form" id="livestreamChatForm"><label class="sr-only" for="livestreamChatMessage">Message</label><textarea id="livestreamChatMessage" name="body" maxlength="1200" rows="2" placeholder="Say something useful…" required></textarea><div class="chat-form-row"><label class="donation-input"><i class="bx bx-coin-stack"></i><input id="livestreamDonation" name="donation_credits" type="number" min="0" max="10000" step="1" value="0" inputmode="numeric" aria-label="Credits to donate"><span>donate credits</span></label><button class="btn btn-primary" type="submit"><i class="bx bx-send"></i> Send</button></div><div class="form-status" id="livestreamChatStatus" role="status" aria-live="polite"></div></form></aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section" id="hostBroadcast">
+        <div class="container livestream-host-layout">
+          <div><div class="platform-heading"><span class="platform-kicker"><i class="bx bx-video-plus"></i> Host studio</span><h2>Schedule a broadcast people can trust.</h2><p>Give your room a clear topic, a time, and a simple promise. Start it when you are ready, keep the camera preview local, and end it to settle the right credit milestone.</p></div><div class="livestream-host-status" id="livestreamAuthStatus"><i class="bx bx-lock-alt"></i><span>Sign in to schedule and manage your own broadcasts.</span><a class="btn btn-primary" href="login.html?next=livestreams.html">Sign in</a></div><div class="livestream-my-list" id="myLivestreams"><div class="feature-empty"><i class="bx bx-calendar-event"></i><h3>Your broadcasts will appear here.</h3><p>Schedule your first room and manage it from this page.</p></div></div></div>
+          <form class="platform-form platform-form-shell livestream-form" id="livestreamScheduleForm" hidden><div class="platform-form-head"><div><h2>Schedule a livestream</h2><p>Create a room now and start it later when your audience is ready.</p></div><i class="bx bx-broadcast"></i></div><div class="platform-form-grid"><div class="field full"><label for="streamTitle">Broadcast title</label><input id="streamTitle" name="title" maxlength="140" required placeholder="Build a useful portfolio in public"></div><div class="field full"><label for="streamDescription">What will happen?</label><textarea id="streamDescription" name="description" rows="4" maxlength="2400" required placeholder="Tell people what they will see, practise, or be able to ask about."></textarea></div><div class="field"><label for="streamCategory">Category</label><input id="streamCategory" name="category" maxlength="60" required placeholder="Design, Python, languages…"></div><div class="field"><label for="streamTags">Tags</label><input id="streamTags" name="tags" maxlength="240" placeholder="portfolio, feedback, beginner"></div><div class="field"><label for="streamScheduledAt">Start time (optional)</label><input id="streamScheduledAt" name="scheduled_at" type="datetime-local"><small>Leave empty if you want to start manually.</small></div><div class="field"><label for="streamDuration">Planned duration</label><select id="streamDuration" name="duration_minutes"><option value="30">30 minutes</option><option value="60">1 hour</option><option value="120" selected>2 hours</option><option value="180">3 hours</option><option value="240">4 hours</option></select></div></div><label class="platform-check"><input type="checkbox" name="broadcast_agreement" required><span>I will follow the community guidelines, respect privacy, and keep the broadcast description accurate.</span></label><div class="platform-form-actions"><button class="btn btn-primary" type="submit"><i class="bx bx-calendar-plus"></i> Create broadcast</button></div><div class="form-status" id="livestreamScheduleStatus" role="status" aria-live="polite"></div></form>
+        </div>
+      </section>
+
+      <section class="platform-section tint"><div class="container"><div class="platform-heading center"><span class="platform-kicker"><i class="bx bx-trophy"></i> Broadcast milestones</span><h2>Consistency turns into useful credits.</h2><p>Hosts receive the highest reached milestone when a broadcast ends. The payment is added to the same credit ledger used for member exchanges.</p></div><div class="livestream-tier-grid" id="livestreamTierGrid"><article class="livestream-tier-card"><strong>500</strong><span>credits</span><h3>30 minutes live</h3><p>Start with a focused room and earn your first milestone.</p></article><article class="livestream-tier-card featured"><strong>2,000</strong><span>credits</span><h3>1 hour live</h3><p>Give the room time for a real demonstration, practice, and questions.</p></article><article class="livestream-tier-card"><strong>4,000</strong><span>credits</span><h3>2 hours live</h3><p>Long-form teaching and community build sessions keep growing.</p></article><article class="livestream-tier-card"><strong>6,500</strong><span>credits</span><h3>3 hours live</h3><p>Longer broadcasts unlock the next saved milestone automatically.</p></article></div><div class="platform-hero-note livestream-safety-note"><i class="bx bx-info-circle"></i><span>Livestream milestones add platform credits, not cash. The resulting balance is visible in your ledger and can be shared through Gifts &amp; vouchers.</span></div></div></section>
+    </main>
+    <div data-site-footer></div>
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-livestreams.js?v=20260925-profile-links2"></script>
+  </body>
+</html>

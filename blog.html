@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Blog community — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/blog-community.css?v=20260923-1">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body class="blog-community-page">
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="community.html">Community</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main data-live-page>
+      <section class="blog-community-hero">
+        <div class="container blog-hero-grid">
+          <div>
+            <span class="eyebrow"><i class="bx bx-news" aria-hidden="true"></i> Blog community</span>
+            <h1>Long-form ideas from the people making learning move.</h1>
+            <p>Publish a story, lesson, build note, or honest reflection. Add photos and videos, then let the community respond with useful conversation.</p>
+            <div class="blog-hero-actions"><a class="btn btn-primary" href="#write-a-blog"><i class="bx bx-edit-alt"></i> Write a blog</a><a class="btn" href="#blog-posts"><i class="bx bx-book-open"></i> Explore stories</a></div>
+          </div>
+          <div class="blog-hero-card" aria-label="Blog community principles">
+            <span class="blog-hero-orbit blog-hero-orbit-one" aria-hidden="true"></span>
+            <span class="blog-hero-orbit blog-hero-orbit-two" aria-hidden="true"></span>
+            <i class="bx bx-message-square-edit" aria-hidden="true"></i>
+            <strong>Share what you are learning.</strong>
+            <span>Clear stories help another member take their next useful step.</span>
+          </div>
+        </div>
+        <div class="container blog-stat-grid" aria-label="Blog community totals">
+          <div><strong id="blogStatPosts">—</strong><span>published blogs</span></div>
+          <div><strong id="blogStatMedia">—</strong><span>media-rich stories</span></div>
+          <div><strong id="blogStatConversations">—</strong><span>community conversations</span></div>
+        </div>
+      </section>
+
+      <section class="blog-community-nav" aria-label="Community destinations">
+        <div class="container blog-community-nav-inner">
+          <a class="active" href="blog.html"><i class="bx bx-news"></i> Blog community</a>
+          <a href="community.html"><i class="bx bx-group"></i> People & groups</a>
+          <a href="community.html"><i class="bx bx-photo-album"></i> Photos & videos</a>
+          <a href="forums.html"><i class="bx bx-conversation"></i> Discussion forums</a>
+        </div>
+      </section>
+
+      <section class="blog-community-section" id="write-a-blog">
+        <div class="container blog-layout">
+          <div class="blog-main-column">
+            <section class="blog-composer-card" aria-labelledby="blogComposerTitle">
+              <div id="blogComposerLocked" class="blog-composer-locked" aria-labelledby="blogComposerLockedTitle">
+                <span class="blog-composer-lock-icon"><i class="bx bx-edit-alt"></i></span>
+                <div><span class="eyebrow">Your publishing space</span><h2 id="blogComposerLockedTitle">Have something useful to share?</h2><p>Log in to write a blog with text, images, and video.</p></div>
+                <a class="btn btn-primary" href="login.html?next=blog.html">Log in to write</a>
+              </div>
+              <form id="blogComposerForm" hidden enctype="multipart/form-data" aria-labelledby="blogComposerFormTitle">
+                <div class="blog-composer-head"><div><span class="eyebrow">Write a blog</span><h2 id="blogComposerFormTitle">Turn one useful idea into a story.</h2><p id="blogComposerIdentity">Your post will appear in the blog community.</p></div><span class="blog-composer-badge"><i class="bx bx-globe"></i> Public by default</span></div>
+                <div class="blog-form-field"><label for="blogTitle">Title</label><input id="blogTitle" name="title" maxlength="140" required placeholder="Give your story a clear title"></div>
+                <div class="blog-form-field"><label for="blogExcerpt">Short introduction <small>optional</small></label><input id="blogExcerpt" name="excerpt" maxlength="280" placeholder="Help readers decide whether this story is for them"></div>
+                <div class="blog-form-field"><label for="blogBody">Your story</label><textarea id="blogBody" name="body" minlength="40" maxlength="20000" required placeholder="Share the context, lesson, process, or reflection behind your idea…"></textarea><div class="blog-field-meta"><span>At least 40 characters</span><span id="blogBodyCount">0 / 20,000</span></div></div>
+                <div class="blog-form-grid">
+                  <div class="blog-form-field"><label for="blogTags">Topics <small>comma-separated</small></label><input id="blogTags" name="tags" maxlength="240" placeholder="Learning, community, design"></div>
+                  <div class="blog-form-field"><label for="blogVisibility">Who can read it?</label><select id="blogVisibility" name="visibility"><option value="public">Everyone in the blog community</option><option value="followers">People who follow me</option></select></div>
+                </div>
+                <div class="blog-upload-row"><label class="blog-upload-control" for="blogMedia"><i class="bx bx-images"></i><span>Add photos or videos</span><small>Up to 4 files · JPG, PNG, WebP, MP4, WebM</small></label><input id="blogMedia" name="media" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/webm" multiple><div id="blogMediaPreview" class="blog-media-preview" hidden></div></div>
+                <div class="blog-composer-actions"><span id="blogComposerStatus" class="blog-form-status" role="status"></span><button class="btn btn-primary" type="submit"><i class="bx bx-send"></i> Publish blog</button></div>
+              </form>
+            </section>
+
+            <div class="blog-posts-toolbar" id="blog-posts"><div><span class="eyebrow">From the community</span><h2>Stories worth spending time with.</h2></div><div class="blog-sort" role="group" aria-label="Sort blogs"><button class="active" type="button" data-blog-sort="latest">Latest</button><button type="button" data-blog-sort="popular">Most discussed</button></div></div>
+            <div id="blogPostList" class="blog-post-list" aria-live="polite"></div>
+            <div id="blogPostEmpty" class="blog-empty-state" hidden><i class="bx bx-news"></i><h3>The first story is waiting for you.</h3><p>Share a useful lesson, a build note, or a reflection from your learning journey.</p><a class="btn btn-primary" href="#write-a-blog">Write the first blog</a></div>
+          </div>
+
+          <aside class="blog-sidebar">
+            <section id="blogViewerCard" class="blog-sidebar-card"></section>
+            <section class="blog-sidebar-card blog-guidelines"><span class="eyebrow">Good blog energy</span><h2>Make it useful, make it yours.</h2><ul><li><i class="bx bx-check"></i><span>Share one clear idea or experience.</span></li><li><i class="bx bx-check"></i><span>Credit people and sources when they helped.</span></li><li><i class="bx bx-check"></i><span>Keep comments kind, specific, and constructive.</span></li><li><i class="bx bx-check"></i><span>Use public media you have permission to share.</span></li></ul></section>
+            <section class="blog-sidebar-card blog-community-note"><i class="bx bx-shield-quarter"></i><strong>Community-reviewed space</strong><p>Every blog belongs to its author. Report a concern if a post or comment breaks the community rules.</p><a href="report.html">Report a concern <i class="bx bx-right-arrow-alt"></i></a></section>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/blog-community.js?v=20260923-1"></script>
+  </body>
+
+</html>

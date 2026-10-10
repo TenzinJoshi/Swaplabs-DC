@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Roadmap — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Vote on SwapLabs upcoming features, suggest improvements, and follow public platform roadmap progress.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page feature-page" data-extension-page="roadmap">
+      <section class="platform-hero feature-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-map-pin"></i> Public roadmap</span>
+            <h1>Help decide what SwapLabs should build next.</h1>
+            <p class="platform-hero-copy">Vote on planned features, suggest improvements, and track whether ideas are suggested, researching, planned, in progress, shipped, or closed.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="#roadmapForm"><i class="bx bx-plus"></i> Suggest feature</a>
+              <a class="btn" href="feedback.html"><i class="bx bx-message-square-dots"></i> Send feedback</a>
+            </div>
+          </div>
+          <aside class="platform-hero-card">
+            <div class="hero-card-top"><span>Roadmap activity</span><i class="bx bx-upvote"></i></div>
+            <div class="feature-mini-stats">
+              <span><strong data-feature-stat="items">0</strong><small>items</small></span>
+              <span><strong data-feature-stat="votes">0</strong><small>votes</small></span>
+              <span><strong data-feature-stat="in_progress">0</strong><small>in progress</small></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section">
+        <div class="container">
+          <div class="platform-heading"><span class="platform-kicker"><i class="bx bx-list-check"></i> Roadmap board</span><h2>Feature ideas ranked by community signal.</h2><p>Votes are saved to real accounts so the board can grow with the community.</p></div>
+          <div class="feature-grid" id="roadmapGrid"></div>
+        </div>
+      </section>
+
+      <section class="platform-section tint">
+        <div class="container">
+          <form class="platform-form platform-form-shell" id="roadmapForm">
+            <div class="platform-form-head"><div><h2>Suggest an improvement</h2><p>Your suggestion starts with your vote automatically.</p></div><i class="bx bx-bulb"></i></div>
+            <div class="platform-form-grid">
+              <div class="field"><label>Title</label><input name="title" required></div>
+              <div class="field"><label>Area</label><input name="area" required placeholder="Messaging, safety, marketplace, dashboard"></div>
+              <div class="field full"><label>Summary</label><textarea name="summary" rows="3" required></textarea></div>
+              <div class="field full"><label>Details</label><textarea name="details" rows="5" required></textarea></div>
+            </div>
+            <div class="platform-form-actions"><p>Admins can update status from the backend moderation tools.</p><button class="btn btn-primary" type="submit">Add suggestion</button></div>
+            <div class="feature-status" data-roadmap-status></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-extensions.js?v=20260930-invite-links1"></script>
+  </body>
+
+</html>

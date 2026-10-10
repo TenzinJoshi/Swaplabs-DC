@@ -1,0 +1,59 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "swaplabs-local",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-09-25",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "send_metrics": false,
+  "workers_dev": false,
+  "preview_urls": false,
+  "dev": {
+    "ip": "127.0.0.1",
+    "port": 8000,
+    "local_protocol": "http"
+  },
+  "vars": {
+    "LOCAL_MODE": "true"
+  },
+  "assets": {
+    "directory": "./dist/public",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/*"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "swaplabs-local",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "drizzle",
+      "remote": false
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "swaplabs-local-media",
+      "remote": false
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "STUDY_ROOM_HUB",
+        "class_name": "StudyTogetherRoomHub"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "study-together-v1",
+      "new_sqlite_classes": [
+        "StudyTogetherRoomHub"
+      ]
+    }
+  ]
+}

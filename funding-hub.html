@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Funding hub — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Offer funding, mentoring, introductions, pilot support, and specialist skills to young innovators on SwapLabs.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page feature-page" data-extension-page="funding-hub">
+      <section class="platform-hero feature-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-fund"></i> Funding hub</span>
+            <h1>Help ideas move from attention to actual support.</h1>
+            <p class="platform-hero-copy">Offer transparent support for Innovation Lab ideas: funding interest, mentoring, pilot access, introductions, or specialist skills. Every offer is saved and sent to the idea owner.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="skill-innovation.html"><i class="bx bx-bulb"></i> Innovation Lab</a>
+              <a class="btn" href="#fundingPledgeForm"><i class="bx bx-hand"></i> Offer support</a>
+            </div>
+          </div>
+          <aside class="platform-hero-card">
+            <div class="hero-card-top"><span>Support activity</span><i class="bx bx-heart-circle"></i></div>
+            <div class="feature-mini-stats">
+              <span><strong data-feature-stat="ideas">0</strong><small>ideas</small></span>
+              <span><strong data-feature-stat="pledges">0</strong><small>offers</small></span>
+              <span><strong data-feature-stat="pledged_amount">0</strong><small>funds pledged</small></span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section">
+        <div class="container">
+          <div class="platform-heading"><span class="platform-kicker"><i class="bx bx-rocket"></i> Fundable ideas</span><h2>See the gap between need and support.</h2><p>This hub records community intent. Real-world funding still needs verification, agreements, and guardian safeguards where students are involved.</p></div>
+          <div class="feature-grid" id="fundingIdeaGrid"></div>
+        </div>
+      </section>
+
+      <section class="platform-section tint">
+        <div class="container">
+          <form class="platform-form platform-form-shell" id="fundingPledgeForm">
+            <div class="platform-form-head"><div><h2>Offer support</h2><p>Choose an idea above or paste the idea ID manually.</p></div><i class="bx bx-hand"></i></div>
+            <div class="platform-form-grid">
+              <div class="field"><label>Idea ID</label><input id="pledge_idea_id" name="idea_id" required></div>
+              <div class="field"><label>Support type</label><select name="pledge_type"><option value="funding">Funding</option><option value="mentor">Mentor</option><option value="pilot">Pilot partner</option><option value="introduction">Introduction</option><option value="skills">Specialist skills</option></select></div>
+              <div class="field"><label>Amount</label><input name="amount" type="number" min="0" value="0"></div>
+              <div class="field"><label>Currency</label><select name="currency"><option>USD</option><option>EUR</option><option>GBP</option><option>INR</option><option>CAD</option><option>AUD</option></select></div>
+              <div class="field"><label>Visibility</label><select name="visibility"><option value="public">Public</option><option value="private">Private</option></select></div>
+              <label class="platform-check field"><input name="contact_permission" type="checkbox"><span><strong>Allow the idea owner to contact me.</strong><span>This helps them follow up responsibly.</span></span></label>
+              <div class="field full"><label>Support note</label><textarea name="note" rows="5" required></textarea></div>
+            </div>
+            <div class="platform-form-actions"><p>Support offers are not payment processing.</p><button class="btn btn-primary" type="submit">Save support offer</button></div>
+            <div class="feature-status" data-funding-status></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-extensions.js?v=20260930-invite-links1"></script>
+  </body>
+
+</html>

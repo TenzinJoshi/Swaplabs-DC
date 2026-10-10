@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Skill Matching — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Find explainable SwapLabs matches using skills, goals, teaching style, format, timezone, availability, languages, and reliability.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/matching-page.css?v=20260925-match-ux3">
+      <link rel="stylesheet" href="styles/scroll-experience.css?v=20260926-scroll-fix1">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body class="member-portal-body">
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="member-portal" data-member-portal="matching">
+
+      <section class="member-portal-hero matching-portal-hero">
+        <div class="container matching-hero-grid">
+          <div>
+            <span class="eyebrow"><i class="bx bx-git-compare"></i> Explainable member matching</span>
+            <h1>Find a person who fits the way you want to learn.</h1>
+            <p>Tell us what you want to learn and get a direct path to someone who already teaches it. Your own offer can be different; a useful one-way teaching fit is enough to start a swap.</p>
+            <div class="hero-actions"><a class="btn btn-primary" id="matchingPrimaryCta" href="register.html?intent=swap&amp;return_to=skill-matching.html%3Fintent%3Dswap%23advancedMatchForm"><i class="bx bx-transfer-alt"></i> Find a swap soon</a><a class="btn" href="phonebook.html"><i class="bx bx-grid-alt"></i> Open phonebook</a></div>
+            <div class="matching-hero-proof"><span><i class="bx bx-check-shield"></i> No popularity-only ranking</span><span><i class="bx bx-time-five"></i> Real overlap detection</span><span><i class="bx bx-show"></i> Every point explained</span></div>
+          </div>
+          <aside class="matching-score-preview" aria-label="How to read a match">
+            <div><span class="tag">Calculated from your search</span>
+              <h2>A score you can inspect.</h2>
+              <p>Run a search, then open “Why this match?” on a result to see its recorded inputs and points. Shared time is shown only when the availability calculation finds it.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section member-portal-section">
+        <div class="container">
+          <div class="portal-loading" id="matchingLoading"><i class="bx bx-loader-alt bx-spin"></i><span>Loading your matching profile…</span></div>
+          <div class="portal-locked" id="matchingLocked" hidden><span class="portal-locked-icon"><i class="bx bx-lock-alt"></i></span>
+            <h2>Start with a swap profile</h2>
+            <p>Tell us one thing you want to learn and we’ll bring you back here to find a real member match.</p>
+            <div class="portal-empty-actions"><a class="btn btn-primary" href="login.html?next=skill-matching.html%3Fintent%3Dswap%23advancedMatchForm">Log in</a><a class="btn" href="register.html?intent=swap&amp;return_to=skill-matching.html%3Fintent%3Dswap%23advancedMatchForm">Create account</a></div>
+          </div>
+
+          <div id="matchingPortal" hidden>
+
+            <section class="matching-demo" aria-labelledby="matchingDemoTitle">
+              <div><span class="portal-kicker">Short onboarding demo</span>
+                <h2 id="matchingDemoTitle">From a goal to a real conversation in three steps.</h2>
+              </div>
+              <div class="matching-demo-steps">
+                <article><span>1</span><i class="bx bx-slider-alt"></i>
+                  <div><strong>Describe the fit</strong>
+                    <p>Add the skill you want to learn. Your secondary languages are included as teaching skills automatically.</p>
+                  </div>
+                </article>
+                <article><span>2</span><i class="bx bx-bar-chart-square"></i>
+                  <div><strong>Inspect the score</strong>
+                    <p>See exact teaching fits first, then closely related skills such as web design and web development, followed by language and practical profile context.</p>
+                  </div>
+                </article>
+                <article><span>3</span><i class="bx bx-message-square-dots"></i>
+                  <div><strong>Start safely</strong>
+                    <p>Open a member conversation, agree on scope, then schedule the session.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <div class="matching-workspace">
+              <aside class="matching-filter-panel" aria-labelledby="matchingProfileTitle">
+                <div class="matching-profile-context" id="matchingProfileContext">
+                  <span class="matching-context-avatar" id="matchingProfileAvatar" aria-hidden="true">RS</span>
+                  <div class="matching-context-copy">
+                    <span class="matching-context-label">SEARCHING AS</span>
+                    <strong id="matchingProfileName">Your SwapLabs profile</strong>
+                    <span id="matchingProfileState">Loading saved profile…</span>
+                  </div>
+                  <a class="matching-context-link" href="profile.html" aria-label="Edit your SwapLabs profile"><i class="bx bx-edit-alt"></i><span>Edit</span></a>
+                </div>
+                <div class="panel-heading matching-panel-heading">
+                  <div><span class="portal-kicker">Match profile</span>
+                    <h2 id="matchingProfileTitle">What should fit?</h2>
+                    <p>Start with your saved direction, then refine this search.</p>
+                  </div><button class="text-button" id="useSavedProfile" type="button"><i class="bx bx-refresh"></i> Reset to saved</button>
+                </div>
+                <form id="advancedMatchForm">
+                  <div class="matching-form-section matching-form-section-primary">
+                    <div class="matching-section-heading"><span class="matching-section-number">01</span><div><strong>Choose your direction</strong><small>We’ll start from your profile, and you can edit this search anytime.</small></div></div>
+                    <div class="field"><label for="matchLearnSkills">I want to learn</label><div class="matching-input-shell"><input id="matchLearnSkills" name="learn_skills" data-multi-options="skills" autocomplete="off" required placeholder="Search a skill or type your own"><span class="matching-input-status" id="matchLearnState"></span></div><small id="matchLearnHelp" class="match-field-help is-missing">Nothing is saved here yet. <a class="match-profile-link" href="profile.html#learning">Fill in your profile</a> to add skills for next time.</small></div>
+                    <div class="field"><label for="matchTeachSkills">I can teach <span class="muted">(optional)</span></label><div class="matching-input-shell"><input id="matchTeachSkills" name="teach_skills" data-multi-options="skills" autocomplete="off" placeholder="Add skills you can share"><span class="matching-input-status" id="matchTeachState"></span></div><small>Your additional languages are treated as skills here. A reciprocal fit can strengthen a recommendation but is never required.</small></div>
+                  </div>
+                  <div class="matching-form-section">
+                    <div class="matching-section-heading"><span class="matching-section-number">02</span><div><strong>Make it practical</strong><small>These details help us rank a useful first conversation.</small></div></div>
+                    <div class="grid-2">
+                    <div class="field"><label for="matchProficiency">My current level</label><select id="matchProficiency" name="proficiency">
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                        <option>Expert</option>
+                      </select></div>
+                    <div class="field"><label for="matchCategory">Skill category</label><select id="matchCategory" name="category">
+                        <option value="">All categories</option>
+                        <option>Technology</option>
+                        <option>Data</option>
+                        <option>Design</option>
+                        <option>Languages</option>
+                        <option>Creative</option>
+                        <option>Music</option>
+                        <option>Business</option>
+                        <option>Wellness</option>
+                        <option>Other skills</option>
+                      </select></div>
+                    </div>
+                    <div class="field"><label for="matchGoal">What outcome do you want?</label><textarea id="matchGoal" name="learning_goal" rows="4" placeholder="Describe what you want to be able to do after a few sessions."></textarea></div>
+                  </div>
+                  <div class="matching-form-section matching-form-section-preferences">
+                    <div class="matching-section-heading"><span class="matching-section-number">03</span><div><strong>Set your session preferences</strong><small>Optional details make recommendations feel more realistic.</small></div></div>
+                    <div class="grid-2">
+                    <div class="field"><label for="matchTeachingStyle">Preferred teaching style</label><select id="matchTeachingStyle" name="teaching_style">
+                        <option>Project-based</option>
+                        <option>Structured lessons</option>
+                        <option>Conversational</option>
+                        <option>Demonstration first</option>
+                        <option>Practice and feedback</option>
+                        <option>Flexible</option>
+                      </select></div>
+                    <div class="field"><label for="matchSessionFormat">Session format</label><select id="matchSessionFormat" name="session_format">
+                        <option>Remote or local</option>
+                        <option>Remote only</option>
+                        <option>Local only</option>
+                        <option>One-to-one sessions</option>
+                        <option>Group sessions</option>
+                        <option>Flexible</option>
+                      </select></div>
+                    </div>
+                    <div class="grid-2">
+                    <div class="field"><label for="matchTimezone">Your timezone</label><input id="matchTimezone" name="timezone" readonly aria-describedby="matchTimezoneHelp" placeholder="Set from your country"><small id="matchTimezoneHelp" class="match-timezone-help">Set automatically from your profile country. <a href="profile.html#preferences">Change country in profile</a>.</small></div>
+                    <div class="field"><label for="matchLanguages">Session languages</label><input id="matchLanguages" name="languages" data-multi-options="languages" placeholder="English, Hindi"></div>
+                    </div>
+                  </div>
+                  <div class="matching-form-section matching-form-section-submit">
+                    <label class="match-strict-toggle"><input id="matchStrict" name="strict_skill_match" type="checkbox"><span><strong>Prioritize exact skill fits</strong><small>Keep this off to see grouped skill families and broader discovery partners when an exact teacher is not available.</small></span></label>
+                    <label class="match-strict-toggle match-preference-toggle"><input id="matchDemographicPreferences" name="use_demographic_preferences" type="checkbox"><span><strong>Use optional age and gender preferences</strong><small>Off by default. When enabled, these preferences refine the order only; they never hide a member or expose private details.</small></span></label>
+                    <button class="btn btn-primary matching-submit" type="submit"><i class="bx bx-transfer-alt"></i> Find my swap</button>
+                  </div>
+                  <div class="form-status" id="matchingStatus" role="status" aria-live="polite"></div>
+                </form>
+                <div class="matching-weight-note"><i class="bx bx-info-circle"></i>
+                  <p><strong>Exact teaching fit leads the score.</strong> Related skill families can still connect useful people, while age and gender preferences remain opt-in and never exclude a useful swap.</p>
+                </div>
+              </aside>
+
+              <section class="matching-results-panel">
+                <div class="matching-results-head">
+                  <div><span class="portal-kicker">Real profile previews</span>
+                    <h2>Recommended members</h2>
+                    <p id="matchingResultSummary">Run the matcher to see who can teach what you want to learn.</p>
+                  </div>
+                  <div class="matching-view-tools"><span class="matching-result-state" id="matchingResultState"><i class="bx bx-sparkles"></i> Ready when you are</span><span class="availability-legend"><i class="bx bxs-circle"></i> Availability uses both calendars</span></div>
+                </div>
+                <div class="match-results-list" id="matchResults"></div>
+                <div class="match-empty-state" id="matchEmpty" hidden><span class="match-empty-icon"><i class="bx bx-radar"></i></span><span class="match-empty-kicker" id="matchEmptyKicker">Ready to search</span>
+                  <h3>No strong match found yet</h3>
+                  <p>Try a broader skill name, turn off exact-fit prioritisation, or add more languages and skills to your profile.</p>
+                  <div class="match-empty-checklist" aria-label="Matching checklist"><span><i class="bx bx-check"></i> Your saved profile is used first</span><span><i class="bx bx-check"></i> You can change every field</span><span><i class="bx bx-check"></i> Results explain their score</span></div>
+                  <div class="portal-empty-actions"><button class="btn btn-primary" id="broadenMatch" type="button">Broaden this search</button><a class="btn" href="calendar.html">Update availability</a><a class="btn" href="profile.html">Edit profile</a></div>
+                </div>
+              </section>
+            </div>
+
+            <section class="matching-method-section">
+              <div class="section-head center"><span class="portal-kicker">Transparent by design</span>
+                <h2>What each recommendation considers</h2>
+                  <p>Compatibility is recalculated from live account data whenever you search. Your secondary languages count as skills you can teach.</p>
+              </div>
+              <div class="matching-factor-grid">
+                <article><i class="bx bx-transfer"></i><strong>Grouped skill fit</strong><span>Primary factor</span>
+                  <p>Exact matches rise first, followed by skills in the same family such as web development, design, fitness, or languages. A reciprocal offer is helpful but never required.</p>
+                </article>
+                <article><i class="bx bx-target-lock"></i><strong>Goals &amp; interests</strong><span>Context boost</span>
+                  <p>Shared goals and interests help surface people who are likely to make the first conversation useful.</p>
+                </article>
+                <article><i class="bx bx-chalkboard"></i><strong>Teaching style</strong><span>Compatibility boost</span>
+                  <p>Project, structure, conversation, practice, or flexibility.</p>
+                </article>
+                <article><i class="bx bx-video"></i><strong>Session format</strong><span>Compatibility boost</span>
+                  <p>Remote, local, individual, group, or flexible sessions.</p>
+                </article>
+                <article><i class="bx bx-calendar-check"></i><strong>Schedule &amp; timezone</strong><span>Up to 8 points</span>
+                  <p>Shared weekly windows after timezone conversion.</p>
+                </article>
+                <article><i class="bx bx-world"></i><strong>Languages</strong><span>Up to 8 points</span>
+                  <p>Primary and additional languages can appear as teachable skills and shared session languages.</p>
+                </article>
+                <article><i class="bx bx-signal-5"></i><strong>Experience level</strong><span>Up to 5 points</span>
+                  <p>Whether the teacher’s listed level supports yours.</p>
+                </article>
+                <article><i class="bx bx-history"></i><strong>Exchange history</strong><span>Up to 6 points</span>
+                  <p>Completed sessions and member ratings, with a fair new-user state.</p>
+                </article>
+                <article><i class="bx bx-user-check"></i><strong>Optional preferences</strong><span>0–12 points</span>
+                  <p>Only when enabled by you, broad age-band and gender preferences can refine the order. They never block a member or reveal private details.</p>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+
+    <script src="scripts/swaplabs-dashboard.js?v=20261002-swap-matching3"></script>
+  </body>
+
+</html>

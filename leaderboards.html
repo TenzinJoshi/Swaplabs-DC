@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Leaderboards — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body data-platform-page="leaderboards">
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main>
+
+      <section class="page-hero">
+        <div class="container"><span class="eyebrow"><i class="bx bx-trophy"></i> Community recognition</span>
+          <h1>Meet the members with the most time credits.</h1>
+          <p>See the people who have built the strongest live credit balances through teaching, helping, and showing up for the community.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container feature-page-grid">
+          <div class="feature-panel">
+            <div class="panel-title">
+              <h2>Credit leaders</h2><span class="tag" id="leaderboardSeason">Live ranking</span>
+            </div>
+            <div class="data-list" id="creditsLeaderboard" aria-live="polite">
+              <div class="data-row"><i class="bx bx-loader-alt"></i>
+                <div><strong>Loading credit leaders</strong><small>Reading live member balances</small></div><span class="metric" style="font-size:1.25rem">...</span>
+              </div>
+            </div>
+          </div>
+          <aside class="feature-panel">
+            <h2>What are time credits?</h2>
+            <div class="metric" id="creditTotal">...</div>
+            <p class="muted">The live balance members earn by teaching and spend on sessions, resources, and help across SwapLabs.</p>
+            <div class="progress"><span id="creditProgress" style="width:0%"></span></div>
+            <div class="data-list" style="margin-top:18px">
+              <div class="data-row"><i class="bx bx-video"></i>
+                <div><strong>Teach and host</strong><small>Share useful skills with real members</small></div><strong>Earn</strong>
+              </div>
+                <div class="data-row"><i class="bx bx-like"></i>
+                <div><strong>Trade fairly</strong><small>Spend credits on sessions, resources, and help</small></div><strong>Spend</strong>
+              </div>
+              <div class="data-row"><i class="bx bx-book-content"></i>
+                <div><strong>Keep momentum</strong><small>Higher balances rise on the live board</small></div><strong>Climb</strong>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container grid-4">
+          <article class="card">
+            <h3>Exchange Power</h3>
+            <p>The board favors members with the strongest active time-credit balance.</p>
+          </article>
+          <article class="card">
+            <h3>Real Members</h3>
+            <p>Administrators and protected student accounts are kept off the public ranking.</p>
+          </article>
+          <article class="card">
+            <h3>Live Balance</h3>
+            <p>The list updates from the same account records that power member exchanges.</p>
+          </article>
+          <article class="card">
+            <h3>Fair Momentum</h3>
+            <p>Members can climb by earning more credits through useful participation.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+  </body>
+
+</html>

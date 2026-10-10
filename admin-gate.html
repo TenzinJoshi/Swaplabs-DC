@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Administrator access — SwapLabs</title>
+    <meta name="description" content="Protected SwapLabs administrator access checkpoint.">
+    <link rel="shortcut icon" type="image/png" href="logo.jpg">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/admin-gate.css?v=20260915-1">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body class="admin-gate-page">
+    <main class="admin-gate-shell">
+      <section class="admin-gate-card" aria-labelledby="adminGateTitle">
+        <div class="admin-gate-emblem" aria-hidden="true"><i class="bx bx-shield-quarter"></i></div>
+        <span class="admin-gate-eyebrow">Restricted workspace</span>
+        <h1 id="adminGateTitle">Enter the admin code</h1>
+        <p>Complete this private checkpoint to open the SwapLabs administrator workspace.</p>
+        <form id="adminGateForm" novalidate>
+          <label class="visually-hidden" for="adminGateCode">Enter the admin code</label>
+          <input id="adminGateCode" name="code" type="password" inputmode="text" autocomplete="one-time-code" required placeholder="Enter the admin code" autofocus>
+          <button class="btn btn-primary" type="submit"><i class="bx bx-lock-open-alt" aria-hidden="true"></i> Continue</button>
+          <div class="form-status" data-admin-gate-status role="status" aria-live="polite"></div>
+        </form>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/admin-gate.js?v=20260929-admin-gate-resilient1"></script>
+  </body>
+
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Courses — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/courses.css?v=20260925-courses1">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body class="courses-page">
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="courses.html" aria-current="page">Courses</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main data-courses-page>
+      <section class="course-hero">
+        <div class="container course-hero-grid">
+          <div>
+            <span class="eyebrow"><i class="bx bx-book-open"></i> Self-paced learning</span>
+            <h1>Teach one useful thing. Build a course people can return to.</h1>
+            <p>Browse public courses from the SwapLabs community or publish your own lessons for anyone to discover.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#publicCourses"><i class="bx bx-search-alt"></i> Browse public courses</a>
+              <a class="btn" href="#publishCourse"><i class="bx bx-cloud-upload"></i> Publish a course</a>
+            </div>
+          </div>
+          <aside class="course-hero-card">
+            <span class="course-hero-icon"><i class="bx bx-world"></i></span>
+            <span class="eyebrow">Open knowledge</span>
+            <h2>Public by choice.</h2>
+            <p>Choose Public when you are ready for anyone to discover the course. Save it as a Draft while you are still building.</p>
+            <div class="course-stat-row" aria-label="Course catalogue statistics">
+              <div><strong data-courses-stat="published">—</strong><span>public courses</span></div>
+              <div><strong data-courses-stat="lessons">—</strong><span>lessons shared</span></div>
+              <div><strong data-courses-stat="creators">—</strong><span>course creators</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section course-publish-section" id="publishCourse">
+        <div class="container">
+          <div class="course-auth-gate" data-course-auth-gate hidden>
+            <span class="icon-box indigo"><i class="bx bx-lock-alt"></i></span>
+            <div><span class="eyebrow">Members can publish</span><h2>Log in to share a course.</h2><p>Your course is always attached to your SwapLabs profile, so learners know who made it.</p></div>
+            <a class="btn btn-primary" href="login.html?next=courses.html%23publishCourse"><i class="bx bx-log-in"></i> Log in</a>
+          </div>
+
+          <div class="course-builder" data-course-builder hidden>
+            <div class="course-section-heading">
+              <div><span class="eyebrow"><i class="bx bx-cloud-upload"></i> Course builder</span><h2>Publish what you know.</h2><p>Add a clear outcome, a few lessons, and choose whether learners can find it today.</p></div>
+              <span class="course-builder-status"><i class="bx bx-check-circle"></i> You control visibility</span>
+            </div>
+            <form id="courseForm" class="course-form" novalidate>
+              <div class="course-form-grid">
+                <label class="course-field full"><span>Course title</span><input name="title" maxlength="120" required placeholder="e.g. Build your first personal website"><small>Use a title that tells learners exactly what they will make or understand.</small></label>
+                <label class="course-field full"><span>What will learners learn?</span><textarea name="description" maxlength="1800" required placeholder="Describe the outcome in a few friendly sentences."></textarea></label>
+                <label class="course-field"><span>Category</span><select name="category"><option>Technology</option><option>Creative practice</option><option>Languages</option><option>Professional</option><option>Wellbeing</option><option>Life skills</option><option>Other</option></select></label>
+                <label class="course-field"><span>Level</span><select name="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>All levels</option></select></label>
+                <label class="course-field"><span>Estimated time (hours)</span><input name="estimated_hours" type="number" min="0.5" max="100" step="0.5" value="1"></label>
+                <label class="course-field"><span>Course resource link <em>optional</em></span><input name="resource_url" type="url" maxlength="500" placeholder="https://…"><small>Add a hosted video, document, or resource page if you have one.</small></label>
+              </div>
+
+              <fieldset class="course-lessons-editor">
+                <legend>Lessons</legend>
+                <p class="course-help">Give learners a simple path. You can add more lessons before publishing.</p>
+                <div class="course-lesson-list" data-course-lessons>
+                  <div class="course-lesson-row" data-course-lesson>
+                    <div class="course-lesson-number">01</div>
+                    <div class="course-lesson-fields">
+                      <label class="course-field"><span>Lesson title</span><input name="lesson_title" maxlength="140" required placeholder="e.g. Choose your first project"></label>
+                      <label class="course-field"><span>Lesson summary <em>optional</em></span><textarea name="lesson_description" maxlength="600" placeholder="What will this lesson help someone do?"></textarea></label>
+                      <label class="course-field"><span>Lesson link <em>optional</em></span><input name="lesson_resource_url" type="url" maxlength="500" placeholder="https://…"></label>
+                    </div>
+                    <button class="course-remove-lesson" type="button" data-course-remove-lesson aria-label="Remove lesson" hidden><i class="bx bx-trash"></i></button>
+                  </div>
+                </div>
+                <button class="btn btn-soft btn-sm" type="button" data-course-add-lesson><i class="bx bx-plus"></i> Add another lesson</button>
+              </fieldset>
+
+              <fieldset class="course-visibility-options">
+                <legend>Who can find this course?</legend>
+                <div class="course-visibility-grid">
+                  <label class="course-visibility-option selected"><input type="radio" name="visibility" value="public" checked><span class="course-visibility-icon"><i class="bx bx-world"></i></span><span><strong>Publish publicly</strong><small>Anyone can discover the course and view its lessons.</small></span></label>
+                  <label class="course-visibility-option"><input type="radio" name="visibility" value="private"><span class="course-visibility-icon"><i class="bx bx-lock-alt"></i></span><span><strong>Save as draft</strong><small>Only you can see it until you publish it.</small></span></label>
+                </div>
+              </fieldset>
+
+              <div class="course-form-actions"><button class="btn btn-primary" type="submit"><i class="bx bx-cloud-upload"></i> Publish course</button><span class="form-status" data-course-status role="status" aria-live="polite"></span></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section course-catalogue-section" id="publicCourses">
+        <div class="container">
+          <div class="course-section-heading">
+            <div><span class="eyebrow"><i class="bx bx-world"></i> Public catalogue</span><h2>Courses shared by the community.</h2><p>Every course below has been intentionally published by its creator.</p></div>
+            <span class="course-result-pill" data-course-result-count>Loading courses…</span>
+          </div>
+          <div class="course-catalogue-filters"><label class="course-search-field"><i class="bx bx-search-alt"></i><span class="sr-only">Search courses</span><input type="search" data-courses-search placeholder="Search titles, topics, or creators" autocomplete="off"></label><label><span>Category</span><select data-courses-category><option value="all">All categories</option></select></label><button class="btn btn-soft" type="button" data-courses-clear><i class="bx bx-reset"></i> Clear</button></div>
+          <div class="course-grid" data-courses-list aria-live="polite"><div class="course-loading"><i class="bx bx-loader-alt bx-spin"></i> Loading public courses…</div></div>
+          <div class="course-empty" data-courses-empty hidden><i class="bx bx-book-open"></i><h3>No public courses match that search.</h3><p>Try another topic, or be the first person to publish a course in this catalogue.</p><a class="btn btn-primary" href="#publishCourse">Publish a course</a></div>
+        </div>
+      </section>
+
+      <section class="section course-my-section" data-my-courses-section hidden>
+        <div class="container">
+          <div class="course-section-heading"><div><span class="eyebrow"><i class="bx bx-folder-open"></i> Your courses</span><h2>Keep building your library.</h2><p>Drafts stay private. Published courses appear in the public catalogue.</p></div></div>
+          <div class="course-grid course-grid-mine" data-my-courses-list></div>
+          <div class="course-empty course-empty-mine" data-my-courses-empty hidden><i class="bx bx-pencil"></i><h3>You have not created a course yet.</h3><p>Start with one useful outcome and one lesson. You can add more as your course grows.</p><a class="btn btn-primary" href="#publishCourse">Start a course</a></div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/courses.js?v=20260925-courses1"></script>
+  </body>
+
+</html>

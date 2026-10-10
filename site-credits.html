@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Credits &amp; Acknowledgements — SwapLabs</title>
+  <meta name="description" content="The creator, AI disclosure, acknowledgements, tools and detailed technical explanation behind SwapLabs, a student project by Tenzin Gyatso Joshi.">
+  <link rel="icon" href="logo.jpg">
+  <link rel="stylesheet" href="swaplabs.css?v=20260830-7">
+  <link rel="stylesheet" href="styles/pages/site-credits.css?v=20260830-7">
+</head>
+<body>
+  <div data-site-header><header class="static-site-header"><a class="brand" href="swaplabs.html"><img src="logo.jpg" alt="SwapLabs logo"><span>SwapLabs</span></a><nav aria-label="Primary navigation"><a href="swaplabs.html">Home</a> <a href="browse-skills.html">Skills</a> <a href="terms.html">Terms</a></nav></header></div>
+  <main class="project-credits">
+    <header class="credits-hero container">
+      <span class="eyebrow">The people, ideas and tools behind the project</span>
+      <h1>One student. One week.<br><span class="gradient-text">An openly credited build.</span></h1>
+      <p class="credits-lead">SwapLabs is an independent student project created by <strong>Tenzin Gyatso Joshi</strong>, Class <strong>9-F</strong>, <strong>Seth Anandram Jaipuria School, Lucknow</strong>, with substantial AI assistance.</p>
+      <p>This page documents authorship, acknowledges help and explains how the website actually works. It is separate from the <a href="credits.html">time-credit ledger</a>.</p>
+    </header>
+    <div class="container credits-layout">
+      <aside class="credits-index">
+        <nav aria-label="On this credits page">
+          <strong>Inside the build</strong>
+          <a href="#creator">Creator &amp; contribution</a>
+          <a href="#thanks">Acknowledgements</a>
+          <a href="#architecture">How the site works</a>
+          <a href="#features">Feature walkthrough</a>
+          <a href="#live-data">Saved data and its limits</a>
+          <a href="#technology">Tools &amp; technologies</a>
+          <a href="#api-guide">API &amp; file guide</a>
+          <a href="#limits">Testing &amp; limitations</a>
+        </nav>
+      </aside>
+      <div class="credits-reading">
+        <section class="credits-section" id="creator" aria-labelledby="creatorTitle">
+          <span class="eyebrow">Creator’s account</span>
+          <h2 id="creatorTitle">Built independently, with help acknowledged.</h2>
+          <p>My name is <strong>Tenzin Gyatso Joshi</strong>. I am a student of Class <strong>9-F at Seth Anandram Jaipuria School, Lucknow</strong>. I built SwapLabs as my own independent project over <strong>one week</strong>. I wanted to explore how people could learn from one another by sharing practical skills instead of relying only on money.</p>
+          <p>I built the main website framework and initial structure myself, then used AI to help develop the rest of the experience: ideas, supporting pages and content, additional implementation, debugging, refinement and testing. “Independent” means I was the student creator directing this project—not that every line, asset or idea was produced without assistance.</p>
+          <div class="credits-contributions">
+            <article><h3>Approximately 40% — my contribution</h3><p>The initial website framework and main structure, project direction, deciding what to build, selecting and reviewing changes, and bringing the pieces together.</p></article>
+            <article><h3>Approximately 60% — AI assistance</h3><p>Supporting implementation and static page content, exploring ideas, debugging, code explanations, interface refinements and help with verification.</p></article>
+          </div>
+          <p class="credits-note">The one-week timeline and contribution split are the creator’s own account. The percentages are an approximate description of overall effort, not an independently measured count of code, hours or ownership. AI-generated work still requires human review; responsibility for the submitted project remains with its creator.</p>
+          <h3>What the week involved</h3>
+          <p>The build brought together a skill-exchange concept, an initial interface, linked pages, member accounts, a Python server, persistent records and repeated revisions. As features were added, the work also involved connecting forms to real storage, finding inconsistencies, correcting navigation and making the interface behave across screen sizes. The project remains a learning experience, not a claim that every production problem was solved in a week.</p>
+        </section>
+
+        <section class="credits-section" id="thanks" aria-labelledby="thanksTitle">
+          <span class="eyebrow">With gratitude</span>
+          <h2 id="thanksTitle">The support behind the work.</h2>
+          <p>I would like to thank my <strong>mentors and teachers</strong> for their guidance, encouragement and support in helping me reach this stage. Thank you to <strong>Seth Anandram Jaipuria School, Lucknow</strong>, for being part of my learning journey, and to the people who encouraged me to keep asking questions, improving the project and understanding what I was building.</p>
+          <div class="credits-tools">
+            <article><h3><a href="https://leonardo.ai/" target="_blank" rel="noopener noreferrer">Leonardo.Ai</a></h3><p>Credited by the creator for generating the SwapLabs logo used in the website’s branding. The logo was selected and incorporated into the project; this acknowledgement does not imply sponsorship.</p></article>
+            <article><h3><a href="https://www.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek</a></h3><p>Credited for idea generation and helping explore possible directions for the platform. Ideas were considered and selected as part of the creator’s own project decisions.</p></article>
+            <article><h3><a href="https://openai.com/codex/" target="_blank" rel="noopener noreferrer">OpenAI Codex</a></h3><p>Credited for AI-assisted implementation, supporting page content, debugging, refactoring, tests, interface fixes and explanations of how the code works. Its assistance also helped replace unsupported sample claims with recorded-data displays.</p></article>
+          </div>
+          <p>These are <strong>development tools</strong>. Their acknowledgement does not mean the running website sends user messages to Leonardo.Ai, DeepSeek or a cloud language model. SwapBot is a separate, locally implemented website guide.</p>
+        </section>
+
+        <section class="credits-section" id="architecture" aria-labelledby="architectureTitle">
+          <span class="eyebrow">From a click to a saved record</span>
+          <h2 id="architectureTitle">How SwapLabs works.</h2>
+          <p>SwapLabs uses a <strong>multi-page frontend</strong> and a <strong>Python Flask backend</strong>. Pages are ordinary HTML files. Shared CSS gives them a common appearance, and JavaScript adds navigation, preferences, forms, search and asynchronous updates. Flask serves both the pages and the application’s JSON API from the same address.</p>
+          <ol class="credits-flow">
+            <li><strong>Browser</strong><span>Loads HTML, shared styles and JavaScript.</span></li>
+            <li><strong>Request</strong><span>A form or interaction calls a same-origin API using Fetch.</span></li>
+            <li><strong>Flask</strong><span>Checks identity, permissions and inputs, then reads or updates records.</span></li>
+            <li><strong>Response</strong><span>Returns JSON; the interface renders the result or a clear error.</span></li>
+          </ol>
+          <h3>Why the server matters</h3>
+          <p>Opening an HTML file directly only opens the frontend. Account saving, messaging and other persistent features need the Flask application. The default local address is <code>http://127.0.0.1:8000</code>. Both frontend and API use relative, same-origin URLs, so a supported port change applies to the whole app rather than requiring separate API addresses.</p>
+          <h3>How records are stored</h3>
+          <p>The current datastore is a server-side JSON file, <code>data/users.json</code>. It contains account information and collections for the supported features. Uploads are stored separately on disk. The Python process uses a lock to coordinate access and writes through a temporary file followed by replacement. This reduces partially written files, but it is not a substitute for a transactional database across multiple server processes.</p>
+          <h3>What stays in the browser</h3>
+          <p>Some interface preferences and local helper state use <code>localStorage</code>. That storage belongs to the current browser and device; it is not account-wide cloud storage. Server-backed settings and records use API requests. The interface should not describe a local-only selection as a real enrollment, booking or submitted report.</p>
+        </section>
+
+        <section class="credits-section" id="features" aria-labelledby="featuresTitle">
+          <span class="eyebrow">The connected features</span>
+          <h2 id="featuresTitle">What happens inside the main workflows.</h2>
+          <h3>Accounts, profiles and preferences</h3>
+          <p>Registration and login are handled by the server. Passwords are checked using Werkzeug password-hashing utilities rather than stored as readable passwords. Flask’s signed session cookie identifies the session; signing protects integrity, not secrecy. Account and administrator permissions are checked on protected routes. Write requests use a CSRF token to help prevent another website from submitting actions through a signed-in browser.</p>
+          <p>Profiles store teaching skills, learning interests, location preferences, language, timezone and other settings. Visibility rules limit what another member can see. Profile editing shows unsaved changes, a saving state and confirmation after a successful response. A departure warning helps prevent accidental loss of edits; a failed save leaves the edits available to retry.</p>
+          <h3>Skill discovery and explainable matching</h3>
+          <p>Discovery reads public profile and offer records. Matching runs in Python and compares the learner’s needs with eligible members. It uses explicit rules rather than a trained recommendation model: skill fit, learning goal, teaching style, session format, schedule overlap, language, proficiency, session history and reliability. Each result includes the points awarded and explanations. These are compatibility scores, not a proven percentage chance of success.</p>
+          <p>The current maximum weights are 35 for skill fit, 10 each for goal, style and format, 15 for shared availability, 8 for language, 5 for proficiency, 4 for session history and 3 for reliability. A strict search can exclude weak skill matches. Availability comparisons use timezone-aware windows over the next eight days. Missing history is disclosed rather than replaced with invented reviews.</p>
+          <h3>Inbox, groups and safety</h3>
+          <p>Conversations and messages are persisted on the server. Access checks determine which participants can read a conversation or attachment. The interface supports operations such as unread indicators, typing updates, blocking, reporting and group management. Message updates use repeated HTTP requests rather than a WebSocket service. A report creates a record for administrator review; it is not an automatic guarantee of resolution.</p>
+          <p>Student-account safeguards include age-derived restrictions, private profile defaults and guardian-consent review fields. These are application safeguards, not proof of identity or a guarantee of safety. Administrators still need to review concerns and apply appropriate policies.</p>
+          <h3>Calendar, workshops and video</h3>
+          <p>Signed-in members can publish a workshop from <a href="workshops.html#hostWorkshop">Host a workshop</a>. The server checks the title, future start time, IANA timezone, duration, capacity and learning outcomes, and assigns the signed-in member as host. Each newly hosted workshop creates one shared calendar event and meeting thread. Reservations add attendees to that event; cancelling one place leaves other attendees booked. The host manages the schedule, cancellation and completion through Calendar, with changes reflected in the workshop listing. Existing workshops and accounts are retained.</p>
+          <p>Calendar records store participants, start and end times, timezone, reminders and changes. Times are normalized and converted for display. Workshop registration records capacity and attendance-related state. A background reminder worker creates platform notices when due. Calendar export uses ICS files and Google/Outlook event-composer links; it is not two-way OAuth calendar synchronization.</p>
+          <p>Video rooms use browser media APIs and WebRTC. Camera and microphone access require browser permission. Flask handles room permissions and exchanges connection-signaling data; peer connections carry the media. Network conditions can require configured STUN/TURN infrastructure, and large calls would require a different media-server architecture. A successful page load alone does not verify video connectivity on every network.</p>
+          <h3>Time credits and participation points</h3>
+          <p>Time credits are internal exchange units, not currency or a bank account. The ledger stores payments, earnings, adjustments and refunds with references and resulting balances. A transfer checks the amount and balance before recording the outgoing and incoming entries. Disputes are reviewed through administrator tools. Corrections create further entries rather than silently rewriting the original transaction. Merely passing a scheduled end time does not prove an exchange occurred or automatically settle a payment.</p>
+          <p>Participation points are separate from the time-credit balance. The current code includes a monthly member-point grant and rewards for supported participation actions. A rule such as a grant amount is a configured product rule—not a statistic claiming that people have already participated.</p>
+          <h3>Innovation, marketplace and learning records</h3>
+          <p>The innovation area stores member proposals, comments and support activity, with additional review handling for student submissions. Marketplace records support offers and purchases in internal credits. Funding pledges record expressions of support; no payment processor transfers money. The learning journal stores a member’s own reflections and practice minutes. Achievements are calculated from recorded account activity; they are not accredited certificates.</p>
+          <h3>Feedback, newsletters and administration</h3>
+          <p>Feedback is saved with a publication-permission choice. Public testimonials include only permitted public fields; an email address is not included in the public testimonial response. Newsletter sign-up validates the email and consent, saves it, and exposes the list only to administrators. The administrator can copy addresses and send updates manually. The website does not claim to have sent an email just because a subscription was recorded.</p>
+          <p>The admin panel provides account controls, content review, reports, disputes, recorded-data charts and the newsletter list. Administrative actions are logged. The charts are drawn using the browser’s Canvas API, with values calculated from records—not preset decorative datasets.</p>
+          <h3>SwapBot: a local website guide</h3>
+          <p>SwapBot matches questions to a local knowledge base of website topics using keywords and spelling similarity, then returns guidance and relevant links. It is not the same as the AI tools used to build this project. The current implementation does not use a general cloud language model for these answers, and it should not be treated as an expert or a source of verified personal advice.</p>
+        </section>
+
+        <section class="credits-section" id="live-data" aria-labelledby="liveDataTitle">
+          <span class="eyebrow">An honest data policy</span>
+          <h2 id="liveDataTitle">Recorded numbers, clear limits.</h2>
+          <p>Existing content, including starter workshops, ideas and feedback, is preserved and displayed. Public summary numbers come from <code>/api/platform/metrics</code>, and public record cards come from <code>/api/public/content</code>. Visible summaries refresh every 30 seconds while the page is active and refresh again when the user returns. This is polling-based freshness, not a claim of instant streaming.</p>
+          <dl class="credits-definitions">
+            <dt>Registered active accounts</dt><dd>Non-administrator accounts whose status is active; includes existing starter accounts. This is not a count of people currently online or recently active.</dd>
+            <dt>Publicly listed skills</dt><dd>Distinct skill names from eligible public profiles and published offers. This is a catalogue count, not a claim of verified expertise.</dd>
+            <dt>Countries</dt><dd>Distinct countries shared by eligible public profiles that permit location display. Private location details are not used for this public total.</dd>
+            <dt>Public groups and private group chats</dt><dd>Public community groups are counted separately from private inbox group chats. Private chat totals reveal no names, messages or members. A public group’s linked chat is not counted twice. All saved public groups remain available, including the original starter groups.</dd>
+            <dt>Confirmed completed sessions and hours</dt><dd>After a session’s scheduled end, its host or an administrator can confirm completion from Calendar’s “Awaiting confirmation” list. This records the confirmer and time, notifies participants and updates session counts, reputation and achievements. Repeated confirmation does not double-count. Hours use the scheduled start and end times, not independently measured attendance. Confirmation does not transfer credits, and completed records cannot be edited or cancelled.</dd>
+            <dt>Public feedback rating</dt><dd>The average of actual published site-feedback ratings with publication permission. It is not a teacher rating or a session-success rate.</dd>
+          </dl>
+          <p><strong>Zero means a measured empty collection.</strong> “No data yet” means an average has no ratings. “Unavailable” means the statistics request failed. “Compatibility error” means required statistics are missing or invalid: restart the updated server and refresh. Saved accounts and content are included regardless of starter IDs. These are counts of saved records, not claims that every entry is independently verified or organically created. Historical records are retained, not deleted.</p>
+          <p>Pages without a connected course catalogue, formal certification service or published resource collection state that limitation. Fabricated participation totals, outcomes, testimonials and progress bars have no place as evidence of actual activity.</p>
+        </section>
+
+        <section class="credits-section" id="technology" aria-labelledby="technologyTitle">
+          <span class="eyebrow">Built on shared technology</span>
+          <h2 id="technologyTitle">Tools, libraries and standards.</h2>
+          <dl class="credits-definitions">
+            <dt>HTML, CSS and JavaScript</dt><dd>The frontend uses native web technologies: semantic page structure, responsive Grid/Flexbox layouts, shared design tokens, DOM events and Fetch requests. It does not use React, Vue or Tailwind as its application framework.</dd>
+            <dt><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a></dt><dd>Runs the backend and application logic. Standard-library modules handle JSON, dates, timezones, files, CSV exports, random tokens, locks, temporary files and matching text. Python’s virtual environment and pip support isolated dependency installation.</dd>
+            <dt><a href="https://flask.palletsprojects.com/en/stable/" target="_blank" rel="noopener noreferrer">Flask and the Pallets projects</a></dt><dd>Flask supplies routing, requests, JSON responses, session support and static-file delivery. Werkzeug provides request-serving utilities and password hashing. Flask also depends on Jinja, MarkupSafe, ItsDangerous, Click and Blinker. Those dependencies are acknowledged even though this frontend primarily serves HTML files rather than rendering Jinja page templates.</dd>
+            <dt>Gunicorn and WSGI</dt><dd>Gunicorn is listed for supported production-style Python hosting. <code>wsgi.py</code> exposes the Flask app to a WSGI server. The local launchers use the Python application directly. The JSON datastore currently requires a single server process; adding workers is not a safe scaling shortcut.</dd>
+            <dt><a href="https://docs.python.org/3/library/zoneinfo.html" target="_blank" rel="noopener noreferrer">ZoneInfo, tzdata and the IANA timezone database</a></dt><dd>Timezone rules support profile validation, scheduling and overlap calculations. The tzdata dependency supplies timezone data where the operating system does not, including typical Windows setups.</dd>
+            <dt><a href="https://boxicons.com/" target="_blank" rel="noopener noreferrer">Boxicons</a> and jsDelivr</dt><dd>Boxicons 2.1.4 supplies interface icons through the jsDelivr CDN. This is an external asset request, not an AI API. An offline or blocked CDN may prevent icon fonts from loading. Typeface styling requests Inter with system-font fallbacks; no separate Google Fonts service is required by the current stylesheet.</dd>
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API" target="_blank" rel="noopener noreferrer">Browser APIs</a></dt><dd>Fetch communicates with Flask. FormData collects input and uploads. localStorage holds browser-local preferences. Canvas renders admin charts. MediaDevices and WebRTC support calls. ResizeObserver helps layout-aware navigation; the Clipboard API supports explicit copy actions. Browser capabilities and permissions affect availability.</dd>
+            <dt>JSON, HTTP, cookies and ICS</dt><dd>JSON carries API payloads and stores records. HTTP connects browser and server. Signed cookies support sessions. ICS exports calendar events. Google and Outlook links open their event-composer interfaces; they do not imply a connected account or background synchronization.</dd>
+            <dt>Development and testing tools</dt><dd>Python unittest and Flask’s test client exercise backend behavior using temporary records. Node.js runs JavaScript checks and focused tests; it is a development tool, not the website’s server. Codex’s browser tools assist with desktop/mobile viewport checks, screenshots and interaction testing. Shell tools support local startup and code inspection.</dd>
+          </dl>
+          <p class="credits-note">Third-party projects retain their own names, rights and licences. Acknowledgement is not a claim of endorsement or a replacement for licence compliance. No unverified payment, database, cloud-AI or analytics provider is listed as an active integration.</p>
+        </section>
+
+        <section class="credits-section" id="api-guide" aria-labelledby="apiTitle">
+          <span class="eyebrow">A map for understanding the code</span>
+          <h2 id="apiTitle">Where the pieces live.</h2>
+          <div class="credits-table-wrap"><table><caption>Main implementation areas</caption><thead><tr><th scope="col">File or area</th><th scope="col">Responsibility</th></tr></thead><tbody>
+            <tr><td><code>*.html</code></td><td>Individual pages, form markup and accessible structure.</td></tr>
+            <tr><td><code>swaplabs.css</code> and <code>styles/</code></td><td>Shared visual tokens, components, layout, page styling and the floating navigation.</td></tr>
+            <tr><td><code>scripts/swaplabs.js</code></td><td>Shared header/footer, preferences, metrics refresh and website-wide interactions.</td></tr>
+            <tr><td><code>swaplabs-auth.js</code></td><td>Authentication UI, profile editing, community views and administrator tools.</td></tr>
+            <tr><td><code>swaplabs-operations.js</code> and <code>swaplabs-video.js</code></td><td>Inbox, calendar, credit operations and browser call behavior.</td></tr>
+            <tr><td><code>swaplabs-platform.js</code>, <code>swaplabs-dashboard.js</code>, <code>swaplabs-community.js</code> and <code>swaplabs-extensions.js</code></td><td>Feature-specific forms, rendering, discovery and account workspaces.</td></tr>
+            <tr><td><code>swaplabs-live-data.js</code> and <code>swaplabs-content.js</code></td><td>Recorded public cards, empty/error states and live summary strips.</td></tr>
+            <tr><td><code>swaplabs_server.py</code></td><td>Flask routes, validation, permissions, persistence, matching and feature logic.</td></tr>
+            <tr><td><code>data/</code></td><td>Private application records and uploads. These are not public downloadable source examples.</td></tr>
+            <tr><td><code>requirements.txt</code>, launchers and <code>wsgi.py</code></td><td>Dependencies and entry points for local or supported hosted operation.</td></tr>
+            <tr><td><code>tests/</code> and <code>README.md</code></td><td>Regression checks and implementation/setup documentation.</td></tr>
+          </tbody></table></div>
+          <h3>The website’s own API</h3>
+          <p>The <code>/api/</code> routes are SwapLabs application endpoints—not a collection of external paid services. For example, <code>/api/auth/me</code> describes the current session, <code>/api/profile</code> saves profile changes, <code>/api/matches</code> computes matches, <code>/api/calendar</code> returns permitted calendar information, and <code>/api/credits</code> returns the signed-in member’s ledger. Administrator routes require administrator access.</p>
+          <p>Forms send structured requests, wait for a successful server response and then render the saved state. Validation errors should explain why a request was rejected. Private API responses must not be copied into public statistics or exposed merely to make a page appear busy.</p>
+        </section>
+
+        <section class="credits-section" id="limits" aria-labelledby="limitsTitle">
+          <span class="eyebrow">Still learning, still improving</span>
+          <h2 id="limitsTitle">What this project does not claim.</h2>
+          <p>Automated checks cover selected authentication, privacy, messaging, scheduling, credit, newsletter, matching and settings behaviors. Passing tests is useful evidence, but not a guarantee of security, accessibility, performance or compatibility on every device. Desktop and mobile viewport checks are not the same as a full real-device test programme.</p>
+          <p>The application currently uses a local, single-process JSON datastore, disk uploads, polling-based updates and a rule-based guide. A larger public service would need further work on database transactions, deployment, backups, monitoring, email delivery and recovery, abuse prevention, accessibility and video infrastructure. No formal certifications, paid subscriptions or unconnected integrations should be presented as working services.</p>
+          <p>AI helped accelerate the build, but it also required checking and correction. The purpose of this page is to make the contribution and implementation understandable—not to hide assistance or overstate what has been built.</p>
+          <p class="credits-signoff">Created by <strong>Tenzin Gyatso Joshi</strong><br>Class 9-F · Seth Anandram Jaipuria School, Lucknow<br>With thanks to my mentors, teachers and the tools that helped me learn.</p>
+          <a class="btn btn-primary" href="swaplabs.html">Explore SwapLabs</a>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div data-site-footer></div>
+  <script src="scripts/swaplabs.js?v=20260830-7"></script>
+</body>
+</html>

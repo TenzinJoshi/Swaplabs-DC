@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Log in — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Log in to your SwapLabs member profile or administrator workspace.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/account-flow-redesign.css?v=20261004-formonly1">
+    <link rel="stylesheet" href="styles/mobile-redesign.css?v=20261004-mobile-story4">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <main class="account-main auth-form-only-page" data-auth-page="login">
+      <section class="account-section">
+        <div class="container">
+          <div class="auth-layout">
+            <div class="auth-stack">
+              <div class="server-required" data-server-required><strong>Account service temporarily unavailable.</strong> Please try again shortly. Your account data is protected.</div>
+              <div class="current-session-banner" data-current-session hidden></div>
+
+              <form class="auth-card" id="memberLoginForm">
+                <div class="auth-card-head">
+                  <div><h2>Log in</h2><p>Use your username, registered email address, or phone number.</p></div><span class="auth-card-icon"><i class="bx bx-user"></i></span>
+                </div>
+                <div class="field"><label for="memberLogin">Username, email, phone, or administrator code</label><input id="memberLogin" name="login" autocomplete="username" aria-describedby="memberLoginHelp" required placeholder="Enter your username, email, phone, or admin code"><small id="memberLoginHelp">For administrator access, enter the code here and leave the password blank.</small></div>
+                <div class="field field-row-action"><label for="memberPassword">Password</label><div class="password-input-shell"><input id="memberPassword" name="password" type="password" autocomplete="current-password" minlength="6" placeholder="Enter your password"><button class="password-toggle" type="button" data-password-toggle="memberPassword" aria-label="Show password"><i class="bx bx-show"></i></button></div><small>Not needed when signing in with an administrator code.</small></div>
+                <div class="form-actions"><span class="muted">New to SwapLabs? <a href="register.html" style="color:var(--indigo);font-weight:700">Create an account</a><br><a href="organization.html" style="color:var(--indigo);font-weight:700">Register or manage an organisation</a></span><button class="btn btn-primary" type="submit"><i class="bx bx-log-in"></i> Log in</button></div>
+                <p><a href="forgot-password.html" style="color:#304dca;font-weight:750;text-decoration:underline;display:inline-flex;align-items:center;min-height:44px">Forgot password?</a></p>
+                <div class="form-status" data-status></div>
+                
+                
+                
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+  </body>
+
+</html>

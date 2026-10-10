@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Administration — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Protected SwapLabs account administration and moderation panel.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/workspace-dashboards.css?v=20260925-dashboard-ux2">
+  <link rel="stylesheet" href="styles/admin-layout.css?v=20261001-announcement-form1">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+  <link rel="stylesheet" href="styles/admin-redesign.css?v=20260929-admin-detail-scroll1">
+  <link rel="stylesheet" href="styles/moderation.css?v=20261002-moderation1">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/scroll-experience.css?v=20260929-scroll-chain1">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+      <link rel="stylesheet" href="styles/admin-charts.css?v=20261002-admincharts1">
+      <link rel="stylesheet" href="styles/admin-navigation.css?v=20261002-adminnav3">
+      <link rel="stylesheet" href="styles/admin-presence.css?v=20261005-presence1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body class="workspace-admin">
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+<header class="workspace-bar"><a class="workspace-brand" href="index.html"><img src="logo.jpg" alt=""><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><button class="workspace-menu" type="button" aria-label="Toggle sidebar" aria-expanded="true"><i class="bx bx-menu"></i></button><label class="workspace-search"><i class="bx bx-search"></i><input type="search" id="workspaceSectionSearch" placeholder="Find an admin section…" aria-label="Find an admin section"></label><div class="workspace-tools"><button type="button" class="workspace-theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode"><i class="bx bx-moon"></i></button><a href="notifications.html" aria-label="Open inbox"><i class="bx bx-bell"></i></a><a href="profile.html" class="workspace-profile"><i class="bx bx-user-circle"></i><span>My profile</span></a><button type="button" class="workspace-logout" aria-label="Log out"><i class="bx bx-log-out"></i></button></div></header>
+    <main class="admin-main" data-auth-page="admin">
+
+      <section class="admin-topbar">
+        <div class="container admin-title-row">
+          <div class="admin-title-copy"><span class="eyebrow">Operations studio</span>
+            <h1 id="adminPageTitle">Command center</h1>
+            <p id="adminPageSubtitle">Workspace / Live overview</p>
+          </div>
+          <div class="admin-topbar-meta" aria-label="Workspace status">
+            <span class="admin-live-badge"><i class="bx bx-pulse"></i><span>Live workspace</span></span>
+            <span class="admin-sync-note"><i class="bx bx-refresh"></i><span>Data refreshes automatically</span></span>
+          </div>
+          <a class="btn admin-profile-button" href="profile.html"><i class="bx bx-user-circle"></i><span>My admin profile</span></a>
+        </div>
+      </section>
+
+      <section class="account-section" id="adminGate">
+        <div class="container">
+          <div class="server-required" data-server-required><strong>Account service temporarily unavailable.</strong> Please try again shortly. Administrator data is protected.</div>
+          <div class="profile-locked auth-card admin-access-card">
+            <i class="bx bx-shield-quarter"></i>
+            <h2>Administrator checkpoint required</h2>
+            <p class="muted">Administrator access can only be opened from the main SwapLabs login checkpoint.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-dashboard" id="adminDashboard" hidden>
+        <div class="container">
+          <nav id="workspaceSidebar" class="admin-section-nav" aria-label="Administration sections">
+            <details class="admin-nav-group" data-admin-nav-group="overview" open>
+              <summary class="admin-nav-group-label"><span>Overview &amp; analytics</span><i class="bx bx-chevron-down" aria-hidden="true"></i></summary>
+              <div class="admin-nav-group-buttons">
+              <button class="active" type="button" data-admin-section-target="overview" title="Open the admin overview"><i class="bx bx-grid-alt"></i><span>Overview</span></button>
+              <button type="button" data-admin-section-target="presence" data-admin-focus="adminPresencePanel" title="See users active right now"><i class="bx bx-group"></i><span>Users online now</span></button>
+              <button type="button" data-admin-section-target="presence-today" data-admin-focus="adminPresenceTodayPanel" title="See users active today"><i class="bx bx-calendar-check"></i><span>Users online today</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="adminInsights" title="Open platform insights"><i class="bx bx-pulse"></i><span>Platform insights</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="adminAnalytics" title="Open detailed account analytics"><i class="bx bx-bar-chart-alt-2"></i><span>Detailed analytics</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="adminRedrawCharts" title="Redraw the analytics charts"><i class="bx bx-refresh"></i><span>Redraw charts</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartStatus" title="View account status"><i class="bx bx-doughnut-chart"></i><span>Account status</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartVisibility" title="View profile visibility"><i class="bx bx-lock-open-alt"></i><span>Profile visibility</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartExchangeMix" title="View teaching and learning coverage"><i class="bx bx-transfer-alt"></i><span>Knowledge exchange</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartProfileCoverage" title="View profile signals"><i class="bx bx-radar"></i><span>Profile signals</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartAges" title="View member age distribution"><i class="bx bx-bar-chart"></i><span>Age distribution</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartCountries" title="View countries represented"><i class="bx bx-world"></i><span>Countries represented</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartLanguages" title="View primary languages"><i class="bx bx-message-rounded-dots"></i><span>Primary languages</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartCredits" title="View credit distribution"><i class="bx bx-time-five"></i><span>Credit distribution</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartInventory" title="View community inventory"><i class="bx bx-layer"></i><span>Community inventory</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartOccupations" title="View occupations and roles"><i class="bx bx-briefcase-alt-2"></i><span>Occupations &amp; roles</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartSkills" title="View skills across the community"><i class="bx bx-bulb"></i><span>Community skills</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartGrowth" title="View account growth"><i class="bx bx-line-chart"></i><span>Account growth</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartVerification" title="View verification coverage"><i class="bx bx-badge-check"></i><span>Verification coverage</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartModeration" title="View moderation workload"><i class="bx bx-shield-quarter"></i><span>Moderation workload</span></button>
+              <button type="button" data-admin-section-target="overview" data-admin-focus="chartCompleteness" title="View profile completeness"><i class="bx bx-user-check"></i><span>Profile completeness</span></button>
+              </div>
+            </details>
+            <details class="admin-nav-group" data-admin-nav-group="account">
+              <summary class="admin-nav-group-label"><span>Account operations</span><i class="bx bx-chevron-down" aria-hidden="true"></i></summary>
+              <div class="admin-nav-group-buttons">
+              <button type="button" data-admin-section-target="records" data-admin-focus="adminAccountRecords" title="Browse account records"><i class="bx bx-id-card"></i><span>Member directory</span></button>
+              <button type="button" data-admin-section-target="records" data-admin-focus="adminAccountFilters" title="Search, filter, and sort accounts"><i class="bx bx-filter-alt"></i><span>Search &amp; filters</span></button>
+              <button type="button" data-admin-section-target="records" data-admin-focus="adminBulkBar" title="Apply bulk account actions"><i class="bx bx-list-check"></i><span>Bulk account actions</span></button>
+              <button type="button" data-admin-section-target="records" data-admin-focus="adminExportAccounts" title="Export filtered account records"><i class="bx bx-download"></i><span>Export accounts</span></button>
+              <button type="button" data-admin-section-target="records" data-admin-focus="adminDetail" title="Open account details and controls"><i class="bx bx-edit-alt"></i><span>Account details &amp; controls</span></button>
+              <button type="button" data-admin-section-target="create-account" data-admin-focus="adminCreateAccountForm" title="Create a new member account"><i class="bx bx-user-plus"></i><span>Create account</span></button>
+              </div>
+            </details>
+            <details class="admin-nav-group" data-admin-nav-group="communications">
+              <summary class="admin-nav-group-label"><span>Communications</span><i class="bx bx-chevron-down" aria-hidden="true"></i></summary>
+              <div class="admin-nav-group-buttons">
+              <button type="button" data-admin-section-target="messages" data-admin-focus="adminNotificationForm" title="Send an in-app announcement"><i class="bx bx-bell-plus"></i><span>Announcements</span></button>
+              <button type="button" data-admin-section-target="messages" data-admin-focus="adminMessageForm" title="Send a direct message"><i class="bx bx-send"></i><span>Direct messages</span></button>
+              <button type="button" data-admin-section-target="messages" data-admin-focus="adminMessageFilters" title="Message a filtered audience"><i class="bx bx-group"></i><span>Filtered outreach</span></button>
+              <button type="button" data-admin-section-target="newsletter" data-admin-focus="adminNewsletterRows" title="Review newsletter subscribers"><i class="bx bx-envelope"></i><span>Newsletter subscribers</span></button>
+              <a class="admin-nav-feature-link" href="notifications.html" title="Open the complete inbox"><i class="bx bx-conversation"></i><span>Full inbox</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              </div>
+            </details>
+            <details class="admin-nav-group" data-admin-nav-group="trust">
+              <summary class="admin-nav-group-label"><span>Trust, review &amp; support</span><i class="bx bx-chevron-down" aria-hidden="true"></i></summary>
+              <div class="admin-nav-group-buttons">
+              <button type="button" data-admin-section-target="reports"><i class="bx bx-shield-quarter"></i><span>Safety reports</span><small data-queue-count="reports"></small></button>
+              <button type="button" data-admin-section-target="disputes"><i class="bx bx-transfer"></i><span>Credit disputes</span><small data-queue-count="disputes"></small></button>
+              <button type="button" data-admin-section-target="submissions"><i class="bx bx-inbox"></i><span>Submissions</span><small data-queue-count="submissions"></small></button>
+              <button type="button" data-admin-section-target="ideas"><i class="bx bx-bulb"></i><span>Innovation review</span><small data-queue-count="ideas"></small></button>
+              <button type="button" data-admin-section-target="activity"><i class="bx bx-pulse"></i><span>Member activity</span><small data-queue-count="activity"></small></button>
+              <button type="button" data-admin-section-target="moderation"><i class="bx bx-shield-quarter"></i><span>Moderation queue</span><small data-moderation-count></small></button>
+              <button type="button" data-admin-section-target="moderation" data-admin-focus="moderationRulesTitle" title="Manage blocked words and phrases"><i class="bx bx-block"></i><span>Blocked words &amp; phrases</span></button>
+              <button type="button" data-admin-section-target="moderation" data-admin-focus="moderationAuditTitle" title="Review the moderation audit"><i class="bx bx-history"></i><span>Moderation audit</span></button>
+              <button type="button" data-admin-section-target="support"><i class="bx bx-support"></i><span>Support hub</span></button>
+              <a class="admin-nav-feature-link" href="help-center.html" title="Open the Help center"><i class="bx bx-support"></i><span>Help center</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              <a class="admin-nav-feature-link" href="contact.html" title="Open Contact us"><i class="bx bx-envelope"></i><span>Contact us</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              <a class="admin-nav-feature-link" href="complaint.html" title="Open Complaints"><i class="bx bx-message-square-error"></i><span>Complaints</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              <a class="admin-nav-feature-link" href="feedback.html" title="Open Feedback"><i class="bx bx-message-square-dots"></i><span>Feedback</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              <a class="admin-nav-feature-link" href="student-safety.html" title="Open Student safety"><i class="bx bx-shield-quarter"></i><span>Student safety</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              <a class="admin-nav-feature-link" href="report.html" title="Open Reports"><i class="bx bx-flag"></i><span>Reports</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              </div>
+            </details>
+            <details class="admin-nav-group" data-admin-nav-group="records">
+              <summary class="admin-nav-group-label"><span>Records &amp; oversight</span><i class="bx bx-chevron-down" aria-hidden="true"></i></summary>
+              <div class="admin-nav-group-buttons">
+              <button type="button" data-admin-section-target="ledger"><i class="bx bx-wallet"></i><span>Credit ledger</span><small data-queue-count="ledger"></small></button>
+              <button type="button" data-admin-section-target="sessions"><i class="bx bx-calendar"></i><span>Sessions</span><small data-queue-count="sessions"></small></button>
+              <button type="button" data-admin-section-target="audit" data-admin-focus="adminAudit"><i class="bx bx-history"></i><span>Audit log</span></button>
+              <a class="admin-nav-feature-link" href="profile.html" title="Open the administrator profile"><i class="bx bx-user-circle"></i><span>Admin profile</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+              </div>
+            </details>
+          </nav>
+
+          <section class="admin-dashboard-section active" data-admin-section="overview">
+            <div class="admin-section-heading">
+              <div><span class="eyebrow">Overview</span>
+                <h2>At a glance</h2>
+              </div><button class="btn btn-sm" id="adminRedrawCharts" type="button"><i class="bx bx-bar-chart-alt-2"></i> Redraw charts</button>
+            </div>
+            <div class="admin-command-strip">
+              <div class="admin-command-copy"><span class="eyebrow">Live operations</span><h2>Keep SwapLabs moving.</h2><p>Review members, credit movement, safety queues, and conversations from one calm control room.</p></div>
+              <div class="admin-command-actions"><a class="btn btn-primary" href="admin.html?section=records"><i class="bx bx-user"></i> Review members</a><a class="btn" href="admin.html?section=messages"><i class="bx bx-send"></i> Message members</a></div>
+              <div class="admin-command-status"><span class="admin-status-dot"></span><strong>Live data</strong><small>Account records and queues sync from the database.</small></div>
+            </div>
+            <label class="admin-section-search"><i class="bx bx-search"></i><input id="adminOverviewSearch" type="search" placeholder="Search people reflected in overview charts"></label>
+
+            <div class="admin-stat-grid">
+              <div class="admin-stat"><i class="bx bx-user"></i><strong id="statTotal">0</strong><span>Total accounts</span></div>
+              <div class="admin-stat"><i class="bx bx-group"></i><strong id="statMembers">0</strong><span>Member accounts</span></div>
+              <div class="admin-stat"><i class="bx bx-check-circle"></i><strong id="statActive">0</strong><span>Active accounts</span></div>
+              <div class="admin-stat"><i class="bx bx-block"></i><strong id="statSuspended">0</strong><span>Suspended</span></div>
+              <div class="admin-stat"><i class="bx bx-badge-check"></i><strong id="statVerified">0</strong><span>Verified profiles</span></div>
+              <div class="admin-stat"><i class="bx bx-time-five"></i><strong id="statCredits">0</strong><span>Total time credits</span></div>
+            </div>
+
+            <details class="admin-extra-insights" id="adminInsights"><summary>Platform insights <span>Engagement, learning, and credit activity</span></summary><section class="admin-insights-panel" aria-labelledby="adminInsightsTitle">
+              <div class="admin-insights-head"><div><span class="eyebrow">Advanced platform analytics</span><h2 id="adminInsightsTitle">See where the community is moving</h2><p>Operational, learning, safety, and exchange signals calculated from saved records.</p></div><span class="admin-live-pill"><i class="bx bx-pulse"></i> Live snapshot</span></div>
+              <div class="admin-insights-grid">
+                <article><span><i class="bx bx-line-chart"></i> Engagement</span><strong data-advanced-stat="engagement_rate">0%</strong><small data-advanced-detail="engaged_members">0 engaged members</small></article>
+                <article><span><i class="bx bx-user-check"></i> Profile health</span><strong data-advanced-stat="average_profile_completeness">0%</strong><small>average profile completeness</small></article>
+                <article><span><i class="bx bx-calendar-check"></i> Completed learning</span><strong data-advanced-stat="completed_session_hours">0h</strong><small>confirmed session hours</small></article>
+                <article><span><i class="bx bx-wallet"></i> Credit flow</span><strong data-advanced-stat="credits_earned">0</strong><small data-advanced-detail="credits_spent">0 credits spent</small></article>
+                <article><span><i class="bx bx-time-five"></i> Scheduled</span><strong data-advanced-stat="sessions_scheduled">0</strong><small data-advanced-detail="sessions_completed">0 completed sessions</small></article>
+                <article><span><i class="bx bx-shield-quarter"></i> Active recently</span><strong data-advanced-stat="active_last_30_days">0</strong><small>members updated in 30 days</small></article>
+              </div>
+              <div class="admin-insights-foot"><div><strong>Most represented skills</strong><div class="admin-skill-summary" data-admin-top-skills><span>No skill data yet</span></div></div><div class="admin-insight-content"><strong>Platform inventory</strong><span data-advanced-detail="content_summary">0 ideas · 0 groups · 0 conversations · 0 feedback records</span></div></div>
+            </section>
+
+            </details>
+
+            <details class="admin-analytics admin-analytics-collapsible" id="adminAnalytics" open>
+              <summary><span><i class="bx bx-bar-chart-alt-2"></i><strong>Detailed account analytics</strong><small>Charts and distributions from saved member records</small></span><b>Expand charts <i class="bx bx-chevron-down"></i></b></summary>
+              <div class="admin-analytics-content">
+            <div class="admin-analytics-head">
+              <div><span class="eyebrow">Live account analytics</span>
+                <h2>Community data from every saved account</h2>
+                <p>Charts update whenever profiles, visibility, follows, credits, or account status changes. Every entered value remains available in the detailed data lists.</p>
+              </div>
+            </div>
+            <p class="muted">Charts use registered member records, excluding known demo accounts and administrator profiles. Demographic fields are self-reported; no missing values are invented.</p>
+            <div class="admin-chart-grid">
+              <article class="chart-card">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Account status</h3>
+                    <p>Active and suspended accounts</p>
+                  </div><i class="bx bx-doughnut-chart"></i>
+                </div><canvas id="chartStatus" height="150" aria-label="Account status doughnut chart"></canvas>
+                <div class="chart-legend" id="legendStatus"></div>
+              </article>
+              <article class="chart-card">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Profile visibility</h3>
+                    <p>Public and private member settings</p>
+                  </div><i class="bx bx-lock-open-alt"></i>
+                </div><canvas id="chartVisibility" height="150" aria-label="Profile visibility doughnut chart"></canvas>
+                <div class="chart-legend" id="legendVisibility"></div>
+              </article>
+              <article class="chart-card">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Knowledge exchange</h3>
+                    <p>Teaching and learning coverage</p>
+                  </div><i class="bx bx-transfer-alt"></i>
+                </div><canvas id="chartExchangeMix" height="150" aria-label="Knowledge exchange coverage bar chart"></canvas>
+                <div class="chart-data-list" id="dataExchangeMix"></div>
+              </article>
+              <article class="chart-card">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Profile signals</h3>
+                    <p>Details that improve matching</p>
+                  </div><i class="bx bx-radar"></i>
+                </div><canvas id="chartProfileCoverage" height="150" aria-label="Profile coverage bar chart"></canvas>
+                <div class="chart-data-list" id="dataProfileCoverage"></div>
+              </article>
+              <article class="chart-card wide">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Member age distribution</h3>
+                    <p>Every supported age grouped into readable bands</p>
+                  </div><i class="bx bx-bar-chart"></i>
+                </div><canvas id="chartAges" height="170" aria-label="Age distribution bar chart"></canvas>
+                <div class="chart-data-list" id="dataAges"></div>
+              </article>
+              <article class="chart-card wide">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Countries represented</h3>
+                    <p>All user-entered country values</p>
+                  </div><i class="bx bx-world"></i>
+                </div><canvas id="chartCountries" height="170" aria-label="Country distribution horizontal bar chart"></canvas>
+                <div class="chart-data-list" id="dataCountries"></div>
+              </article>
+              <article class="chart-card">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Primary languages</h3>
+                    <p>Languages selected by members</p>
+                  </div><i class="bx bx-message-rounded-dots"></i>
+                </div><canvas id="chartLanguages" height="150" aria-label="Primary language bar chart"></canvas>
+                <div class="chart-data-list" id="dataLanguages"></div>
+              </article>
+              <article class="chart-card">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Credit distribution</h3>
+                    <p>Time-credit balance ranges</p>
+                  </div><i class="bx bx-time-five"></i>
+                </div><canvas id="chartCredits" height="150" aria-label="Time credit distribution bar chart"></canvas>
+                <div class="chart-data-list" id="dataCredits"></div>
+              </article>
+              <article class="chart-card wide">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Community inventory</h3>
+                    <p>People and activity signals in one view</p>
+                  </div><i class="bx bx-layer"></i>
+                </div><canvas id="chartInventory" height="170" aria-label="Community inventory bar chart"></canvas>
+                <div class="chart-data-list" id="dataInventory"></div>
+              </article>
+              <article class="chart-card wide">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Occupations and roles</h3>
+                    <p>All professional values represented in profiles</p>
+                  </div><i class="bx bx-briefcase-alt-2"></i>
+                </div><canvas id="chartOccupations" height="190" aria-label="Occupation horizontal bar chart"></canvas>
+                <div class="chart-data-list" id="dataOccupations"></div>
+              </article>
+              <article class="chart-card wide">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Skills across the community</h3>
+                    <p>Teaching and learning interests combined</p>
+                  </div><i class="bx bx-bulb"></i>
+                </div><canvas id="chartSkills" height="190" aria-label="Community skills horizontal bar chart"></canvas>
+                <div class="chart-data-list" id="dataSkills"></div>
+              </article>
+              <article class="chart-card full">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Account growth timeline</h3>
+                    <p>Cumulative registrations over time</p>
+                  </div><i class="bx bx-line-chart"></i>
+                </div><canvas id="chartGrowth" height="190" aria-label="Account growth line chart"></canvas>
+                <div class="chart-data-list" id="dataGrowth"></div>
+              </article>
+              <article class="chart-card">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Verification coverage</h3>
+                    <p>Verified and unverified accounts</p>
+                  </div><i class="bx bx-badge-check"></i>
+                </div><canvas id="chartVerification" height="150" aria-label="Account verification doughnut chart"></canvas>
+                <div class="chart-legend" id="legendVerification"></div>
+              </article>
+              <article class="chart-card">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Moderation workload</h3>
+                    <p>Account labels needing attention</p>
+                  </div><i class="bx bx-shield-quarter"></i>
+                </div><canvas id="chartModeration" height="150" aria-label="Moderation label doughnut chart"></canvas>
+                <div class="chart-legend" id="legendModeration"></div>
+              </article>
+              <article class="chart-card wide">
+                <div class="chart-card-head">
+                  <div>
+                    <h3>Profile completeness</h3>
+                    <p>Members grouped by completed core profile fields</p>
+                  </div><i class="bx bx-user-check"></i>
+                </div><canvas id="chartCompleteness" height="170" aria-label="Profile completeness bar chart"></canvas>
+                <div class="chart-data-list" id="dataCompleteness"></div>
+              </article>
+            </div>
+              </div>
+            </details>
+          </section>
+
+          <section class="admin-dashboard-section" data-admin-section="presence" id="adminPresencePanel">
+            <div class="admin-section-heading">
+              <div><span class="eyebrow">Current activity</span>
+                <h2>Users online now</h2>
+                <p>Signed-in users who sent a heartbeat in the last hour. This list refreshes automatically.</p>
+              </div>
+              <div class="admin-work-actions">
+                <span id="adminPresenceLastUpdated" aria-live="polite">Not refreshed yet</span>
+                <a class="btn btn-sm" href="admin.html?section=presence-today"><i class="bx bx-calendar-check"></i> Users online today</a>
+                <button class="btn btn-sm" id="adminPresenceRefresh" type="button"><i class="bx bx-refresh"></i> Refresh</button>
+              </div>
+            </div>
+            <div class="admin-presence-summary">
+              <div class="admin-stat"><i class="bx bx-group"></i><strong id="adminPresenceCount">0</strong><span>Online now</span></div>
+              <div class="admin-stat"><i class="bx bx-user"></i><strong id="adminPresenceMemberCount">0</strong><span>Members</span></div>
+              <div class="admin-stat"><i class="bx bx-shield-quarter"></i><strong id="adminPresenceAdminCount">0</strong><span>Administrators</span></div>
+            </div>
+            <section class="admin-panel admin-presence-panel" aria-labelledby="adminPresenceTitle">
+              <div class="admin-panel-head">
+                <div><h2 id="adminPresenceTitle">Live user list</h2>
+                  <span id="adminPresenceStatus" role="status" aria-live="polite">Loading current users…</span></div>
+                <span id="adminPresenceResultCount">0 users</span>
+              </div>
+              <label class="admin-section-search"><i class="bx bx-search"></i><input id="adminPresenceSearch" type="search" placeholder="Search names, usernames, or pages" aria-label="Search users online now"></label>
+              <div id="adminPresenceList" class="admin-presence-list" aria-live="polite"></div>
+            </section>
+          </section>
+
+          <section class="admin-dashboard-section" data-admin-section="presence-today" id="adminPresenceTodayPanel">
+            <div class="admin-section-heading">
+              <div><span class="eyebrow">Daily activity</span>
+                <h2>Users online today</h2>
+                <p>Signed-in users who were active at least once since local midnight. This list includes users who have since gone offline.</p>
+              </div>
+              <div class="admin-work-actions">
+                <span id="adminPresenceTodayLastUpdated" aria-live="polite">Not refreshed yet</span>
+                <button class="btn btn-sm" id="adminPresenceTodayRefresh" type="button"><i class="bx bx-refresh"></i> Refresh</button>
+              </div>
+            </div>
+            <div class="admin-presence-summary">
+              <div class="admin-stat"><i class="bx bx-calendar-check"></i><strong id="adminPresenceTodayCount">0</strong><span>Online today</span></div>
+              <div class="admin-stat"><i class="bx bx-group"></i><strong id="adminPresenceTodayNowCount">0</strong><span>Online now</span></div>
+              <div class="admin-stat"><i class="bx bx-user"></i><strong id="adminPresenceTodayMemberCount">0</strong><span>Members</span></div>
+            </div>
+            <section class="admin-panel admin-presence-panel" aria-labelledby="adminPresenceTodayTitle">
+              <div class="admin-panel-head">
+                <div><h2 id="adminPresenceTodayTitle">Today’s user list</h2>
+                  <span id="adminPresenceTodayStatus" role="status" aria-live="polite">Loading today’s users…</span></div>
+                <span id="adminPresenceTodayResultCount">0 users</span>
+              </div>
+              <label class="admin-section-search"><i class="bx bx-search"></i><input id="adminPresenceTodaySearch" type="search" placeholder="Search names, usernames, or pages" aria-label="Search users online today"></label>
+              <div id="adminPresenceTodayList" class="admin-presence-list" aria-live="polite"></div>
+            </section>
+          </section>
+
+          <section class="admin-dashboard-section" data-admin-section="messages" id="adminMessages">
+            <div class="admin-section-heading">
+              <div><span class="eyebrow">Member outreach</span>
+                <h2>Message anyone in the community</h2>
+                <p>Start a direct, accountable conversation from the administrator account.</p>
+              </div><a class="btn" href="notifications.html"><i class="bx bx-conversation"></i> Open full inbox</a>
+            </div>
+            <form class="admin-panel admin-announcement-composer" id="adminNotificationForm">
+              <div class="admin-panel-head"><div><h2>Send an in-app announcement</h2><span>Write a custom notification that appears in members’ Notifications panel.</span></div><i class="bx bx-bell-plus"></i></div>
+              <div class="admin-message-body">
+                <div class="admin-control-grid admin-notification-basics">
+                  <div class="field"><label for="adminNotificationTitle">Notification title</label><input id="adminNotificationTitle" name="title" type="text" maxlength="120" required placeholder="e.g. New learning rooms are open"><small>Shown as the notification heading.</small></div>
+                  <div class="field"><label for="adminNotificationAudience">Audience</label><select id="adminNotificationAudience" name="audience"><option value="all">All active members</option><option value="filtered">Choose a filtered audience</option></select><small>Administrators and inactive accounts are excluded. Members with messaging restrictions can still receive announcements.</small></div>
+                </div>
+                <fieldset class="admin-message-filters admin-notification-filters" id="adminNotificationFilters" hidden>
+                  <legend>Choose who should receive it</legend>
+                  <div class="admin-control-grid admin-notification-filter-grid">
+                    <div class="field"><label for="adminNoticeMinAge">Minimum age</label><input id="adminNoticeMinAge" name="min_age" type="number" min="3" max="120" placeholder="Any"></div>
+                    <div class="field"><label for="adminNoticeMaxAge">Maximum age</label><input id="adminNoticeMaxAge" name="max_age" type="number" min="3" max="120" placeholder="Any"></div>
+                    <div class="field"><label for="adminNoticeCountry">Country contains</label><input id="adminNoticeCountry" name="country" maxlength="120" placeholder="e.g. India"></div>
+                    <div class="field"><label for="adminNoticeTimezone">Timezone contains</label><input id="adminNoticeTimezone" name="timezone" maxlength="120" placeholder="e.g. Kolkata"></div>
+                    <div class="field"><label for="adminNoticeMinCredits">Minimum credits</label><input id="adminNoticeMinCredits" name="min_credits" type="number" min="0" placeholder="Any"></div>
+                    <div class="field"><label for="adminNoticeMaxCredits">Maximum credits</label><input id="adminNoticeMaxCredits" name="max_credits" type="number" min="0" placeholder="Any"></div>
+                    <div class="field"><label for="adminNoticeVerified">Verification</label><select id="adminNoticeVerified" name="verified"><option value="">Any</option><option value="verified">Verified only</option><option value="unverified">Unverified only</option></select></div>
+                    <div class="field"><label for="adminNoticeJoinedAfter">Joined on or after</label><input id="adminNoticeJoinedAfter" name="joined_after" type="date"></div>
+                    <div class="field"><label for="adminNoticeJoinedBefore">Joined on or before</label><input id="adminNoticeJoinedBefore" name="joined_before" type="date"></div>
+                    <div class="field"><label for="adminNoticeActiveWithin">Active within (days)</label><input id="adminNoticeActiveWithin" name="active_within_days" type="number" min="1" max="3650" placeholder="Any"></div>
+                    <div class="field"><label for="adminNoticeInactiveFor">Inactive for at least (days)</label><input id="adminNoticeInactiveFor" name="inactive_for_days" type="number" min="1" max="3650" placeholder="Any"></div>
+                    <div class="field"><label for="adminNoticeTeachingSkills">Teaching skills</label><select id="adminNoticeTeachingSkills" name="teaching_skills"><option value="">Any profile</option><option value="has">Has teaching skills</option><option value="none">No teaching skills listed</option></select></div>
+                  </div>
+                  <p class="admin-filter-note"><i class="bx bx-info-circle"></i> Filters combine together. At least one filter is required for a filtered send. Notifications cannot be recalled after sending.</p>
+                </fieldset>
+                <div class="field"><label for="adminNotificationMessage">Notification message</label><textarea id="adminNotificationMessage" name="message" maxlength="1500" rows="4" required placeholder="Write the announcement members will see in their notification panel."></textarea><small><span id="adminNotificationCount">0</span>/1500 characters</small></div>
+                <div class="form-actions end"><button class="btn btn-primary" id="adminNotificationSubmit" type="submit"><i class="bx bx-bell-plus"></i> Send announcement</button></div>
+                <div class="form-status" data-status role="status" aria-live="polite"></div>
+              </div>
+            </form>
+            <section class="admin-static-analytics" data-static-analytics="messages" aria-label="Messaging analytics"></section>
+            <div class="admin-message-layout">
+              <form class="admin-panel admin-message-composer" id="adminMessageForm">
+                <div class="admin-panel-head"><div><h2>New message</h2><span>Recipients receive this in their SwapLabs inbox</span></div><i class="bx bx-send"></i></div>
+                <div class="admin-message-body">
+                  <div class="field"><label for="adminMessageMode">Message audience</label><select id="adminMessageMode" name="message_mode"><option value="direct">One member</option><option value="filtered">Filtered members</option></select><small>Use filtered outreach for a single message to a carefully defined active audience.</small></div>
+                  <div id="adminMessageDirectFields">
+                    <div class="field"><label for="adminMessageRecipientSearch">Find a recipient</label><div class="admin-recipient-search"><i class="bx bx-search"></i><input id="adminMessageRecipientSearch" type="search" placeholder="Search name, username, or email" autocomplete="off"></div></div>
+                    <div class="admin-recipient-list" id="adminMessageRecipients" role="listbox" aria-label="Message recipients"></div>
+                    <input id="adminMessageRecipient" name="target_user_id" type="hidden">
+                    <div class="admin-selected-recipient" id="adminSelectedRecipient" hidden></div>
+                  </div>
+                  <fieldset class="admin-message-filters" id="adminMessageFilters" hidden>
+                    <legend>Advanced member filters</legend>
+                    <div class="admin-control-grid">
+                      <div class="field"><label for="adminMessageMinAge">Minimum age</label><input id="adminMessageMinAge" name="min_age" type="number" min="13" max="120" placeholder="Any"></div>
+                      <div class="field"><label for="adminMessageMaxAge">Maximum age</label><input id="adminMessageMaxAge" name="max_age" type="number" min="13" max="120" placeholder="Any"></div>
+                      <div class="field"><label for="adminMessageTimezone">Timezone contains</label><input id="adminMessageTimezone" name="timezone" maxlength="120" placeholder="e.g. Kolkata"></div>
+                      <div class="field"><label for="adminMessageCountry">Country contains</label><input id="adminMessageCountry" name="country" maxlength="120" placeholder="e.g. India"></div>
+                      <div class="field"><label for="adminMessageMinCredits">Minimum credits</label><input id="adminMessageMinCredits" name="min_credits" type="number" min="0" placeholder="Any"></div>
+                      <div class="field"><label for="adminMessageMaxCredits">Maximum credits</label><input id="adminMessageMaxCredits" name="max_credits" type="number" min="0" placeholder="Any"></div>
+                      <div class="field"><label for="adminMessageVerified">Verification</label><select id="adminMessageVerified" name="verified"><option value="">Any member</option><option value="verified">Verified only</option><option value="unverified">Unverified only</option></select></div>
+                    </div>
+                    <p class="admin-filter-note"><i class="bx bx-info-circle"></i> Suspended, restricted, and administrator accounts are excluded automatically. Bulk sends are capped at 500 members.</p>
+                  </fieldset>
+                  <div class="field"><label for="adminMessageBody">Message</label><textarea id="adminMessageBody" name="body" maxlength="4000" rows="7" placeholder="Write a clear message and include any action the member should take." required></textarea><small><span id="adminMessageCount">0</span>/4000 characters</small></div>
+                  <div class="form-actions end"><button class="btn btn-primary" id="adminMessageSubmit" type="submit"><i class="bx bx-send"></i> Send message</button></div>
+                  <div class="form-status" data-status></div>
+                </div>
+              </form>
+              <aside class="admin-message-guide">
+                <span class="admin-message-guide-icon"><i class="bx bx-shield-quarter"></i></span>
+                <h3>Thoughtful admin outreach</h3>
+                <p>Messages are delivered from the protected administrator account and recorded in the audit log.</p>
+                <ul><li>Be specific about the reason for contact.</li><li>Avoid including private moderation notes.</li><li>Use Student safety for safeguarding concerns.</li></ul>
+              </aside>
+            </div>
+          </section>
+
+          <section class="admin-dashboard-section" data-admin-section="create-account">
+            <div class="admin-section-heading">
+              <div><span class="eyebrow">Account provisioning</span><h2>Create a new member ID</h2><p>Set up a secure member login, starter credits, and a complete profile from one protected form.</p></div>
+              <span class="admin-section-heading-badge"><i class="bx bx-shield-quarter"></i> Admin only</span>
+            </div>
+            <section class="admin-static-analytics" data-static-analytics="create-account" aria-label="Account provisioning analytics"></section>
+            <div class="admin-create-layout">
+              <form class="admin-panel admin-create-form" id="adminCreateAccountForm">
+                <div class="admin-panel-head"><div><h2>New member credentials</h2><span>The account ID is generated automatically after saving.</span></div><i class="bx bx-id-card"></i></div>
+                <div class="admin-create-form-body">
+                  <div class="admin-create-group"><span class="admin-create-group-title">Login details</span><div class="admin-control-grid"><div class="field"><label for="adminCreateUsername">Username</label><input id="adminCreateUsername" name="username" minlength="3" maxlength="30" pattern="[A-Za-z0-9._-]+" autocomplete="off" required placeholder="e.g. alex.rivera"></div><div class="field"><label for="adminCreateEmail">Email address</label><input id="adminCreateEmail" name="email" type="email" maxlength="120" autocomplete="off" required placeholder="alex@example.com"></div><div class="field"><label for="adminCreatePassword">Temporary password</label><input id="adminCreatePassword" name="password" type="password" minlength="6" autocomplete="new-password" required placeholder="6+ characters"><small>Use uppercase, lowercase, a number, and a symbol.</small></div><div class="field"><label for="adminCreateCredits">Starting time credits</label><input id="adminCreateCredits" name="starting_credits" type="number" min="0" max="100" value="30"><small>Defaults to the 30-credit signup amount; administrators can set a different starting balance.</small></div></div></div>
+                  <div class="admin-create-group"><span class="admin-create-group-title">Member profile</span><div class="admin-control-grid"><div class="field"><label for="adminCreateFirstName">First name</label><input id="adminCreateFirstName" name="first_name" maxlength="60" required></div><div class="field"><label for="adminCreateLastName">Last name</label><input id="adminCreateLastName" name="last_name" maxlength="60" required></div><div class="field"><label for="adminCreateDisplayName">Display name</label><input id="adminCreateDisplayName" name="display_name" maxlength="80" required></div><div class="field"><label for="adminCreatePhone">Phone number <span class="muted">(optional)</span></label><input id="adminCreatePhone" name="phone_number" type="tel" inputmode="tel" autocomplete="tel" maxlength="32" placeholder="+91 98765 43210"></div><div class="field"><label for="adminCreateDob">Date of birth</label><input id="adminCreateDob" name="date_of_birth" type="date" required><small>Age and account type are set automatically from the date of birth.</small></div><div class="field"><label for="adminCreateCountry">Country</label><select id="adminCreateCountry" name="country" data-country-select required><option value="">Choose a country</option></select></div><div class="field"><label for="adminCreateCity">City</label><input id="adminCreateCity" name="city" maxlength="80"></div><div class="field"><label for="adminCreateLanguage">Primary language</label><input id="adminCreateLanguage" name="primary_language" maxlength="60" value="English" required></div><div class="field"><label for="adminCreateOccupation">Occupation or role</label><input id="adminCreateOccupation" name="occupation" maxlength="100"></div><div class="field full"><label for="adminCreateHeadline">Short headline</label><input id="adminCreateHeadline" name="headline" maxlength="140" placeholder="What this member can help with"></div><div class="field full"><label for="adminCreateBio">Bio</label><textarea id="adminCreateBio" name="bio" maxlength="700" rows="3" placeholder="A short, useful introduction"></textarea></div><div class="field"><label for="adminCreateTeach">Skills to teach</label><input id="adminCreateTeach" name="skills_to_teach" placeholder="Python, writing"></div><div class="field"><label for="adminCreateLearn">Skills to learn</label><input id="adminCreateLearn" name="skills_to_learn" placeholder="Design, Spanish"></div><div class="field"><label for="adminCreateTimezone">Timezone</label><select id="adminCreateTimezone" name="timezone" data-country-timezone-select required><option value="UTC">UTC</option></select></div><div class="field"><label for="adminCreateAvailability">Availability</label><input id="adminCreateAvailability" name="availability" placeholder="Weekday evenings"></div></div></div>
+                  <div class="admin-create-group admin-create-guardian"><span class="admin-create-group-title">Student safety (required for under-13 accounts)</span><div class="admin-control-grid"><div class="field"><label for="adminCreateGuardianName">Guardian name</label><input id="adminCreateGuardianName" name="guardian_name" maxlength="120"></div><div class="field"><label for="adminCreateGuardianEmail">Guardian email</label><input id="adminCreateGuardianEmail" name="guardian_email" type="email" maxlength="120"></div><div class="field"><label for="adminCreateGuardianRelationship">Relationship</label><select id="adminCreateGuardianRelationship" name="guardian_relationship"><option value="">Select if applicable</option><option>parent</option><option>legal guardian</option><option>grandparent</option><option>adult sibling</option><option>foster carer</option><option>other guardian</option></select></div><label class="check-row"><input name="guardian_consent_declared" type="checkbox"><span><strong>Guardian consent has been declared</strong><span>Required before creating an under-13 account.</span></span></label></div></div>
+                  <div class="form-actions end"><button class="btn btn-primary" type="submit"><i class="bx bx-user-plus"></i> Create member ID</button></div>
+                  <div class="form-status" data-status role="status" aria-live="polite"></div><div class="admin-created-account" id="adminCreatedAccount" hidden></div>
+                </div>
+              </form>
+              <aside class="admin-panel admin-create-guide"><span class="admin-create-guide-icon"><i class="bx bx-key"></i></span><h3>How IDs work</h3><p>Each account receives a unique internal ID such as <code>usr_a1b2c3d4</code>. Members sign in with the username or email you set here.</p><ul><li>Passwords are hashed before they are stored and cannot be viewed later.</li><li>Use the member record’s reset control to issue a one-time temporary password.</li><li>New accounts start with a private audit trail and welcome notification.</li><li>Under-13 profiles stay private and require guardian details.</li></ul><a class="btn btn-sm" href="register.html">View the member registration flow <i class="bx bx-right-arrow-alt"></i></a></aside>
+            </div>
+          </section>
+
+          <section class="admin-dashboard-section" data-admin-section="records" id="adminRecordsSection">
+            <div class="admin-section-heading">
+              <div><span class="eyebrow">Records</span>
+                <h2>Member account controls</h2>
+              </div><button class="btn" id="adminRefresh" type="button"><i class="bx bx-refresh"></i> Refresh data</button>
+            </div>
+            <div class="admin-panel admin-toolbar" id="adminAccountFilters">
+            <div class="admin-filters"><input class="search-input" id="adminSearch" placeholder="Search name, username, email, phone, country, or skill"><select id="adminStatusFilter">
+                <option value="all">All statuses</option>
+                <option value="active">Active</option>
+                <option value="suspended">Suspended</option>
+              </select><select id="adminRoleFilter">
+                <option value="all">All roles</option>
+                <option value="member">Members</option>
+                <option value="admin">Administrators</option>
+              </select><div class="admin-extra-filters"><select id="adminPriorityFilter">
+                <option value="all">All accounts</option>
+                <option value="review">Needs review</option>
+                <option value="risk">High risk</option>
+                <option value="verified">Verified</option>
+                <option value="recent">Recently updated</option>
+              </select></div></div>
+            </div>
+            <div class="admin-record-tools"><label>Sort accounts<select id="adminAccountSort"><option value="updated">Recently updated</option><option value="name">Name A–Z</option><option value="credits">Highest credits</option><option value="joined">Newest accounts</option></select></label><button class="btn btn-sm" id="adminExportAccounts" type="button">Export filtered accounts</button></div><div class="admin-bulk-bar" id="adminBulkBar"><label><input id="adminSelectVisible" type="checkbox"> Select visible</label><strong id="adminSelectedCount">0 selected</strong><select id="adminBulkAction"><option value="">Bulk action…</option><option value="mark_review">Mark needs review</option><option value="mark_trusted">Mark trusted</option><option value="verify">Verify profiles</option><option value="suspend">Suspend for 24 hours</option><option value="activate">Reactivate</option><option value="restrict_messaging">Restrict messaging</option><option value="restore_messaging">Restore messaging</option></select><button class="btn btn-sm" id="adminApplyBulk" type="button" disabled>Apply</button></div>
+            <div class="admin-workspace">
+
+            <section class="admin-panel" id="adminAccountRecords">
+              <div class="admin-panel-head">
+                <h2>Account records</h2><span id="adminResultCount">0 records</span>
+              </div>
+              <div class="admin-table-scroll">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th><span class="sr-only">Select</span></th>
+                      <th>Account</th>
+                      <th>Role</th>
+                      <th>Status</th>
+                      <th>Location</th>
+                      <th>Phone</th>
+                      <th>Credits</th>
+                      <th>Updated</th>
+                    </tr>
+                  </thead>
+      <tbody id="adminUserRows"></tbody>
+                </table>
+              </div>
+            </section>
+            <aside class="admin-panel admin-detail" id="adminDetail">
+              <div class="admin-detail-empty"><i class="bx bx-id-card"></i><strong>Select an account</strong>
+                <p>Complete account data and administration controls will appear here.</p>
+              </div>
+            </aside>
+            </div>
+          </section>
+
+<section class="admin-dashboard-section" data-admin-section="reports" data-workspace="reports">
+      <div class="admin-section-heading"><div><span class="eyebrow">Administration</span><h2>Safety reports</h2><p>Review reported messages, inspect captured evidence, and apply account actions.</p></div><div class="admin-work-actions"><button class="btn btn-sm" type="button" data-work-refresh>Refresh</button><button class="btn btn-sm" type="button" data-work-export disabled>Export CSV</button></div></div>
+      <div class="admin-panel admin-work-filters"><label>Search<input type="search" data-work-search placeholder="Search safety reports" aria-label="Search safety reports"></label><label>Status<select data-work-status><option value="all">All statuses</option></select></label><label>Sort<select data-work-sort><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name / title</option></select></label><strong data-work-count>Loading…</strong></div>
+      <p class="admin-work-status" data-work-status-message role="status" aria-live="polite"></p>
+      <div class="admin-workbench"><div class="admin-panel admin-work-list" data-work-list></div><aside class="admin-panel admin-work-detail" data-work-detail><div class="admin-detail-empty"><i class="bx bx-shield-quarter"></i><strong>Select a record</strong><p>Details and available actions appear here.</p></div></aside></div>
+    </section><section class="admin-dashboard-section" data-admin-section="disputes" data-workspace="disputes">
+      <div class="admin-section-heading"><div><span class="eyebrow">Administration</span><h2>Credit disputes</h2><p>Review disputed payments and record full, partial, or denied refunds.</p></div><div class="admin-work-actions"><button class="btn btn-sm" type="button" data-work-refresh>Refresh</button><button class="btn btn-sm" type="button" data-work-export disabled>Export CSV</button></div></div>
+      <div class="admin-panel admin-work-filters"><label>Search<input type="search" data-work-search placeholder="Search credit disputes" aria-label="Search credit disputes"></label><label>Status<select data-work-status><option value="all">All statuses</option></select></label><label>Sort<select data-work-sort><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name / title</option></select></label><strong data-work-count>Loading…</strong></div>
+      <p class="admin-work-status" data-work-status-message role="status" aria-live="polite"></p>
+      <div class="admin-workbench"><div class="admin-panel admin-work-list" data-work-list></div><aside class="admin-panel admin-work-detail" data-work-detail><div class="admin-detail-empty"><i class="bx bx-transfer"></i><strong>Select a record</strong><p>Details and available actions appear here.</p></div></aside></div>
+    </section><section class="admin-dashboard-section" data-admin-section="submissions" data-workspace="submissions">
+      <div class="admin-section-heading"><div><span class="eyebrow">Administration</span><h2>Submissions</h2><p>Manage contact requests, complaints, feedback, workshops, and registrations.</p></div><div class="admin-work-actions"><button class="btn btn-sm" type="button" data-work-refresh>Refresh</button><button class="btn btn-sm" type="button" data-work-export disabled>Export CSV</button></div></div>
+      <div class="admin-panel admin-work-filters"><label>Search<input type="search" data-work-search placeholder="Search submissions" aria-label="Search submissions"></label><label>Collection<select data-work-collection><option value="contacts">Contact requests</option><option value="complaints">Complaints</option><option value="feedback">Feedback</option><option value="workshops">Workshops</option><option value="registrations">Registrations</option></select></label><label>Status<select data-work-status><option value="all">All statuses</option></select></label><label>Sort<select data-work-sort><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name / title</option></select></label><strong data-work-count>Loading…</strong></div>
+      <p class="admin-work-status" data-work-status-message role="status" aria-live="polite"></p>
+      <div class="admin-workbench"><div class="admin-panel admin-work-list" data-work-list></div><aside class="admin-panel admin-work-detail" data-work-detail><div class="admin-detail-empty"><i class="bx bx-inbox"></i><strong>Select a record</strong><p>Details and available actions appear here.</p></div></aside></div>
+    </section><section class="admin-dashboard-section" data-admin-section="ideas" data-workspace="ideas">
+      <div class="admin-section-heading"><div><span class="eyebrow">Administration</span><h2>Innovation review</h2><p>Review student safety queues and moderate ideas in the Innovation Lab.</p></div><div class="admin-work-actions"><button class="btn btn-sm" type="button" data-work-refresh>Refresh</button><button class="btn btn-sm" type="button" data-work-export disabled>Export CSV</button></div></div>
+      <div class="admin-panel admin-work-filters"><label>Search<input type="search" data-work-search placeholder="Search innovation review" aria-label="Search innovation review"></label><label>Status<select data-work-status><option value="all">All statuses</option></select></label><label>Sort<select data-work-sort><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name / title</option></select></label><strong data-work-count>Loading…</strong></div>
+      <p class="admin-work-status" data-work-status-message role="status" aria-live="polite"></p>
+      <div class="admin-workbench"><div class="admin-panel admin-work-list" data-work-list></div><aside class="admin-panel admin-work-detail" data-work-detail><div class="admin-detail-empty"><i class="bx bx-bulb"></i><strong>Select a record</strong><p>Details and available actions appear here.</p></div></aside></div>
+    </section><section class="admin-dashboard-section" data-admin-section="activity" data-workspace="activity">
+      <div class="admin-section-heading"><div><span class="eyebrow">Administration</span><h2>Member activity</h2><p>Find accounts with open reports and review messaging, calendar, and credit activity.</p></div><div class="admin-work-actions"><button class="btn btn-sm" type="button" data-work-refresh>Refresh</button><button class="btn btn-sm" type="button" data-work-export disabled>Export CSV</button></div></div>
+      <div class="admin-panel admin-work-filters"><label>Search<input type="search" data-work-search placeholder="Search member activity" aria-label="Search member activity"></label><label>Status<select data-work-status><option value="all">All statuses</option></select></label><label>Sort<select data-work-sort><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name / title</option></select></label><strong data-work-count>Loading…</strong></div>
+      <p class="admin-work-status" data-work-status-message role="status" aria-live="polite"></p>
+      <div class="admin-workbench"><div class="admin-panel admin-work-list" data-work-list></div><aside class="admin-panel admin-work-detail" data-work-detail><div class="admin-detail-empty"><i class="bx bx-pulse"></i><strong>Select a record</strong><p>Details and available actions appear here.</p></div></aside></div>
+    </section><section class="admin-dashboard-section" data-admin-section="ledger" data-workspace="ledger">
+      <div class="admin-section-heading"><div><span class="eyebrow">Administration</span><h2>Credit ledger</h2><p>Inspect the latest 500 credit entries and export filtered records.</p></div><div class="admin-work-actions"><button class="btn btn-sm" type="button" data-work-refresh>Refresh</button><button class="btn btn-sm" type="button" data-work-export disabled>Export CSV</button></div></div>
+      <div class="admin-panel admin-work-filters"><label>Search<input type="search" data-work-search placeholder="Search credit ledger" aria-label="Search credit ledger"></label><label>Status<select data-work-status><option value="all">All statuses</option></select></label><label>Sort<select data-work-sort><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name / title</option></select></label><strong data-work-count>Loading…</strong></div>
+      <p class="admin-work-status" data-work-status-message role="status" aria-live="polite"></p>
+      <div class="admin-workbench"><div class="admin-panel admin-work-list" data-work-list></div><aside class="admin-panel admin-work-detail" data-work-detail><div class="admin-detail-empty"><i class="bx bx-wallet"></i><strong>Select a record</strong><p>Details and available actions appear here.</p></div></aside></div>
+    </section><section class="admin-dashboard-section" data-admin-section="sessions" data-workspace="sessions">
+      <div class="admin-section-heading"><div><span class="eyebrow">Administration</span><h2>Sessions</h2><p>Monitor scheduled, completed, and cancelled sessions across the platform.</p></div><div class="admin-work-actions"><button class="btn btn-sm" type="button" data-work-refresh>Refresh</button><button class="btn btn-sm" type="button" data-work-export disabled>Export CSV</button></div></div>
+      <div class="admin-panel admin-work-filters"><label>Search<input type="search" data-work-search placeholder="Search sessions" aria-label="Search sessions"></label><label>Status<select data-work-status><option value="all">All statuses</option></select></label><label>Sort<select data-work-sort><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name / title</option></select></label><strong data-work-count>Loading…</strong></div>
+      <p class="admin-work-status" data-work-status-message role="status" aria-live="polite"></p>
+      <div class="admin-workbench"><div class="admin-panel admin-work-list" data-work-list></div><aside class="admin-panel admin-work-detail" data-work-detail><div class="admin-detail-empty"><i class="bx bx-calendar"></i><strong>Select a record</strong><p>Details and available actions appear here.</p></div></aside></div>
+    </section>
+          <section class="admin-dashboard-section" data-admin-section="support">
+            <div class="admin-section-heading admin-support-heading">
+              <div class="admin-support-title"><span class="admin-support-icon"><i class="bx bx-support"></i></span><div><span class="eyebrow">6 destinations</span><h2>Support</h2><p>Get help, contact the team, or review feedback and reports.</p></div></div>
+            </div>
+            <section class="admin-static-analytics" data-static-analytics="support" aria-label="Support analytics"></section>
+            <section class="admin-support-queue" data-admin-support-queue hidden aria-live="polite" aria-label="Support queue details"></section>
+            <div class="admin-support-grid">
+              <a class="admin-support-card" href="help-center.html"><i class="bx bx-support"></i><span><strong>Help center</strong><small>Open help center</small></span><i class="bx bx-chevron-right"></i></a>
+              <a class="admin-support-card" href="contact.html"><i class="bx bx-envelope"></i><span><strong>Contact us</strong><small>Open contact us</small></span><i class="bx bx-chevron-right"></i></a>
+              <a class="admin-support-card" href="complaint.html"><i class="bx bx-message-square-error"></i><span><strong>Complaints</strong><small>Open complaints</small></span><i class="bx bx-chevron-right"></i></a>
+              <a class="admin-support-card" href="feedback.html"><i class="bx bx-message-square-dots"></i><span><strong>Feedback</strong><small>Open feedback</small></span><i class="bx bx-chevron-right"></i></a>
+              <a class="admin-support-card" href="student-safety.html"><i class="bx bx-shield-quarter"></i><span><strong>Student safety</strong><small>Open student safety</small></span><i class="bx bx-chevron-right"></i></a>
+              <a class="admin-support-card" href="report.html"><i class="bx bx-flag"></i><span><strong>Report</strong><small>Open report</small></span><i class="bx bx-chevron-right"></i></a>
+            </div>
+          </section>
+
+          <section class="admin-dashboard-section" data-admin-section="moderation">
+            <div class="admin-section-heading moderation-heading">
+              <div><span class="eyebrow">Trust &amp; safety</span><h2>Pending Moderation</h2><p>Flagged submissions stay private until you approve them. Approved items publish through their normal platform flow.</p></div>
+              <button class="btn btn-sm" type="button" data-moderation-refresh><i class="bx bx-refresh"></i> Refresh queue</button>
+            </div>
+            <p class="moderation-status" data-moderation-status role="status" aria-live="polite"></p>
+            <div class="moderation-layout">
+              <section class="admin-panel moderation-queue-panel" aria-labelledby="moderationQueueTitle">
+                <div class="admin-panel-head"><h3 id="moderationQueueTitle">Waiting for review</h3><span data-moderation-queue-count>Loading…</span></div>
+                <div class="moderation-queue" data-moderation-queue></div>
+              </section>
+              <section class="admin-panel moderation-rules-panel" aria-labelledby="moderationRulesTitle">
+                <div class="admin-panel-head"><div><h3 id="moderationRulesTitle">Blocked words &amp; phrases</h3><p>Private platform-wide rules. Edits apply to new submissions immediately.</p></div></div>
+                <form class="moderation-rule-form" data-moderation-rule-form>
+                  <label for="moderationPhrase">Add a word or phrase</label>
+                  <div class="moderation-rule-entry"><input id="moderationPhrase" name="phrase" type="text" maxlength="120" required autocomplete="off" placeholder="Enter a word or phrase"><button class="btn btn-primary" type="submit">Add rule</button></div>
+                </form>
+                <div class="moderation-rule-list" data-moderation-rule-list></div>
+              </section>
+            </div>
+            <section class="admin-panel moderation-audit-panel" aria-labelledby="moderationAuditTitle">
+              <div class="admin-panel-head"><div><h3 id="moderationAuditTitle">Moderation audit</h3><p>Every automated hold and administrator decision is recorded.</p></div><button class="btn btn-sm" type="button" data-moderation-audit-refresh>Refresh</button></div>
+              <div class="moderation-audit-list" data-moderation-audit></div>
+            </section>
+          </section>
+
+          <section class="admin-dashboard-section" data-admin-section="newsletter" id="adminNewsletter">
+            <div class="admin-section-heading">
+              <div><span class="eyebrow">Manual mailing list</span><h2>Newsletter subscribers</h2><p>These visitors agreed to receive newsletter updates. Send emails from your own email app; SwapLabs does not send them automatically. Use BCC for group emails to keep addresses private.</p></div>
+              <button class="btn btn-sm" id="adminNewsletterRefresh" type="button">Refresh list</button>
+            </div>
+            <section class="admin-static-analytics" data-static-analytics="newsletter" aria-label="Newsletter analytics"></section>
+            <section class="admin-panel">
+              <div class="admin-panel-head"><strong id="adminNewsletterCount">Loading subscribers…</strong><button class="btn btn-sm" id="adminNewsletterCopy" type="button" disabled>Copy listed emails</button></div>
+              <label class="admin-section-search"><i class="bx bx-search"></i><input id="adminNewsletterSearch" type="search" placeholder="Search subscriber emails" aria-label="Search subscriber emails"></label>
+              <p id="adminNewsletterStatus" role="status" aria-live="polite"></p>
+              <div class="newsletter-table-wrap"><table class="newsletter-table"><thead><tr><th scope="col">Email</th><th scope="col">Signed up</th><th scope="col">Actions</th></tr></thead><tbody id="adminNewsletterRows"></tbody></table></div>
+            </section>
+          </section>
+
+          <section class="admin-dashboard-section" data-admin-section="audit">
+            <div class="admin-section-heading">
+              <div><span class="eyebrow">Audit</span>
+                <h2>Administration and account activity</h2>
+              </div>
+            </div>
+            <label class="admin-section-search"><i class="bx bx-search"></i><input id="adminAuditSearch" type="search" placeholder="Search actions, people, or details"></label>
+            <section class="admin-panel audit-panel">
+            <div class="admin-panel-head">
+              <h2>Administration and account activity</h2><div class="admin-work-actions"><span>Latest 100 entries</span><button class="btn btn-sm" id="adminExportAudit" type="button">Export filtered audit</button></div>
+            </div>
+            <div class="audit-list" id="adminAudit"></div>
+            </section>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+  <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+  <script data-swaplabs-options src="scripts/swaplabs-options.js?v=20261003-skill-search-order1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+  <script src="scripts/scroll-experience.js?v=20260927-scroll-fix2"></script>
+  <script src="scripts/workspace-dashboards.js?v=20260929-settings1"></script>
+  <script src="scripts/swaplabs-moderation.js?v=20261002-moderation1"></script>
+</body>
+
+</html>

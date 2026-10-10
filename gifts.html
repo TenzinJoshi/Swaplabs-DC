@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gifts &amp; vouchers — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Create and redeem one-time SwapLabs gift vouchers with time credits.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/gifts.css?v=20260917-1">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+  <body>
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="livestreams.html">Livestreams</a><a href="gifts.html">Gifts &amp; vouchers</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page gifts-page" data-gifts-page>
+      <section class="platform-hero gifts-hero">
+        <div class="container platform-hero-grid">
+          <div class="gifts-hero-copy">
+            <span class="platform-kicker"><i class="bx bx-gift"></i> Give a little momentum</span>
+            <h1>Turn spare credits into a <span class="platform-accent">useful gift.</span></h1>
+            <p class="platform-hero-copy">Create a shareable SwapLabs voucher for someone you care about. The recipient enters the private code once, and the exact credit amount lands in their account.</p>
+            <div class="platform-hero-actions"><a class="btn btn-primary" href="#giftsWorkspace"><i class="bx bx-plus-circle"></i> Create a voucher</a><a class="btn" href="credits.html"><i class="bx bx-wallet"></i> View my credits</a></div>
+            <div class="gifts-hero-points"><span><i class="bx bx-check-shield"></i> One-time redemption</span><span><i class="bx bx-transfer-alt"></i> Shareable code</span><span><i class="bx bx-lock-alt"></i> Server-validated</span></div>
+          </div>
+          <aside class="platform-hero-card gift-balance-card">
+            <div class="hero-card-top"><span>Available to gift</span><i class="bx bx-wallet"></i></div>
+            <strong class="gift-balance" id="giftsBalance">Sign in to view</strong>
+            <span class="gift-balance-label">time credits</span>
+            <p class="hero-card-copy">Credits used to create a voucher leave your balance immediately. The code can be shared anywhere, but it can never be redeemed twice.</p>
+            <a class="btn btn-primary" href="login.html?next=gifts.html" data-gifts-login>Sign in to create</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section gifts-workspace-section" id="giftsWorkspace">
+        <div class="container">
+          <div class="gifts-auth-gate" data-gifts-auth-gate>
+            <div class="gift-panel-icon"><i class="bx bx-lock-alt"></i></div>
+            <div><span class="platform-kicker">Member-only credit tools</span><h2>Sign in to make or use a voucher.</h2><p>Your voucher history and balance are private to your SwapLabs account.</p></div>
+            <a class="btn btn-primary" href="login.html?next=gifts.html">Sign in</a>
+          </div>
+
+          <div class="gifts-app" data-gifts-app hidden>
+            <div class="gifts-section-heading"><div><span class="platform-kicker"><i class="bx bx-sparkles"></i> Your gift desk</span><h2>Make the next exchange feel personal.</h2><p>Spend part of your balance, copy the generated code, and send it to another SwapLabs member.</p></div><span class="gifts-security-note"><i class="bx bx-shield-quarter"></i> Every redemption is checked atomically.</span></div>
+
+            <div class="gift-action-grid">
+              <section class="gift-panel gift-create-panel" aria-labelledby="createVoucherTitle">
+                <div class="gift-panel-top"><div class="gift-panel-icon indigo"><i class="bx bx-gift"></i></div><div><span class="gift-step">01 · Create</span><h3 id="createVoucherTitle">Make a gift voucher</h3></div></div>
+                <p>Choose a whole-number amount from your current time-credit balance. Your credits are reserved as soon as the voucher is created.</p>
+                <form id="createVoucherForm" class="gift-form" novalidate>
+                  <label for="voucherAmountInput">Voucher amount</label>
+                  <div class="gift-amount-field"><input id="voucherAmountInput" name="amount" type="number" inputmode="numeric" min="1" max="100000" step="1" placeholder="e.g. 100" required><span>credits</span></div>
+                  <small>Minimum 1 credit · maximum 100,000 credits</small>
+                  <button class="btn btn-primary" type="submit"><i class="bx bx-wand"></i> Generate secure code</button>
+                </form>
+              </section>
+
+              <section class="gift-panel gift-redeem-panel" aria-labelledby="redeemVoucherTitle">
+                <div class="gift-panel-top"><div class="gift-panel-icon pink"><i class="bx bx-key"></i></div><div><span class="gift-step">02 · Receive</span><h3 id="redeemVoucherTitle">Redeem a voucher</h3></div></div>
+                <p>Have a code from another member? Enter it below. The code can be used once only, and your credits update immediately after a successful redemption.</p>
+                <form id="redeemVoucherForm" class="gift-form" novalidate>
+                  <label for="voucherCodeInput">Voucher code</label>
+                  <input id="voucherCodeInput" name="code" type="text" autocapitalize="characters" autocomplete="off" spellcheck="false" placeholder="SL-GIFT-ABCD-EFGH-IJKL" required>
+                  <small>Codes are not case-sensitive. Your own vouchers cannot be redeemed by you.</small>
+                  <button class="btn btn-primary" type="submit"><i class="bx bx-check-circle"></i> Add credits to my account</button>
+                </form>
+              </section>
+            </div>
+
+            <div class="gifts-status" data-gifts-status role="status" aria-live="polite"></div>
+
+            <section class="voucher-code-card" id="createdVoucherPanel" hidden aria-labelledby="createdVoucherTitle">
+              <div class="voucher-code-icon"><i class="bx bx-send"></i></div>
+              <div class="voucher-code-copy"><span class="gift-step">Your code is ready</span><h3 id="createdVoucherTitle">Share this voucher privately</h3><p>Anyone you send it to can redeem it once. Keep this code safe: it will not be shown in full again after you leave this page.</p><div class="voucher-code-line"><code id="createdVoucherCode"></code><button class="btn" type="button" data-copy-voucher><i class="bx bx-copy"></i> Copy code</button></div><strong><span id="createdVoucherAmount">0</span> credits</strong></div>
+            </section>
+
+            <section class="gift-history" aria-labelledby="voucherHistoryTitle">
+              <div class="gifts-section-heading compact"><div><span class="platform-kicker"><i class="bx bx-history"></i> Your voucher history</span><h2 id="voucherHistoryTitle">Keep every gift traceable.</h2></div><a class="btn" href="credits.html"><i class="bx bx-receipt"></i> Open credit ledger</a></div>
+              <div id="voucherList" class="voucher-list"><div class="gift-loading"><i class="bx bx-loader-alt bx-spin"></i> Loading your vouchers…</div></div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section tint gifts-rules-section">
+        <div class="container gifts-rules-grid">
+          <div><span class="platform-kicker"><i class="bx bx-info-circle"></i> Simple by design</span><h2>One code. One recipient. One redemption.</h2><p>Vouchers are credit transfers with a clear trail. The creator pays when generating the voucher; the recipient receives the exact amount when the code is accepted.</p></div>
+          <div class="gift-rules-card"><div><i class="bx bx-lock-open-alt"></i><span><strong>Shareable, not reusable</strong><small>The server stores only a secure hash of the code and marks it redeemed in the same transaction as the credit transfer.</small></span></div><div><i class="bx bx-user-voice"></i><span><strong>Made for real members</strong><small>Both creating and redeeming require an active signed-in SwapLabs account.</small></span></div></div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-gifts.js?v=20260917-1"></script>
+  </body>
+</html>

@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Skills and Innovation Lab — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="A community innovation space where students and young creators publish ambitious ideas, explain funding needs, find collaborators, receive feedback, and build recognition.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page" data-platform-page="innovation">
+
+      <section class="platform-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-rocket"></i> Skills and Innovation Lab</span>
+            <h1>Bold ideas deserve a path to <span class="platform-accent">proof, support, and recognition.</span></h1>
+            <p class="platform-hero-copy">This is a public community space for students and young creators who can see a better way forward but need skills, collaborators, credibility, pilot partners, funding, or visibility to make it real. Publish the full thinking, learn from constructive comments, and let people support the work transparently.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="#ideaCommunity"><i class="bx bx-bulb"></i> Explore community ideas</a>
+              <a class="btn" href="#submitIdea"><i class="bx bx-edit-alt"></i> Submit your idea</a>
+            </div>
+            <div class="platform-hero-note"><i class="bx bx-check-shield"></i><span>SwapLabs helps ideas earn attention and find people. It does not promise investment, verify every claim, or process funding transactions on this page.</span></div>
+          </div>
+          <aside class="platform-hero-card innovation-hero-card">
+            <div class="hero-card-top"><span>What community support can unlock</span><i class="bx bx-network-chart"></i></div>
+            <div class="innovation-signal"><i class="bx bx-like"></i>
+              <div><strong>Visible interest</strong><span>Likes help promising ideas surface without replacing evidence or due diligence.</span></div>
+            </div>
+            <div class="innovation-signal"><i class="bx bx-message-square-dots"></i>
+              <div><strong>Constructive challenge</strong><span>Comments can reveal risks, missing expertise, pilot opportunities, and stronger questions.</span></div>
+            </div>
+            <div class="innovation-signal"><i class="bx bx-bookmark"></i>
+              <div><strong>Saved momentum</strong><span>Members can keep ideas they want to revisit, support, teach into, or introduce to others.</span></div>
+            </div>
+            <div class="innovation-signal"><i class="bx bx-user-plus"></i>
+              <div><strong>Long-term connection</strong><span>Follow an idea owner through the existing public or private profile relationship system.</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <div class="platform-stat-strip">
+        <div class="container platform-stat-shell">
+          <div class="platform-stat"><i class="bx bx-bulb"></i><strong id="ideaStatIdeas">0</strong><span>community ideas visible</span></div>
+          <div class="platform-stat"><i class="bx bx-group"></i><strong id="ideaStatSupporters">0</strong><span>members showing support</span></div>
+          <div class="platform-stat"><i class="bx bx-message-rounded-dots"></i><strong id="ideaStatComments">0</strong><span>constructive comments</span></div>
+          <div class="platform-stat"><i class="bx bx-fund"></i><strong id="ideaStatFunding">0</strong><span>combined funding sought</span></div>
+        </div>
+      </div>
+
+      <section class="platform-section" id="ideaCommunity">
+        <div class="container">
+          <div class="platform-section-head">
+            <div class="platform-heading"><span class="platform-kicker"><i class="bx bx-world"></i> Open idea community</span>
+              <h2>See the problem, the proposed solution, and the honest ask.</h2>
+              <p>Search every visible idea, read the detailed reasoning, and support the work with actions that are saved to your account.</p>
+            </div>
+            <a class="btn btn-primary" href="#submitIdea"><i class="bx bx-plus"></i> Add an idea</a>
+          </div>
+          <div class="idea-toolbar" aria-label="Idea filters">
+            <input id="ideaSearch" type="search" placeholder="Search ideas, problems, skills, owners, or impact" aria-label="Search community ideas">
+            <select id="ideaCategory" aria-label="Filter ideas by category">
+              <option value="all">All categories</option>
+            </select>
+            <select id="ideaStage" aria-label="Filter ideas by stage">
+              <option value="all">All stages</option>
+            </select>
+            <select id="ideaSort" aria-label="Sort ideas">
+              <option value="supported">Most supported</option>
+              <option value="newest">Newest</option>
+              <option value="funding-high">Highest funding need</option>
+              <option value="funding-low">Lowest funding need</option>
+              <option value="comments">Most discussed</option>
+            </select>
+          </div>
+          <div class="idea-results-head"><span id="ideaResultCount">Loading ideas</span><span>Public ideas are visible without an account; interactions require sign-in</span></div>
+          <div class="idea-grid" id="ideaGrid">
+            <div class="platform-loading"><i class="bx bx-loader-alt"></i>Loading the innovation community.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section tint">
+        <div class="container">
+          <div class="platform-heading center"><span class="platform-kicker"><i class="bx bx-compass"></i> Many routes to impact</span>
+            <h2>Innovation is bigger than one industry.</h2>
+            <p>A strong submission explains the human need and a testable next step, whether the idea is technical, social, scientific, creative, or operational.</p>
+          </div>
+          <div class="platform-grid-4">
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-leaf"></i></span>
+              <h3>Climate and environment</h3>
+              <p>Clean energy, water, waste, biodiversity, resilient communities, measurement, and adaptation.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-book-reader"></i></span>
+              <h3>Education and access</h3>
+              <p>Inclusive learning, teacher tools, language access, assessment, student wellbeing, and opportunity.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-plus-medical"></i></span>
+              <h3>Health and wellbeing</h3>
+              <p>Prevention, access, community care, assistive tools, trustworthy information, and healthier systems.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-group"></i></span>
+              <h3>Community and culture</h3>
+              <p>Belonging, local services, public spaces, arts, heritage, civic participation, and social connection.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-chip"></i></span>
+              <h3>Responsible technology</h3>
+              <p>Accessible software, privacy, safety, useful automation, public-interest data, and accountable AI.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-bowl-hot"></i></span>
+              <h3>Food and agriculture</h3>
+              <p>Food security, waste reduction, sustainable production, logistics, nutrition, and farmer support.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-buildings"></i></span>
+              <h3>Cities and mobility</h3>
+              <p>Transport, public space, housing, energy use, local infrastructure, safety, and accessibility.</p>
+            </article>
+            <article class="platform-card"><span class="platform-card-icon"><i class="bx bx-shape-circle"></i></span>
+              <h3>Open category</h3>
+              <p>If the problem matters and the idea can be explained responsibly, it has a place in the Lab.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section" id="submitIdea">
+        <div class="container">
+          <div class="platform-heading"><span class="platform-kicker"><i class="bx bx-edit"></i> Detailed idea submission</span>
+            <h2>Give the community enough substance to help.</h2>
+            <p>A title gets attention. A clear problem, proposed solution, impact claim, funding breakdown, support request, and next experiment earn useful engagement.</p>
+          </div>
+          <div class="platform-form-layout">
+            <form class="platform-form platform-form-shell innovation-form-shell" id="ideaForm">
+              <div class="platform-form-head">
+                <div>
+                  <h2>Publish your idea</h2>
+                  <p>Your submission becomes visible to the community after it is saved.</p>
+                </div><i class="bx bx-rocket"></i>
+              </div>
+              <div id="ideaAuthState"></div>
+              <div class="platform-form-grid">
+                <div class="field full"><label for="ideaTitle">Idea title <small>Clear and memorable</small></label><input id="ideaTitle" name="title" maxlength="120" required placeholder="What do you call the idea?"></div>
+                <div class="field full"><label for="ideaTagline">One-line proposition <small>Problem, approach, and who benefits</small></label><textarea id="ideaTagline" name="tagline" rows="3" maxlength="240" required placeholder="A concise statement that helps someone understand the idea without opening the full detail."></textarea></div>
+                <div class="field"><label for="ideaCategoryInput">Impact category</label><select id="ideaCategoryInput" name="category" required>
+                    <option value="">Choose a category</option>
+                    <option>Climate and environment</option>
+                    <option>Education</option>
+                    <option>Health and wellbeing</option>
+                    <option>Community wellbeing</option>
+                    <option>Responsible technology</option>
+                    <option>Food and agriculture</option>
+                    <option>Cities and mobility</option>
+                    <option>Accessibility</option>
+                    <option>Arts and culture</option>
+                    <option>Economic opportunity</option>
+                    <option>Other</option>
+                  </select></div>
+                <div class="field"><label for="ideaStageInput">Current stage</label><select id="ideaStageInput" name="stage" required>
+                    <option value="">Choose a stage</option>
+                    <option>Early idea</option>
+                    <option>Research</option>
+                    <option>Concept tested</option>
+                    <option>Prototype</option>
+                    <option>Early pilot</option>
+                    <option>Pilot ready</option>
+                    <option>Operating project</option>
+                    <option>Ready to scale</option>
+                  </select></div>
+                <div class="field full"><label for="ideaProblem">Problem and evidence <small>Who experiences it, where, and why now?</small></label><textarea id="ideaProblem" name="problem" rows="7" maxlength="1800" required placeholder="Describe the current situation, the people affected, evidence you have, and assumptions that still need testing."></textarea></div>
+                <div class="field full"><label for="ideaSolution">Proposed solution <small>Explain the mechanism, not only the ambition</small></label><textarea id="ideaSolution" name="solution" rows="7" maxlength="1800" required placeholder="What would you build, organize, research, or change? How would a person actually experience it?"></textarea></div>
+                <div class="field full"><label for="ideaBeneficiaries">Who benefits?</label><textarea id="ideaBeneficiaries" name="beneficiaries" rows="4" maxlength="700" required placeholder="Name the primary people or communities and any important secondary beneficiaries."></textarea></div>
+                <div class="field full"><label for="ideaImpact">Intended impact and measurement</label><textarea id="ideaImpact" name="impact" rows="5" maxlength="1000" required placeholder="What should improve, and what honest signals would show that the idea is helping?"></textarea></div>
+                <div class="field"><label>Funding request</label>
+                  <div class="funding-fields"><select name="funding_currency" required aria-label="Funding currency">
+                      <option>USD</option>
+                      <option>EUR</option>
+                      <option>GBP</option>
+                      <option>INR</option>
+                      <option>CAD</option>
+                      <option>AUD</option>
+                      <option>SGD</option>
+                      <option>JPY</option>
+                      <option>CNY</option>
+                      <option>KRW</option>
+                      <option>BRL</option>
+                      <option>ZAR</option>
+                      <option>AED</option>
+                      <option>Other</option>
+                    </select><input name="funding_needed" type="number" min="0" max="1000000000" step="1" required placeholder="Amount" aria-label="Funding amount"></div>
+                </div>
+                <div class="field"><label for="ideaReach">Geographic or community reach</label><input id="ideaReach" name="reach" maxlength="180" required placeholder="Local pilot, country, region, or open toolkit"></div>
+                <div class="field full"><label for="ideaFundsUse">How would the funding be used?</label><textarea id="ideaFundsUse" name="funds_use" rows="5" maxlength="1200" required placeholder="Give a transparent breakdown of the next stage: research, materials, pilot operations, expert review, accessibility, evaluation, or other real costs."></textarea></div>
+                <div class="field full"><label for="ideaSkillsNeeded">Skills and support needed <small>Separate with commas</small></label><input id="ideaSkillsNeeded" name="skills_needed" maxlength="720" required placeholder="For example: hardware prototyping, public health, service design, legal guidance, pilot school"></div>
+                <div class="field full"><label for="ideaCollaboration">What kind of collaboration are you seeking?</label><textarea id="ideaCollaboration" name="collaboration" rows="4" maxlength="500" required placeholder="Mentors, teammates, researchers, funders, community reviewers, pilot partners, introductions, or specialist feedback."></textarea></div>
+                <div class="field full"><label for="ideaPrototype">Prototype or evidence URL <small>Optional, must begin with http:// or https://</small></label><input id="ideaPrototype" name="prototype_url" type="url" maxlength="300" placeholder="https://"></div>
+                <div class="field full"><label for="ideaPitch">Community pitch <small>The clearest next invitation</small></label><textarea id="ideaPitch" name="pitch" rows="5" maxlength="1200" required placeholder="Tell readers the most useful action they can take after understanding the idea."></textarea></div>
+                <label class="platform-check field full"><input name="community_agreement" type="checkbox" required><span><strong>I will represent evidence, risks, funding needs, and progress honestly.</strong><span>I understand that community attention is not professional verification or a promise of funding, and that administrators may edit, moderate, archive, or delete ideas that violate platform standards.</span></span></label>
+              </div>
+              <div class="platform-form-actions">
+                <p>Your profile is shown as the idea owner. Private profiles still reveal only their permitted basic identity until a follow request is accepted.</p><button class="btn btn-primary" type="submit"><i class="bx bx-rocket"></i> Publish idea</button>
+              </div>
+              <div class="platform-form-status" data-platform-status role="status" aria-live="polite"></div>
+            </form>
+            <aside class="platform-side-stack">
+              <article class="platform-side-card">
+                <h3><i class="bx bx-search-alt"></i> Separate evidence from belief</h3>
+                <p>State what you know, how you know it, what you infer, and what still needs testing. Honest uncertainty attracts better collaborators.</p>
+              </article>
+              <article class="platform-side-card">
+                <h3><i class="bx bx-fund"></i> Make the funding ask inspectable</h3>
+                <p>Explain the next milestone, the cost drivers, and what a successful use of funds would produce. Avoid guaranteed return claims.</p>
+              </article>
+              <article class="platform-side-card">
+                <h3><i class="bx bx-user-voice"></i> Center affected people</h3>
+                <p>Do not design for a community without a plan to involve them in decisions, research, testing, consent, and ownership.</p>
+              </article>
+              <article class="platform-side-card">
+                <h3><i class="bx bx-shield-quarter"></i> Protect safety and rights</h3>
+                <p>Consider privacy, accessibility, bias, environmental effects, safeguarding, legal obligations, and ways the idea could be misused.</p>
+              </article>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section tint">
+        <div class="container">
+          <div class="platform-heading center"><span class="platform-kicker"><i class="bx bx-git-compare"></i> From idea to reality</span>
+            <h2>Recognition grows from evidence and responsible progress.</h2>
+            <p>The Lab is designed to help an early idea become easier to understand, test, support, and trust.</p>
+          </div>
+          <div class="platform-grid-4">
+            <article class="platform-card"><span class="platform-mini-label">Discover</span><span class="platform-card-icon"><i class="bx bx-search"></i></span>
+              <h3>Understand the real problem</h3>
+              <p>Speak with affected people, inspect existing attempts, and identify the decision or behavior that must change.</p>
+            </article>
+            <article class="platform-card"><span class="platform-mini-label">Frame</span><span class="platform-card-icon"><i class="bx bx-shape-square"></i></span>
+              <h3>Make the idea legible</h3>
+              <p>Explain the mechanism, beneficiary, evidence, risks, funding, and precise support request in plain language.</p>
+            </article>
+            <article class="platform-card"><span class="platform-mini-label">Test</span><span class="platform-card-icon"><i class="bx bx-test-tube"></i></span>
+              <h3>Run the smallest honest experiment</h3>
+              <p>Choose a test that can disprove a key assumption before spending more money or making larger claims.</p>
+            </article>
+            <article class="platform-card"><span class="platform-mini-label">Build</span><span class="platform-card-icon"><i class="bx bx-network-chart"></i></span>
+              <h3>Grow with accountable partners</h3>
+              <p>Use skills, comments, pilots, recognition, and funding to deepen evidence while keeping affected communities involved.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="platform-section soft-pink">
+        <div class="container">
+          <div class="platform-heading center"><span class="platform-kicker"><i class="bx bx-help-circle"></i> Innovation Lab questions</span>
+            <h2>Community support with clear boundaries.</h2>
+          </div>
+          <div class="faq-list" style="margin:auto">
+            <article class="faq-item"><button class="faq-q">Who can submit an idea?<span>+</span></button>
+              <div class="faq-a">Any active signed-in SwapLabs member can publish an idea. The Lab especially welcomes students and young creators, but strong community-minded ideas are not limited by age or formal credentials.</div>
+            </article>
+            <article class="faq-item"><button class="faq-q">Does SwapLabs provide the funding shown here?<span>+</span></button>
+              <div class="faq-a">No. The funding field makes the ask transparent and searchable. SwapLabs does not promise investment, process funding transactions on this page, or certify financial claims.</div>
+            </article>
+            <article class="faq-item"><button class="faq-q">How do likes, saves, comments, and follows work?<span>+</span></button>
+              <div class="faq-a">Signed-in members can toggle likes and saves, add comments, remove permitted comments, and follow the owner. Public owners are followed immediately; private owners receive a follow request in Notifications.</div>
+            </article>
+            <article class="faq-item"><button class="faq-q">Can an administrator edit or delete an idea?<span>+</span></button>
+              <div class="faq-a">Yes. The protected content workspace shows every idea and its engagement. The administrator can edit the detailed record, change moderation status, add private notes, or permanently delete the idea.</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+  </body>
+
+</html>

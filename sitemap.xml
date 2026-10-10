@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>http://localhost:8000/</loc><lastmod>2026-09-30</lastmod></url>
+  <url><loc>http://localhost:8000/features.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/about.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/how-it-works.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/browse-skills.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/community.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/groups.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/forums.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/courses.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/learning-paths.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/workshops.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/events.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/resources.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/achievements.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/success-stories.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/faq.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/student-safety.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/contact.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/register.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/login.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/pricing.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/donate.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/privacy.html</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>http://localhost:8000/terms.html</loc><lastmod>2026-09-29</lastmod></url>
+</urlset>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>My dashboard — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Your SwapLabs sessions, skill matches, messages, requests, credits, and learning progress in one place.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+  <link rel="stylesheet" href="styles/workspace-dashboards.css?v=20260925-dashboard-ux2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/dashboard-journey.css?v=20260927-dashboard-journey1">
+    <link rel="stylesheet" href="styles/dashboard-insights.css?v=20260927-analytics1">
+    <link rel="stylesheet" href="styles/dashboard-redesign.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+      <link rel="stylesheet" href="styles/dashboard-study.css?v=20261001-study1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body class="member-portal-body workspace-member dashboard-journey-page dashboard-redesign">
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="member-portal" data-member-portal="dashboard">
+
+      <section class="member-portal-hero dashboard-hero-shell">
+        <div class="container dashboard-hero-grid">
+          <div>
+            <span class="eyebrow"><i class="bx bx-grid-alt"></i> Your workspace</span>
+            <h1>Welcome back, <span data-dashboard-first-name>member</span>.</h1>
+            <p>A little progress, every day. Pick up where you left off.</p>
+          </div>
+          <div class="dashboard-hero-actions">
+            <span class="dashboard-date" data-dashboard-date></span>
+            <a class="btn" href="calendar.html"><i class="bx bx-plus"></i> Schedule session</a>
+            <a class="btn btn-primary" href="skill-matching.html"><i class="bx bx-radar"></i> Find a match</a>
+          </div>
+        </div>
+<div class="container member-summary-band dashboard-overview"><div class="dashboard-overview-heading"><div><span class="dashboard-label"><i class="bx bx-sparkles" aria-hidden="true"></i> Your live overview</span><h2>Your learning, at a glance</h2></div><span class="dashboard-overview-note"><i class="bx bx-refresh" aria-hidden="true"></i> Updates as your activity changes</span></div>            <section class="dashboard-stat-grid" aria-label="Account summary">
+              <a class="dashboard-stat-card dashboard-reveal" data-dashboard-tilt href="credits.html"><span class="dashboard-stat-icon blue"><i class="bx bx-wallet"></i></span>
+                <div><small>Credit balance</small><strong data-summary="credit_balance">0</strong><span>View credit history</span></div>
+              </a>
+              <a class="dashboard-stat-card dashboard-reveal" data-dashboard-tilt href="notifications.html"><span class="dashboard-stat-icon pink"><i class="bx bx-user-check"></i></span>
+                <div><small>Pending requests</small><strong data-summary="pending_requests">0</strong><span>Review in Inbox</span></div>
+              </a>
+              <a class="dashboard-stat-card dashboard-reveal" data-dashboard-tilt href="notifications.html"><span class="dashboard-stat-icon purple"><i class="bx bx-message-square-dots"></i></span>
+                <div><small>Unread messages</small><strong data-summary="unread_messages">0</strong><span>Continue conversations</span></div>
+              </a>
+              <a class="dashboard-stat-card dashboard-reveal" data-dashboard-tilt href="learning-paths.html"><span class="dashboard-stat-icon indigo"><i class="bx bx-target-lock"></i></span>
+                <div><small>Completed sessions</small><strong><span data-summary="completed_sessions">—</span></strong><span>Recorded account activity</span></div>
+              </a>
+            </section></div>
+      </section>
+
+      <section class="section member-portal-section">
+        <div class="container">
+          <div class="portal-loading" id="dashboardLoading"><i class="bx bx-loader-alt bx-spin"></i><span>Building your personal dashboard…</span></div>
+          <div class="portal-locked" id="dashboardLocked" hidden>
+            <span class="portal-locked-icon"><i class="bx bx-lock-alt"></i></span>
+            <h2>Your dashboard is ready after login</h2>
+            <p>Sign in to see your real sessions, matches, credits, requests, messages, and progress.</p>
+            <div class="portal-empty-actions"><a class="btn btn-primary" href="login.html">Log in</a><a class="btn" href="register.html">Create account</a></div>
+          </div>
+
+          <div id="dashboardPortal" hidden>
+
+            <dialog class="profile-setup-dialog" id="profileSetupDialog" aria-labelledby="profileSetupDialogTitle">
+              <form method="dialog" class="profile-setup-dialog-card">
+                <button class="profile-setup-dialog-close" type="submit" aria-label="Close profile setup reminder"><i class="bx bx-x" aria-hidden="true"></i></button>
+                <span class="portal-kicker"><i class="bx bx-user-check" aria-hidden="true"></i> Quick profile setup</span>
+                <h2 id="profileSetupDialogTitle">Finish the essentials when you are ready.</h2>
+                <p>Eight short details unlock matching and member actions. Your photo, bio, occupation, and other optional details can wait.</p>
+                <ul class="profile-setup-dialog-missing" data-profile-setup-missing></ul>
+                <div class="profile-setup-dialog-actions">
+                  <a class="btn btn-primary" data-profile-setup-continue href="profile.html?complete=1&amp;return_to=dashboard.html">Continue finishing your profile <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+                  <button class="btn" type="button" data-profile-setup-later>Choose another day</button>
+                </div>
+                <small class="profile-setup-dialog-note">Choosing another day hides this reminder for 24 hours.</small>
+              </form>
+            </dialog>
+
+            <section class="dashboard-focus-strip dashboard-reveal" data-dashboard-tilt aria-labelledby="dashboardFocusTitle">
+              <div class="focus-strip-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="focus-strip-copy"><span class="dashboard-label"><i class="bx bx-sun" aria-hidden="true"></i> Your next useful move</span><h2 id="dashboardFocusTitle">Make today’s next step obvious.</h2><p data-dashboard-focus-copy>One focused action is enough to keep your learning moving. Choose a person, a session, or a small reflection.</p></div>
+              <div class="focus-strip-actions"><a class="btn btn-primary" data-dashboard-focus-link href="skill-matching.html"><span data-dashboard-focus-label>Find a match</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a><a class="dashboard-text-action" href="learning-journal.html">Open your journey <i class="bx bx-arrow-up-right-stroke" aria-hidden="true"></i></a></div>
+              <div class="focus-strip-status"><span class="focus-status-dot" aria-hidden="true"></span><div><strong data-dashboard-focus-status>Ready when you are</strong><small>Private dashboard pulse</small></div></div>
+            </section>
+
+            <section class="dashboard-study-card dashboard-reveal" data-dashboard-study aria-labelledby="dashboardStudyTitle">
+              <div class="dashboard-study-copy">
+                <span class="portal-kicker"><i class="bx bx-group" aria-hidden="true"></i> Study Together</span>
+                <h2 id="dashboardStudyTitle">Make a little room for shared focus.</h2>
+                <p data-dashboard-study-copy>Find a compatible rhythm, join a public room, or keep a promise you already made.</p>
+                <div class="dashboard-study-actions"><a class="btn btn-primary" href="study-together.html"><i class="bx bx-radar" aria-hidden="true"></i> Open Study Together</a><a class="dashboard-text-action" href="study-together.html#lobby">Browse the lobby <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a></div>
+              </div>
+              <div class="dashboard-study-next" data-dashboard-study-next><span class="dashboard-study-next-icon"><i class="bx bx-time-five" aria-hidden="true"></i></span><div><small>Next shared commitment</small><strong data-dashboard-study-next-title>Start with a compatible person.</strong><span data-dashboard-study-next-meta>Study Together keeps the room simple: focus first, media only when you choose it.</span></div></div>
+            </section>
+
+            <details class="workspace-tour dashboard-reveal" id="dashboardTour"><summary><span class="tour-summary-copy"><strong>Start your 1-minute tour</strong><span>See matching, messages, sessions, and progress in three simple steps.</span></span><span class="tour-summary-action">Start tour <i class="bx bx-chevron-down" aria-hidden="true"></i></span></summary><section class="onboarding-demo" id="dashboardOnboarding" aria-labelledby="dashboardTourTitle">
+              <div class="onboarding-copy">
+                <span class="portal-kicker">One-minute orientation</span>
+                <h2 id="dashboardTourTitle">Your next useful action is never far away.</h2>
+                <p>Use this short walkthrough to understand how SwapLabs connects matching, scheduling, messages, and progress.</p>
+                <div class="onboarding-controls" role="tablist" aria-label="Dashboard tour">
+                  <button class="onboarding-step active" type="button" data-onboarding-step="0"><span>1</span> Discover</button>
+                  <button class="onboarding-step" type="button" data-onboarding-step="1"><span>2</span> Connect</button>
+                  <button class="onboarding-step" type="button" data-onboarding-step="2"><span>3</span> Progress</button>
+                </div>
+              </div>
+              <div class="onboarding-stage">
+                <article class="onboarding-panel active" data-onboarding-panel="0"><i class="bx bx-radar"></i>
+                  <div><strong>Review explainable matches</strong>
+                    <p>Every score shows the exact skill, schedule, language, style, and trust factors behind it.</p>
+                  </div>
+                </article>
+                <article class="onboarding-panel" data-onboarding-panel="1"><i class="bx bx-message-square-dots"></i>
+                  <div><strong>Message, then schedule</strong>
+                    <p>Open a real conversation, agree on scope, and add the same session to both members’ calendars.</p>
+                  </div>
+                </article>
+                <article class="onboarding-panel" data-onboarding-panel="2"><i class="bx bx-line-chart"></i>
+                  <div><strong>Build an evidence trail</strong>
+                    <p>Completed sessions, reliability, learning goals, and credit history make your progress visible to you.</p>
+                  </div>
+                </article>
+                <button class="btn btn-sm" id="finishDashboardTour" type="button"><i class="bx bx-check"></i> Finish tour</button>
+              </div>
+            </section>
+
+
+
+            </details>
+
+            <section class="journey-insights dashboard-reveal" data-journey-insights aria-labelledby="journeyInsightsTitle">
+              <div class="journey-insights-head"><div><span class="portal-kicker"><i class="bx bx-line-chart" aria-hidden="true"></i> Your private learning record</span><h2 id="journeyInsightsTitle">The progress you can actually use.</h2><p>Sessions, reflections, skills and credits connect here as they happen.</p></div><div class="journey-period" role="group" aria-label="Activity chart timeframe"><button type="button" data-journey-period="4">4 weeks</button><button type="button" data-journey-period="8">8 weeks</button><button type="button" data-journey-period="12" aria-pressed="true">12 weeks</button></div></div>
+              <div class="journey-insight-kpis"><article><i class="bx bx-time-five" aria-hidden="true"></i><span>Learning time</span><strong data-insight="minutes">0m</strong><small data-insight="minutes-copy">from completed sessions</small></article><article><i class="bx bx-calendar-check" aria-hidden="true"></i><span>Exchange rhythm</span><strong data-insight="sessions">0</strong><small data-insight="sessions-copy">completed sessions</small></article><article><i class="bx bx-notepad" aria-hidden="true"></i><span>Reflection habit</span><strong data-insight="reflection-rate">0%</strong><small data-insight="reflection-copy">reports after sessions</small></article><article><i class="bx bx-wallet" aria-hidden="true"></i><span>Credit balance</span><strong data-insight="credits">0</strong><small data-insight="credits-copy">earned and spent tracked</small></article></div>
+              <div class="journey-insight-grid"><article class="journey-activity-card"><div class="journey-card-heading"><div><span>Learning activity</span><h3>Hours and sessions over time</h3></div><p data-insight="activity-summary">No saved activity yet.</p></div><div class="journey-chart-wrap"><div class="journey-activity-chart" data-insight-chart role="img" aria-label="Learning activity over the selected period"></div></div><div class="journey-chart-legend"><span><i class="journey-legend-minutes"></i> minutes learned</span><span><i class="journey-legend-sessions"></i> completed sessions</span></div></article><article class="journey-outcomes-card"><span>Session health</span><h3>Keep the whole loop moving.</h3><div class="journey-outcome-ring" data-insight-ring style="--insight-ring: 0"><strong data-insight="completion-rate">0%</strong><small>completion rate</small></div><div class="journey-outcome-details"><span><b data-insight="scheduled">0</b> scheduled</span><span><b data-insight="reports-due">0</b> reports due</span></div><a href="calendar.html" class="btn btn-sm">Open sessions <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a></article></div>
+              <div class="journey-evidence-grid"><article class="journey-skills-card"><div class="journey-card-heading"><div><span>What you have practised</span><h3>Skills that are becoming yours</h3></div><a href="learning-journal.html">Open journal</a></div><div class="journey-skill-list" data-insight-skills></div></article><article class="journey-timeline-card"><div class="journey-card-heading"><div><span>Your evidence trail</span><h3>Recent learning moments</h3></div><a href="credits.html">Open ledger</a></div><div class="journey-timeline" data-insight-timeline></div></article></div>
+            </section>
+
+            <section class="dashboard-journey-command dashboard-reveal" id="journeyCommand" data-dashboard-journey aria-labelledby="journeyCommandTitle">
+              <div class="dashboard-journey-command-head">
+                <div><span class="portal-kicker"><i class="bx bx-pulse" aria-hidden="true"></i> Journey intelligence</span><h2 id="journeyCommandTitle">Your learning journey, in motion.</h2><p>See the signals behind your progress and the next useful move—without turning learning into a scoreboard.</p></div>
+                <span class="dashboard-journey-live"><i class="bx bx-radio-circle-marked" aria-hidden="true"></i> Built from your saved activity</span>
+              </div>
+
+              <div class="dashboard-journey-command-grid">
+                <article class="journey-command-score-card">
+                  <div class="journey-score-ring" data-journey-score-ring style="--journey-score: 0"><div><strong data-journey-score>0%</strong><span>journey signal</span></div></div>
+                  <div><span class="journey-command-label">Current momentum</span><h3 data-journey-status>Start with one clear direction.</h3><p data-journey-status-copy>Complete a profile detail, find an overlap, and the journey will start becoming visible here.</p><a class="btn btn-primary btn-sm" data-journey-next-link href="profile.html"><span data-journey-next-label>Strengthen your profile</span><i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="journey-command-signal-card">
+                  <div class="journey-command-card-top"><div><span class="journey-command-label">What is moving now</span><h3>Signals, not vanity metrics.</h3></div><i class="bx bx-radar" aria-hidden="true"></i></div>
+                  <div class="journey-signal-grid" aria-label="Current learning signals">
+                    <div><strong data-journey-signal="profile">0%</strong><span>profile readiness</span></div>
+                    <div><strong data-journey-signal="conversations">0</strong><span>conversations</span></div>
+                    <div><strong data-journey-signal="sessions">0</strong><span>sessions completed</span></div>
+                    <div><strong data-journey-signal="reflections">0</strong><span>reflections saved</span></div>
+                  </div>
+                  <p class="journey-command-footnote"><i class="bx bx-lock-alt" aria-hidden="true"></i> Private to your account. Updated when your dashboard data loads.</p>
+                </article>
+              </div>
+
+              <div class="journey-stage-strip" role="list" aria-label="Learning journey stages">
+                <article role="listitem" data-journey-stage="discover"><span class="journey-stage-index">01</span><i class="bx bx-search-alt" aria-hidden="true"></i><div><strong>Discover</strong><span>Set your direction</span></div><b data-journey-stage-value>0%</b></article>
+                <article role="listitem" data-journey-stage="connect"><span class="journey-stage-index">02</span><i class="bx bx-message-square-dots" aria-hidden="true"></i><div><strong>Connect</strong><span>Start a useful thread</span></div><b data-journey-stage-value>0%</b></article>
+                <article role="listitem" data-journey-stage="schedule"><span class="journey-stage-index">03</span><i class="bx bx-calendar-check" aria-hidden="true"></i><div><strong>Schedule</strong><span>Make a commitment</span></div><b data-journey-stage-value>0%</b></article>
+                <article role="listitem" data-journey-stage="exchange"><span class="journey-stage-index">04</span><i class="bx bx-transfer-alt" aria-hidden="true"></i><div><strong>Exchange</strong><span>Complete the hour</span></div><b data-journey-stage-value>0%</b></article>
+                <article role="listitem" data-journey-stage="reflect"><span class="journey-stage-index">05</span><i class="bx bx-notepad" aria-hidden="true"></i><div><strong>Reflect</strong><span>Keep the evidence</span></div><b data-journey-stage-value>0%</b></article>
+              </div>
+
+              <div class="journey-command-bottom">
+                <article class="journey-stage-chart-card"><div class="journey-command-card-top"><div><span class="journey-command-label">Journey map</span><h3>Where your momentum is building</h3></div><span class="journey-chart-key"><i></i> saved signal</span></div><div class="journey-stage-bars" id="journeyStageBars" role="img" aria-label="Learning journey stage progress"></div></article>
+                <article class="journey-next-card"><span class="journey-command-label">Recommended next move</span><h3 data-journey-recommendation>Make the next step specific.</h3><p data-journey-recommendation-copy>Your dashboard will connect your saved goal to the action most likely to move it forward.</p><div class="journey-next-checklist" data-journey-checklist></div></article>
+              </div>
+            </section>
+
+            <section class="dashboard-panel member-insights-panel dashboard-reveal" aria-labelledby="memberInsightsTitle">
+              <div class="panel-heading"><div><span class="portal-kicker">Your learning analytics</span><h2 id="memberInsightsTitle">Learning progress</h2><p>Your saved learning activity, all in one place.</p></div><a class="btn btn-sm" href="credits.html"><i class="bx bx-wallet"></i> Open ledger</a></div>
+              <div class="member-insights-grid">
+                <article><span class="member-insight-icon blue"><i class="bx bx-time-five"></i></span><div><small>Confirmed learning time</small><strong data-member-analytics="completed_session_hours">0h</strong><span>completed session hours</span></div></article>
+                <article><span class="member-insight-icon pink"><i class="bx bx-transfer"></i></span><div><small>Credits exchanged</small><strong data-member-analytics="credits_earned">0</strong><span data-member-analytics-detail="credits_spent">0 spent</span></div></article>
+                <article><span class="member-insight-icon indigo"><i class="bx bx-message-square-dots"></i></span><div><small>Conversation reach</small><strong data-member-analytics="conversations">0</strong><span data-member-analytics-detail="messages_sent">0 messages sent</span></div></article>
+                <article><span class="member-insight-icon green"><i class="bx bx-user-check"></i></span><div><small>Profile readiness</small><strong data-member-analytics="profile_completeness">0%</strong><span>matching details completed</span></div></article>
+              </div>
+              <div class="member-insights-footer"><div><strong>Session rhythm</strong><div class="member-session-rhythm"><span><b data-member-analytics="sessions_completed">0</b> completed</span><span><b data-member-analytics="sessions_scheduled">0</b> scheduled</span><span><b data-member-analytics="sessions_cancelled">0</b> cancelled</span></div></div><div><strong>Community contribution</strong><span><b data-member-analytics="workshops_hosted">0</b> workshops hosted · <b data-member-analytics="ideas_published">0</b> ideas shared</span></div><div><strong>Personal journey</strong><span><b data-member-analytics="progress_reports">0</b> session reflections · <b data-member-analytics="sessions_needing_progress_report">0</b> reports due</span></div></div>
+            </section>
+
+            <section class="dashboard-panel member-chart-panel dashboard-reveal" aria-labelledby="memberChartTitle">
+              <div class="panel-heading"><div><span class="portal-kicker">Activity chart</span><h2 id="memberChartTitle">Your SwapLabs activity</h2><p>Compare the saved activity that shapes your learning progress.</p></div><i class="bx bx-bar-chart-alt-2 panel-heading-icon"></i></div>
+              <div class="member-chart" role="img" aria-label="Member activity chart">
+                <div class="member-chart-y"><span>High</span><span>Medium</span><span>Low</span></div>
+                <div class="member-chart-bars"><div class="member-chart-column"><i data-member-chart="sessions_completed"></i><span>Completed</span></div><div class="member-chart-column"><i data-member-chart="sessions_scheduled"></i><span>Scheduled</span></div><div class="member-chart-column"><i data-member-chart="credits_earned"></i><span>Credits</span></div><div class="member-chart-column"><i data-member-chart="messages_sent"></i><span>Messages</span></div><div class="member-chart-column"><i data-member-chart="profile_completeness"></i><span>Profile</span></div></div>
+              </div>
+            </section>
+
+            <section class="dashboard-panel dashboard-journey-panel dashboard-reveal" aria-labelledby="dashboardJourneyTitle">
+              <div class="panel-heading"><div><span class="portal-kicker">Your evidence trail</span><h2 id="dashboardJourneyTitle">Personal learning journey</h2><p>Every completed exchange becomes a private reflection you can return to and build on.</p></div><a class="btn btn-sm" href="learning-journal.html"><i class="bx bx-notepad"></i> Open journal</a></div>
+              <div class="dashboard-journey-list" id="dashboardJourney"></div>
+            </section>
+
+            <div class="dashboard-primary-grid dashboard-reveal">
+
+              <section class="dashboard-panel next-action-panel" id="dashboardNextAction">
+                <div class="panel-heading">
+                  <div><span class="portal-kicker">Suggested next action</span>
+                    <h2>A focused step for today</h2>
+                  </div><i class="bx bx-compass"></i>
+                </div>
+                <div data-next-action></div>
+              </section>
+
+              <section class="dashboard-panel goal-panel">
+                <div class="panel-heading">
+                  <div><span class="portal-kicker">Learning goal</span>
+                    <h2>Your current direction</h2>
+                  </div><a href="profile.html">Edit goal</a>
+                </div>
+                <div data-learning-goal></div>
+              </section>
+            </div>
+
+            <section class="dashboard-panel dashboard-wide-panel dashboard-reveal">
+              <div class="panel-heading">
+                <div><span class="portal-kicker">Recommended people</span>
+                  <h2>Your strongest skill matches</h2>
+                  <p>Real members ranked using the preferences and availability saved to your account.</p>
+                </div><a class="btn btn-sm" href="skill-matching.html">Tune matching <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+              <div class="dashboard-match-grid" id="dashboardMatches"></div>
+            </section>
+
+            <div class="dashboard-secondary-grid dashboard-reveal">
+
+              <section class="dashboard-panel">
+                <div class="panel-heading">
+                  <div><span class="portal-kicker">Calendar</span>
+                    <h2>Upcoming sessions</h2>
+                  </div><a href="calendar.html">Open calendar</a>
+                </div>
+                <div class="dashboard-list" id="dashboardSessions"></div>
+              </section>
+
+              <section class="dashboard-panel">
+                <div class="panel-heading">
+                  <div><span class="portal-kicker">Inbox</span>
+                    <h2>Recent messages</h2>
+                  </div><a href="notifications.html">Open Inbox</a>
+                </div>
+                <div class="dashboard-list" id="dashboardMessages"></div>
+              </section>
+            </div>
+
+            <section class="dashboard-panel dashboard-discovery-panel dashboard-reveal">
+              <div class="panel-heading">
+                <div><span class="portal-kicker">Explore the platform</span>
+                  <h2>Continue from anywhere</h2>
+                </div>
+                <div class="live-platform-metrics"><span><strong data-platform-metric="active_members">—</strong> active members</span><span><strong data-platform-metric="skills">—</strong> listed skills</span></div>
+              </div>
+              <div class="dashboard-quick-grid">
+                <a href="browse-skills.html"><i class="bx bx-search-alt"></i><strong>Browse skills</strong><span>Explore the live skill directory</span></a>
+                <a href="workshops.html"><i class="bx bx-chalkboard"></i><strong>Join a workshop</strong><span>Learn in a guided small group</span></a>
+                <a href="community.html"><i class="bx bx-group"></i><strong>Meet members</strong><span>Search real community profiles</span></a>
+                <a href="skill-innovation.html"><i class="bx bx-bulb"></i><strong>Build an idea</strong><span>Find support and collaborators</span></a>
+                <a href="credits.html"><i class="bx bx-receipt"></i><strong>Review credits</strong><span>Trace every balance change</span></a>
+                <a href="profile.html"><i class="bx bx-slider-alt"></i><strong>Tune your account</strong><span>Improve your matching signals</span></a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+
+    <script src="scripts/swaplabs-dashboard.js?v=20260929-streak2"></script>
+  <script src="scripts/dashboard-journey.js?v=20260927-dashboard-journey1"></script>
+  <script src="scripts/dashboard-insights.js?v=20260927-analytics1"></script>
+  <script src="scripts/dashboard-redesign.js?v=20260927-dashboard-redesign1"></script>
+  <script src="scripts/swaplabs-dashboard-study.js?v=20261001-study1"></script>
+</body>
+
+</html>

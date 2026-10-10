@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Session rooms — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="Open SwapLabs video-session rooms, waiting rooms, attendance confirmation, screen sharing, and connection checks from your scheduled sessions.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page feature-page" data-extension-page="session-room">
+      <section class="platform-hero feature-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-video"></i> Session room hub</span>
+            <h1>Open the right room for the right session.</h1>
+            <p class="platform-hero-copy">Create or enter protected video rooms from your calendar. Waiting-room checks, screen sharing, connection quality, and attendance confirmation are connected to the same backend room records.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="calendar.html"><i class="bx bx-calendar-plus"></i> Schedule meeting</a>
+              <a class="btn" href="video-room.html"><i class="bx bx-video-plus"></i> Open video app</a>
+            </div>
+          </div>
+          <aside class="platform-hero-card">
+            <div class="hero-card-top"><span>Room operations</span><i class="bx bx-shield-quarter"></i></div>
+            <ul class="hero-card-list">
+              <li><i class="bx bx-door-open"></i> Waiting rooms for host approval</li>
+              <li><i class="bx bx-desktop"></i> Screen sharing controls</li>
+              <li><i class="bx bx-wifi"></i> Connection-quality checks</li>
+              <li><i class="bx bx-check-square"></i> Attendance confirmation</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section">
+        <div class="container">
+          <div class="feature-stat-row">
+            <article><strong data-feature-stat="events">0</strong><span>calendar sessions</span></article>
+            <article><strong data-feature-stat="open_rooms">0</strong><span>open rooms</span></article>
+            <article><strong data-feature-stat="waiting">0</strong><span>waiting members</span></article>
+            <article><strong data-feature-stat="confirmed_attendance">0</strong><span>confirmed attendance</span></article>
+          </div>
+          <div class="feature-two-column">
+            <section>
+              <div class="platform-heading compact"><h2>Scheduled sessions</h2><p>Create a room from any active calendar session.</p></div>
+              <div class="feature-grid" id="sessionEventGrid"></div>
+            </section>
+            <section>
+              <div class="platform-heading compact"><h2>Existing rooms</h2><p>Return to rooms already connected to your sessions.</p></div>
+              <div class="feature-grid" id="sessionRoomGrid"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-extensions.js?v=20260930-invite-links1"></script>
+  </body>
+
+</html>

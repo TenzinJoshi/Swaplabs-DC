@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin.html
+Disallow: /admin-gate.html
+Disallow: /calendar.html
+Disallow: /dashboard.html
+Disallow: /gifts.html
+Disallow: /notifications.html
+Disallow: /portfolio.html
+Disallow: /profile.html
+Disallow: /projects.html
+Disallow: /skill-matching.html
+Disallow: /swapjobs.html
+
+Sitemap: http://localhost:8000/sitemap.xml

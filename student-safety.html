@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Student safety — SwapLabs</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <meta name="description" content="SwapLabs student safety controls, guardian consent, member-selected profile visibility, age-aware messaging, and specialist moderation.">
+    <link rel="stylesheet" href="swaplabs.css?v=20261003-classic-colors2">
+    <link rel="stylesheet" href="styles/relayskills-theme.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="styles/navigation-enhanced.css?v=20261003-classic-colors2">
+      <link rel="stylesheet" href="/styles/mobile-site.css?v=20261010-mobile-polish1">
+    <link rel="preload" href="/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles/marker-font.css?v=20261003-marker-headings2">
+    <link rel="stylesheet" href="/styles/subtle-gradients.css?v=20261003-gradient2">
+  </head>
+
+  <body>
+
+    <div data-site-header><header class="static-site-header" aria-label="Fallback site navigation"><a class="brand" href="index.html"><img src="logo.jpg" alt="SwapLabs logo"><span class="brand-wordmark" aria-label="SwapLabs"><span class="brand-wordmark-relay">Swap</span><span class="brand-wordmark-skills">Labs</span></span></a><nav class="static-nav-links" aria-label="Primary navigation"><a href="browse-skills.html">Skills</a><a href="workshops.html">Workshops</a><a href="skill-innovation.html">Innovation</a><a href="login.html">Log in</a><a href="register.html">Create account</a></nav></header></div>
+
+    <main class="platform-page feature-page" data-extension-page="student-safety">
+      <section class="platform-hero feature-hero">
+        <div class="container platform-hero-grid">
+          <div>
+            <span class="platform-kicker"><i class="bx bx-shield-quarter"></i> Student safety</span>
+            <h1>Young creators get stronger defaults and clearer review.</h1>
+            <p class="platform-hero-copy">Student accounts use member-selected profile visibility, connection-aware messaging, guardian consent records, and specialist moderation for Skills and Innovation submissions.</p>
+            <div class="platform-hero-actions">
+              <a class="btn btn-primary" href="profile.html#preferences"><i class="bx bx-cog"></i> Account settings</a>
+              <a class="btn" href="report.html"><i class="bx bx-flag"></i> Report concern</a>
+            </div>
+          </div>
+          <aside class="platform-hero-card" id="guardianState">
+            <div class="hero-card-top"><span>Loading safety state</span><i class="bx bx-loader-alt bx-spin"></i></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="platform-section">
+        <div class="container">
+          <div class="feature-stat-row">
+            <article><strong data-feature-stat="student_accounts">0</strong><span>student accounts</span></article>
+            <article><strong data-feature-stat="pending_guardian_consents">0</strong><span>pending guardian checks</span></article>
+            <article><strong data-feature-stat="student_ideas_in_review">0</strong><span>ideas in review</span></article>
+            <article><strong data-feature-stat="private_student_profiles">0</strong><span>protected student profiles</span></article>
+          </div>
+          <div class="feature-two-column">
+            <section>
+              <div class="platform-heading compact"><h2>Active safety controls</h2><p>These protections are enforced through profile, messaging, ideas, and moderation routes.</p></div>
+              <div class="feature-list" id="studentSafetyControls"></div>
+            </section>
+            <form class="platform-form platform-form-shell" id="guardianConsentForm">
+              <div class="platform-form-head"><div><h2>Guardian consent details</h2><p>For accounts under 13 only. Administrators can review and verify the record.</p></div><i class="bx bx-user-check"></i></div>
+              <div class="platform-form-grid">
+                <div class="field"><label>Guardian name</label><input name="guardian_name" required></div>
+                <div class="field"><label>Guardian email</label><input name="guardian_email" type="email" required></div>
+                <div class="field full"><label>Relationship</label><select name="guardian_relationship" required><option value="parent">Parent</option><option value="legal guardian">Legal guardian</option><option value="grandparent">Grandparent</option><option value="adult sibling">Adult sibling</option><option value="foster carer">Foster carer</option><option value="other guardian">Other guardian</option></select></div>
+                <label class="platform-check field full"><input name="guardian_consent_declared" type="checkbox"><span><strong>Guardian consent has been declared.</strong><span>This saves the declaration for administrator review.</span></span></label>
+              </div>
+              <div class="platform-form-actions"><p>Adult accounts do not need this form.</p><button class="btn btn-primary" type="submit">Save consent</button></div>
+              <div class="feature-status" data-safety-status></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="scripts/relay-components.js?v=20261006-dark-contrast1"></script>
+
+    <script src="scripts/swaplabs.js?v=20261010-global-contrast2"></script>
+    <script src="scripts/swaplabs-extensions.js?v=20260930-invite-links1"></script>
+  </body>
+
+</html>
