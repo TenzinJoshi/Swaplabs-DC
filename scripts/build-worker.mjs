@@ -1,7 +1,9 @@
+import {execFileSync} from "node:child_process";
 import {copyFile, mkdir, readFile, readdir, rm, stat, writeFile} from "node:fs/promises";
 import {dirname, join, relative} from "node:path";
 
 const projectRoot = process.cwd();
+execFileSync(process.platform === "win32" ? "python" : "python3", [join(projectRoot, "scripts", "build-source-zip.py")], {stdio: "inherit"});
 const templatePath = join(projectRoot, "server", "index.template.js");
 const outputPath = join(projectRoot, "dist", "server", "index.js");
 const staticDirectory = join(projectRoot, "dist", "public");
