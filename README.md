@@ -8,7 +8,7 @@ Real member data is not included here. This public repository contains no real u
 
 ## Run locally
 
-Requirements: Node.js 20 or newer, Python 3, and pnpm.
+Requirements: Node.js 20 or newer, Python 3, and pnpm 10.4 or newer. pnpm 11 requires Node.js 22 or newer.
 
 ```sh
 pnpm install --frozen-lockfile
