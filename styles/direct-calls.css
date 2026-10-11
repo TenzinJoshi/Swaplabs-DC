@@ -1,0 +1,356 @@
+.relay-call-layer[hidden] {
+  display: none !important;
+}
+
+.relay-call-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, .5);
+  backdrop-filter: blur(12px);
+}
+
+.relay-call-card {
+  position: relative;
+  width: min(100%, 430px);
+  overflow: hidden;
+  padding: 36px 34px 28px;
+  border: 1px solid rgba(133, 149, 255, .42);
+  border-radius: 32px;
+  background: linear-gradient(145deg, #ffffff 0%, #f4f6ff 56%, #fff5ef 100%);
+  box-shadow: 0 34px 90px rgba(37, 50, 132, .32), 0 0 0 10px rgba(93, 99, 230, .08);
+  text-align: center;
+}
+
+.relay-call-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 7px;
+  background: linear-gradient(90deg, #ff8a63, #ffb36d 38%, #4159e9 100%);
+  content: '';
+}
+
+.relay-call-pulse {
+  position: absolute;
+  top: 27px;
+  right: 28px;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  color: #4357df;
+  background: #e6eaff;
+  animation: relay-call-pulse 1.8s ease-in-out infinite;
+}
+
+.relay-call-avatar {
+  display: grid;
+  width: 94px;
+  height: 94px;
+  margin: 4px auto 18px;
+  place-items: center;
+  overflow: hidden;
+  border: 4px solid #ff986e;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #344dcc, #7654d5);
+  box-shadow: 0 14px 30px rgba(65, 79, 218, .28);
+  font-size: 1.8rem;
+  font-weight: 850;
+}
+
+.relay-call-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.relay-call-kicker {
+  display: inline-flex;
+  padding: 7px 12px;
+  border: 1px solid #a9e3d2;
+  border-radius: 999px;
+  color: #0d6451;
+  background: #effcf7;
+  font-size: .7rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.relay-call-card h2 {
+  margin: 17px 0 8px;
+  color: #111a32;
+  font-size: clamp(1.55rem, 4vw, 2rem);
+}
+
+.relay-call-card p {
+  margin: 0 auto;
+  max-width: 320px;
+  color: #5d6b86;
+  line-height: 1.55;
+}
+
+.relay-call-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.relay-call-actions button {
+  min-height: 50px;
+  border: 0;
+  border-radius: 16px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.relay-call-actions button:disabled {
+  cursor: wait;
+  opacity: .55;
+}
+
+.relay-call-decline {
+  color: #9b3f43;
+  background: #ffe5e4;
+}
+
+.relay-call-accept {
+  color: #fff;
+  background: linear-gradient(135deg, #3d59e8, #6650db);
+  box-shadow: 0 12px 24px rgba(62, 84, 221, .25);
+}
+
+.relay-call-credit-note {
+  display: block;
+  margin-top: 18px;
+  color: #7c89a0;
+  font-size: .75rem;
+}
+
+.relay-call-notice {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 100001;
+  max-width: min(420px, calc(100vw - 44px));
+  padding: 14px 17px;
+  border: 1px solid #cbd5ff;
+  border-radius: 15px;
+  color: #17213b;
+  background: #eef1ff;
+  box-shadow: 0 18px 42px rgba(32, 43, 106, .2);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events: none;
+  font-weight: 700;
+}
+
+.relay-call-notice.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.relay-call-notice.error {
+  border-color: #ffc3bd;
+  color: #7f3035;
+  background: #fff0ed;
+}
+
+.inbox-page-body .chat-header-actions .call-action.voice {
+  color: #0f6b58;
+  background: #effcf7;
+}
+
+.inbox-page-body .chat-header-actions .call-action.video {
+  color: #4357df;
+  background: #eef1ff;
+}
+
+.inbox-page-body .chat-header-actions .call-action:not([hidden]):hover,
+.inbox-page-body .chat-header-actions .call-action:not([hidden]):focus-visible {
+  transform: translateY(-2px);
+}
+
+.call-message-card {
+  min-width: min(280px, 100%);
+  padding: 15px 16px;
+  border: 1px solid #bdd4f6;
+  border-radius: 18px 18px 18px 7px;
+  color: #17213b;
+  background: linear-gradient(145deg, #eef3ff, #f7f9ff);
+}
+
+.message-row.mine .call-message-card {
+  border-color: #b5b0f0;
+  border-radius: 18px 18px 7px 18px;
+  background: linear-gradient(145deg, #e4e8ff, #f4efff);
+}
+
+.call-message-top,
+.call-message-main,
+.call-message-actions {
+  display: flex;
+  align-items: center;
+}
+
+.call-message-top {
+  justify-content: space-between;
+  gap: 12px;
+  color: #5d6b86;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.call-message-top > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4357df;
+}
+
+.call-message-main {
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.call-message-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #2e51d8, #6751d7);
+  font-size: 1.2rem;
+}
+
+.call-message-main strong,
+.call-message-main small {
+  display: block;
+}
+
+.call-message-main strong {
+  font-size: 1rem;
+}
+
+.call-message-main small {
+  margin-top: 3px;
+  color: #66758f;
+}
+
+.call-message-actions {
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.call-message-actions button,
+.call-message-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 10px;
+  border: 1px solid #c9d4f7;
+  border-radius: 10px;
+  color: #4054d7;
+  background: #fff;
+  font-size: .75rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.quick-schedule-card {
+  width: min(100%, 520px);
+}
+
+.quick-schedule-fields {
+  margin-top: 2px;
+}
+
+.quick-schedule-reminder {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 4px;
+  color: #52627e;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.video-call-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 8px;
+}
+
+.relay-voice-room .video-stage-panel {
+  background: radial-gradient(circle at 50% 20%, rgba(117, 93, 224, .22), transparent 40%), linear-gradient(145deg, #111a36, #303b91);
+}
+
+.relay-voice-room .video-grid {
+  align-items: center;
+  justify-content: center;
+}
+
+.relay-voice-room .video-tile {
+  width: min(100%, 460px);
+  min-height: 280px;
+  background: rgba(11, 18, 43, .58);
+}
+
+.relay-voice-room .video-tile video {
+  display: none;
+}
+
+.relay-voice-room .video-tile-placeholder {
+  position: static;
+  display: flex;
+  min-height: 230px;
+  background: transparent;
+}
+
+.relay-voice-room .video-tile-placeholder i {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #ff8b61, #6e57d8);
+  font-size: 1.7rem;
+}
+
+.relay-voice-room .video-call-add {
+  border-color: #b8c2ff;
+  color: #4054d7;
+  background: #eef1ff;
+}
+
+@keyframes relay-call-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(67, 87, 223, .18); }
+  50% { box-shadow: 0 0 0 9px rgba(67, 87, 223, 0); }
+}
+
+@media (max-width: 600px) {
+  .relay-call-layer { padding: 15px; }
+  .relay-call-card { padding: 30px 20px 23px; border-radius: 25px; }
+  .relay-call-pulse { top: 22px; right: 20px; }
+  .relay-call-actions { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .relay-call-pulse { animation: none; }
+}

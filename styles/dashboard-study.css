@@ -1,0 +1,30 @@
+.dashboard-study-card { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); gap: 22px; align-items: stretch; margin: 24px 0; padding: clamp(22px, 4vw, 34px); border: 1px solid rgba(111, 126, 221, .22); border-radius: 24px; background: linear-gradient(135deg, rgba(241, 246, 255, .98), rgba(248, 244, 255, .98)); box-shadow: 0 18px 48px rgba(56, 72, 137, .1); }
+.dashboard-study-copy { min-width: 0; }
+.dashboard-study-copy h2 { margin: 8px 0 8px; color: var(--ink, #142344); font-size: clamp(1.45rem, 3vw, 2.15rem); letter-spacing: -.045em; }
+.dashboard-study-copy p { max-width: 620px; margin: 0 0 20px; color: var(--muted, #647493); line-height: 1.55; }
+.dashboard-study-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.dashboard-study-next { display: flex; align-items: flex-start; gap: 13px; min-width: 0; padding: 18px; border: 1px solid rgba(201, 213, 235, .9); border-radius: 18px; background: rgba(255, 255, 255, .78); }
+.dashboard-study-next-icon { display: grid; place-items: center; flex: 0 0 auto; width: 42px; height: 42px; border-radius: 14px; color: #7655dc; background: #ece8ff; font-size: 1.3rem; }
+.dashboard-study-next > div { display: grid; min-width: 0; gap: 5px; }
+.dashboard-study-next small { color: #647493; font-size: .7rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+.dashboard-study-next strong { overflow-wrap: anywhere; color: var(--ink, #142344); font-size: .96rem; }
+.dashboard-study-next span:last-child { color: #647493; font-size: .78rem; line-height: 1.45; }
+html[data-theme="dark"] .dashboard-study-card,
+body.theme-dark .dashboard-study-card { border-color: rgba(146, 164, 222, .27); background: linear-gradient(135deg, #17233f, #211c42); }
+html[data-theme="dark"] .dashboard-study-copy h2,
+body.theme-dark .dashboard-study-copy h2,
+html[data-theme="dark"] .dashboard-study-next strong,
+body.theme-dark .dashboard-study-next strong { color: #f5f7ff; }
+html[data-theme="dark"] .dashboard-study-copy p,
+body.theme-dark .dashboard-study-copy p,
+html[data-theme="dark"] .dashboard-study-next small,
+body.theme-dark .dashboard-study-next small,
+html[data-theme="dark"] .dashboard-study-next span:last-child,
+body.theme-dark .dashboard-study-next span:last-child { color: #bbc5dd; }
+html[data-theme="dark"] .dashboard-study-next,
+body.theme-dark .dashboard-study-next { border-color: rgba(155, 174, 224, .25); background: rgba(26, 36, 68, .8); }
+@media (max-width: 720px) {
+  .dashboard-study-card { grid-template-columns: 1fr; margin: 18px 0; padding: 20px 16px; border-radius: 20px; }
+  .dashboard-study-actions { align-items: stretch; flex-direction: column; }
+  .dashboard-study-actions .btn { width: 100%; }
+}

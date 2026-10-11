@@ -1,0 +1,89 @@
+/* Readability contract: visible copy on a blue or dark surface is white. */
+[data-swaplabs-contrast="inverse"] {
+  color: #fff !important;
+  fill: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+[data-swaplabs-contrast="inverse"]::placeholder {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* The runtime uses the same marker when white would be too faint on a light
+   or mid-tone surface. Inline color chooses navy or black per background. */
+[data-swaplabs-contrast="readable"] {
+  color: #172a46 !important;
+  fill: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+[data-swaplabs-contrast="readable"]::placeholder {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  opacity: 1 !important;
+}
+
+[data-swaplabs-contrast="inverse"]::before,
+[data-swaplabs-contrast="inverse"]::after {
+  color: #fff !important;
+  fill: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+[data-swaplabs-contrast="readable"]::before,
+[data-swaplabs-contrast="readable"]::after {
+  color: inherit !important;
+  fill: currentColor !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+[data-swaplabs-contrast="inverse"] :where(i, .bx, svg) {
+  color: #fff !important;
+  fill: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+[data-swaplabs-contrast="readable"] :where(i, .bx, svg) {
+  color: inherit !important;
+  fill: currentColor !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+.rs-next-move-steps button[aria-selected="true"],
+.rs-next-move-steps button[aria-selected="true"] :where(*) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.swapbot-launch,
+.swapbot-launch :where(*) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.swapbot-launch :where(i, .bx, svg) {
+  fill: #fff !important;
+}
+
+/* Keep nested labels and icon-font controls in sync with an automatically
+   corrected button or card, including controls whose icon is the only label. */
+[data-swaplabs-contrast="inverse"] :where(*) {
+  color: #fff !important;
+  fill: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+[data-swaplabs-contrast="readable"] :where(*) {
+  color: inherit !important;
+  fill: currentColor !important;
+  -webkit-text-fill-color: inherit !important;
+}
+
+/* The shared return-to-top control uses the brand navy surface. */
+.back-to-top,
+.back-to-top :where(*) {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}

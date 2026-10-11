@@ -1,0 +1,84 @@
+/*
+ * Dark-mode readability contract.
+ *
+ * Dark surfaces use true white text so body copy, labels, metadata, and
+ * controls remain readable regardless of which page-specific stylesheet
+ * rendered the component.
+ */
+html[data-theme="dark"],
+html[data-theme="dark"] body,
+body.theme-dark {
+  color-scheme: dark;
+  --rs-body: #ffffff !important;
+  --rs-muted: #ffffff !important;
+  --relayskills-muted: #ffffff !important;
+  --text-body: #ffffff !important;
+  --muted: #ffffff !important;
+  --dash-muted: #ffffff !important;
+  --dash-ink-soft: #ffffff !important;
+}
+
+:is(html[data-theme="dark"] body, body.theme-dark) :where(
+  h1, h2, h3, h4, h5, h6,
+  p, li, dt, dd, label, small, strong, b, em, mark,
+  summary, caption, figcaption, time,
+  span:not([aria-hidden="true"]),
+  a:not(.btn):not(.button):not([class*="icon"]),
+  button, .btn, input[type="submit"], input[type="button"], input[type="reset"]
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+:is(html[data-theme="dark"] body, body.theme-dark) :where(input, select, textarea) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+:is(html[data-theme="dark"] body, body.theme-dark) :where(input, select, textarea)::placeholder {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+:is(html[data-theme="dark"] body, body.theme-dark) :where(
+  .member-portal-hero .btn:not(.btn-primary),
+  .dashboard-hero-actions .btn:not(.btn-primary)
+) {
+  color: #172344 !important;
+  -webkit-text-fill-color: #172344 !important;
+}
+
+:is(html[data-theme="dark"] body, body.theme-dark) :where(
+  .dashboard-study-card,
+  .dashboard-study-card *,
+  .dashboard-redesign .dashboard-focus-strip,
+  .dashboard-redesign .workspace-tour,
+  .dashboard-redesign .journey-insights,
+  .dashboard-redesign .dashboard-panel,
+  .dashboard-redesign .dashboard-journey-command,
+  .dashboard-redesign .dashboard-journey-command *,
+  .dashboard-redesign .journey-insights *,
+  .dashboard-redesign .dashboard-panel *
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+:is(html[data-theme="dark"] body, body.theme-dark) :where(
+  .dashboard-study-card i,
+  .dashboard-redesign i,
+  .dashboard-redesign svg
+) {
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* The home hero stays light in either theme, so keep its accent text visibly
+   blue-to-purple instead of letting the dark-mode text-fill rule hide it. */
+:is(html[data-theme="dark"] body, body.theme-dark).home-scroll-journey:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock):not(#relay-dark-mode-white-text) .rs-hero-copy h1 em {
+  background-image: linear-gradient(95deg, #3159ed 0%, #8165e5 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}

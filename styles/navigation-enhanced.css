@@ -1,0 +1,1062 @@
+/*
+ * SwapLabs navigation polish
+ * -----------------------------
+ * This file is loaded last so the shared header keeps the same hierarchy on
+ * every route, including pages with their own feature-specific CSS.
+ */
+
+:root {
+  --navx-shell: rgba(248, 247, 243, .92);
+  --navx-panel: rgba(238, 234, 249, .92);
+  --navx-line: rgba(23, 42, 70, .15);
+  --navx-heading: #172a46;
+  --navx-text: #4f5e70;
+  --navx-hover: #ffffff;
+  --navx-blue: #4f79e8;
+  --navx-blue-deep: #7657ce;
+  --navx-orange: #bd5794;
+  --navx-shadow: 0 22px 52px rgba(23, 42, 70, .14), 0 6px 16px rgba(23, 42, 70, .07);
+}
+
+html[data-theme="dark"] {
+  --navx-shell: rgba(6, 6, 8, .94);
+  --navx-panel: rgba(15, 15, 18, .96);
+  --navx-line: rgba(255, 255, 255, .16);
+  --navx-heading: #ffffff;
+  --navx-text: #eef2f8;
+  --navx-hover: #2a2e38;
+  --navx-shadow: 0 24px 64px rgba(0, 0, 0, .58), 0 5px 18px rgba(0, 0, 0, .32);
+}
+
+/* The shell is intentionally roomy, while the link group itself stays tight. */
+.site-header {
+  --header-height: 72px;
+}
+
+.site-header .nav {
+  width: min(calc(100% - 32px), 1480px) !important;
+  height: 72px !important;
+  gap: 12px !important;
+  padding: 0 12px 0 16px !important;
+  border-radius: 24px !important;
+}
+
+/* Center the purple primary rail against the full navbar, rather than
+   centering it only in the space left between the brand and utilities. */
+@media (min-width: 1181px) {
+  .site-header .nav {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    column-gap: 16px !important;
+  }
+
+  .site-header .brand {
+    justify-self: start;
+  }
+
+  .site-header .nav-links {
+    justify-self: center;
+    margin-left: 0 !important;
+  }
+
+  .site-header .nav-actions {
+    justify-self: end;
+    margin-left: 0 !important;
+  }
+}
+
+.site-header .nav::before {
+  border: 1px solid var(--navx-line) !important;
+  border-radius: inherit !important;
+  background: var(--navx-shell) !important;
+  box-shadow: var(--navx-shadow), inset 0 1px rgba(255, 255, 255, .26) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(155%) !important;
+  backdrop-filter: blur(26px) saturate(155%) !important;
+}
+
+.site-header .brand {
+  gap: 11px !important;
+  padding: 5px 12px 5px 4px !important;
+  border-radius: 18px !important;
+  transition: background .2s ease, transform .2s ease !important;
+}
+
+.site-header .brand:hover {
+  background: rgba(184, 167, 232, .16) !important;
+  transform: translateY(-1px);
+}
+
+.site-header .brand-logo-shell {
+  width: 48px !important;
+  height: 48px !important;
+  flex-basis: 48px !important;
+  border-radius: 15px !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 22px rgba(39, 69, 132, .14) !important;
+}
+
+.site-header .brand img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 12px !important;
+  object-fit: contain !important;
+}
+
+.site-header .brand > .brand-wordmark {
+  font-size: 1.02rem !important;
+  font-weight: 850 !important;
+  letter-spacing: -.045em !important;
+}
+
+/* Keep the primary section rail content-sized and free of dead space. */
+.site-header .nav-links {
+  flex: 0 0 auto !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  gap: 4px !important;
+  padding: 5px !important;
+  border: 1px solid var(--navx-line) !important;
+  border-radius: 18px !important;
+  background: var(--navx-panel) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .42), 0 4px 14px rgba(23, 42, 70, .06) !important;
+}
+
+.site-header .nav-links > a.nav-major {
+  min-height: 46px !important;
+  padding: 0 14px !important;
+  gap: 8px !important;
+  border-radius: 13px !important;
+  color: var(--navx-text) !important;
+  font-size: .78rem !important;
+  font-weight: 820 !important;
+  letter-spacing: -.012em;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease !important;
+}
+
+.site-header .nav-links > a.nav-major i {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  color: currentColor !important;
+  font-size: 1.08rem !important;
+  opacity: .88;
+}
+
+.site-header .nav-links > a.nav-major:hover {
+  background: var(--navx-hover) !important;
+  color: var(--navx-heading) !important;
+  box-shadow: 0 5px 14px rgba(23, 42, 70, .11) !important;
+  transform: translateY(-1px);
+}
+
+.site-header .nav-links > a.nav-major.active {
+  background: linear-gradient(135deg, var(--navx-blue), var(--navx-blue-deep)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(79, 121, 232, .26) !important;
+}
+
+.site-header .nav-links > a.nav-major.active::after {
+  display: none !important;
+}
+
+.site-header .nav-links > a.nav-major.nav-create:not(.active) {
+  color: var(--navx-orange) !important;
+}
+
+.site-header .nav-links > a.nav-major.nav-create:not(.active):hover {
+  background: rgba(255, 107, 90, .13) !important;
+  color: #d65045 !important;
+}
+
+.site-header .nav-actions {
+  gap: 8px !important;
+  margin-left: auto;
+}
+
+.site-header .auth-nav .btn,
+.site-header .menu-btn {
+  min-height: 46px !important;
+  height: 46px !important;
+  border-radius: 14px !important;
+  border-color: var(--navx-line) !important;
+  background: var(--navx-panel) !important;
+  color: var(--navx-text) !important;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease !important;
+}
+
+.site-header .auth-nav .btn:not(.btn-primary):hover,
+.site-header .menu-btn:hover {
+  background: var(--navx-hover) !important;
+  color: var(--navx-heading) !important;
+  border-color: rgba(79, 121, 232, .32) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(23, 42, 70, .1) !important;
+}
+
+.site-header .auth-nav .btn-primary {
+  border-color: transparent !important;
+  background: linear-gradient(120deg, var(--navx-blue), #7254e8 58%, var(--navx-orange)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 22px rgba(79, 121, 232, .25) !important;
+}
+
+.site-header .auth-nav .btn-primary:hover {
+  background: linear-gradient(120deg, #416fe1, #6949c4 58%, #af4b87) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+.site-header :is(a, button):focus-visible {
+  outline: 3px solid rgba(79, 121, 232, .52) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 5px rgba(79, 121, 232, .14) !important;
+}
+
+/* Preserve the same finish for the no-JavaScript fallback header. */
+.static-site-header {
+  border-color: var(--navx-line) !important;
+  background: var(--navx-shell) !important;
+  box-shadow: var(--navx-shadow) !important;
+}
+
+/* Dark mode is deliberately charcoal, with blue reserved for the active path. */
+html[data-theme="dark"] .site-header .nav::before,
+html[data-theme="dark"] .static-site-header {
+  background: var(--navx-shell) !important;
+  border-color: var(--navx-line) !important;
+  box-shadow: var(--navx-shadow) !important;
+}
+
+html[data-theme="dark"] .site-header .nav-links {
+  background: var(--navx-panel) !important;
+  border-color: var(--navx-line) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .06), 0 5px 16px rgba(0, 0, 0, .3) !important;
+}
+
+/* Use the dark logo asset in dark mode; light mode keeps the white tile. */
+html[data-theme="dark"] .site-header .brand-logo-shell {
+  background: #08090c !important;
+  border-color: rgba(255, 255, 255, .18) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .38) !important;
+}
+
+html[data-theme="dark"] .site-header .brand img {
+  content: url("../logo.jpg");
+  background: #08090c !important;
+}
+
+html[data-theme="dark"] .site-header .nav-links > a.nav-major:hover,
+html[data-theme="dark"] .site-header .auth-nav .btn:not(.btn-primary):hover,
+html[data-theme="dark"] .site-header .menu-btn:hover {
+  background: var(--navx-hover) !important;
+  color: var(--navx-heading) !important;
+}
+
+/* Dark-mode navigation labels must remain readable against the charcoal rail. */
+html[data-theme="dark"] .site-header .nav-links > a.nav-major,
+html[data-theme="dark"] .site-header .nav-links .nav-hover-group .nav-major,
+html[data-theme="dark"] .site-header .nav-group-toggle,
+html[data-theme="dark"] .site-header .auth-nav .btn:not(.btn-primary),
+html[data-theme="dark"] .site-header .menu-btn {
+  color: var(--navx-text) !important;
+  text-shadow: 0 0 0.01px currentColor;
+}
+
+html[data-theme="dark"] .site-header .nav-links > a.nav-major i,
+html[data-theme="dark"] .site-header .nav-links .nav-hover-group .nav-major i {
+  opacity: 1;
+}
+
+html[data-theme="dark"] .site-header .nav-links > a.nav-major.nav-create:not(.active) {
+  color: #ffb0a5 !important;
+}
+
+/* The desktop rail collapses into the existing accessible menu on tablets. */
+@media (max-width: 1180px) and (min-width: 841px) {
+  .site-header .nav-links > a.nav-major {
+    padding-inline: 11px !important;
+  }
+
+  .site-header .nav {
+    gap: 8px !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  .site-header .nav-links.open {
+    width: auto !important;
+    padding: 8px !important;
+    border-radius: 20px !important;
+    background: var(--navx-shell) !important;
+    border-color: var(--navx-line) !important;
+    box-shadow: var(--navx-shadow) !important;
+  }
+
+  .site-header .nav-links.open > a.nav-major {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: flex-start;
+    padding-inline: 14px !important;
+    border-radius: 14px !important;
+  }
+
+}
+
+@media (max-width: 840px) {
+  .site-header {
+    --header-height: 64px;
+  }
+
+  /* The homepage has a more specific desktop-only hide rule. An explicitly
+     opened menu must always win on touch screens, including that route. */
+  .site-header .nav-links.open {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .site-header .nav {
+    width: calc(100% - 20px) !important;
+    height: 64px !important;
+    padding-inline: 8px !important;
+    border-radius: 20px !important;
+  }
+
+  .site-header .brand-logo-shell {
+    width: 42px !important;
+    height: 42px !important;
+    flex-basis: 42px !important;
+    border-radius: 13px !important;
+  }
+
+  .site-header .brand {
+    gap: 7px !important;
+    padding-right: 5px !important;
+  }
+
+  .site-header .brand > .brand-wordmark {
+    max-width: 104px;
+    overflow: hidden;
+    font-size: .88rem !important;
+    text-overflow: ellipsis;
+  }
+
+  .site-header .nav-actions {
+    gap: 5px !important;
+  }
+
+  .site-header .auth-nav .btn,
+  .site-header .menu-btn {
+    min-width: 42px !important;
+    width: 42px !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    padding-inline: 0 !important;
+    border-radius: 13px !important;
+  }
+}
+
+@media (max-width: 590px) {
+  .site-header .nav {
+    width: calc(100% - 14px) !important;
+  }
+
+  .site-header .brand > .brand-wordmark {
+    display: inline-flex !important;
+    max-width: 92px;
+    font-size: .78rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .brand,
+  .site-header .nav-links > a.nav-major,
+  .site-header .nav-actions :is(.btn, .menu-btn) {
+    transition: none !important;
+  }
+}
+
+/* Section navigation: each primary destination owns its related pages. */
+.site-header .nav-links > .nav-hover-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.site-header .nav-hover-trigger {
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.site-header .nav-links .nav-hover-group .nav-major {
+  min-height: 46px !important;
+  padding: 0 10px 0 14px !important;
+  gap: 8px !important;
+  border-radius: 13px 0 0 13px !important;
+  color: var(--navx-text) !important;
+  font-size: .78rem !important;
+  font-weight: 820 !important;
+  letter-spacing: -.012em;
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease !important;
+}
+
+.site-header .nav-links .nav-hover-group .nav-major i {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  color: currentColor !important;
+  font-size: 1.08rem !important;
+  opacity: .88;
+}
+
+.site-header .nav-links .nav-hover-group:hover .nav-major,
+.site-header .nav-links .nav-hover-group.is-open .nav-major,
+.site-header .nav-links .nav-hover-group:focus-within .nav-major {
+  background: var(--navx-hover) !important;
+  color: var(--navx-heading) !important;
+  box-shadow: 0 5px 14px rgba(23, 42, 70, .11) !important;
+  transform: translateY(-1px);
+}
+
+.site-header .nav-links .nav-hover-group .nav-major.active {
+  background: linear-gradient(135deg, var(--navx-blue), var(--navx-blue-deep)) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(79, 121, 232, .26) !important;
+}
+
+.site-header .nav-links .nav-hover-group.nav-create .nav-major:not(.active) {
+  color: var(--navx-orange) !important;
+}
+
+.site-header .nav-links .nav-hover-group.nav-create:hover .nav-major:not(.active),
+.site-header .nav-links .nav-hover-group.nav-create.is-open .nav-major:not(.active) {
+  background: rgba(255, 107, 90, .13) !important;
+  color: #d65045 !important;
+}
+
+.site-header .nav-group-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  min-height: 46px;
+  padding: 0 7px 0 0;
+  border: 0;
+  border-radius: 0 13px 13px 0;
+  background: transparent;
+  color: var(--navx-text);
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.site-header .nav-group-toggle i {
+  font-size: .9rem;
+  transition: transform .2s ease;
+}
+
+.site-header .nav-links .nav-hover-group:hover .nav-group-toggle,
+.site-header .nav-links .nav-hover-group.is-open .nav-group-toggle,
+.site-header .nav-links .nav-hover-group:focus-within .nav-group-toggle {
+  background: var(--navx-hover);
+  color: var(--navx-heading);
+}
+
+.site-header .nav-hover-group.is-open .nav-group-toggle i {
+  transform: rotate(180deg);
+}
+
+.site-header .nav-hover-menu {
+  position: absolute;
+  z-index: 1100;
+  /* Keep the menu close enough that a pointer can travel into it without
+     leaving the hover path. The bridge below covers the remaining pixels. */
+  top: calc(100% + 4px);
+  left: 0;
+  width: 348px;
+  max-height: min(70vh, 520px);
+  overflow: auto;
+  padding: 16px;
+  border: 1px solid var(--navx-line);
+  border-radius: 20px;
+  background: var(--navx-shell);
+  box-shadow: var(--navx-shadow);
+  -webkit-backdrop-filter: blur(26px) saturate(155%);
+  backdrop-filter: blur(26px) saturate(155%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px) scale(.98);
+  transform-origin: top left;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+
+/* The bridge belongs to the group, so it still receives pointer movement
+   while the menu itself is transitioning from pointer-events:none. */
+.site-header .nav-hover-group::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 8px;
+  pointer-events: auto;
+}
+
+.site-header .nav-hover-group:hover .nav-hover-menu,
+.site-header .nav-hover-group.is-open .nav-hover-menu,
+.site-header .nav-hover-group:focus-within .nav-hover-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.site-header .nav-hover-group.nav-create .nav-hover-menu,
+.site-header .nav-hover-group.nav-support .nav-hover-menu {
+  right: 0;
+  left: auto;
+  transform-origin: top right;
+}
+
+.site-header .nav-hover-menu-head {
+  display: grid;
+  gap: 3px;
+  padding: 2px 3px 13px;
+  border-bottom: 1px solid var(--navx-line);
+}
+
+.site-header .nav-hover-menu-head span {
+  color: var(--navx-blue);
+  font-size: .62rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.site-header .nav-hover-menu-head strong {
+  color: var(--navx-heading);
+  font-size: 1.05rem;
+  letter-spacing: -.025em;
+}
+
+.site-header .nav-hover-menu-head small {
+  color: var(--navx-text);
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+.site-header .nav-hover-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  padding-top: 12px;
+}
+
+.site-header .nav-hover-menu .nav-hover-links a {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 42px;
+  gap: 8px;
+  padding: 8px 9px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--navx-text);
+  font-size: .7rem;
+  font-weight: 760;
+  line-height: 1.2;
+  white-space: normal;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.site-header .nav-hover-menu .nav-hover-links a span {
+  flex: 1;
+  min-width: 0;
+}
+
+.site-header .nav-hover-menu .nav-hover-links a > i:first-child {
+  flex: 0 0 auto;
+  color: var(--navx-blue);
+  font-size: 1rem;
+}
+
+.site-header .nav-hover-menu .nav-hover-links a > i:last-child {
+  flex: 0 0 auto;
+  color: var(--navx-text);
+  font-size: .86rem;
+  opacity: .65;
+}
+
+.site-header .nav-hover-menu .nav-hover-links a:hover,
+.site-header .nav-hover-menu .nav-hover-links a:focus-visible,
+.site-header .nav-hover-menu .nav-hover-links a.active {
+  border-color: rgba(79, 121, 232, .2);
+  background: rgba(79, 121, 232, .1);
+  color: var(--navx-heading);
+  transform: translateX(2px);
+}
+
+.site-header .nav-search-group .nav-major {
+  padding-inline: 12px 8px !important;
+}
+
+.site-header .nav-search-group .nav-search-label {
+  display: inline;
+}
+
+.site-header .nav-search-menu {
+  width: 372px;
+  max-height: min(80vh, 760px);
+}
+
+.site-header .nav-search-menu .nav-site-search {
+  position: relative;
+  display: block;
+  padding-top: 13px;
+}
+
+.site-header .nav-search-menu .nav-site-search label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 6px 0 13px;
+  border: 1px solid var(--navx-line);
+  border-radius: 999px;
+  background: var(--navx-panel);
+  color: var(--navx-text);
+}
+
+.site-header .nav-search-menu .nav-site-search label > i {
+  font-size: 1rem;
+  color: var(--navx-blue);
+}
+
+.site-header .nav-search-menu .nav-site-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--navx-heading);
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.site-header .nav-search-menu .nav-site-search input::placeholder {
+  color: var(--navx-text);
+  opacity: .8;
+}
+
+.site-header .nav-search-menu .nav-site-search button {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--navx-blue);
+  color: #fff;
+  cursor: pointer;
+}
+
+.site-header .nav-search-menu .nav-search-results {
+  /* Keep results in the menu flow so the dropdown grows with the result list
+     instead of clipping the list below its compact search header. */
+  position: static;
+  z-index: 1110;
+  width: auto;
+  max-height: min(58vh, 560px);
+  margin-top: 10px;
+  overflow: auto;
+  display: grid;
+  gap: 5px;
+  padding: 7px;
+  border: 1px solid var(--navx-line);
+  border-radius: 16px;
+  background: var(--navx-shell);
+  box-shadow: var(--navx-shadow);
+}
+
+.site-header .nav-search-menu .nav-search-results[hidden] {
+  display: none;
+}
+
+.site-header .nav-search-menu .nav-search-results a,
+.site-header .nav-search-menu .nav-search-empty {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 7px;
+  border-radius: 11px;
+  color: var(--navx-heading);
+}
+
+.site-header .nav-search-menu .nav-search-results a:hover {
+  background: rgba(79, 121, 232, .1);
+}
+
+.site-header .nav-search-menu .nav-search-results i {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgba(79, 121, 232, .1);
+  color: var(--navx-blue);
+}
+
+.site-header .nav-search-menu .nav-search-results strong,
+.site-header .nav-search-menu .nav-search-results small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site-header .nav-search-menu .nav-search-results strong {
+  font-size: .7rem;
+}
+
+.site-header .nav-search-menu .nav-search-results small {
+  margin-top: 2px;
+  color: var(--navx-text);
+  font-size: .61rem;
+}
+
+html[data-theme="dark"] .site-header .nav-hover-group:hover .nav-major,
+html[data-theme="dark"] .site-header .nav-hover-group.is-open .nav-major,
+html[data-theme="dark"] .site-header .nav-hover-group:focus-within .nav-major,
+html[data-theme="dark"] .site-header .nav-hover-group:hover .nav-group-toggle,
+html[data-theme="dark"] .site-header .nav-hover-group.is-open .nav-group-toggle,
+html[data-theme="dark"] .site-header .nav-hover-group:focus-within .nav-group-toggle {
+  background: var(--navx-hover);
+  color: var(--navx-heading);
+}
+
+@media (max-width: 1100px) {
+  .site-header .nav-links.open > .nav-hover-group {
+    display: block;
+    width: 100%;
+  }
+
+  .site-header .nav-links.open .nav-hover-trigger {
+    width: 100%;
+  }
+
+  .site-header .nav-links.open .nav-major {
+    flex: 1;
+    width: auto !important;
+    justify-content: flex-start;
+    border-radius: 14px 0 0 14px !important;
+  }
+
+  .site-header .nav-links.open .nav-group-toggle {
+    width: 48px;
+    min-height: 48px;
+    border-radius: 0 14px 14px 0;
+    background: var(--navx-panel);
+  }
+
+  .site-header .nav-links.open .nav-hover-menu {
+    position: static;
+    width: 100%;
+    max-height: 0;
+    margin-top: 4px;
+    padding: 0 10px;
+    overflow: hidden;
+    border-width: 0;
+    border-radius: 14px;
+    box-shadow: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+    transition: max-height .2s ease, opacity .2s ease, padding .2s ease, visibility .2s ease;
+  }
+
+  .site-header .nav-links.open .nav-hover-group.is-open .nav-hover-menu,
+  .site-header .nav-links.open .nav-hover-group:focus-within .nav-hover-menu {
+    max-height: 640px;
+    padding: 10px;
+    border-width: 1px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .site-header .nav-links.open .nav-hover-links {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header .nav-links.open .nav-hover-group.nav-create .nav-hover-menu,
+  .site-header .nav-links.open .nav-hover-group.nav-support .nav-hover-menu {
+    right: auto;
+    left: auto;
+  }
+
+  .site-header .nav-links.open .nav-search-menu .nav-search-results {
+    position: static;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 590px) {
+  .site-header .nav-links.open .nav-hover-menu-head strong {
+    font-size: .96rem;
+  }
+
+  .site-header .nav-links.open .nav-search-label {
+    display: inline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .nav-hover-group,
+  .site-header .nav-hover-group *,
+  .site-header .nav-search-menu .nav-search-results a {
+    transition: none !important;
+  }
+}
+
+/* At compact widths, make the navigation trigger self-explanatory. The
+   opened panel already contains the full text-first section menu; this label
+   makes that drawer discoverable for keyboard, touch, and low-vision users. */
+@media (max-width: 1100px) {
+  .site-header .nav-links.open,
+  body.home-simple.home-reference-page .site-header .nav-links.open {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* The homepage reference layer used to hide this control with an
+     !important rule, leaving the collapsed primary navigation unreachable.
+     Keep the full nav in the accessible menu at tablet widths. */
+  .site-header .menu-btn,
+  body.home-simple.home-reference-page .site-header .menu-btn {
+    display: inline-flex !important;
+  }
+
+  .site-header .menu-btn {
+    width:auto!important;
+    min-width:82px!important;
+    padding-inline:12px!important;
+    gap:7px!important;
+  }
+
+  .site-header .menu-btn::after {
+    content:"Menu";
+    font-size:.72rem;
+    font-weight:850;
+    letter-spacing:.01em;
+  }
+
+  .site-header .menu-btn[aria-expanded="true"]::after {
+    content:"Close";
+  }
+}
+
+@media (max-width: 840px) {
+  .site-header .nav-links.open {
+    max-height:calc(100dvh - 92px);
+    overflow:auto;
+    overscroll-behavior:contain;
+  }
+}
+
+html[data-theme="dark"] .site-header .nav-links.open {
+  background:#0f0f12!important;
+}
+
+/* At tablet width the auth buttons are icon-sized. Hide only the label text
+   on the sign-up action so it cannot spill into the menu trigger. */
+@media (max-width: 840px) {
+  .site-header .auth-nav > a[href="register.html"] {
+    width: 42px !important;
+    min-width: 42px !important;
+    padding-inline: 0 !important;
+    font-size: 0 !important;
+  }
+
+  .site-header .auth-nav > a[href="register.html"] i {
+    font-size: 1.05rem !important;
+  }
+
+  /* The open drawer must fully separate navigation from page content. A
+     translucent panel made the hero headline show through the menu on phones. */
+  .site-header .nav-links.open {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  body.home-simple.home-reference-page .site-header .nav-links.open {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+  }
+
+  html[data-theme="dark"] .site-header .nav-links.open {
+    background: #101827 !important;
+    background-color: #101827 !important;
+  }
+
+  html[data-theme="dark"] body.home-simple.home-reference-page .site-header .nav-links.open {
+    background: #101827 !important;
+    background-color: #101827 !important;
+  }
+}
+
+/* Keep the shared header inside the smallest phone viewport. The menu
+   remains fully available through its labelled button; the wordmark is
+   simply removed at this width so the controls never squeeze or overflow. */
+@media (max-width: 380px) {
+  .site-header .brand > .brand-wordmark {
+    display: none !important;
+  }
+
+  .site-header .menu-btn {
+    width: 42px !important;
+    min-width: 42px !important;
+    padding-inline: 0 !important;
+    font-size: 0 !important;
+  }
+
+  .site-header .menu-btn::after {
+    display: none !important;
+  }
+
+  .site-header .menu-btn i {
+    font-size: 1.15rem !important;
+  }
+}
+
+/* Compact navigation redesign: make the menu a calm, full-width command
+   surface instead of a narrow hover panel that competes with the homepage. */
+@media (max-width: 1100px) {
+  .site-header .nav-links.open,
+  body.home-simple.home-reference-page .site-header .nav-links.open {
+    position: fixed !important;
+    top: calc(var(--header-top) + var(--header-height) + 10px) !important;
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: calc(100dvh - var(--header-top) - var(--header-height) - 28px) !important;
+    margin: 0 !important;
+    padding: 14px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 9px;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    border: 1px solid var(--navx-line) !important;
+    border-radius: 24px !important;
+    background: #fff !important;
+    box-shadow: 0 24px 70px rgba(35, 57, 101, .2) !important;
+  }
+
+  .site-header .nav-links.open > .nav-hover-group {
+    display: block !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .site-header .nav-links.open > .nav-search-group {
+    grid-column: 1 / -1;
+  }
+
+  .site-header .nav-links.open .nav-hover-trigger {
+    width: 100% !important;
+  }
+
+  .site-header .nav-links.open .nav-major {
+    min-height: 52px !important;
+    padding: 0 10px 0 13px !important;
+    border-radius: 15px 0 0 15px !important;
+    background: #f5f7fc !important;
+    color: var(--navx-heading) !important;
+  }
+
+  .site-header .nav-links.open .nav-major:hover,
+  .site-header .nav-links.open .nav-hover-group.is-open .nav-major {
+    background: #edf2ff !important;
+    color: var(--navx-blue-deep) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .site-header .nav-links.open .nav-group-toggle {
+    width: 43px !important;
+    min-height: 52px !important;
+    padding: 0 !important;
+    border-radius: 0 15px 15px 0 !important;
+    background: #f5f7fc !important;
+    color: var(--navx-text) !important;
+  }
+
+  .site-header .nav-links.open .nav-hover-group.is-open .nav-group-toggle {
+    background: #edf2ff !important;
+    color: var(--navx-blue-deep) !important;
+  }
+
+  .site-header .nav-links.open .nav-hover-menu {
+    position: static !important;
+    width: 100% !important;
+    max-height: 0 !important;
+    margin-top: 5px !important;
+    padding: 0 10px !important;
+    overflow: hidden !important;
+    border-width: 0 !important;
+    border-radius: 15px !important;
+    background: #f8faff !important;
+    box-shadow: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+  }
+
+  .site-header .nav-links.open .nav-hover-group.is-open .nav-hover-menu {
+    max-height: 640px !important;
+    padding: 11px !important;
+    border-width: 1px !important;
+  border-color: rgba(79, 121, 232, .14) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .site-header .nav-links.open .nav-hover-links {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+
+  .site-header .nav-links.open .nav-hover-menu-head {
+    padding-bottom: 10px !important;
+  }
+
+  .site-header .nav-links.open .nav-hover-menu-head small {
+    font-size: .68rem !important;
+  }
+
+  html[data-theme="dark"] .site-header .nav-links.open,
+  html[data-theme="dark"] body.home-simple.home-reference-page .site-header .nav-links.open {
+    background: #101827 !important;
+  }
+
+  html[data-theme="dark"] .site-header .nav-links.open .nav-major,
+  html[data-theme="dark"] .site-header .nav-links.open .nav-group-toggle {
+    background: #172231 !important;
+  }
+
+  html[data-theme="dark"] .site-header .nav-links.open .nav-hover-group.is-open .nav-major,
+  html[data-theme="dark"] .site-header .nav-links.open .nav-hover-group.is-open .nav-group-toggle {
+    background: #202d46 !important;
+  }
+}

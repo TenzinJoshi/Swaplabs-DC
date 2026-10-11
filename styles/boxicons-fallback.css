@@ -1,0 +1,21 @@
+/*
+ * SwapLabs uses the self-hosted Boxicons font as its source of truth.
+ * A few newer names are used by the product UI but are not present in the
+ * bundled font version. Keep those names usable everywhere by mapping them
+ * to the closest glyph that is already shipped locally.
+ */
+.bx-arrow-up-right::before,
+.bx-arrow-up-right-stroke::before { content: "\ebe6"; }
+.bx-calendar-detail::before { content: "\ea17"; }
+.bx-database::before { content: "\ea95"; }
+.bx-fund::before { content: "\ec78"; }
+.bx-hand::before,
+.bx-handshake::before { content: "\edd8"; }
+.bx-inbox::before { content: "\edf3"; }
+.bx-quote-alt-left::before { content: "\ee81"; }
+.bx-sliders-alt::before { content: "\ec17"; }
+.bx-snowflake::before { content: "\ea66"; }
+.bx-sparkles::before { content: "\ec27"; }
+.bx-spell-check::before { content: "\ea41"; }
+.bx-user-find::before { content: "\ec63"; }
+.bx-wand::before { content: "\ee15"; }

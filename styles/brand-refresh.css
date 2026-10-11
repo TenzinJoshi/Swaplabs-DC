@@ -1,0 +1,693 @@
+/*
+   relayskills platform skin
+   -----------------------
+   The shared public experience is the visual source of truth for the rest of
+   the product: calm paper surfaces, a soft indigo/pink wash, clear card
+   hierarchy, and one shared action treatment. Keep this file focused on
+   shared brand treatment so page-specific styles do not need to repeat it.
+*/
+
+:root {
+  --brand-wash: radial-gradient(circle at 92% 8%, rgba(116, 102, 240, .16), transparent 31%),
+    radial-gradient(circle at 4% 90%, rgba(75, 131, 245, .11), transparent 28%);
+  --brand-wash-dark: radial-gradient(circle at 92% 8%, rgba(117, 99, 216, .24), transparent 31%),
+    radial-gradient(circle at 4% 90%, rgba(75, 131, 245, .14), transparent 28%);
+  --brand-shadow-soft: 0 16px 44px rgba(24, 34, 58, .07);
+  --brand-shadow-hover: 0 22px 54px rgba(36, 46, 86, .13);
+  --brand-radius-sm: 14px;
+  --brand-radius-md: 18px;
+  --brand-radius-lg: 24px;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  background: var(--brand-wash), var(--paper);
+  color: var(--ink);
+}
+
+/* Keep the body copy and headings coherent even on feature-specific pages. */
+main :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--navy);
+  letter-spacing: -.035em;
+}
+
+main :is(p, li, dd, dt, label) {
+  color: var(--text-body);
+}
+
+main :is(a, button):focus-visible,
+main :is(input, select, textarea):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--indigo) 45%, transparent);
+  outline-offset: 3px;
+}
+
+/* One hero treatment for marketing, account, community, and operations pages. */
+:is(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero, .community-hero, .feature-hero) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--brand-wash), var(--gradient-pale-surface);
+  border-bottom: 1px solid var(--line);
+}
+
+:is(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero, .community-hero, .feature-hero)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -150px;
+  bottom: -285px;
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(82, 83, 213, .13);
+  border-radius: 50%;
+  box-shadow: 0 0 0 42px rgba(82, 83, 213, .035), 0 0 0 84px rgba(82, 83, 213, .022);
+  pointer-events: none;
+}
+
+:is(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero, .community-hero, .feature-hero)::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -160px;
+  top: -220px;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(213, 107, 159, .10), transparent 68%);
+  pointer-events: none;
+}
+
+:is(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero, .community-hero, .feature-hero) :is(.hero-grid, .platform-hero-grid, .feature-hero-grid, .account-hero-grid, .container) {
+  position: relative;
+  z-index: 1;
+}
+
+:is(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero, .community-hero, .feature-hero) :is(h1, h2) {
+  text-wrap: balance;
+}
+
+:is(.hero h1, .page-hero h1, .account-hero h1, .platform-hero h1, .ops-hero h1, .community-hero h1, .feature-hero h1) {
+  font-weight: 850;
+  letter-spacing: -.065em;
+}
+
+:is(.hero-copy, .platform-hero-copy, .account-hero p, .ops-hero p, .community-hero p, .feature-hero p) {
+  color: var(--text-body);
+}
+
+.gradient-text,
+.platform-hero h1 .platform-accent,
+.feature-hero h1 .platform-accent,
+.account-hero h1 .gradient-text {
+  background: var(--gradient-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow,
+.platform-kicker,
+.ops-kicker,
+.ops-overline,
+.portal-kicker {
+  border: 1px solid color-mix(in srgb, var(--indigo) 18%, var(--line));
+  background: color-mix(in srgb, var(--indigo-soft) 72%, transparent);
+  color: var(--indigo);
+}
+
+/* Sections use the same quiet alternation as the registration page. */
+:is(.section, .depth-section, .more-section, .platform-section, .account-section,
+  .community-section, .ops-section, .member-portal-section, .page-expansion,
+  .more-content, .feature-page) {
+  background: var(--paper);
+}
+
+:is(.section.alt, .depth-section.white, .platform-section.tint, .platform-section.soft-pink,
+  .more-section.soft, .feature-directory, .expansion-stats, .community-guidance,
+  .member-directory-section, .ops-explainer, .ops-explainer.soft) {
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+
+:is(.section, .depth-section, .more-section, .platform-section, .account-section,
+  .community-section, .ops-section, .member-portal-section) :is(.container, .section-head,
+  .platform-heading, .depth-heading) {
+  position: relative;
+}
+
+/* Surface language for all reusable content blocks. */
+:is(.card, .match-panel, .match-result, .feature-panel, .feature-card, .feature-list-row,
+  .feature-empty, .feature-callout, .insight-card, .related-card, .profile-card,
+  .auth-card, .form-section, .platform-card, .platform-form-shell, .platform-side-card,
+  .platform-hero-card, .platform-stat-shell, .workspace, .workspace-panel, .story-panel,
+  .ecosystem-card, .check-item, .deep-faq, .form-card, .faq-item, .price-card,
+  .notification-section, .notification-item, .follow-request-card, .live-member-card,
+  .ops-panel, .ops-feature-grid article, .ops-stat-grid article, .voice-card,
+  .admin-panel, .admin-support-card, .admin-message-guide, .admin-detail-subsection,
+  .admin-control-section, .admin-recipient-option, .admin-selected-recipient,
+  .chart-card, .dashboard-panel, .dashboard-match-card, .portfolio-panel,
+  .donation-impact-grid article, .donation-option):not(.dark-feature-card) {
+  border: 1px solid var(--line);
+  border-radius: var(--brand-radius-lg);
+  background: var(--surface);
+  box-shadow: var(--brand-shadow-soft);
+}
+
+:is(.card, .match-panel, .match-result, .feature-panel, .feature-card, .platform-card,
+  .platform-form-shell, .platform-side-card, .platform-hero-card, .profile-card,
+  .auth-card, .form-section, .insight-card, .related-card, .ops-panel, .dashboard-panel,
+  .portfolio-panel, .chart-card):not(.dark-feature-card) {
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+:is(.card, .match-panel, .match-result, .feature-panel, .feature-card, .platform-card,
+  .platform-form-shell, .platform-side-card, .profile-card, .auth-card, .form-section,
+  .insight-card, .related-card, .ops-panel, .dashboard-panel, .portfolio-panel,
+  .chart-card):not(.dark-feature-card):hover {
+  border-color: color-mix(in srgb, var(--indigo) 30%, var(--line));
+  box-shadow: var(--brand-shadow-hover);
+}
+
+:is(.platform-card, .feature-card, .insight-card, .related-card):not(.dark-feature-card):hover {
+  transform: translateY(-3px);
+}
+
+/* Form controls share the registration page's comfortable proportions. */
+:is(.field, .ops-field, .platform-form, .auth-card, .form-section) :is(input, select, textarea),
+input.search-input,
+.admin-section-search,
+.workspace-search {
+  border: 1px solid var(--line);
+  border-radius: var(--brand-radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+:is(.field, .ops-field, .platform-form, .auth-card, .form-section) :is(input, select, textarea) {
+  min-height: 46px;
+  padding: 12px 14px;
+}
+
+:is(.field, .ops-field, .platform-form, .auth-card, .form-section) :is(input, select, textarea):focus,
+input.search-input:focus,
+.admin-section-search:focus-within,
+.workspace-search:focus-within {
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--indigo) 14%, transparent);
+}
+
+:is(.field, .ops-field) label,
+.platform-form .field label {
+  color: var(--text-body);
+  font-weight: 780;
+}
+
+:is(input, textarea, select)::placeholder {
+  color: color-mix(in srgb, var(--muted) 78%, transparent);
+  opacity: 1;
+}
+
+/* All primary actions use the same clear, high-contrast gradient. */
+.btn {
+  min-height: 44px;
+  border-radius: var(--brand-radius-sm);
+  border-color: var(--line);
+  color: var(--navy);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--indigo) 34%, var(--line));
+  box-shadow: 0 12px 28px rgba(38, 48, 89, .12);
+}
+
+.btn-primary,
+button[type="submit"].btn-primary,
+.platform-hero-actions .btn-primary,
+.hero-actions .btn-primary {
+  background: var(--gradient-action);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 12px 25px rgba(82, 83, 213, .22);
+}
+
+.btn-primary:hover,
+button[type="submit"].btn-primary:hover {
+  background: var(--gradient-action);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(82, 83, 213, .28);
+}
+
+.btn-soft {
+  background: var(--indigo-soft);
+  border-color: transparent;
+  color: var(--indigo);
+}
+
+/* Tabs, chips, lists, and table rows use a single hover surface so text stays
+   readable in both themes (including the admin sidebar). */
+:is(.workspace-tab, .admin-nav-group-buttons button, .side-nav a, .directory-link,
+  .feature-icon-button, .table-action, .tag, .workspace-tabs button, .nav-directory-menu a) {
+  border-radius: 12px;
+  transition: background .18s ease, color .18s ease, border-color .18s ease;
+}
+
+:is(.workspace-tab, .admin-nav-group-buttons button, .side-nav a, .directory-link,
+  .feature-icon-button, .table-action, .tag, .workspace-tabs button):hover,
+:is(.workspace-tab, .admin-nav-group-buttons button, .side-nav a, .directory-link,
+  .feature-icon-button, .table-action, .tag, .workspace-tabs button).active {
+  background: var(--indigo-soft);
+  color: var(--indigo);
+}
+
+:is(.data-row, .hero-card-list li, .feature-tags span, .platform-check, .check-row,
+  .visibility-choice, .availability-day, .report-note, .idea-funding, .message-attachment,
+  .chart-data-list span, .admin-detail-pills span) {
+  border-color: var(--line);
+  border-radius: 12px;
+  background: var(--surface-soft);
+}
+
+:is(.table-user strong, .data-row strong, .feature-card h3, .feature-list-row strong,
+  .platform-card h3, .platform-heading h2, .platform-form-head h2, .hero-card-title,
+  .insight-card h3, .workspace-panel h3, .section-head h2, .depth-heading h2,
+  .admin-panel-head h2, .chart-card h3, .dashboard-panel h2, .dashboard-panel h3) {
+  color: var(--navy);
+}
+
+:is(.table-user span, .data-row small, .feature-card p, .feature-list-row span,
+  .platform-card p, .platform-heading p, .platform-form-head p, .hero-card-copy,
+  .insight-card p, .workspace-panel > p, .chart-card p, .chart-card small,
+  .dashboard-panel p, .admin-panel small) {
+  color: var(--text-body);
+}
+
+/* Keep the shared footer anchored to the same visual system without changing
+   its content or its links. */
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+
+/* Form status messages remain legible over the new surfaces. */
+:is(.form-status, .platform-form-status, .ops-form-status, .server-required) {
+  border-radius: var(--brand-radius-sm);
+}
+
+/* Preserve intentionally dark promotional cards while inheriting spacing. */
+.dark-feature-card,
+.auth-benefits,
+.footer-top {
+  border-radius: var(--brand-radius-lg);
+}
+
+/* The footer callout spans the viewport. Keep its background flush to the
+   edges so the page canvas cannot peek through as empty corner wedges; the
+   inner shell keeps the rounded card treatment. */
+.footer-cta {
+  border-radius: 0;
+}
+
+html[data-theme="dark"] body {
+  background: var(--brand-wash-dark), var(--paper);
+}
+
+html[data-theme="dark"] :is(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero,
+  .community-hero, .feature-hero) {
+  background: var(--brand-wash-dark), var(--gradient-dark-surface);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] :is(.section, .depth-section, .more-section, .platform-section,
+  .account-section, .community-section, .ops-section, .member-portal-section,
+  .page-expansion, .more-content, .feature-page) {
+  background: var(--paper);
+}
+
+html[data-theme="dark"] :is(.section.alt, .depth-section.white, .platform-section.tint,
+  .platform-section.soft-pink, .more-section.soft, .feature-directory, .expansion-stats,
+  .community-guidance, .member-directory-section, .ops-explainer, .ops-explainer.soft) {
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] :is(.card, .match-panel, .match-result, .feature-panel,
+  .feature-card, .feature-list-row, .feature-empty, .feature-callout, .insight-card,
+  .related-card, .profile-card, .auth-card, .form-section, .platform-card,
+  .platform-form-shell, .platform-side-card, .platform-hero-card, .platform-stat-shell,
+  .workspace, .workspace-panel, .story-panel, .ecosystem-card, .check-item, .deep-faq,
+  .form-card, .faq-item, .price-card, .notification-section, .notification-item,
+  .follow-request-card, .live-member-card, .ops-panel, .ops-feature-grid article,
+  .ops-stat-grid article, .voice-card, .admin-panel, .admin-support-card,
+  .admin-message-guide, .admin-detail-subsection, .admin-control-section,
+  .admin-recipient-option, .admin-selected-recipient, .chart-card, .dashboard-panel,
+  .dashboard-match-card, .portfolio-panel, .donation-impact-grid article,
+  .donation-option):not(.dark-feature-card) {
+  background: var(--surface);
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
+
+html[data-theme="dark"] :is(.data-row, .hero-card-list li, .feature-tags span,
+  .platform-check, .check-row, .visibility-choice, .availability-day, .report-note,
+  .idea-funding, .message-attachment, .chart-data-list span, .admin-detail-pills span) {
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] :is(.field, .ops-field, .platform-form, .auth-card, .form-section)
+  :is(input, select, textarea),
+html[data-theme="dark"] input.search-input,
+html[data-theme="dark"] .admin-section-search,
+html[data-theme="dark"] .workspace-search {
+  background: var(--surface-soft);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] :is(.btn, .table-action):not(.btn-primary) {
+  background: var(--surface);
+  color: var(--navy);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] button[type="submit"].btn-primary {
+  background: var(--gradient-action);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Keep searchable field suggestions light in every theme. These menus sit
+   directly under the registration/profile fields and should read like the
+   white inputs they belong to, even when the surrounding page is dark. */
+.option-suggestion-menu,
+html[data-theme="dark"] .option-suggestion-menu {
+  background: #fff !important;
+  border-color: #d9deea !important;
+  color: #344054 !important;
+  box-shadow: 0 16px 35px rgba(16, 24, 40, .13) !important;
+}
+
+.option-suggestion-menu button,
+html[data-theme="dark"] .option-suggestion-menu button {
+  background: transparent !important;
+  color: #344054 !important;
+}
+
+.option-suggestion-menu button:hover,
+.option-suggestion-menu button:focus-visible,
+html[data-theme="dark"] .option-suggestion-menu button:hover,
+html[data-theme="dark"] .option-suggestion-menu button:focus-visible {
+  background: var(--indigo-soft) !important;
+  color: var(--indigo) !important;
+}
+
+/* Skill settings: a quick chip picker is easier to scan and edit than a
+   comma-separated text field. The original input remains in the form as the
+   database-compatible value, while this UI handles selection. */
+.skill-picker-field {
+  align-self: start;
+}
+
+.skill-picker {
+  position: relative;
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+
+.skill-picker-value {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.skill-picker-selected {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  min-height: 51px;
+  padding: 9px;
+  border: 1px solid color-mix(in srgb, var(--indigo) 18%, var(--line));
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--indigo-soft) 34%, var(--surface));
+}
+
+.skill-picker-empty {
+  padding: 2px 4px;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.skill-picker-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 30px;
+  padding: 5px 9px 5px 11px;
+  border: 1px solid color-mix(in srgb, var(--indigo) 25%, var(--line));
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--navy);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 750;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease, transform .16s ease;
+}
+
+.skill-picker-chip:hover,
+.skill-picker-chip:focus-visible {
+  border-color: var(--indigo);
+  background: var(--indigo-soft);
+  transform: translateY(-1px);
+}
+
+.skill-picker-chip i {
+  color: var(--indigo);
+  font-size: .95rem;
+}
+
+.skill-picker-count {
+  margin-left: auto;
+  padding: 4px 7px;
+  color: var(--muted);
+  font-size: .66rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.skill-picker-search {
+  display: flex !important;
+  align-items: center;
+  gap: 9px;
+  min-height: 48px;
+  margin: 0 !important;
+  padding: 0 13px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 14px !important;
+  background: var(--surface) !important;
+  color: var(--indigo) !important;
+  cursor: text;
+}
+
+.skill-picker-search:focus-within {
+  border-color: var(--indigo) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--indigo) 15%, transparent);
+}
+
+.skill-picker-search > i {
+  flex: 0 0 auto;
+  font-size: 1.05rem;
+}
+
+.skill-picker-search input {
+  width: 100% !important;
+  min-width: 0;
+  min-height: 30px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  font: inherit !important;
+  font-size: .8rem !important;
+  box-shadow: none !important;
+}
+
+.skill-picker-search input::placeholder {
+  color: var(--muted);
+}
+
+.skill-picker-section-label {
+  margin: 2px 2px 0;
+  color: var(--muted);
+  font-size: .66rem;
+  font-weight: 850;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.skill-picker-popular {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-picker-popular button {
+  min-height: 29px;
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--relayskills-coral) 28%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--relayskills-coral) 7%, var(--surface));
+  color: var(--navy);
+  font: inherit;
+  font-size: .68rem;
+  font-weight: 720;
+  cursor: pointer;
+}
+
+.skill-picker-popular button:hover,
+.skill-picker-popular button:focus-visible {
+  border-color: var(--relayskills-coral);
+  background: color-mix(in srgb, var(--relayskills-coral) 15%, var(--surface));
+}
+
+.skill-picker-suggestions {
+  display: none;
+  position: relative;
+  z-index: 20;
+  max-height: 250px;
+  overflow: auto;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface);
+  box-shadow: 0 18px 42px rgba(16, 24, 40, .18);
+}
+
+.skill-picker.is-open .skill-picker-suggestions.has-results {
+  display: grid;
+}
+
+.skill-picker-suggestions button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: .75rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.skill-picker-suggestions button:hover,
+.skill-picker-suggestions button:focus-visible {
+  background: var(--indigo-soft);
+  color: var(--indigo);
+}
+
+.skill-picker-suggestions button i {
+  flex: 0 0 auto;
+  color: var(--indigo);
+  font-size: 1rem;
+}
+
+.skill-picker-suggestions button.is-custom {
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 9px 9px;
+  color: var(--relayskills-coral);
+}
+
+.skill-picker-suggestions button.is-custom i {
+  color: var(--relayskills-coral);
+}
+
+.skill-picker-helper {
+  margin: 0 2px !important;
+  color: var(--muted) !important;
+  font-size: .7rem !important;
+  line-height: 1.45 !important;
+}
+
+html[data-theme="dark"] .skill-picker-selected,
+html[data-theme="dark"] .skill-picker-search,
+html[data-theme="dark"] .skill-picker-chip,
+html[data-theme="dark"] .skill-picker-popular button,
+html[data-theme="dark"] .skill-picker-suggestions {
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .skill-picker-suggestions button:hover,
+html[data-theme="dark"] .skill-picker-suggestions button:focus-visible,
+html[data-theme="dark"] .skill-picker-popular button:hover,
+html[data-theme="dark"] .skill-picker-popular button:focus-visible,
+html[data-theme="dark"] .skill-picker-chip:hover,
+html[data-theme="dark"] .skill-picker-chip:focus-visible {
+  background: var(--indigo-soft) !important;
+}
+
+@media (max-width: 700px) {
+  .skill-picker-count {
+    width: 100%;
+    margin-left: 0;
+    padding: 2px 4px 0;
+  }
+}
+
+@media (max-width: 900px) {
+  :is(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero, .community-hero, .feature-hero) {
+    padding-top: 64px;
+  }
+
+  :is(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero, .community-hero, .feature-hero)::before {
+    right: -260px;
+    bottom: -330px;
+    transform: scale(.78);
+  }
+}
+
+@media (max-width: 640px) {
+  :is(.card, .match-panel, .match-result, .feature-panel, .feature-card, .feature-list-row,
+    .feature-empty, .feature-callout, .insight-card, .related-card, .profile-card,
+    .auth-card, .form-section, .platform-card, .platform-form-shell, .platform-side-card,
+    .platform-hero-card, .workspace, .workspace-panel, .story-panel, .ecosystem-card,
+    .check-item, .deep-faq, .form-card, .faq-item, .price-card, .notification-section,
+    .notification-item, .follow-request-card, .live-member-card, .ops-panel,
+    .voice-card, .admin-panel, .chart-card, .dashboard-panel, .portfolio-panel) {
+    border-radius: 18px;
+  }
+
+  .btn {
+    min-height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.card, .match-panel, .match-result, .feature-panel, .feature-card, .platform-card,
+    .profile-card, .auth-card, .form-section, .insight-card, .related-card, .ops-panel,
+    .dashboard-panel, .portfolio-panel, .chart-card, .btn) {
+    transition: none;
+  }
+}

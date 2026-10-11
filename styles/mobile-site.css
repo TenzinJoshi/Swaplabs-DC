@@ -1,0 +1,1486 @@
+@import url('visibility-contrast.css?v=20261003-contrast8');
+
+/*
+ * SwapLabs mobile site system
+ * -----------------------------
+ * Loaded last on every route. Phones get an app-like, single-column layout;
+ * tablet and desktop layouts retain their existing page-specific designs.
+ */
+
+@media (max-width: 840px) {
+  :root {
+    --mobile-page-gutter: clamp(14px, 4vw, 24px);
+    --mobile-card-radius: 20px;
+    --mobile-header-height: 62px;
+    --mobile-header-space: 82px;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  html {
+    scroll-padding-top: calc(var(--mobile-header-space) + 10px);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  :where(img, svg, video, canvas, iframe) {
+    max-width: 100%;
+  }
+
+  :where(main, section, article, aside, form, fieldset, .container, .card,
+    .panel, .workspace, .dashboard-panel, .admin-panel, .feature-card,
+    .profile-card, .auth-card, .settings-card, .platform-card, .ops-panel,
+    .table-wrap, .table-responsive) {
+    min-width: 0;
+  }
+
+  main,
+  main > *,
+  main :where(section, article, aside, form, .card, .panel, .container) {
+    max-width: 100%;
+  }
+
+  main :where(h1, h2, h3, h4, p, li, label, a, strong, small, code, time) {
+    overflow-wrap: anywhere;
+  }
+
+  .container {
+    width: min(calc(100% - (2 * var(--mobile-page-gutter))), var(--max, 1240px));
+    max-width: 100%;
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--mobile-header-space) + 12px);
+  }
+
+  :where(.btn, button, input, select, textarea) {
+    max-width: 100%;
+  }
+
+  :where(.btn, button) {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  :where(input, select, textarea) {
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  :where(textarea) {
+    max-width: 100%;
+    resize: vertical;
+  }
+
+  /* Compact, consistent app header. Keep the account, streak, and update
+     controls reachable while giving the page brand and menu room to breathe. */
+  [data-site-header]:not(:empty) {
+    height: var(--mobile-header-space);
+    min-height: var(--mobile-header-space);
+  }
+
+  .site-header {
+    height: var(--mobile-header-space);
+    padding-top: 9px;
+  }
+
+  .site-header .nav {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px !important;
+    width: calc(100% - 16px) !important;
+    max-width: 1480px;
+    height: var(--mobile-header-height) !important;
+    min-height: var(--mobile-header-height);
+    padding: 0 7px !important;
+    border-radius: 19px !important;
+  }
+
+  .site-header .brand {
+    flex: 0 0 auto;
+    min-width: 0;
+    gap: 0 !important;
+    padding: 2px !important;
+  }
+
+  .site-header .brand-logo-shell {
+    flex: 0 0 42px !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 13px !important;
+  }
+
+  .site-header .brand > .brand-wordmark {
+    display: none !important;
+  }
+
+  .site-header .nav-actions,
+  .site-header .auth-nav,
+  .site-header .auth-nav .auth-utility-group {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 4px !important;
+    min-width: 0;
+    margin-left: auto !important;
+  }
+
+  .site-header .auth-nav .auth-icon-btn,
+  .site-header .auth-nav .notification-nav-link,
+  .site-header .auth-nav .auth-user-button,
+  .site-header .menu-btn {
+    display: inline-flex;
+    flex: 0 0 40px;
+    align-items: center;
+    justify-content: center;
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    border-radius: 13px !important;
+    font-size: 1rem;
+  }
+
+  .site-header .auth-nav .auth-user-button .auth-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* The public login action shares the compact mobile header. Hide its
+     visible label, not its accessible name, so it cannot overflow the button. */
+  .site-header .auth-nav .auth-login-button {
+    display: inline-flex !important;
+    flex: 0 0 44px !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    border-radius: 13px !important;
+  }
+
+  .site-header .auth-nav .auth-login-label {
+    display: none !important;
+  }
+
+  .site-header .auth-nav .auth-login-button > i {
+    flex: 0 0 auto;
+    margin: 0 !important;
+    font-size: 1.15rem !important;
+    line-height: 1;
+  }
+
+  .site-header .menu-btn::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* The mobile menu is a viewport-bounded drawer. Section links expand inline
+     as accordions rather than opening off-screen desktop hover cards. */
+  .site-header .nav-links.open {
+    position: fixed !important;
+    z-index: 1200;
+    inset: calc(var(--mobile-header-space) - 1px) 8px auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 5px !important;
+    width: auto !important;
+    max-height: calc(100dvh - var(--mobile-header-space) - 12px);
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 10px !important;
+    border: 1px solid var(--navx-line, var(--line));
+    border-radius: 20px;
+    background: var(--surface, #fff) !important;
+    box-shadow: var(--nav-shadow, 0 18px 44px rgba(16, 24, 40, .2));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+
+  .site-header .nav-links.open .nav-hover-group,
+  .site-header .nav-links.open .nav-hover-trigger {
+    display: flex;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-header .nav-links.open .nav-hover-group {
+    flex-direction: column;
+    border: 1px solid var(--nav-line, #e2e7f1);
+    border-radius: 14px;
+    background: var(--surface-soft, #f7f8fc);
+  }
+
+  .site-header .nav-links.open .nav-hover-trigger {
+    align-items: stretch;
+  }
+
+  .site-header .nav-links.open .nav-hover-trigger > .nav-major {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    min-width: 0;
+    min-height: 46px !important;
+    padding: 0 12px !important;
+    border-radius: 13px 0 0 13px !important;
+    font-size: .88rem !important;
+  }
+
+  .site-header .nav-links.open .nav-group-toggle {
+    flex: 0 0 44px;
+    width: 44px;
+    min-height: 46px;
+    padding: 0;
+    border-radius: 0 13px 13px 0;
+  }
+
+  .site-header .nav-links.open .nav-hover-menu {
+    position: static !important;
+    display: none;
+    width: 100% !important;
+    max-width: 100%;
+    max-height: none;
+    overflow: visible;
+    padding: 4px 8px 10px !important;
+    border: 0;
+    border-top: 1px solid var(--nav-line, #e2e7f1);
+    border-radius: 0 0 13px 13px;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .site-header .nav-links.open .nav-hover-group.is-open > .nav-hover-menu {
+    display: block;
+  }
+
+  .site-header .nav-links.open .nav-hover-group::after {
+    display: none;
+  }
+
+  .site-header .nav-links.open .nav-hover-menu-head {
+    padding: 8px 5px;
+  }
+
+  .site-header .nav-links.open .nav-hover-menu-head small {
+    font-size: .76rem;
+  }
+
+  .site-header .nav-links.open .nav-hover-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    padding-top: 7px;
+  }
+
+  .site-header .nav-links.open .nav-hover-menu .nav-hover-links a {
+    min-height: 42px;
+    padding: 7px;
+    font-size: .74rem;
+  }
+
+  html[data-theme="dark"] .site-header .nav-links.open .nav-hover-group {
+    background: rgba(255, 255, 255, .035);
+  }
+
+  .static-site-header {
+    width: calc(100% - 16px) !important;
+    min-height: var(--mobile-header-height);
+    height: var(--mobile-header-height);
+    margin: 9px 8px !important;
+    padding: 0 8px !important;
+    border-radius: 19px !important;
+  }
+
+  .static-site-header .brand > .brand-wordmark {
+    display: none !important;
+  }
+
+  .static-site-header::after {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--nav-line, #dbe2f2);
+    border-radius: 13px;
+    background: var(--surface-soft, #f6f8ff);
+    color: var(--nav-heading, #14213d);
+  }
+
+  .static-nav-links {
+    display: none !important;
+  }
+
+  /* Core page hierarchy: single-column reading flow and predictable gutters. */
+  :where(.hero-grid, .page-hero-grid, .page-layout, .content-layout,
+    .content-grid, .split, .split-layout, .two-column, .two-column-layout,
+    .platform-hero-grid, .platform-section-grid, .platform-layout,
+    .feature-two-column, .feature-layout, .ops-hero-grid, .ops-layout,
+    .calendar-layout, .credit-layout, .dashboard-hero-grid,
+    .matching-hero-grid, .portfolio-builder-layout, .portfolio-builder-hero-grid,
+    .member-profile-layout, .profile-layout, .settings-layout,
+    .account-layout, .auth-layout, .register-layout, .early-register-layout,
+    .organization-layout, .workspace-body, .admin-workspace,
+    .admin-message-layout, .admin-create-layout, .footer-cta-shell) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  :where(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero,
+    .community-hero, .feature-hero, .phonebook-hero) {
+    padding-top: clamp(30px, 8vw, 58px);
+    padding-bottom: clamp(34px, 9vw, 68px);
+  }
+
+  :where(.hero h1, .page-hero h1, .account-hero h1, .platform-hero h1,
+    .ops-hero h1, .community-page-hero h1, .feature-hero h1,
+    .phonebook-hero h1, .portfolio-builder-hero h1) {
+    max-width: 100%;
+    font-size: clamp(2.2rem, 10vw, 4rem) !important;
+    line-height: .98;
+    letter-spacing: -.065em;
+    text-wrap: balance;
+  }
+
+  :where(.hero-copy, .page-hero p, .account-hero p, .platform-hero-copy,
+    .ops-hero p, .feature-hero p) {
+    max-width: 100%;
+    font-size: clamp(.96rem, 3.8vw, 1.08rem);
+    line-height: 1.62;
+  }
+
+  :where(.hero-actions, .page-actions, .form-actions, .button-row,
+    .action-row, .ops-hero-actions, .ops-form-actions, .admin-work-actions,
+    .admin-command-actions, .portfolio-builder-hero-actions) {
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  :where(.hero-actions, .page-actions, .form-actions, .ops-form-actions) > .btn {
+    max-width: 100%;
+  }
+
+  :where(.grid-2, .grid-3, .grid-4, .feature-grid, .feature-card-grid,
+    .platform-card-grid, .platform-stat-grid, .stats-grid, .stat-grid,
+    .metric-grid, .card-grid, .price-grid, .price-card-grid, .event-grid,
+    .workshop-grid, .course-grid, .resource-grid, .member-grid,
+    .directory-grid, .portfolio-project-grid,
+    .leaderboard-grid, .achievement-grid,
+    .dashboard-quick-grid, .dashboard-stat-grid, .admin-stat-grid,
+    .admin-support-grid, .admin-insights-grid, .admin-chart-grid,
+    .matching-factor-grid, .matching-demo-steps, .insight-grid,
+    .ops-feature-grid, .ops-stat-grid, .gifts-rules-grid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    min-width: 0;
+  }
+
+  :where(.form-grid, .filter-row, .field-row, .search-row, .toolbar,
+    .ops-form-grid, .ops-admin-controls, .group-identity-grid,
+    .portfolio-link-row, .newsletter-controls, .footer-newsletter-controls) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  :where(.form-grid > *, .filter-row > *, .field-row > *, .search-row > *,
+    .toolbar > *, .ops-form-grid > *, .ops-admin-controls > *) {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  :where(.card, .panel, .feature-card, .feature-panel, .platform-card,
+    .platform-hero-card, .ops-panel, .dashboard-panel, .admin-panel,
+    .chart-card, .profile-card, .auth-card, .form-card, .settings-card,
+    .portfolio-panel, .content-card, .notification-section) {
+    min-width: 0;
+    max-width: 100%;
+    border-radius: var(--mobile-card-radius);
+  }
+
+  :where(.table-wrap, .table-responsive, .ledger-table-wrap,
+    .admin-table-wrap, .table-scroll, .data-table-wrap) {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  main table {
+    max-width: none;
+  }
+
+  :where([role="tablist"], .tabs, .tab-list, .filter-tabs, .filter-pills,
+    .calendar-quickbar, .workspace-bar nav) {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :where([role="tablist"], .tabs, .tab-list, .filter-tabs, .filter-pills,
+    .calendar-quickbar, .workspace-bar nav)::-webkit-scrollbar {
+    display: none;
+  }
+
+  :where(.sidebar, .sticky-sidebar, .portfolio-builder-sidebar,
+    .calendar-compose-column, .credit-side-column) {
+    position: static !important;
+    inset: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  :where(.page-title-row, .section-head, .section-heading,
+    .panel-heading, .panel-head, .toolbar, .admin-section-heading,
+    .workspace-top, .calendar-board-toolbar) {
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  :where(.page-title-row, .section-heading, .panel-heading) > :where(h1, h2, p) {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Sheets/dialogs stay inside the usable viewport and leave room for the
+     browser's home indicator and software keyboard. */
+  :where(.ops-modal, .modal-backdrop, .dialog-backdrop) {
+    padding: 10px !important;
+    align-items: end !important;
+  }
+
+  :where(.ops-modal-card, .modal-card, .dialog-card, .modal-content) {
+    width: min(100%, 680px) !important;
+    max-width: 100% !important;
+    max-height: calc(100dvh - 20px - env(safe-area-inset-top));
+    margin: 0 auto !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: 22px 22px 16px 16px;
+    padding-bottom: max(18px, env(safe-area-inset-bottom));
+  }
+
+  :where(.platform-toast, .toast, .notice-toast) {
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  #chatLaunch {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    bottom: max(14px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .back-to-top {
+    right: 12px !important;
+    bottom: calc(86px + env(safe-area-inset-bottom)) !important;
+  }
+
+  html:has(.mobile-bottom-nav) #chatLaunch {
+    bottom: calc(84px + env(safe-area-inset-bottom)) !important;
+  }
+
+  html:has(.mobile-bottom-nav) .back-to-top {
+    bottom: calc(150px + env(safe-area-inset-bottom)) !important;
+  }
+
+  /* The Chats workspace is a true single-screen phone app, not a 100dvh panel
+     stacked below a second 100dvh panel. This keeps the composer above the
+     home indicator and the conversation list independently scrollable. */
+  body.inbox-page-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100dvh !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body.inbox-page-body > [data-site-header] {
+    position: relative;
+    z-index: 1001;
+    flex: 0 0 var(--mobile-header-space);
+    width: 100%;
+    height: var(--mobile-header-space) !important;
+    min-height: var(--mobile-header-space) !important;
+  }
+
+  body.inbox-page-body .inbox-page {
+    flex: 1 1 auto;
+    width: 100% !important;
+    height: calc(100dvh - var(--mobile-header-space)) !important;
+    min-height: 0 !important;
+    max-height: calc(100dvh - var(--mobile-header-space));
+    overflow: hidden;
+  }
+
+  body.inbox-page-body .inbox-app {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100%;
+  }
+
+  body.inbox-page-body .inbox-sidebar,
+  body.inbox-page-body .chat-panel {
+    min-height: 0;
+    max-height: 100%;
+  }
+
+  body.inbox-page-body .conversation-list,
+  body.inbox-page-body .message-stream {
+    min-height: 0;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body.inbox-page-body .message-composer {
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+
+  body.inbox-page-body .inbox-server-state,
+  body.inbox-page-body .inbox-access-gate,
+  body.inbox-page-body .inbox-loading {
+    width: calc(100vw - 28px);
+    max-width: 520px;
+    max-height: calc(100dvh - 32px - env(safe-area-inset-top));
+    padding: clamp(20px, 6vw, 34px);
+    overflow: auto;
+  }
+
+  /* Account pages and the separate administrative workspace use their own
+     page chrome, but share the same narrow-screen sizing contract. */
+  body.workspace-member .workspace-bar,
+  body.workspace-admin .workspace-bar {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  body.workspace-member .workspace-bar nav,
+  body.workspace-admin .admin-section-nav {
+    min-width: 0;
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+  }
+
+  body.workspace-member .workspace-search,
+  body.workspace-admin .workspace-search {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  body.workspace-member #dashboardPortal,
+  body.workspace-admin .admin-dashboard,
+  body.workspace-admin .admin-dashboard > .container {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  body.workspace-member .dashboard-stat-card,
+  body.workspace-admin .admin-stat,
+  body.workspace-member .dashboard-panel,
+  body.workspace-admin .admin-panel {
+    min-width: 0;
+  }
+
+  body.early-registration-page .early-launch-shell,
+  body.early-home-page .early-launch-shell {
+    width: calc(100% - 28px);
+    min-width: 0;
+  }
+
+  body.early-home-page :where(.rs-next-move-stage, .rs-next-move-card,
+    .rs-community-image) {
+    min-width: 0;
+    max-width: 100%;
+    overflow: clip;
+  }
+
+  body.early-home-page .rs-marquee {
+    width: 100%;
+    margin-inline: 0;
+    transform: none;
+  }
+
+  body.community-page .community-page-hero::after {
+    display: none;
+  }
+
+  body.community-page .community-directory::before {
+    right: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --mobile-page-gutter: 16px;
+    --mobile-card-radius: 18px;
+  }
+
+  :where(.container, .page-shell, .content-shell, .section-shell) {
+    width: calc(100% - 32px);
+    max-width: 100%;
+  }
+
+  :where(.hero, .page-hero, .account-hero, .platform-hero, .ops-hero,
+    .community-page-hero, .feature-hero, .phonebook-hero) {
+    padding-top: 30px;
+    padding-bottom: 42px;
+  }
+
+  :where(.section, .platform-section, .ops-shell-section, .feature-section,
+    .community-page-section, .media-library-section, .media-reels-section,
+    .community-principles) {
+    padding-block: clamp(30px, 8vw, 50px);
+  }
+
+  :where(.hero h1, .page-hero h1, .account-hero h1, .platform-hero h1,
+    .ops-hero h1, .community-page-hero h1, .feature-hero h1,
+    .phonebook-hero h1, .portfolio-builder-hero h1) {
+    font-size: clamp(2.15rem, 10.5vw, 3.35rem) !important;
+  }
+
+  :where(.hero-actions, .page-actions, .form-actions, .button-row,
+    .ops-form-actions) > .btn,
+  :where(.hero-actions, .page-actions, .form-actions, .button-row,
+    .ops-form-actions) > a {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  :where(.grid-3, .grid-4, .feature-card-grid, .platform-card-grid,
+    .event-grid, .workshop-grid, .course-grid, .resource-grid,
+    .member-grid, .directory-grid, .leaderboard-grid, .achievement-grid,
+    .admin-support-grid, .admin-insights-grid, .admin-chart-grid,
+    .ops-feature-grid, .ops-stat-grid, .gifts-rules-grid) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  :where(.card, .panel, .feature-card, .feature-panel, .platform-card,
+    .platform-hero-card, .ops-panel, .dashboard-panel, .admin-panel,
+    .chart-card, .profile-card, .auth-card, .form-card, .settings-card,
+    .portfolio-panel, .content-card, .notification-section) {
+    padding: clamp(15px, 4.5vw, 22px);
+  }
+
+  :where(.page-title-row, .section-head, .section-heading,
+    .panel-heading, .panel-head, .calendar-board-toolbar,
+    .calendar-toolbar-actions, .admin-section-heading) {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  :where(.page-title-row, .section-head, .section-heading,
+    .panel-heading, .panel-head) > :where(.btn, a) {
+    width: 100%;
+  }
+
+  .calendar-view-switch {
+    width: 100%;
+  }
+
+  .calendar-view-switch button {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-inline: 7px;
+  }
+
+  .calendar-board-scroll,
+  .calendar-grid-scroll,
+  .timeline-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .settings-page .settings-sidebar,
+  .settings-page .settings-main,
+  .settings-page .settings-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .settings-page .profile-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .settings-page .account-section > .container {
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .settings-page .profile-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px;
+    border: 1px solid var(--settings-line);
+    border-radius: 16px;
+    background: var(--surface, #fff);
+  }
+
+  .settings-page .profile-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .settings-page .profile-nav::before {
+    flex: 0 0 auto;
+    padding: 0 7px;
+    white-space: nowrap;
+  }
+
+  .settings-page .profile-nav .settings-nav-label {
+    display: none;
+  }
+
+  .settings-page .profile-nav a {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 42px;
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
+
+  .settings-page .profile-nav a i {
+    width: 26px;
+    height: 26px;
+    font-size: .92rem;
+  }
+
+  .settings-page .settings-sidebar-footer {
+    max-width: 100%;
+  }
+
+  .settings-page :where(.settings-toolbar, .settings-save-bar,
+    .settings-page-header, .settings-heading-row) {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .settings-page .profile-save-state-bar {
+    position: sticky;
+    top: calc(var(--mobile-header-space) + 8px);
+    right: auto;
+    bottom: auto;
+    left: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    margin: 0 0 14px;
+    padding: 12px;
+  }
+
+  .settings-page .profile-save-state-bar > *,
+  .settings-page .profile-save-state-bar .btn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .settings-page .profile-save-state-bar :where(span, small) {
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+  }
+
+  .settings-page #profileForm {
+    padding-top: 0;
+  }
+
+  .settings-page :where(.settings-toolbar, .settings-save-bar) .btn {
+    width: 100%;
+  }
+
+  body.admin-gate-page .admin-gate-shell {
+    min-height: 100svh;
+    padding: 14px;
+  }
+
+  body.admin-gate-page .admin-gate-card {
+    width: 100%;
+    max-width: 480px;
+    padding-inline: clamp(18px, 6vw, 28px);
+  }
+
+  body.admin-gate-page :where(.button-row, .form-actions, .admin-gate-actions) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  body.admin-gate-page :where(.button-row, .form-actions, .admin-gate-actions) > * {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* The long-form feature atlas uses a scroll-driven scene on desktop. On a
+     phone it becomes a normal stacked section with shrinkable grid tracks. */
+  body.features-page :where(.features-hero-grid, .features-hero-art,
+    .features-tile-stack, .feature-film, .feature-film-sticky,
+    .feature-film-shell, .feature-film-layout, .feature-film-stage,
+    .feature-chapter, .feature-chapter-heading, .feature-card-grid,
+    .feature-account-band, .feature-route-index, .features-final-cta) {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  body.features-page :where(.features-hero-grid, .features-hero-art,
+    .feature-film, .feature-film-sticky, .feature-film-stage) {
+    overflow-x: clip;
+  }
+
+  body.features-page .features-hero-art,
+  body.features-page .feature-film-stage {
+    transform: none;
+  }
+
+  body.features-page .feature-film-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.features-page :where(.features-hero-grid, .features-tile-stack,
+    .feature-film-layout, .feature-chapter-heading, .feature-card-grid,
+    .feature-account-band) > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  body.features-page .feature-chapter-heading {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+  }
+
+  body.features-page .feature-chapter-link {
+    white-space: normal;
+  }
+
+  .early-launch-shell {
+    gap: 8px;
+    width: calc(100% - 24px) !important;
+    min-height: 64px;
+  }
+
+  .early-launch-status {
+    max-width: 52vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: .65rem;
+  }
+
+  .early-launch-nav-cta {
+    min-height: 40px;
+    padding-inline: 11px;
+    font-size: .68rem;
+  }
+
+  .error-404-content {
+    gap: 2.4rem;
+    width: calc(100% - 24px);
+    padding: 3rem .25rem 4rem;
+  }
+
+  .error-404-code {
+    font-size: clamp(7.4rem, 32vw, 13rem);
+  }
+
+  .error-404-content h1 {
+    font-size: clamp(1.35rem, 6vw, 2rem);
+  }
+
+  .error-button {
+    min-height: 46px;
+    margin-top: 1rem;
+  }
+
+  .site-footer .footer-compact-shell {
+    width: calc(100% - 28px);
+  }
+
+  /* Keep the compact footer link row tappable without forcing a wide page. */
+  .site-footer .footer-compact-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .site-footer .footer-compact-tagline {
+    flex: 1 1 100%;
+    order: 3;
+  }
+
+  .footer-updates-disclosure[open] > .footer-newsletter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    inset: auto 10px max(12px, env(safe-area-inset-bottom));
+    width: auto;
+    max-width: none;
+    max-height: min(76dvh, 620px);
+    overflow: auto;
+  }
+
+  .footer-updates-disclosure[open] .footer-newsletter > *,
+  .footer-updates-disclosure[open] .footer-newsletter :where(input, button, a, label) {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  body.inbox-page-body .chat-header {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+
+  body.inbox-page-body .chat-header-actions {
+    flex: 0 0 auto;
+    min-width: 0;
+    gap: 4px;
+  }
+
+  body.inbox-page-body .chat-header-actions .inbox-action-button {
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    padding: 0;
+  }
+
+  body.inbox-page-body .chat-heading-trigger {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  body.inbox-page-body .chat-heading-copy {
+    min-width: 0;
+  }
+
+  body.inbox-page-body .chat-heading-copy :where(strong, span) {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  body.inbox-page-body .message-composer {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --mobile-page-gutter: 14px;
+    --mobile-header-height: 58px;
+    --mobile-header-space: 76px;
+  }
+
+  .site-header {
+    padding-top: 8px;
+  }
+
+  .site-header .nav {
+    width: calc(100% - 12px) !important;
+    height: var(--mobile-header-height) !important;
+    padding-inline: 5px !important;
+    gap: 3px !important;
+    border-radius: 17px !important;
+  }
+
+  .site-header .brand-logo-shell {
+    flex-basis: 38px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .site-header .auth-nav .auth-icon-btn,
+  .site-header .auth-nav .notification-nav-link,
+  .site-header .auth-nav .auth-user-button,
+  .site-header .menu-btn {
+    flex-basis: 36px;
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    border-radius: 12px !important;
+  }
+
+  .site-header .auth-nav,
+  .site-header .auth-nav .auth-utility-group,
+  .site-header .nav-actions {
+    gap: 3px !important;
+  }
+
+  .site-header .auth-nav .auth-user-button .auth-avatar {
+    width: 29px;
+    height: 29px;
+  }
+
+  .site-header .nav-links.open {
+    inset: calc(var(--mobile-header-space) - 1px) 6px auto !important;
+    max-height: calc(100dvh - var(--mobile-header-space) - 10px);
+    padding: 8px !important;
+  }
+
+  .site-header .nav-links.open .nav-hover-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :where(.grid-2, .feature-grid, .stats-grid, .stat-grid, .metric-grid,
+    .dashboard-quick-grid, .dashboard-stat-grid, .admin-stat-grid,
+    .matching-factor-grid, .matching-demo-steps, .portfolio-display-options,
+    .community-stat-grid) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.early-registration-page .early-launch-shell,
+  body.early-home-page .early-launch-shell {
+    min-height: 58px;
+  }
+
+  body.early-registration-page .early-launch-status,
+  body.early-home-page .early-launch-status {
+    display: none;
+  }
+
+  body.inbox-page-body .chat-header {
+    gap: 4px;
+    padding-inline: 7px;
+  }
+
+  body.inbox-page-body .chat-header-actions .inbox-action-button {
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+  }
+
+  body.inbox-page-body .chat-heading .ops-avatar {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  body.inbox-page-body .chat-heading-copy > span {
+    display: none;
+  }
+}
+
+/* Give the launch-plan copy and its three cards room to breathe on compact
+   laptops and tablets, before returning to the two-column desktop layout. */
+@media (min-width: 841px) and (max-width: 1200px) {
+  body.early-home-page .rs-exchange-guide {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+    padding-inline: clamp(28px, 6vw, 72px);
+  }
+
+  body.early-home-page .rs-guide-copy,
+  body.early-home-page .rs-guide-steps,
+  body.early-home-page .rs-guide-step {
+    min-width: 0;
+  }
+
+  body.early-home-page .rs-guide-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  body.early-home-page .rs-guide-step {
+    padding: 18px;
+  }
+
+  body.early-home-page .rs-guide-step :is(h3, p) {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
+@media (max-width: 350px) {
+  .site-header .auth-nav .auth-utility-group .auth-utility-link[href="calendar.html"] {
+    display: none !important;
+  }
+
+  .site-header .auth-nav .auth-icon-btn,
+  .site-header .auth-nav .notification-nav-link,
+  .site-header .auth-nav .auth-user-button,
+  .site-header .menu-btn {
+    flex-basis: 34px;
+    width: 34px !important;
+    min-width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+  }
+
+  .site-header .nav {
+    padding-inline: 4px !important;
+  }
+
+  .site-header .nav-actions,
+  .site-header .auth-nav,
+  .site-header .auth-nav .auth-utility-group {
+    gap: 2px !important;
+  }
+
+  .site-header .brand-logo-shell {
+    flex-basis: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  body.inbox-page-body .inbox-title-row h1 {
+    font-size: 1.45rem;
+  }
+
+  body.inbox-page-body .inbox-head-actions {
+    gap: 4px;
+  }
+
+  body.inbox-page-body .inbox-head-actions .inbox-action-button {
+    width: 36px;
+    min-width: 36px;
+  }
+}
+
+@media (hover: none), (max-width: 840px) {
+  .site-header .nav-links:not(.open) .nav-hover-menu,
+  .site-header .streak-nav-shell:not(.is-open) .streak-nav-panel,
+  .site-header .notification-nav-shell:not(.is-open) .notification-nav-panel {
+    display: none !important;
+  }
+
+  .site-header .nav-links.open .nav-hover-group.is-open > .nav-hover-menu,
+  .site-header .streak-nav-shell.is-open .streak-nav-panel,
+  .site-header .notification-nav-shell.is-open .notification-nav-panel {
+    display: block;
+  }
+
+  .site-header .streak-nav-shell:hover .streak-nav-panel,
+  .site-header .notification-nav-shell:hover .notification-nav-panel {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .site-header .streak-nav-shell.is-open .streak-nav-panel,
+  .site-header .notification-nav-shell.is-open .notification-nav-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header .streak-nav-shell.is-open .streak-nav-panel,
+  .site-header .notification-nav-shell.is-open .notification-nav-panel {
+    position: fixed !important;
+    z-index: 1300;
+    inset: calc(var(--mobile-header-space) + 7px) 8px auto !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: calc(100dvh - var(--mobile-header-space) - 18px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: 20px;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  :where(*, *::before, *::after) {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 640px) {
+  /* Keep calendar summary cards compact on phones; the board itself remains
+     intentionally wide but scrolls inside .calendar-board-scroll. */
+  main[data-operations-page="calendar"] #calendarTabPanel > .ops-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  main[data-operations-page="calendar"] #calendarTabPanel > .ops-stat-grid > article {
+    min-width: 0;
+    min-height: 82px;
+    padding: 13px;
+  }
+}
+
+/* Phone-first finish for the standalone pre-launch experience. Keep its
+   navigation branded but compact, and prevent guide cards from inheriting a
+   desktop three-column min-content width on narrow viewports. */
+@media (max-width: 840px) {
+  body.early-home-page .early-site-header .nav {
+    width: min(calc(100% - 20px), 720px) !important;
+    min-height: 58px !important;
+    padding: 6px 9px !important;
+    gap: 8px !important;
+    border-radius: 18px !important;
+  }
+
+  body.early-home-page .early-site-header .brand {
+    flex: 0 1 auto;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  body.early-home-page .early-site-header .brand-logo-shell,
+  body.early-home-page .early-site-header .brand img {
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 11px !important;
+  }
+
+  body.early-home-page .early-site-header .brand > .brand-wordmark {
+    display: inline-flex !important;
+    min-width: max-content;
+    font-size: .96rem !important;
+  }
+
+  body.early-home-page .early-site-header .nav-actions,
+  body.early-home-page .early-site-header .auth-nav {
+    flex: 0 0 auto;
+    gap: 0 !important;
+    margin-left: auto !important;
+  }
+
+  body.early-home-page .early-site-header .menu-btn {
+    display: inline-flex !important;
+    flex: 0 0 40px !important;
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    border-radius: 13px !important;
+    font-size: 0 !important;
+  }
+
+  body.early-home-page .early-site-header .menu-btn::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  body.early-home-page .early-site-header .menu-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  body.early-home-page .early-site-header .nav-links.open {
+    inset: calc(var(--mobile-header-space) - 1px) 10px auto !important;
+    max-height: calc(100dvh - var(--mobile-header-space) - 14px) !important;
+    padding: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  body.early-home-page .rs-exchange-guide {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: stretch;
+    gap: 22px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100%;
+    box-sizing: border-box !important;
+    padding: 48px var(--mobile-page-gutter) !important;
+  }
+
+  body.early-home-page .rs-guide-copy,
+  body.early-home-page .rs-guide-note,
+  body.early-home-page .rs-guide-steps,
+  body.early-home-page .rs-guide-step {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  body.early-home-page .rs-guide-steps {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  body.early-home-page .rs-guide-step {
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto auto !important;
+    align-items: start !important;
+    column-gap: 12px !important;
+    min-height: 0 !important;
+    padding: 18px !important;
+    overflow-wrap: normal !important;
+  }
+
+  body.early-home-page .rs-guide-step > span {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    min-width: 0;
+    line-height: 1.2;
+  }
+
+  body.early-home-page .rs-guide-step > i {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    align-self: start;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 4px 0 0 !important;
+  }
+
+  body.early-home-page .rs-guide-step h3 {
+    grid-column: 2 !important;
+    grid-row: 1 / span 2 !important;
+    align-self: center;
+    min-width: 0;
+    width: auto !important;
+    max-width: none !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    line-height: 1.2 !important;
+  }
+
+  body.early-home-page .rs-guide-step p {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    min-width: 0;
+    width: auto !important;
+    max-width: none !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: manual;
+  }
+
+  body.early-home-page .rs-guide-step p {
+    margin-top: 8px !important;
+    font-size: .9rem !important;
+    line-height: 1.55 !important;
+  }
+
+  body.early-registration-page .early-launch-shell {
+    width: calc(100% - 24px);
+    min-height: 58px;
+  }
+
+  body.early-registration-page .early-launch-brand {
+    gap: 8px;
+  }
+
+  body.early-registration-page .early-launch-nav-cta {
+    min-height: 38px;
+    padding: 8px 11px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  body.early-home-page .early-site-header .nav {
+    width: calc(100% - 14px) !important;
+    padding-inline: 7px !important;
+  }
+
+  body.early-home-page .rs-exchange-guide {
+    padding: 38px 14px !important;
+  }
+
+  body.early-home-page .rs-guide-note {
+    padding: 12px !important;
+    font-size: .82rem !important;
+  }
+
+  body.early-home-page .rs-guide-step {
+    padding: 16px !important;
+  }
+
+  body.early-registration-page .early-launch-brand small {
+    display: none;
+  }
+}
+
+/* Shared finishing pass: calmer heading wraps, a little more room on compact
+   phones, and dialogs that stay usable in landscape with browser chrome open. */
+@supports (text-wrap: balance) {
+  main :where(h1, h2, h3) {
+    text-wrap: balance;
+  }
+
+  main :where(p, li, dd, blockquote) {
+    text-wrap: pretty;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --mobile-page-gutter: 14px;
+  }
+
+  body :is(.container, .page-shell, .content-shell, .section-shell) {
+    width: calc(100% - 28px);
+  }
+
+  .site-header .nav {
+    width: calc(100% - 12px) !important;
+  }
+
+  body main :is(.card, .panel, .feature-card, .platform-card, .profile-card,
+    .auth-card, .form-card, .settings-card, .content-card) {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 840px) and (max-height: 520px) {
+  .swapbot-panel,
+  .ops-modal-card,
+  .modal-card,
+  .dialog-card,
+  .modal-content {
+    max-height: calc(100dvh - 20px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+
+  .swapbot-panel {
+    bottom: max(8px, env(safe-area-inset-bottom));
+  }
+}

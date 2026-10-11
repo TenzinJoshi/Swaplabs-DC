@@ -1,0 +1,81 @@
+.gifts-page { background: var(--paper); }
+.gifts-hero { position: relative; overflow: hidden; background: radial-gradient(circle at 84% 12%, color-mix(in srgb, var(--pink) 16%, transparent), transparent 28%), radial-gradient(circle at 8% 80%, color-mix(in srgb, var(--indigo) 13%, transparent), transparent 30%), linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--indigo-soft) 45%, var(--surface)) 62%, color-mix(in srgb, var(--pink) 8%, var(--surface)) 100%); }
+.gifts-hero::after { position: absolute; right: -120px; bottom: -180px; width: 480px; height: 480px; border: 1px solid color-mix(in srgb, var(--indigo) 18%, transparent); border-radius: 50%; content: ''; pointer-events: none; }
+.gifts-hero-copy { position: relative; z-index: 1; }
+.gifts-hero-copy h1 { max-width: 730px; }
+.gifts-hero-copy .platform-hero-copy { max-width: 680px; }
+.gifts-hero-points { display: flex; flex-wrap: wrap; gap: 9px 17px; margin-top: 25px; color: var(--text-body); font-size: .74rem; font-weight: 750; }
+.gifts-hero-points span { display: inline-flex; align-items: center; gap: 6px; }
+.gifts-hero-points i { color: var(--indigo); font-size: 1rem; }
+.gift-balance-card { position: relative; z-index: 1; display: grid; align-content: start; gap: 7px; }
+.gift-balance { display: block; color: var(--indigo); font-size: clamp(2.5rem, 5vw, 4.2rem); letter-spacing: -.07em; line-height: 1; }
+.gift-balance-label { color: var(--muted); font-size: .78rem; }
+.gift-balance-card .hero-card-copy { margin: 14px 0 10px; }
+.gift-balance-card .btn { justify-self: start; }
+.gifts-workspace-section { background: var(--paper); }
+.gifts-auth-gate { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 18px; padding: 25px; border: 1px solid color-mix(in srgb, var(--indigo) 22%, var(--line)); border-radius: 23px; background: linear-gradient(120deg, var(--surface), color-mix(in srgb, var(--indigo-soft) 46%, var(--surface))); box-shadow: 0 16px 35px rgba(41, 48, 92, .07); }
+.gifts-auth-gate h2 { margin: 3px 0 5px; color: var(--text-strong); font-size: clamp(1.3rem, 2.5vw, 2rem); }
+.gifts-auth-gate p { margin: 0; color: var(--text-body); font-size: .84rem; line-height: 1.55; }
+.gift-panel-icon { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 15px; background: var(--indigo-soft); color: var(--indigo); font-size: 1.35rem; }
+.gift-panel-icon.indigo { background: var(--indigo-soft); color: var(--indigo); }
+.gift-panel-icon.pink { background: color-mix(in srgb, var(--pink) 14%, var(--surface)); color: var(--pink); }
+.gifts-app { display: grid; gap: 26px; }
+.gifts-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 19px; }
+.gifts-section-heading h2 { margin: 4px 0 6px; color: var(--text-strong); font-size: clamp(1.75rem, 3vw, 2.55rem); letter-spacing: -.04em; }
+.gifts-section-heading p { max-width: 680px; margin: 0; color: var(--text-body); font-size: .88rem; line-height: 1.65; }
+.gifts-section-heading.compact { align-items: center; margin-bottom: 14px; }
+.gifts-section-heading.compact h2 { font-size: clamp(1.45rem, 2.4vw, 2.1rem); }
+.gifts-security-note { display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto; padding: 9px 12px; border: 1px solid color-mix(in srgb, var(--green) 30%, var(--line)); border-radius: 999px; background: color-mix(in srgb, var(--green) 9%, var(--surface)); color: var(--green); font-size: .69rem; font-weight: 800; }
+.gift-action-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.gift-panel { display: grid; align-content: start; gap: 15px; min-width: 0; padding: 25px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); box-shadow: 0 17px 38px rgba(20, 31, 61, .055); }
+.gift-panel-top { display: flex; align-items: center; gap: 12px; }
+.gift-step { color: var(--indigo); font-size: .67rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.gift-panel h3 { margin: 3px 0 0; color: var(--text-strong); font-size: 1.2rem; }
+.gift-panel > p { margin: 0; color: var(--text-body); font-size: .82rem; line-height: 1.65; }
+.gift-form { display: grid; gap: 9px; margin-top: 3px; }
+.gift-form label { color: var(--text-strong); font-size: .78rem; font-weight: 800; }
+.gift-form input { width: 100%; min-height: 49px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 13px; background: var(--surface-soft); color: var(--ink); font: inherit; font-size: .95rem; outline: none; transition: border-color .18s, box-shadow .18s, background .18s; }
+.gift-form input:focus { border-color: var(--indigo); background: var(--surface); box-shadow: 0 0 0 4px color-mix(in srgb, var(--indigo) 14%, transparent); }
+.gift-form small { min-height: 31px; color: var(--muted); font-size: .69rem; line-height: 1.45; }
+.gift-form .btn { justify-self: start; margin-top: 4px; }
+.gift-amount-field { position: relative; }
+.gift-amount-field input { padding-right: 84px; }
+.gift-amount-field span { position: absolute; top: 50%; right: 14px; transform: translateY(-50%); color: var(--muted); font-size: .72rem; font-weight: 850; pointer-events: none; }
+.gifts-status { display: none; padding: 13px 15px; border: 1px solid transparent; border-radius: 14px; font-size: .78rem; line-height: 1.5; }
+.gifts-status.show { display: block; }
+.gifts-status.success { border-color: color-mix(in srgb, var(--green) 35%, var(--line)); background: color-mix(in srgb, var(--green) 9%, var(--surface)); color: var(--green); }
+.gifts-status.error { border-color: color-mix(in srgb, #e5484d 35%, var(--line)); background: color-mix(in srgb, #e5484d 8%, var(--surface)); color: #b4232a; }
+.voucher-code-card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 17px; align-items: start; padding: 23px; border: 1px solid color-mix(in srgb, var(--green) 32%, var(--line)); border-radius: 22px; background: linear-gradient(130deg, color-mix(in srgb, var(--green) 8%, var(--surface)), color-mix(in srgb, var(--indigo-soft) 34%, var(--surface))); box-shadow: 0 16px 36px rgba(25, 110, 87, .07); }
+.voucher-code-icon { display: grid; width: 50px; height: 50px; place-items: center; border-radius: 15px; background: var(--green); color: #fff; font-size: 1.35rem; }
+.voucher-code-copy h3 { margin: 3px 0 5px; color: var(--text-strong); font-size: 1.15rem; }
+.voucher-code-copy p { max-width: 690px; margin: 0 0 13px; color: var(--text-body); font-size: .78rem; line-height: 1.55; }
+.voucher-code-copy > strong { display: inline-block; margin-top: 9px; color: var(--green); font-size: .82rem; }
+.voucher-code-line { display: flex; align-items: center; gap: 10px; max-width: 690px; }
+.voucher-code-line code { overflow: auto; flex: 1; padding: 12px 14px; border: 1px dashed color-mix(in srgb, var(--green) 55%, var(--line)); border-radius: 12px; background: var(--surface); color: var(--text-strong); font: 800 .91rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .05em; white-space: nowrap; }
+.voucher-code-line .btn { flex: 0 0 auto; }
+.gift-history { padding-top: 9px; }
+.voucher-list { display: grid; gap: 10px; }
+.voucher-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 13px; padding: 15px 17px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.voucher-row-icon { display: grid; width: 39px; height: 39px; place-items: center; border-radius: 12px; background: var(--indigo-soft); color: var(--indigo); }
+.voucher-row-copy { display: grid; gap: 4px; min-width: 0; }
+.voucher-row-copy strong { overflow: hidden; color: var(--text-strong); font-size: .85rem; text-overflow: ellipsis; white-space: nowrap; }
+.voucher-row-copy span { color: var(--muted); font-size: .7rem; line-height: 1.4; }
+.voucher-row-amount { color: var(--indigo); font-size: .88rem; font-weight: 850; text-align: right; white-space: nowrap; }
+.voucher-status { display: inline-flex; width: fit-content; padding: 4px 8px; border-radius: 999px; font-size: .65rem; font-weight: 850; }
+.voucher-status.active { color: var(--indigo); background: var(--indigo-soft); }
+.voucher-status.redeemed { color: var(--green); background: color-mix(in srgb, var(--green) 12%, var(--surface)); }
+.gift-loading, .gift-empty { padding: 25px; border: 1px dashed var(--line); border-radius: 16px; color: var(--muted); font-size: .8rem; text-align: center; }
+.gift-loading i { margin-right: 5px; color: var(--indigo); }
+.gifts-rules-section { background: color-mix(in srgb, var(--indigo-soft) 30%, var(--paper)); }
+.gifts-rules-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(330px, .8fr); align-items: center; gap: 34px; }
+.gifts-rules-grid h2 { max-width: 580px; margin: 5px 0 8px; color: var(--text-strong); font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: -.045em; }
+.gifts-rules-grid p { max-width: 660px; margin: 0; color: var(--text-body); font-size: .87rem; line-height: 1.7; }
+.gift-rules-card { display: grid; gap: 12px; padding: 20px; border: 1px solid color-mix(in srgb, var(--indigo) 20%, var(--line)); border-radius: 20px; background: var(--surface); box-shadow: 0 14px 30px rgba(40, 48, 90, .06); }
+.gift-rules-card > div { display: grid; grid-template-columns: auto 1fr; gap: 11px; align-items: start; padding: 10px; border-radius: 13px; background: var(--surface-soft); }
+.gift-rules-card i { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; background: var(--indigo-soft); color: var(--indigo); font-size: 1rem; }
+.gift-rules-card span { display: grid; gap: 3px; }
+.gift-rules-card strong { color: var(--text-strong); font-size: .78rem; }
+.gift-rules-card small { color: var(--text-body); font-size: .69rem; line-height: 1.45; }
+html[data-theme="dark"] .gifts-status.error { color: #ffb4b6; }
+@media (max-width: 850px) { .gift-action-grid, .gifts-rules-grid { grid-template-columns: 1fr; } .gifts-security-note { align-self: start; } }
+@media (max-width: 620px) { .gifts-auth-gate, .gifts-section-heading { grid-template-columns: 1fr; display: grid; align-items: start; } .gifts-auth-gate .btn, .gifts-section-heading .btn { justify-self: start; } .gift-panel, .gifts-auth-gate, .voucher-code-card { padding: 19px; border-radius: 18px; } .voucher-code-card { grid-template-columns: 1fr; } .voucher-code-line { align-items: stretch; flex-direction: column; } .voucher-code-line .btn { align-self: start; } .voucher-row { grid-template-columns: auto minmax(0, 1fr); } .voucher-row-amount { grid-column: 2; text-align: left; } .gifts-hero-points { display: grid; gap: 8px; } }

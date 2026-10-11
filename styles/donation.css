@@ -1,0 +1,7 @@
+.donation-qr-card{display:grid;justify-items:center;gap:10px;padding:26px;border-radius:28px;background:#fff;box-shadow:0 22px 60px rgba(0,0,0,.25);color:var(--navy);text-align:center}
+.donation-qr-frame{display:grid;place-items:center;width:min(100%,370px);aspect-ratio:1;background:#fff;padding:14px;border-radius:18px}
+.donation-qr-frame img{display:block;width:100%;height:100%;object-fit:contain;border-radius:8px}
+.donation-qr-card strong{font-size:1.25rem}.donation-qr-card span{color:var(--muted);font-size:.85rem}
+html[data-theme="dark"] .donation-qr-card{background:#172231;color:#f2f5fa;border:1px solid #344258}
+html[data-theme="dark"] .donation-qr-card span{color:var(--muted)}
+@media(max-width:800px){.donation-qr-card{width:min(100%,420px);margin:auto}.donation-qr-frame{width:min(100%,300px)}}

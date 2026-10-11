@@ -1,0 +1,214 @@
+/*
+ * Admin analytics presentation layer.
+ *
+ * Keep chart sizing in one place. The renderer reads the final canvas box
+ * below, so a chart is never stretched by an unrelated responsive rule.
+ */
+html body.workspace-admin .admin-chart-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  padding: 0 20px 20px !important;
+  align-items: stretch;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card {
+  display: flex !important;
+  flex-direction: column;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100%;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid var(--admin-line, var(--line)) !important;
+  border-radius: 18px !important;
+  background: var(--admin-surface, var(--surface)) !important;
+  box-shadow: 0 8px 24px rgba(20, 33, 61, .055) !important;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card.wide {
+  grid-column: span 2 !important;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card.full {
+  grid-column: 1 / -1 !important;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card-head {
+  flex: 0 0 auto;
+  min-height: 72px;
+  margin: 0 !important;
+  padding: 18px 20px 0 !important;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card-head h3 {
+  color: var(--admin-ink, var(--navy)) !important;
+  font-size: .98rem !important;
+  line-height: 1.2;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card-head p {
+  max-width: 32rem;
+  margin-top: 5px !important;
+  color: var(--admin-body, var(--muted)) !important;
+  font-size: .72rem !important;
+  line-height: 1.4;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card-head > i {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 1px solid color-mix(in srgb, var(--indigo) 18%, var(--line));
+  border-radius: 10px;
+  background: var(--indigo-soft) !important;
+  color: var(--indigo) !important;
+  font-size: 1rem;
+}
+
+/* The explicit height is intentional. It defeats the old height:auto rule
+ * that made a 2:1 canvas render as a flat oval on narrow admin layouts. */
+html body.workspace-admin .admin-chart-grid .chart-card canvas {
+  display: block !important;
+  flex: 0 0 auto;
+  width: 100% !important;
+  max-width: none !important;
+  height: 220px !important;
+  min-height: 220px !important;
+  margin: 0;
+  box-sizing: border-box;
+  aspect-ratio: auto !important;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card.wide canvas {
+  height: 260px !important;
+  min-height: 260px !important;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-card.full canvas {
+  height: 290px !important;
+  min-height: 290px !important;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-legend,
+html body.workspace-admin .admin-chart-grid .chart-data-list {
+  flex: 0 0 auto;
+  width: auto;
+  box-sizing: border-box;
+  margin: 0 20px 20px !important;
+  padding: 12px 0 0 !important;
+  border-top: 1px solid var(--admin-line, var(--line));
+}
+
+html body.workspace-admin .admin-chart-grid .chart-legend {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  flex-wrap: wrap;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+  padding: 7px 9px;
+  border: 1px solid var(--admin-line, var(--line));
+  border-radius: 999px;
+  background: var(--admin-surface-soft, var(--surface-soft));
+  color: var(--admin-body, var(--muted)) !important;
+  font-size: .72rem;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-legend i {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-data-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 8px;
+  max-height: 148px !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-data-list span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid var(--admin-line, var(--line));
+  border-radius: 10px;
+  background: var(--admin-surface-soft, var(--surface-soft));
+  color: var(--admin-body, var(--muted)) !important;
+  font-size: .72rem !important;
+  line-height: 1.25;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-data-list span:first-child:last-child {
+  justify-content: flex-start;
+}
+
+html body.workspace-admin .admin-chart-grid .chart-data-list span > strong {
+  flex: 0 0 auto;
+  color: var(--admin-ink, var(--navy)) !important;
+  font-size: .75rem;
+}
+
+html[data-theme="dark"] body.workspace-admin .admin-chart-grid .chart-card {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .18) !important;
+}
+
+@media (max-width: 860px) {
+  html body.workspace-admin .admin-chart-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body.workspace-admin .admin-chart-grid .chart-card.wide,
+  html body.workspace-admin .admin-chart-grid .chart-card.full {
+    grid-column: auto !important;
+  }
+}
+
+@media (max-width: 430px) {
+  html body.workspace-admin .admin-chart-grid {
+    gap: 14px !important;
+    padding-inline: 12px !important;
+  }
+
+  html body.workspace-admin .admin-chart-grid .chart-card-head {
+    min-height: 68px;
+    padding: 16px 16px 0 !important;
+  }
+
+  html body.workspace-admin .admin-chart-grid .chart-card canvas {
+    height: 190px !important;
+    min-height: 190px !important;
+  }
+
+  html body.workspace-admin .admin-chart-grid .chart-card.wide canvas,
+  html body.workspace-admin .admin-chart-grid .chart-card.full canvas {
+    height: 220px !important;
+    min-height: 220px !important;
+  }
+
+  html body.workspace-admin .admin-chart-grid .chart-legend,
+  html body.workspace-admin .admin-chart-grid .chart-data-list {
+    margin-inline: 16px !important;
+  }
+
+  html body.workspace-admin .admin-chart-grid .chart-data-list {
+    grid-template-columns: 1fr;
+  }
+}

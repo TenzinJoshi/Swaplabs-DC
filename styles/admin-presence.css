@@ -1,0 +1,202 @@
+html body.workspace-admin .admin-presence-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 22px;
+}
+
+html body.workspace-admin .admin-presence-summary .admin-stat {
+  min-height: 118px;
+}
+
+html body.workspace-admin .admin-presence-panel {
+  padding: clamp(18px, 2.4vw, 28px);
+}
+
+html body.workspace-admin .admin-presence-panel .admin-panel-head {
+  align-items: flex-start;
+}
+
+html body.workspace-admin .admin-presence-panel .admin-panel-head > div {
+  display: grid;
+  gap: 5px;
+}
+
+html body.workspace-admin .admin-presence-panel .admin-panel-head h2 {
+  margin: 0;
+}
+
+html body.workspace-admin .admin-presence-panel .admin-panel-head span {
+  color: var(--admin-muted);
+  font-size: 0.92rem;
+}
+
+html body.workspace-admin .admin-presence-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+html body.workspace-admin .admin-presence-card {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--admin-line);
+  border-radius: 18px;
+  background: var(--admin-surface);
+  box-shadow: 0 10px 24px rgb(25 38 70 / 6%);
+}
+
+html body.workspace-admin .admin-presence-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+html body.workspace-admin .admin-presence-avatar {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+}
+
+html body.workspace-admin .admin-presence-identity {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+html body.workspace-admin .admin-presence-identity strong,
+html body.workspace-admin .admin-presence-identity span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html body.workspace-admin .admin-presence-identity strong {
+  color: var(--admin-ink);
+  font-size: 1rem;
+}
+
+html body.workspace-admin .admin-presence-identity span {
+  color: var(--admin-muted);
+  font-size: 0.82rem;
+}
+
+html body.workspace-admin .admin-presence-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  color: var(--admin-green, #16866d) !important;
+  font-size: 0.78rem !important;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+html body.workspace-admin .admin-presence-status.is-away {
+  color: var(--admin-blue, #4d7cf4) !important;
+}
+
+html body.workspace-admin .admin-presence-status i {
+  font-size: 0.56rem;
+}
+
+html body.workspace-admin .admin-presence-meta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--admin-line);
+}
+
+html body.workspace-admin .admin-presence-meta span {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+html body.workspace-admin .admin-presence-meta small {
+  color: var(--admin-muted);
+  font-size: 0.75rem;
+}
+
+html body.workspace-admin .admin-presence-meta strong,
+html body.workspace-admin .admin-presence-meta time {
+  color: var(--admin-ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+html body.workspace-admin .admin-presence-meta strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html body.workspace-admin .admin-presence-meta time {
+  color: var(--admin-muted);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+html body.workspace-admin .admin-presence-empty {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 44px 20px;
+  border: 1px dashed var(--admin-line);
+  border-radius: 16px;
+  color: var(--admin-muted);
+  text-align: center;
+}
+
+html body.workspace-admin .admin-presence-empty i {
+  color: var(--admin-blue);
+  font-size: 2rem;
+}
+
+html body.workspace-admin .admin-presence-empty strong {
+  color: var(--admin-ink);
+}
+
+html body.workspace-admin .admin-presence-empty .bx-spin {
+  animation: admin-presence-spin 0.9s linear infinite;
+}
+
+@keyframes admin-presence-spin {
+  to { transform: rotate(360deg); }
+}
+
+html[data-theme="dark"] body.workspace-admin .admin-presence-card {
+  background: var(--admin-surface-strong, #18233b);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] body.workspace-admin .admin-presence-empty {
+  background: rgb(255 255 255 / 2%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body.workspace-admin .admin-presence-empty .bx-spin {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  html body.workspace-admin .admin-presence-summary {
+    grid-template-columns: 1fr;
+  }
+
+  html body.workspace-admin .admin-presence-card-head {
+    align-items: flex-start;
+  }
+
+  html body.workspace-admin .admin-presence-status {
+    align-self: flex-start;
+  }
+}

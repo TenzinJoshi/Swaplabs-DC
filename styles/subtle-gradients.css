@@ -1,0 +1,49 @@
+/* Small background-only accents. Keep typography, contrast, layout and member
+   profile colours under their existing stylesheets' control. */
+
+/* A warm-to-lilac sheen on the shared navigation shell, not its controls. */
+html body:not(#relay-visibility-specificity-boost) [data-site-header] .site-header .nav,
+html body:not(#relay-visibility-specificity-boost) [data-site-header] .site-header .nav::before {
+  background-image: linear-gradient(110deg, #faf9f6 0%, #f8f7f3 55%, #f0eef8 100%) !important;
+}
+
+/* Keep the homepage airy, with just a gentle wash behind the opening. */
+html:not([data-theme="dark"]) body.home-scroll-journey .rs-hero {
+  background-image: linear-gradient(120deg, #fcfcff 0%, #f3f2ff 58%, #edf8f4 100%) !important;
+}
+
+html:not([data-theme="dark"]) body.home-scroll-journey .rs-guide-step {
+  background-image: linear-gradient(145deg, #ffffff 45%, #f0faf6 100%) !important;
+}
+
+html:not([data-theme="dark"]) body.home-scroll-journey .rs-guide-step:nth-child(2) {
+  background-image: linear-gradient(145deg, #ffffff 45%, #fff9f4 100%) !important;
+}
+
+html:not([data-theme="dark"]) body.home-scroll-journey .rs-guide-step:nth-child(3) {
+  background-image: linear-gradient(145deg, #ffffff 45%, #f9f7fe 100%) !important;
+}
+
+/* Forms remain light and readable; inputs retain their plain backgrounds. */
+html:not([data-theme="dark"]) body .account-main .auth-card {
+  background-image: linear-gradient(150deg, #ffffff 55%, #f5f3fb 100%) !important;
+}
+
+/* The familiar navy footer, softened by one restrained diagonal shift. */
+html body .site-footer.site-footer--compact {
+  background-image: linear-gradient(120deg, #172a46 0%, #203650 60%, #243b50 100%) !important;
+}
+
+/* Let the operating system supply backgrounds in high-contrast mode. */
+@media (forced-colors: active) {
+  html body:not(#relay-visibility-specificity-boost) [data-site-header] .site-header .nav,
+  html body:not(#relay-visibility-specificity-boost) [data-site-header] .site-header .nav::before,
+  html:not([data-theme="dark"]) body.home-scroll-journey .rs-hero,
+  html:not([data-theme="dark"]) body.home-scroll-journey .rs-guide-step,
+  html:not([data-theme="dark"]) body.home-scroll-journey .rs-guide-step:nth-child(2),
+  html:not([data-theme="dark"]) body.home-scroll-journey .rs-guide-step:nth-child(3),
+  html:not([data-theme="dark"]) body .account-main .auth-card,
+  html body .site-footer.site-footer--compact {
+    background-image: none !important;
+  }
+}

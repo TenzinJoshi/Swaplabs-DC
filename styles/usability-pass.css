@@ -1,0 +1,2153 @@
+/* A small, shared clarity layer for the simplified SwapLabs experience. */
+
+@media (max-width: 840px) {
+  .site-header .nav-links.open,
+  body.home-simple.home-reference-page .site-header .nav-links.open {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .site-header .nav-links.open > .nav-key-directory .directory-menu-button > span,
+  .site-header .nav-links.open > .nav-key-directory .directory-menu-button > .bx-chevron-down {
+    display: inline-flex !important;
+  }
+
+  .site-header .nav-directory.open .nav-directory-menu {
+    left: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    transform: translate(0, 0) scale(1) !important;
+    transform-origin: top left !important;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 2000;
+  top: -60px;
+  left: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--navy, #192746);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 800;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .18);
+  transition: top .18s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+  color: #fff;
+}
+
+.child-registration-handoff {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  margin: 0 0 22px;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--indigo, #6f5bda) 34%, var(--line, #d9deea));
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--indigo-soft, #f0edff) 72%, var(--surface, #fff));
+  color: var(--navy, #192746);
+}
+
+.child-registration-handoff[hidden] {
+  display: none;
+}
+
+.child-registration-handoff-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: var(--indigo, #6f5bda);
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.child-registration-handoff strong,
+.child-registration-handoff p,
+.child-registration-handoff ol {
+  margin: 0;
+}
+
+.child-registration-handoff strong {
+  display: block;
+  font-size: .98rem;
+  line-height: 1.25;
+}
+
+.child-registration-handoff p,
+.child-registration-handoff ol {
+  margin-top: 6px;
+  color: var(--text-body, #5e6b83);
+  font-size: .8rem;
+  line-height: 1.55;
+}
+
+.child-registration-handoff ol {
+  padding-left: 18px;
+}
+
+.quick-register-page.is-child-registration .quick-register-guardian {
+  border-color: color-mix(in srgb, var(--indigo, #6f5bda) 34%, var(--line, #d9deea));
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--indigo, #6f5bda) 10%, transparent);
+}
+
+.child-registration-skill-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--indigo-soft, #f0edff) 72%, var(--surface, #fff));
+  color: var(--text-body, #5e6b83);
+  font-size: .78rem;
+  line-height: 1.45;
+}
+
+.child-registration-skill-note[hidden] {
+  display: none;
+}
+
+.help-search-label {
+  display: block;
+  margin-top: 22px;
+  color: var(--navy, #192746);
+  font-size: .78rem;
+  font-weight: 800;
+}
+
+.help-search-status {
+  min-height: 1.25em;
+  margin: 7px 0 0;
+  color: var(--muted, #718096);
+  font-size: .76rem;
+}
+
+.help-search-empty {
+  display: grid;
+  grid-column: 1 / -1;
+  justify-items: center;
+  gap: 10px;
+  padding: 36px 22px;
+  border: 1px dashed var(--line, #d9deea);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--surface, #fff) 88%, var(--indigo-soft, #f0edff));
+  text-align: center;
+}
+
+.help-search-empty[hidden] {
+  display: none;
+}
+
+.help-search-empty .icon-box {
+  margin: 0;
+}
+
+.help-search-empty h2 {
+  margin: 0;
+  color: var(--navy, #192746);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.help-search-empty p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--muted, #718096);
+  line-height: 1.55;
+}
+
+html[data-theme="dark"] .child-registration-handoff,
+html[data-theme="dark"] .help-search-empty {
+  color: #f5f5f1;
+  background: #171719;
+  border-color: #41414a;
+}
+
+html[data-theme="dark"] .child-registration-handoff p,
+html[data-theme="dark"] .child-registration-handoff ol,
+html[data-theme="dark"] .help-search-status,
+html[data-theme="dark"] .help-search-empty p {
+  color: #c4c4bf;
+}
+
+html[data-theme="dark"] .help-search-label,
+html[data-theme="dark"] .help-search-empty h2 {
+  color: #f5f5f1;
+}
+
+html[data-theme="dark"] .child-registration-skill-note {
+  background: #202024;
+  color: #c4c4bf;
+}
+
+@media (max-width: 620px) {
+  .child-registration-handoff {
+    grid-template-columns: 1fr;
+  }
+
+  .child-registration-handoff-icon {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 840px) {
+  /* Keep account creation discoverable on small screens. At phone widths the
+     icon is enough; the accessible name remains "Create account". */
+  .site-header .auth-nav .auth-register-stack {
+    display: inline-flex !important;
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  .site-header .auth-nav .auth-register-stack .auth-org-link {
+    display: none !important;
+  }
+
+  .site-header .auth-nav .auth-register-stack > a[href="register.html"] {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    width: 42px;
+    height: 42px;
+    padding: 0 !important;
+    font-size: 0 !important;
+  }
+
+  .site-header .auth-nav .auth-register-stack > a[href="register.html"] i {
+    display: inline-flex;
+    font-size: 1.05rem;
+  }
+
+  /* Logged-out pages render the auth controls as sibling links. */
+  .site-header .auth-nav > a[href="register.html"] {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    width: 42px;
+    height: 42px;
+    padding: 0 !important;
+    font-size: 0 !important;
+  }
+
+  .site-header .auth-nav > a[href="register.html"] i {
+    display: inline-flex;
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 591px) and (max-width: 840px) {
+  .site-header .auth-nav .auth-register-stack > a[href="register.html"] {
+    width: 42px !important;
+    min-width: 42px;
+    padding-inline: 0 !important;
+    font-size: 0 !important;
+  }
+
+  .site-header .auth-nav > a[href="register.html"] {
+    width: 42px !important;
+    min-width: 42px;
+    padding-inline: 0 !important;
+    font-size: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quick-register-page.is-child-registration .quick-register-guardian {
+    box-shadow: none;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Final neon lime + indigo pass.
+   swaplabs.js loads this file after page-specific styles, so these compact
+   overrides win where a page has a more specific legacy color rule.
+   ------------------------------------------------------------------------- */
+
+:root,
+html[data-theme="light"] {
+  --relayskills-navy: #101226 !important;
+  --relayskills-navy-2: #241d70 !important;
+  --relayskills-blue: #b8ff2c !important;
+  --relayskills-blue-strong: #a6ef17 !important;
+  --relayskills-iris: #6557ff !important;
+  --relayskills-purple: #6557ff !important;
+  --relayskills-coral: #b8ff2c !important;
+  --relayskills-orange: #b8ff2c !important;
+  --relayskills-mint: #efffc3 !important;
+  --relayskills-green-ink: #284400 !important;
+  --relayskills-muted: #69748e !important;
+  --relayskills-line: #dfe3f2 !important;
+  --relayskills-warm-white: #ffffff !important;
+  --relayskills-surface: #ffffff !important;
+  --relayskills-surface-soft: #f6f7ff !important;
+  --rs-page: #ffffff !important;
+  --rs-surface: #ffffff !important;
+  --rs-surface-soft: #f6f7ff !important;
+  --rs-ink: #101226 !important;
+  --rs-body: #45516d !important;
+  --rs-muted: #69748e !important;
+  --rs-line: #dfe3f2 !important;
+  --rs-line-strong: #c9cfee !important;
+  --rs-indigo: #6557ff !important;
+  --rs-indigo-soft: #efeeff !important;
+  --rs-lime: #b8ff2c !important;
+  --rs-lime-bright: #d6ff75 !important;
+  --rs-action-text: #090a12 !important;
+  --navx-blue: #b8ff2c !important;
+  --navx-orange: #6557ff !important;
+  --navx-hover: rgba(184, 255, 44, 0.2) !important;
+  --navx-heading: #101226 !important;
+  --navx-text: #101226 !important;
+}
+
+html[data-theme="dark"] {
+  --relayskills-navy: #ffffff !important;
+  --relayskills-navy-2: #e6e9ff !important;
+  --relayskills-blue: #b8ff2c !important;
+  --relayskills-blue-strong: #d6ff75 !important;
+  --relayskills-iris: #8d82ff !important;
+  --relayskills-purple: #8d82ff !important;
+  --relayskills-coral: #b8ff2c !important;
+  --relayskills-orange: #b8ff2c !important;
+  --relayskills-mint: #344b12 !important;
+  --relayskills-green-ink: #dfff92 !important;
+  --relayskills-muted: #adb7d6 !important;
+  --relayskills-line: #303a68 !important;
+  --relayskills-warm-white: #0d1030 !important;
+  --relayskills-surface: #0d1030 !important;
+  --relayskills-surface-soft: #151a42 !important;
+  --rs-page: #05060c !important;
+  --rs-surface: #0d1030 !important;
+  --rs-surface-soft: #151a42 !important;
+  --rs-ink: #ffffff !important;
+  --rs-body: #d4daf0 !important;
+  --rs-muted: #adb7d6 !important;
+  --rs-line: #303a68 !important;
+  --rs-line-strong: #46518a !important;
+  --rs-indigo: #8d82ff !important;
+  --rs-indigo-soft: #1a1943 !important;
+  --rs-lime: #b8ff2c !important;
+  --rs-lime-bright: #dfff92 !important;
+  --rs-action-text: #05060c !important;
+  --navx-blue: #b8ff2c !important;
+  --navx-orange: #8d82ff !important;
+  --navx-hover: rgba(184, 255, 44, 0.18) !important;
+  --navx-heading: #ffffff !important;
+  --navx-text: #ffffff !important;
+}
+
+html,
+body {
+  background-color: var(--rs-page) !important;
+  color: var(--rs-ink) !important;
+}
+
+body[class] {
+  --paper: #ffffff !important;
+  --surface: #ffffff !important;
+  --surface-soft: #f6f7ff !important;
+  --ink: #101226 !important;
+  --navy: #101226 !important;
+  --navy-2: #241d70 !important;
+  --line: #dfe3f2 !important;
+  --line-strong: #c9cfee !important;
+  --muted: #69748e !important;
+  --text-body: #45516d !important;
+  --blue: #b8ff2c !important;
+  --blue-strong: #a6ef17 !important;
+  --iris: #6557ff !important;
+  --purple: #6557ff !important;
+  --orange: #6557ff !important;
+  --mint: #efffc3 !important;
+  --green: #284400 !important;
+  --shadow: 0 18px 48px rgba(36, 29, 112, 0.12), 0 4px 14px rgba(9, 10, 18, 0.06) !important;
+  background-color: #ffffff !important;
+  color: #101226 !important;
+}
+
+html[data-theme="dark"] body[class] {
+  --paper: #05060c !important;
+  --surface: #0d1030 !important;
+  --surface-soft: #151a42 !important;
+  --ink: #ffffff !important;
+  --navy: #ffffff !important;
+  --navy-2: #e6e9ff !important;
+  --line: #303a68 !important;
+  --line-strong: #46518a !important;
+  --muted: #adb7d6 !important;
+  --text-body: #d4daf0 !important;
+  --blue: #b8ff2c !important;
+  --blue-strong: #d6ff75 !important;
+  --iris: #8d82ff !important;
+  --purple: #8d82ff !important;
+  --orange: #8d82ff !important;
+  --mint: #344b12 !important;
+  --green: #dfff92 !important;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(101, 87, 255, 0.18) !important;
+  background-color: #05060c !important;
+  color: #ffffff !important;
+}
+
+body.workspace-admin .workspace-bar {
+  background: linear-gradient(135deg, #05060c 0%, #0d1030 52%, #241d70 100%) !important;
+  border-color: #303a68 !important;
+  color: #ffffff !important;
+}
+
+body.workspace-admin .workspace-bar :where(a, button, span, strong, i, svg) {
+  color: #ffffff !important;
+}
+
+body.workspace-admin .admin-main,
+body.workspace-admin .account-section,
+body.workspace-admin .expansion-stats {
+  background: #ffffff !important;
+  color: #101226 !important;
+  border-color: #dfe3f2 !important;
+}
+
+body.workspace-admin :where(input, select, textarea) {
+  background: #ffffff !important;
+  border-color: #c9cfee !important;
+  color: #101226 !important;
+}
+
+body.workspace-admin :where(.admin-section, .admin-card, .ops-card,
+  .stat-card, .overview-card, .table-card, .admin-table-wrap,
+  .workspace-card, .account-card) {
+  background: #ffffff !important;
+  border-color: #dfe3f2 !important;
+  color: #101226 !important;
+}
+
+body .site-header,
+body .static-site-header,
+body .floating-header,
+body .nav-shell,
+body .site-header .nav {
+  background: var(--rs-nav-surface, rgba(255, 255, 255, 0.94)) !important;
+  border-color: var(--rs-line) !important;
+  color: var(--rs-nav-text, var(--rs-ink)) !important;
+}
+
+body .nav-links a,
+body .site-header .nav a,
+body .site-header .nav button {
+  color: var(--rs-nav-text, var(--rs-ink)) !important;
+}
+
+body .nav-links a.active,
+body .nav-links a[aria-current="page"],
+body .site-header .nav a.active {
+  background: rgba(184, 255, 44, 0.24) !important;
+  color: var(--rs-ink) !important;
+}
+
+body .nav-links a.active::after,
+body .nav-links a[aria-current="page"]::after {
+  background: var(--rs-lime) !important;
+}
+
+body .site-header .nav-links > a.nav-major.nav-create:not(.active),
+body .site-header .nav-links .nav-hover-group.nav-create .nav-major:not(.active) {
+  color: var(--rs-indigo) !important;
+}
+
+body .site-header .nav-links > a.nav-major.nav-create:not(.active):hover,
+body .site-header .nav-links .nav-hover-group.nav-create:hover .nav-major:not(.active),
+body .site-header .nav-links .nav-hover-group.nav-create.is-open .nav-major:not(.active) {
+  background: rgba(184, 255, 44, 0.2) !important;
+  color: var(--rs-indigo-deep) !important;
+}
+
+body .brand-wordmark-relay,
+body .brand-wordmark-skills,
+body .brand-name,
+body .site-brand {
+  color: var(--rs-ink) !important;
+}
+
+body .brand-wordmark-skills {
+  color: var(--rs-indigo) !important;
+}
+
+body .btn.btn-primary,
+body .btn-primary,
+body .button-primary,
+body .primary-button,
+body button.primary,
+body .cta-primary,
+body .site-header .auth-nav .btn-primary,
+body.home-simple.home-reference-page .home-reference-create,
+body.home-simple.home-reference-page .hero-actions .btn-primary {
+  background: linear-gradient(110deg, #b8ff2c 0%, #d6ff75 100%) !important;
+  border-color: #b8ff2c !important;
+  color: #090a12 !important;
+  box-shadow: 0 12px 24px rgba(184, 255, 44, 0.24) !important;
+}
+
+body .btn.btn-primary:hover,
+body .btn-primary:hover,
+body .button-primary:hover,
+body .primary-button:hover,
+body button.primary:hover,
+body .cta-primary:hover,
+body .site-header .auth-nav .btn-primary:hover,
+body.home-simple.home-reference-page .home-reference-create:hover,
+body.home-simple.home-reference-page .hero-actions .btn-primary:hover {
+  background: #d6ff75 !important;
+  color: #090a12 !important;
+}
+
+body .btn:not(.btn-primary),
+body .btn-secondary,
+body .button-secondary,
+body .secondary-button,
+body .btn-outline,
+body .ghost-button {
+  border-color: var(--rs-line-strong) !important;
+  color: var(--rs-indigo) !important;
+}
+
+body :where(input, select, textarea) {
+  background: var(--rs-surface) !important;
+  border-color: var(--rs-line-strong) !important;
+  color: var(--rs-ink) !important;
+}
+
+body :where(input, select, textarea):focus {
+  border-color: var(--rs-indigo) !important;
+  box-shadow: 0 0 0 4px rgba(101, 87, 255, 0.14) !important;
+}
+
+body :where(.card, .panel, .feature-panel, .match-panel, .workspace,
+  .dashboard-panel, .admin-panel, .profile-card, .auth-card, .platform-card,
+  .chart-card, .content-card, .section-card, .surface-card, .settings-card,
+  .directory-card) {
+  background: var(--rs-surface) !important;
+  border-color: var(--rs-line) !important;
+}
+
+body :where(.tag, .badge, .pill, .chip, .status-pill, .filter-chip,
+  .category-pill) {
+  background: var(--rs-indigo-soft) !important;
+  border-color: var(--rs-line-strong) !important;
+  color: var(--rs-indigo) !important;
+}
+
+body :where(.badge.success, .pill.success, .status-success, .is-success,
+  .online-indicator) {
+  background: var(--relayskills-mint) !important;
+  border-color: rgba(184, 255, 44, 0.72) !important;
+  color: var(--relayskills-green-ink) !important;
+}
+
+body :where(.tabs .active, .tab.active, .segment.active, .filter.active,
+  .toolbar .active) {
+  background: var(--rs-indigo) !important;
+  border-color: var(--rs-indigo) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] body {
+  background-color: #05060c !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] body .site-header,
+html[data-theme="dark"] body .static-site-header,
+html[data-theme="dark"] body .floating-header,
+html[data-theme="dark"] body .nav-shell,
+html[data-theme="dark"] body .site-header .nav {
+  background: rgba(5, 6, 12, 0.94) !important;
+  border-color: #303a68 !important;
+}
+
+html[data-theme="dark"] body :where(input, select, textarea) {
+  background: #0a0d1f !important;
+  color: #ffffff !important;
+  border-color: #46518a !important;
+}
+
+/* ========================================================================
+   Fresh + student-friendly palette
+   Deep green #064E3B · Emerald #10B981 · Mint #ECFDF5 · white · black
+   ======================================================================== */
+
+:root,
+html[data-theme="light"] {
+  --fresh-deep: #064e3b !important;
+  --fresh-emerald: #10b981 !important;
+  --fresh-emerald-dark: #047857 !important;
+  --fresh-mint: #ecfdf5 !important;
+  --fresh-white: #ffffff !important;
+  --fresh-black: #030712 !important;
+  --fresh-body: #1f2937 !important;
+  --fresh-muted: #4b635b !important;
+  --fresh-line: #cdeee1 !important;
+  --fresh-soft: #f4fcf8 !important;
+  --fresh-action: linear-gradient(120deg, #10b981 0%, #059669 100%) !important;
+  --fresh-brand: linear-gradient(120deg, #064e3b 0%, #10b981 100%) !important;
+  --fresh-dark: linear-gradient(135deg, #000000 0%, #022c22 58%, #064e3b 100%) !important;
+
+  --relayskills-navy: #064e3b !important;
+  --relayskills-navy-2: #022c22 !important;
+  --relayskills-blue: #10b981 !important;
+  --relayskills-blue-strong: #059669 !important;
+  --relayskills-iris: #064e3b !important;
+  --relayskills-purple: #064e3b !important;
+  --relayskills-coral: #10b981 !important;
+  --relayskills-orange: #064e3b !important;
+  --relayskills-mint: #ecfdf5 !important;
+  --relayskills-green-ink: #064e3b !important;
+  --relayskills-muted: #4b635b !important;
+  --relayskills-line: #cdeee1 !important;
+  --relayskills-warm-white: #ffffff !important;
+  --relayskills-surface: #ffffff !important;
+  --relayskills-surface-soft: #f4fcf8 !important;
+  --rs-page: #ecfdf5 !important;
+  --rs-surface: #ffffff !important;
+  --rs-surface-soft: #f4fcf8 !important;
+  --rs-ink: #064e3b !important;
+  --rs-body: #1f2937 !important;
+  --rs-muted: #4b635b !important;
+  --rs-line: #cdeee1 !important;
+  --rs-line-strong: #a7dfcc !important;
+  --rs-indigo: #064e3b !important;
+  --rs-indigo-soft: #ecfdf5 !important;
+  --rs-lime: #10b981 !important;
+  --rs-lime-bright: #34d399 !important;
+  --rs-action-text: #030712 !important;
+  --navx-blue: #10b981 !important;
+  --navx-orange: #064e3b !important;
+  --navx-hover: rgba(16, 185, 129, 0.14) !important;
+  --navx-heading: #064e3b !important;
+  --navx-text: #064e3b !important;
+}
+
+html[data-theme="dark"] {
+  --fresh-deep: #ecfdf5 !important;
+  --fresh-emerald: #10b981 !important;
+  --fresh-emerald-dark: #34d399 !important;
+  --fresh-mint: #063b2d !important;
+  --fresh-white: #ffffff !important;
+  --fresh-black: #000000 !important;
+  --fresh-body: #d1fae5 !important;
+  --fresh-muted: #a7dfcc !important;
+  --fresh-line: #1b5b49 !important;
+  --fresh-soft: #073b2d !important;
+  --fresh-action: linear-gradient(120deg, #10b981 0%, #059669 100%) !important;
+  --fresh-brand: linear-gradient(120deg, #34d399 0%, #10b981 100%) !important;
+  --fresh-dark: linear-gradient(135deg, #000000 0%, #022c22 58%, #064e3b 100%) !important;
+
+  --relayskills-navy: #ecfdf5 !important;
+  --relayskills-navy-2: #d1fae5 !important;
+  --relayskills-blue: #10b981 !important;
+  --relayskills-blue-strong: #34d399 !important;
+  --relayskills-iris: #34d399 !important;
+  --relayskills-purple: #34d399 !important;
+  --relayskills-coral: #10b981 !important;
+  --relayskills-orange: #34d399 !important;
+  --relayskills-mint: #063b2d !important;
+  --relayskills-green-ink: #d1fae5 !important;
+  --relayskills-muted: #a7dfcc !important;
+  --relayskills-line: #1b5b49 !important;
+  --relayskills-warm-white: #073b2d !important;
+  --relayskills-surface: #073b2d !important;
+  --relayskills-surface-soft: #0a4a39 !important;
+  --rs-page: #000000 !important;
+  --rs-surface: #073b2d !important;
+  --rs-surface-soft: #0a4a39 !important;
+  --rs-ink: #ecfdf5 !important;
+  --rs-body: #d1fae5 !important;
+  --rs-muted: #a7dfcc !important;
+  --rs-line: #1b5b49 !important;
+  --rs-line-strong: #2b7c63 !important;
+  --rs-indigo: #34d399 !important;
+  --rs-indigo-soft: #063b2d !important;
+  --rs-lime: #10b981 !important;
+  --rs-lime-bright: #34d399 !important;
+  --rs-action-text: #000000 !important;
+  --navx-blue: #10b981 !important;
+  --navx-orange: #34d399 !important;
+  --navx-hover: rgba(16, 185, 129, 0.2) !important;
+  --navx-heading: #ecfdf5 !important;
+  --navx-text: #ecfdf5 !important;
+}
+
+html body[class] {
+  --paper: #ffffff !important;
+  --surface: #ffffff !important;
+  --surface-soft: #f4fcf8 !important;
+  --ink: #064e3b !important;
+  --navy: #064e3b !important;
+  --navy-2: #022c22 !important;
+  --line: #cdeee1 !important;
+  --line-strong: #a7dfcc !important;
+  --muted: #4b635b !important;
+  --text-body: #1f2937 !important;
+  --blue: #10b981 !important;
+  --blue-strong: #059669 !important;
+  --iris: #064e3b !important;
+  --purple: #064e3b !important;
+  --orange: #064e3b !important;
+  --mint: #ecfdf5 !important;
+  --green: #064e3b !important;
+  --shadow: 0 18px 48px rgba(6, 78, 59, 0.14), 0 4px 14px rgba(3, 7, 18, 0.06) !important;
+  background: #ecfdf5 !important;
+  color: #064e3b !important;
+}
+
+html[data-theme="dark"] body[class] {
+  --paper: #000000 !important;
+  --surface: #073b2d !important;
+  --surface-soft: #0a4a39 !important;
+  --ink: #ecfdf5 !important;
+  --navy: #ecfdf5 !important;
+  --navy-2: #d1fae5 !important;
+  --line: #1b5b49 !important;
+  --line-strong: #2b7c63 !important;
+  --muted: #a7dfcc !important;
+  --text-body: #d1fae5 !important;
+  --blue: #10b981 !important;
+  --blue-strong: #34d399 !important;
+  --iris: #34d399 !important;
+  --purple: #34d399 !important;
+  --orange: #34d399 !important;
+  --mint: #063b2d !important;
+  --green: #d1fae5 !important;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.42), 0 4px 16px rgba(16, 185, 129, 0.18) !important;
+  background: #000000 !important;
+  color: #ecfdf5 !important;
+}
+
+html body .site-header,
+html body .static-site-header,
+html body .floating-header,
+html body .nav-shell,
+html body .site-header .nav {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: #cdeee1 !important;
+  color: #064e3b !important;
+}
+
+html body .nav-links a,
+html body .site-header .nav a,
+html body .site-header .nav button {
+  color: #064e3b !important;
+}
+
+html body .nav-links a.active,
+html body .nav-links a[aria-current="page"],
+html body .site-header .nav a.active {
+  background: #ecfdf5 !important;
+  color: #064e3b !important;
+}
+
+html body .nav-links a.active::after,
+html body .nav-links a[aria-current="page"]::after {
+  background: #10b981 !important;
+}
+
+html body .site-header .nav-links > a.nav-major.nav-create:not(.active),
+html body .site-header .nav-links .nav-hover-group.nav-create .nav-major:not(.active) {
+  color: #10b981 !important;
+}
+
+html body .site-header .nav-links > a.nav-major.nav-create:not(.active):hover,
+html body .site-header .nav-links .nav-hover-group.nav-create:hover .nav-major:not(.active),
+html body .site-header .nav-links .nav-hover-group.nav-create.is-open .nav-major:not(.active) {
+  background: #ecfdf5 !important;
+  color: #064e3b !important;
+}
+
+html body .brand-wordmark-relay,
+html body .brand-name,
+html body .site-brand {
+  color: #064e3b !important;
+}
+
+html body .brand-wordmark-skills {
+  color: #10b981 !important;
+}
+
+html body .btn.btn-primary,
+html body .btn-primary,
+html body .button-primary,
+html body .primary-button,
+html body button.primary,
+html body .cta-primary,
+html body .site-header .auth-nav .btn-primary,
+html body.home-simple.home-reference-page .home-reference-create,
+html body.home-simple.home-reference-page .hero-actions .btn-primary {
+  background: linear-gradient(120deg, #10b981 0%, #059669 100%) !important;
+  border-color: #10b981 !important;
+  color: #030712 !important;
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.24) !important;
+}
+
+html body .btn.btn-primary:hover,
+html body .btn-primary:hover,
+html body .button-primary:hover,
+html body .primary-button:hover,
+html body button.primary:hover,
+html body .cta-primary:hover,
+html body .site-header .auth-nav .btn-primary:hover,
+html body.home-simple.home-reference-page .home-reference-create:hover,
+html body.home-simple.home-reference-page .hero-actions .btn-primary:hover {
+  background: #34d399 !important;
+  color: #030712 !important;
+}
+
+html body .btn:not(.btn-primary),
+html body .btn-secondary,
+html body .button-secondary,
+html body .secondary-button,
+html body .btn-outline,
+html body .ghost-button {
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body :where(input, select, textarea) {
+  background: #ffffff !important;
+  border-color: #a7dfcc !important;
+  color: #030712 !important;
+}
+
+html body :where(input, select, textarea):focus {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.16) !important;
+}
+
+html body :where(.card, .panel, .feature-panel, .match-panel, .workspace,
+  .dashboard-panel, .admin-panel, .profile-card, .auth-card, .platform-card,
+  .chart-card, .content-card, .section-card, .surface-card, .settings-card,
+  .directory-card) {
+  background: #ffffff !important;
+  border-color: #cdeee1 !important;
+  color: #064e3b !important;
+}
+
+html body :where(.tag, .badge, .pill, .chip, .status-pill, .filter-chip,
+  .category-pill) {
+  background: #ecfdf5 !important;
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body :where(.tabs .active, .tab.active, .segment.active, .filter.active,
+  .toolbar .active) {
+  background: #064e3b !important;
+  border-color: #064e3b !important;
+  color: #ffffff !important;
+}
+
+html body :where(.dark-feature-card, .dark-panel, .dark-surface, .feature-dark,
+  .hero-dark, .footer, footer, .site-footer) {
+  background: linear-gradient(135deg, #000000 0%, #022c22 58%, #064e3b 100%) !important;
+  border-color: #1b5b49 !important;
+  color: #ffffff !important;
+}
+
+html body :where(.dark-feature-card, .dark-panel, .dark-surface, .feature-dark,
+  .hero-dark, .footer, footer, .site-footer) :where(h1, h2, h3, h4, h5, h6,
+  p, li, label, small, span) {
+  color: #ffffff !important;
+}
+
+html body :where(.dark-feature-card, .dark-panel, .dark-surface, .feature-dark,
+  .hero-dark, .footer, footer, .site-footer) a {
+  color: #34d399 !important;
+}
+
+html body.workspace-admin,
+html body.workspace-admin .admin-main {
+  background: #ecfdf5 !important;
+  color: #064e3b !important;
+}
+
+html body.workspace-admin .workspace-bar {
+  background: linear-gradient(135deg, #000000 0%, #022c22 58%, #064e3b 100%) !important;
+  border-color: #1b5b49 !important;
+  color: #ffffff !important;
+}
+
+html body.workspace-admin .workspace-bar :where(a, button, span, strong, i, svg) {
+  color: #ffffff !important;
+}
+
+html body.workspace-admin :where(.account-section, .admin-section, .admin-card,
+  .ops-card, .stat-card, .overview-card, .table-card, .admin-table-wrap,
+  .workspace-card, .account-card, .expansion-stats) {
+  background: #ffffff !important;
+  border-color: #cdeee1 !important;
+  color: #064e3b !important;
+}
+
+html[data-theme="dark"] body :where(.site-header, .static-site-header,
+  .floating-header, .nav-shell, .site-header .nav) {
+  background: rgba(0, 0, 0, 0.94) !important;
+  border-color: #1b5b49 !important;
+}
+
+html[data-theme="dark"] body :where(input, select, textarea) {
+  background: #073b2d !important;
+  border-color: #2b7c63 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] body.workspace-admin,
+html[data-theme="dark"] body.workspace-admin .admin-main {
+  background: #000000 !important;
+  color: #ecfdf5 !important;
+}
+
+html[data-theme="dark"] body.workspace-admin :where(.account-section,
+  .admin-section, .admin-card, .ops-card, .stat-card, .overview-card,
+  .table-card, .admin-table-wrap, .workspace-card, .account-card,
+  .expansion-stats) {
+  background: #073b2d !important;
+  border-color: #1b5b49 !important;
+  color: #ecfdf5 !important;
+}
+
+/* Replace the remaining page-specific blue, purple, pink, and orange accents. */
+html body .auth-icon-btn,
+html body .auth-user-button,
+html body .menu-btn {
+  background: #ecfdf5 !important;
+  border-color: #cdeee1 !important;
+  color: #064e3b !important;
+}
+
+html body .auth-avatar.indigo,
+html body .platform-avatar.indigo,
+html body .home-reference-avatar {
+  background: #064e3b !important;
+  border-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+html body .home-reference-kicker,
+html body .home-reference-tag,
+html body .home-reference-tag-blue,
+html body .home-reference-tag-pink,
+html body .home-reference-tag-mint,
+html body .home-reference-tag-purple,
+html body .eyebrow,
+html body .tag,
+html body .trust-safety-strip {
+  background: #ecfdf5 !important;
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body .typewriter-cursor,
+html body .testimonial-rating,
+html body .testimonial-rating i,
+html body .home-reference-orbit-dot-four {
+  background-color: #10b981 !important;
+  color: #10b981 !important;
+}
+
+html body .icon-box,
+html body .exchange-example-avatar,
+html body .home-reference-learners {
+  background: #ecfdf5 !important;
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body .btn.btn-soft,
+html body .btn-soft,
+html body .home-reference-search,
+html body .home-skills-search {
+  background: #ecfdf5 !important;
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body .notification-badge {
+  background: #064e3b !important;
+  color: #ffffff !important;
+}
+
+html body .home-reference-member {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body .home-reference-member strong,
+html body .home-reference-note,
+html body .home-reference-page .bx,
+html body .home-skill-typewriter strong {
+  color: #064e3b !important;
+}
+
+html body .home-reference-note,
+html body .home-reference-page .bx {
+  color: #10b981 !important;
+}
+
+html body .exchange-example-step > span {
+  background: #ecfdf5 !important;
+  color: #064e3b !important;
+}
+
+html body .home-reference-orbit-line-one,
+html body .home-reference-orbit-line-two {
+  border-color: #10b981 !important;
+}
+
+/* Admin redesign tokens use their own names and need an equally specific
+   final mapping to prevent the legacy dashboard palette from resurfacing. */
+html body.workspace-admin.workspace-admin {
+  --admin-bg: #ecfdf5 !important;
+  --admin-surface: #ffffff !important;
+  --admin-surface-soft: #f4fcf8 !important;
+  --admin-ink: #064e3b !important;
+  --admin-body: #1f2937 !important;
+  --admin-muted: #4b635b !important;
+  --admin-line: #cdeee1 !important;
+  --admin-navy: #064e3b !important;
+  --admin-navy-soft: #022c22 !important;
+  --admin-blue: #10b981 !important;
+  --admin-coral: #10b981 !important;
+  --admin-mint: #ecfdf5 !important;
+  --admin-lilac: #10b981 !important;
+  --admin-green: #064e3b !important;
+  --admin-shadow: 0 18px 48px rgba(6, 78, 59, 0.14), 0 4px 14px rgba(3, 7, 18, 0.06) !important;
+  background: #ecfdf5 !important;
+  color: #064e3b !important;
+}
+
+html body.workspace-admin.workspace-admin :is(input, select, textarea,
+  .admin-section-search) {
+  background: #ffffff !important;
+  border-color: #a7dfcc !important;
+  color: #030712 !important;
+}
+
+html body.workspace-admin.workspace-admin .admin-stat > i,
+html body.workspace-admin.workspace-admin .admin-stat:nth-child(2) > i,
+html body.workspace-admin.workspace-admin .admin-stat:nth-child(3) > i,
+html body.workspace-admin.workspace-admin .admin-stat:nth-child(4) > i,
+html body.workspace-admin.workspace-admin .admin-stat:nth-child(5) > i,
+html body.workspace-admin.workspace-admin .admin-stat:nth-child(6) > i {
+  background: #ecfdf5 !important;
+  color: #10b981 !important;
+}
+
+/* Bring page-specific cards, operations chrome, and the assistant into the
+   same fresh palette instead of leaving legacy purple/coral accents behind. */
+html body .community-page-kicker,
+html body .community-tool-card,
+html body :where(.tool-coral, .tool-lilac, .tool-mint, .tool-navy, .tool-sky, .tool-gold),
+html body .community-card-skills.learning span {
+  background: #ecfdf5 !important;
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body .community-tool-card :where(.bx, strong, small),
+html body .community-page-kicker .bx,
+html body .community-availability .bx {
+  color: #10b981 !important;
+}
+
+html body.workspace-admin .admin-command-strip {
+  background: linear-gradient(118deg, #000000 0%, #022c22 58%, #064e3b 100%) !important;
+  border-color: #1b5b49 !important;
+  box-shadow: 0 20px 42px rgba(6, 78, 59, .2) !important;
+}
+
+html body.workspace-admin .admin-command-copy .eyebrow,
+html body.workspace-admin .admin-command-status,
+html body.workspace-admin .admin-command-strip :where(p, small, span) {
+  color: #d1fae5 !important;
+}
+
+html body.workspace-admin .admin-section-nav {
+  background: linear-gradient(155deg, #064e3b, #022c22) !important;
+  color: #ecfdf5 !important;
+}
+
+html body.workspace-admin .admin-section-nav :where(.admin-rail-intro strong,
+  .admin-rail-intro p, .admin-nav-group-label, .admin-nav-group-buttons button,
+  .admin-nav-group-buttons button i, .admin-rail-pulse) {
+  color: #ecfdf5 !important;
+}
+
+html body.workspace-admin .admin-section-nav .admin-nav-group-buttons button.active {
+  background: #10b981 !important;
+  border-color: #34d399 !important;
+  color: #030712 !important;
+}
+
+html body.workspace-admin .admin-section-nav .admin-nav-group-buttons button.active i,
+html body.workspace-admin .admin-section-nav .admin-nav-group-buttons button.active span {
+  color: #030712 !important;
+}
+
+html body.workspace-admin .admin-section-mini-chart i {
+  background: linear-gradient(135deg, #10b981, #064e3b) !important;
+}
+
+html body.workspace-admin .admin-message-guide {
+  background: linear-gradient(145deg, #ecfdf5, #ffffff) !important;
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body .cta-band {
+  background: linear-gradient(135deg, #000000 0%, #022c22 58%, #064e3b 100%) !important;
+  color: #ffffff !important;
+}
+
+html body .swapbot-launch {
+  background: linear-gradient(120deg, #10b981 0%, #064e3b 100%) !important;
+  border-color: #ecfdf5 !important;
+  box-shadow: 0 18px 42px rgba(6, 78, 59, .3), inset 0 1px rgba(255, 255, 255, .24) !important;
+}
+
+html body .swapbot-online {
+  border-color: #064e3b !important;
+  background: #34d399 !important;
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, .18) !important;
+}
+
+html body .swapbot-panel {
+  background: linear-gradient(180deg, #ffffff 0%, #ecfdf5 100%) !important;
+  border-color: #a7dfcc !important;
+}
+
+html body .swapbot-head {
+  background: radial-gradient(circle at 12% 0%, rgba(255, 255, 255, .22), transparent 28%),
+    linear-gradient(135deg, #000000 0%, #022c22 58%, #064e3b 100%) !important;
+}
+
+html body .swapbot-panel :where(.bx, .swapbot-mode-row button.active,
+  .swapbot-suggestions button.active) {
+  color: #10b981 !important;
+}
+
+html body.workspace-admin .admin-command-actions .btn.btn-primary,
+html body.workspace-admin .admin-dashboard a.btn.btn-primary,
+html body.workspace-admin .admin-dashboard button.btn-primary {
+  background: #10b981 !important;
+  border-color: #10b981 !important;
+  color: #030712 !important;
+}
+
+html body.workspace-admin .admin-command-actions .btn.btn-primary .bx,
+html body.workspace-admin .admin-dashboard a.btn.btn-primary .bx,
+html body.workspace-admin .admin-dashboard button.btn-primary .bx {
+  color: #030712 !important;
+}
+
+html body.workspace-admin .admin-command-actions .btn:not(.btn-primary) {
+  background: #ffffff !important;
+  border-color: #a7dfcc !important;
+  color: #064e3b !important;
+}
+
+html body.workspace-admin .admin-command-actions .btn:not(.btn-primary) .bx {
+  color: #064e3b !important;
+}
+
+html body .community-empty .bx,
+html body .directory-grid .directory-link .bx,
+html body .back-to-top .bx,
+html body .site-footer .bx,
+html body .cta-band .bx {
+  color: #10b981 !important;
+}
+
+/* Final visual direction: Midnight Cobalt + Apricot.
+   The old green-only treatment was too flat, so this keeps the UI calm and
+   readable while giving actions, illustrations, and highlights clear roles. */
+html body,
+html body[class] {
+  --rs-ink: #111827;
+  --rs-cobalt: #3157e8;
+  --rs-violet: #6957d9;
+  --rs-apricot: #ff8a65;
+  --rs-cloud: #f7f9fc;
+  --rs-bluewash: #eef2ff;
+  --rs-peach: #fff1ec;
+  --rs-line: #dce3f2;
+  --rs-muted: #5b6475;
+  --relayskills-blue: #3157e8 !important;
+  --relayskills-iris: #6957d9 !important;
+  --relayskills-mint: #eef2ff !important;
+  --relayskills-navy: #111827 !important;
+  --relayskills-line: #dce3f2 !important;
+  --blue: #3157e8 !important;
+  --indigo: #6957d9 !important;
+  --coral: #ff8a65 !important;
+  --mint: #eef2ff !important;
+  --navy: #111827 !important;
+  --ink: #111827 !important;
+  --line: #dce3f2 !important;
+  --muted: #5b6475 !important;
+  --gradient-heading: linear-gradient(110deg, #111827 0%, #3157e8 58%, #ff8a65 100%) !important;
+  --gradient-action: linear-gradient(120deg, #3157e8 0%, #6957d9 100%) !important;
+  background: #f7f9fc !important;
+  color: #111827 !important;
+}
+
+html body :where(.site-header, .static-site-header, .floating-header,
+  .nav-shell, .site-header .nav, .site-header .nav-links) {
+  background: rgba(255, 255, 255, .96) !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+  box-shadow: 0 16px 36px rgba(17, 24, 39, .1) !important;
+}
+
+html body :where(.site-header a, .site-header button, .site-header span,
+  .site-header i, .site-header strong) {
+  color: #111827 !important;
+}
+
+html body :where(.site-header .active, .site-header .is-active,
+  .site-header .nav-links > a:hover, .site-header .nav-links > button:hover) {
+  background: #eef2ff !important;
+  color: #3157e8 !important;
+}
+
+html body .btn.btn-primary,
+html body .btn-primary,
+html body .button-primary,
+html body .primary-button,
+html body .cta-primary,
+html body .home-reference-create,
+html body .hero-actions .btn-primary {
+  background: linear-gradient(120deg, #3157e8 0%, #6957d9 100%) !important;
+  border-color: #3157e8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 28px rgba(49, 87, 232, .24) !important;
+}
+
+html body .btn.btn-primary:hover,
+html body .btn-primary:hover,
+html body .button-primary:hover,
+html body .primary-button:hover,
+html body .cta-primary:hover,
+html body .home-reference-create:hover,
+html body .hero-actions .btn-primary:hover {
+  background: #2549c8 !important;
+  border-color: #2549c8 !important;
+  color: #ffffff !important;
+}
+
+html body :where(.btn:not(.btn-primary), .btn-secondary, .secondary-button,
+  .btn-outline, .ghost-button) {
+  background: #ffffff !important;
+  border-color: #c9d4ee !important;
+  color: #111827 !important;
+}
+
+html body :where(input, select, textarea) {
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body :where(input, select, textarea):focus {
+  border-color: #3157e8 !important;
+  box-shadow: 0 0 0 4px rgba(49, 87, 232, .14) !important;
+}
+
+html body :where(.card, .panel, .feature-panel, .match-panel, .workspace,
+  .dashboard-panel, .admin-panel, .profile-card, .auth-card, .platform-card,
+  .chart-card, .content-card, .section-card, .surface-card, .settings-card,
+  .directory-card) {
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body :where(.tag, .badge, .pill, .chip, .status-pill, .filter-chip,
+  .category-pill) {
+  background: #eef2ff !important;
+  border-color: #c9d4ee !important;
+  color: #3157e8 !important;
+}
+
+html body :where(.tabs .active, .tab.active, .segment.active, .filter.active,
+  .toolbar .active) {
+  background: #3157e8 !important;
+  border-color: #3157e8 !important;
+  color: #ffffff !important;
+}
+
+html body :where(.dark-feature-card, .dark-panel, .dark-surface, .feature-dark,
+  .hero-dark, .footer, footer, .site-footer, .cta-band) {
+  background: linear-gradient(135deg, #111827 0%, #1b2a52 58%, #6957d9 100%) !important;
+  border-color: #334a83 !important;
+  color: #ffffff !important;
+}
+
+html body :where(.dark-feature-card, .dark-panel, .dark-surface, .feature-dark,
+  .hero-dark, .footer, footer, .site-footer, .cta-band) :where(h1, h2, h3,
+  h4, h5, h6, p, li, label, small, span) {
+  color: #ffffff !important;
+}
+
+html body :where(.dark-feature-card, .dark-panel, .dark-surface, .feature-dark,
+  .hero-dark, .footer, footer, .site-footer, .cta-band) a {
+  color: #ffb19e !important;
+}
+
+/* Home illustration: use ink, cobalt, violet, and one warm highlight so it
+   reads as a designed system rather than one flat color wash. */
+html body.home-simple.home-reference-page .home-reference-kicker,
+html body.home-simple.home-reference-page .home-reference-search,
+html body.home-simple.home-reference-page .home-reference-member,
+html body.home-simple.home-reference-page .home-reference-learners {
+  background: #ffffff !important;
+  border-color: #c9d4ee !important;
+  color: #111827 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-kicker {
+  background: #eef2ff !important;
+  color: #3157e8 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-kicker i,
+html body.home-simple.home-reference-page .home-reference-member-icon,
+html body.home-simple.home-reference-page .home-reference-member-icon-mint,
+html body.home-simple.home-reference-page .home-reference-member-icon-purple {
+  background: #3157e8 !important;
+  color: #ffffff !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-member-icon-pink,
+html body.home-simple.home-reference-page .home-reference-orbit-dot-three {
+  background: #ff8a65 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-member strong,
+html body.home-simple.home-reference-page .home-reference-member b {
+  color: #111827 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-member em,
+html body.home-simple.home-reference-page .home-reference-note {
+  color: #3157e8 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-tag,
+html body.home-simple.home-reference-page .home-reference-tag-blue,
+html body.home-simple.home-reference-page .home-reference-tag-purple {
+  background: #eef2ff !important;
+  color: #3157e8 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-tag-pink {
+  background: #fff1ec !important;
+  color: #b84f38 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-tag-mint {
+  background: #eef2ff !important;
+  color: #6957d9 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-orbit-line-one {
+  border-color: #3157e8 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-orbit-line-two {
+  border-color: #6957d9 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-orbit-dot-one,
+html body.home-simple.home-reference-page .home-reference-orbit-dot-four {
+  background: #3157e8 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-orbit-dot-two {
+  background: #6957d9 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-learners {
+  background: linear-gradient(135deg, #3157e8 0%, #6957d9 62%, #ff8a65 100%) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: 0 24px 52px rgba(49, 87, 232, .28) !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-learners :where(strong,
+  small, i) {
+  color: #ffffff !important;
+}
+
+html body .auth-avatar.indigo,
+html body .platform-avatar.indigo,
+html body .home-reference-avatar {
+  background: linear-gradient(135deg, #111827 0%, #3157e8 100%) !important;
+  border-color: #ff8a65 !important;
+  color: #ffffff !important;
+}
+
+/* Community surfaces and learning labels. */
+html body .community-page-kicker,
+html body .community-tool-card,
+html body :where(.tool-coral, .tool-lilac, .tool-mint, .tool-navy, .tool-sky, .tool-gold),
+html body .community-card-skills.learning span {
+  background: #eef2ff !important;
+  border-color: #c9d4ee !important;
+  color: #3157e8 !important;
+}
+
+html body .community-tool-card :where(.bx, strong, small),
+html body .community-page-kicker .bx,
+html body .community-availability .bx {
+  color: #3157e8 !important;
+}
+
+html body .community-card-skills.learning span {
+  background: #fff1ec !important;
+  border-color: #ffc4b5 !important;
+  color: #b84f38 !important;
+}
+
+/* Admin: a calm dark rail, crisp white work surface, and cobalt actions. */
+html body.workspace-admin.workspace-admin.workspace-admin {
+  --admin-bg: #f7f9fc !important;
+  --admin-surface: #ffffff !important;
+  --admin-surface-soft: #eef2ff !important;
+  --admin-ink: #111827 !important;
+  --admin-body: #475569 !important;
+  --admin-muted: #64748b !important;
+  --admin-line: #dce3f2 !important;
+  --admin-navy: #111827 !important;
+  --admin-navy-soft: #1b2a52 !important;
+  --admin-blue: #3157e8 !important;
+  --admin-coral: #ff8a65 !important;
+  --admin-mint: #eef2ff !important;
+  --admin-lilac: #6957d9 !important;
+  --admin-green: #3157e8 !important;
+  --admin-shadow: 0 18px 48px rgba(17, 24, 39, .12), 0 4px 14px rgba(17, 24, 39, .06) !important;
+  background: #f7f9fc !important;
+  color: #111827 !important;
+}
+
+html body.workspace-admin .admin-section-nav {
+  background: linear-gradient(155deg, #111827 0%, #1b2a52 100%) !important;
+}
+
+html body.workspace-admin .admin-command-strip {
+  background: linear-gradient(118deg, #111827 0%, #3157e8 62%, #6957d9 100%) !important;
+  border-color: #3e56a4 !important;
+  box-shadow: 0 20px 42px rgba(49, 87, 232, .22) !important;
+}
+
+html body.workspace-admin .admin-section-nav .admin-nav-group-buttons button.active,
+html body.workspace-admin .admin-command-actions .btn.btn-primary,
+html body.workspace-admin .admin-dashboard a.btn.btn-primary,
+html body.workspace-admin .admin-dashboard button.btn-primary {
+  background: #3157e8 !important;
+  border-color: #3157e8 !important;
+  color: #ffffff !important;
+}
+
+html body.workspace-admin .admin-section-nav .admin-nav-group-buttons button.active :where(i, span),
+html body.workspace-admin .admin-command-actions .btn.btn-primary .bx,
+html body.workspace-admin .admin-dashboard a.btn.btn-primary .bx,
+html body.workspace-admin .admin-dashboard button.btn-primary .bx {
+  color: #ffffff !important;
+}
+
+html body.workspace-admin .admin-section-mini-chart i {
+  background: linear-gradient(135deg, #3157e8, #6957d9) !important;
+}
+
+html body.workspace-admin .admin-message-guide {
+  background: linear-gradient(145deg, #eef2ff, #ffffff) !important;
+  border-color: #c9d4ee !important;
+  color: #111827 !important;
+}
+
+/* Assistant and floating controls now belong to the same brand system. */
+html body .swapbot-launch {
+  background: linear-gradient(120deg, #3157e8 0%, #6957d9 100%) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 18px 42px rgba(49, 87, 232, .28), inset 0 1px rgba(255, 255, 255, .28) !important;
+}
+
+html body .swapbot-online {
+  border-color: #111827 !important;
+  background: #ff8a65 !important;
+  box-shadow: 0 0 0 4px rgba(255, 138, 101, .18) !important;
+}
+
+html body .swapbot-panel {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%) !important;
+  border-color: #c9d4ee !important;
+}
+
+html body .swapbot-head {
+  background: radial-gradient(circle at 12% 0%, rgba(255, 255, 255, .2), transparent 28%),
+    linear-gradient(135deg, #111827 0%, #3157e8 64%, #6957d9 100%) !important;
+}
+
+html body .swapbot-panel :where(.bx, .swapbot-mode-row button.active,
+  .swapbot-suggestions button.active) {
+  color: #3157e8 !important;
+}
+
+html body .site-footer .bx,
+html body .cta-band .bx,
+html body .directory-grid .directory-link .bx,
+html body .community-empty .bx,
+html body .back-to-top .bx {
+  color: #ff8a65 !important;
+}
+
+/* Palette lock: outrank the older page-specific green treatment. */
+html body,
+html body[class] {
+  --rs-ink: #111827 !important;
+  --rs-cobalt: #3157e8 !important;
+  --rs-violet: #6957d9 !important;
+  --rs-apricot: #ff8a65 !important;
+  --rs-page: #f7f9fc !important;
+  --rs-surface: #ffffff !important;
+  --rs-surface-soft: #eef2ff !important;
+  --rs-body: #475569 !important;
+  --rs-muted: #5b6475 !important;
+  --rs-line: #dce3f2 !important;
+  --rs-line-strong: #c9d4ee !important;
+  --rs-indigo: #3157e8 !important;
+  --rs-indigo-soft: #eef2ff !important;
+  --rs-lime: #3157e8 !important;
+  --rs-lime-bright: #ff8a65 !important;
+  --rs-action-text: #ffffff !important;
+  --rs-gradient-action: linear-gradient(120deg, #3157e8 0%, #6957d9 100%) !important;
+  --fresh-deep: #111827 !important;
+  --fresh-emerald: #3157e8 !important;
+  --fresh-emerald-dark: #2549c8 !important;
+  --fresh-mint: #eef2ff !important;
+  --fresh-body: #475569 !important;
+  --fresh-muted: #5b6475 !important;
+  --fresh-line: #dce3f2 !important;
+  --fresh-soft: #f7f9fc !important;
+  --fresh-action: linear-gradient(120deg, #3157e8 0%, #6957d9 100%) !important;
+  --fresh-brand: linear-gradient(120deg, #111827 0%, #3157e8 62%, #ff8a65 100%) !important;
+  --fresh-dark: linear-gradient(135deg, #111827 0%, #1b2a52 58%, #6957d9 100%) !important;
+  --relayskills-navy: #111827 !important;
+  --relayskills-navy-2: #1b2a52 !important;
+  --relayskills-blue: #3157e8 !important;
+  --relayskills-blue-strong: #2549c8 !important;
+  --relayskills-iris: #6957d9 !important;
+  --relayskills-purple: #6957d9 !important;
+  --relayskills-coral: #ff8a65 !important;
+  --relayskills-orange: #ff8a65 !important;
+  --relayskills-mint: #eef2ff !important;
+  --relayskills-green-ink: #111827 !important;
+  --relayskills-muted: #5b6475 !important;
+  --relayskills-line: #dce3f2 !important;
+  --relayskills-warm-white: #ffffff !important;
+  --relayskills-surface: #ffffff !important;
+  --relayskills-surface-soft: #eef2ff !important;
+  --action-surface: #3157e8 !important;
+  --action-text: #ffffff !important;
+  --nav-soft: #ffffff !important;
+  --nav-line: #dce3f2 !important;
+  --nav-hover: #eef2ff !important;
+  --nav-heading: #111827 !important;
+  --nav-text: #111827 !important;
+  --navx-blue: #3157e8 !important;
+  --navx-orange: #ff8a65 !important;
+  --navx-hover: #eef2ff !important;
+  --navx-heading: #111827 !important;
+  --navx-text: #111827 !important;
+}
+
+html body.home-simple.home-reference-page .hero-actions .btn.btn-primary,
+html body.home-simple.home-reference-page .hero-actions .btn-primary,
+html body.home-simple.home-reference-page .home-reference-create,
+html body .btn.btn-primary,
+html body .btn-primary,
+html body .button-primary,
+html body .primary-button,
+html body .cta-primary {
+  background: linear-gradient(120deg, #3157e8 0%, #6957d9 100%) !important;
+  background-image: linear-gradient(120deg, #3157e8 0%, #6957d9 100%) !important;
+  border-color: #3157e8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 28px rgba(49, 87, 232, .24) !important;
+}
+
+html body.home-simple.home-reference-page .hero-actions .btn.btn-primary:hover,
+html body.home-simple.home-reference-page .hero-actions .btn-primary:hover,
+html body.home-simple.home-reference-page .home-reference-create:hover,
+html body .btn.btn-primary:hover,
+html body .btn-primary:hover,
+html body .button-primary:hover,
+html body .primary-button:hover,
+html body .cta-primary:hover {
+  background: #2549c8 !important;
+  background-image: none !important;
+  border-color: #2549c8 !important;
+  color: #ffffff !important;
+}
+
+html body .brand-wordmark-skills {
+  color: #3157e8 !important;
+}
+
+html body .nav-links a.active::after,
+html body .nav-links a[aria-current="page"]::after {
+  background: #3157e8 !important;
+}
+
+html body .site-header .nav-links > a.nav-major.nav-create:not(.active),
+html body .site-header .nav-links .nav-hover-group.nav-create .nav-major:not(.active) {
+  color: #ff8a65 !important;
+}
+
+html body .typewriter-cursor,
+html body .testimonial-rating,
+html body .testimonial-rating i,
+html body .home-reference-orbit-dot-four {
+  background-color: #ff8a65 !important;
+  color: #ff8a65 !important;
+}
+
+html body .home-reference-note,
+html body .home-reference-page .bx {
+  color: #3157e8 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-command-actions .btn.btn-primary,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard a.btn.btn-primary,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard button.btn-primary {
+  background: #3157e8 !important;
+  border-color: #3157e8 !important;
+  color: #ffffff !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-command-actions .btn.btn-primary .bx,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard a.btn.btn-primary .bx,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard button.btn-primary .bx {
+  color: #ffffff !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-header,
+html body.home-simple.home-reference-page .home-reference-header .container.nav,
+html body.home-simple.home-reference-page .home-reference-header .nav-actions,
+html body.home-simple.home-reference-page .home-reference-header .auth-nav,
+html body.home-simple.home-reference-page .home-reference-header .brand {
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-header .menu-btn,
+html body.home-simple.home-reference-page .home-reference-header .btn:not(.btn-primary) {
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-header .brand-wordmark-relay {
+  color: #ff8a65 !important;
+}
+
+html body.home-simple.home-reference-page .home-reference-header .brand-wordmark-skills {
+  color: #3157e8 !important;
+}
+
+html body.home-simple.home-reference-page .hero-actions .btn:not(.btn-primary) {
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, .08) !important;
+}
+
+html body.home-simple.home-reference-page .hero-actions .btn:not(.btn-primary) .bx {
+  color: #3157e8 !important;
+}
+
+html body .site-header,
+html body .site-header .container.nav,
+html body .site-header .nav-actions,
+html body .site-header .auth-nav,
+html body .site-header .brand {
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body .site-header .menu-btn,
+html body .site-header .btn:not(.btn-primary) {
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body.community-page .hero-actions .btn:not(.btn-primary),
+html body .hero-actions .btn:not(.btn-primary) {
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, .08) !important;
+}
+
+html body.community-page .hero-actions .btn:not(.btn-primary) .bx,
+html body .hero-actions .btn:not(.btn-primary) .bx {
+  color: #3157e8 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .workspace-bar {
+  background: linear-gradient(135deg, #111827 0%, #1b2a52 58%, #6957d9 100%) !important;
+  border-color: #334a83 !important;
+  color: #ffffff !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-main {
+  background: #f7f9fc !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-topbar,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-title-row,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-title-copy,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-section-heading {
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard-section {
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard .btn:not(.btn-primary),
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard .btn:not(.btn-primary) .bx {
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  color: #111827 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard .btn:not(.btn-primary) .bx {
+  color: #3157e8 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .site-header .brand,
+html body.workspace-admin.workspace-admin.workspace-admin .site-header .menu-btn {
+  color: #111827 !important;
+  border-color: #dce3f2 !important;
+}
+
+/* Community member previews use the same centered modal language as the
+   Messages "view user" panel instead of behaving like a side drawer. */
+html body.community-page .community-drawer {
+  z-index: 3201 !important;
+  top: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: 50% !important;
+  width: min(700px, calc(100vw - 28px)) !important;
+  max-height: min(88vh, 780px) !important;
+  padding: 24px !important;
+  border: 1px solid #dce3f2 !important;
+  border-radius: 28px !important;
+  transform: translate(-50%, -48%) scale(.98) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  box-shadow: 0 30px 90px rgba(17, 24, 39, .24) !important;
+  transition: transform .2s ease, opacity .2s ease, visibility .2s ease !important;
+}
+
+html body.community-page .community-drawer:not([hidden]) {
+  transform: translate(-50%, -50%) scale(1) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+html body.community-page .community-drawer-backdrop {
+  background: rgba(17, 24, 39, .48) !important;
+  -webkit-backdrop-filter: blur(7px) !important;
+  backdrop-filter: blur(7px) !important;
+}
+
+html body.community-page .community-drawer-close {
+  z-index: 2;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 13px !important;
+  background: #ffffff !important;
+  border-color: #dce3f2 !important;
+  box-shadow: 0 8px 22px rgba(17, 24, 39, .1) !important;
+}
+
+html body.community-page .community-drawer .drawer-profile-head {
+  padding-top: 10px !important;
+}
+
+html body.community-page .community-drawer .drawer-portfolio-cta > .btn {
+  min-height: 46px;
+}
+
+@media (max-width: 640px) {
+  html body.community-page .community-drawer {
+    width: calc(100vw - 18px) !important;
+    max-height: 92vh !important;
+    padding: 18px !important;
+    border-radius: 22px !important;
+  }
+
+  html body.community-page .community-drawer .drawer-stats {
+    gap: 8px;
+  }
+
+  html body.community-page .community-drawer .drawer-inline-actions {
+    flex-direction: column;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Dashboard-only dark finish
+
+   This file is appended by the shared shell after route styles. Keep this
+   scoped to the dashboard so the account-wide theme still works everywhere,
+   while preventing the global palette pass from flattening the dashboard
+   into black and emerald cards.
+   ------------------------------------------------------------------------- */
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign {
+  --rs-page: #0b1427 !important;
+  --rs-surface: #15233d !important;
+  --rs-surface-soft: #121f36 !important;
+  --rs-ink: #f4f7ff !important;
+  --rs-body: #d6e0f4 !important;
+  --rs-muted: #9aaccb !important;
+  --rs-line: rgba(164, 187, 236, .22) !important;
+  --rs-line-strong: rgba(164, 187, 236, .36) !important;
+  --rs-indigo: #9aafff !important;
+  --rs-indigo-soft: #302d59 !important;
+  --rs-lime: #70e3c2 !important;
+  --rs-action-text: #10213b !important;
+  background: #0b1427 !important;
+  color: #f4f7ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign::before {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(102, 125, 255, .17), transparent 28rem),
+    radial-gradient(circle at 94% 54%, rgba(41, 193, 161, .13), transparent 25rem),
+    linear-gradient(180deg, #0c172c 0%, #0b1427 52%, #0d192e 100%) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.site-header, .site-header .nav, .static-site-header) {
+  background: transparent !important;
+  border-color: rgba(174, 197, 244, .20) !important;
+  color: #e9f0ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .site-header .nav::before {
+  background: linear-gradient(105deg, rgba(15, 28, 50, .98), rgba(21, 39, 70, .96) 62%, rgba(45, 43, 83, .95)) !important;
+  border-color: rgba(174, 197, 244, .20) !important;
+  box-shadow: 0 24px 60px rgba(2, 8, 22, .42), inset 0 1px rgba(255, 255, 255, .10) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.site-header .brand, .site-header .brand-wordmark-relay, .site-header .brand-wordmark-skills) {
+  color: #eef3ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .site-header .brand-wordmark-relay {
+  color: #ffad91 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .site-header .brand-wordmark-skills {
+  color: #a9b8ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.site-header .nav-links, .site-header .auth-nav .btn, .site-header .menu-btn, .directory-menu-button) {
+  background: rgba(17, 31, 55, .94) !important;
+  border-color: rgba(174, 197, 244, .20) !important;
+  color: #dce7ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.site-header .nav-links > a.nav-major, .site-header .auth-nav .btn, .site-header .menu-btn, .directory-menu-button) {
+  color: #dce7ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.site-header .nav-links > a.nav-major:hover, .site-header .auth-nav .btn:hover, .site-header .menu-btn:hover, .directory-menu-button:hover) {
+  background: rgba(133, 157, 226, .16) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .site-header .nav-links > a.nav-major.active {
+  background: linear-gradient(135deg, #617dff, #765ed7) !important;
+  color: #ffffff !important;
+  box-shadow: 0 9px 22px rgba(82, 103, 235, .30) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.site-header .auth-nav .btn-primary, .site-header .nav-links a.nav-swap-now) {
+  background: linear-gradient(135deg, #72dfbf, #42b99f) !important;
+  border-color: transparent !important;
+  color: #09261f !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.member-portal-section, .member-portal-section > .container) {
+  background: transparent !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .member-portal-hero {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(115, 112, 255, .32), transparent 23rem),
+    radial-gradient(circle at 10% 110%, rgba(28, 174, 145, .20), transparent 22rem),
+    linear-gradient(135deg, #142445 0%, #1b3062 58%, #35438e 100%) !important;
+  border-color: rgba(144, 169, 232, .26) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .member-portal-hero :is(h1, h1 span) {
+  color: #f8fbff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .member-portal-hero :is(p, .dashboard-date) {
+  color: #cbd7ee !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .member-portal-hero .btn:not(.btn-primary) {
+  background: rgba(240, 246, 255, .96) !important;
+  border-color: rgba(199, 214, 247, .26) !important;
+  color: #162744 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .member-portal-hero .btn-primary {
+  background: linear-gradient(135deg, #ffb399, #ff927c) !important;
+  border-color: transparent !important;
+  color: #1d2544 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-stat-card {
+  background: linear-gradient(145deg, #1a2945, #14213a) !important;
+  border-color: rgba(153, 180, 237, .22) !important;
+  color: #f3f6ff !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .30) !important;
+  filter: none !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-stat-card:hover {
+  background: linear-gradient(145deg, #213455, #18294a) !important;
+  border-color: rgba(155, 176, 255, .50) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-stat-card :is(small, div > span) {
+  color: #aebddd !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-stat-card strong {
+  color: #f6f8ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-stat-card:nth-child(1) .dashboard-stat-icon {
+  background: #213962 !important;
+  color: #a9bcff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-stat-card:nth-child(2) .dashboard-stat-icon {
+  background: #4a302b !important;
+  color: #ffb099 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-stat-card:nth-child(3) .dashboard-stat-icon {
+  background: #302d59 !important;
+  color: #c5b9ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-stat-card:nth-child(4) .dashboard-stat-icon {
+  background: #174b42 !important;
+  color: #78e5c5 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-focus-strip {
+  background:
+    radial-gradient(circle at 82% 24%, rgba(162, 149, 255, .28), transparent 13rem),
+    linear-gradient(125deg, #182a55, #2e4796 64%, #4a5fc3) !important;
+  border-color: rgba(153, 178, 237, .28) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-focus-strip p {
+  color: #d0dbf2 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.workspace-tour, .journey-insights, .dashboard-panel) {
+  background: #121f36 !important;
+  border-color: rgba(164, 187, 236, .22) !important;
+  color: #f4f7ff !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .28) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .workspace-tour summary {
+  background: linear-gradient(110deg, #172844, #1c2c4b) !important;
+  color: #eef3ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .onboarding-demo {
+  background: linear-gradient(135deg, #101d33, #13233d 68%, #20234e) !important;
+  border-top-color: rgba(164, 187, 236, .18) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .onboarding-stage {
+  background: #172742 !important;
+  border-color: rgba(164, 187, 236, .22) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .onboarding-panel {
+  background: linear-gradient(135deg, #1b2d4c, #192844) !important;
+  border-color: rgba(164, 187, 236, .18) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.onboarding-copy h2, .onboarding-panel strong, .dashboard-panel h2, .dashboard-panel h3, .journey-insights h2, .journey-insights h3) {
+  color: #f1f5ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.onboarding-copy p, .onboarding-panel p, .dashboard-panel p, .dashboard-panel small, .journey-insights p, .journey-insights small) {
+  color: #aebddd !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.journey-insight-kpis article, .member-insights-grid article, .journey-activity-card, .journey-outcomes-card, .journey-skills-card, .journey-timeline-card) {
+  background: #182947 !important;
+  border-color: rgba(164, 187, 236, .18) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.journey-insight-kpis article:nth-child(2), .member-insights-grid article:nth-child(2)) {
+  background: #3b2a2a !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.journey-insight-kpis article:nth-child(3), .member-insights-grid article:nth-child(3)) {
+  background: #2d2a50 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.journey-insight-kpis article:nth-child(4), .member-insights-grid article:nth-child(4)) {
+  background: #184138 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.dashboard-match-card, .dashboard-list-item, .dashboard-journey-item, .dashboard-quick-grid a) {
+  background: #182947 !important;
+  border-color: rgba(164, 187, 236, .18) !important;
+  color: #eef3ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.dashboard-match-card:hover, .dashboard-list-item:hover, .dashboard-journey-item:hover, .dashboard-quick-grid a:hover) {
+  background: #203556 !important;
+  border-color: rgba(155, 176, 255, .48) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-discovery-panel {
+  background: linear-gradient(135deg, #123a3a, #152e4b 58%, #262452) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-journey-command,
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .dashboard-primary-grid > .dashboard-panel:first-child {
+  background:
+    radial-gradient(circle at 92% -10%, rgba(130, 125, 255, .32), transparent 20rem),
+    linear-gradient(132deg, #142445, #263d7d 70%, #3b4da0) !important;
+  border-color: rgba(144, 169, 232, .28) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.dashboard-journey-command h2, .dashboard-journey-command h3, .dashboard-journey-command p, .dashboard-journey-command .journey-command-label) {
+  color: #f1f5ff !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.journey-command-score-card, .journey-command-signal-card, .journey-stage-chart-card, .journey-next-card, .journey-stage-strip article) {
+  background: rgba(12, 26, 53, .36) !important;
+  border-color: rgba(219, 228, 255, .18) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.member-chart-panel, .member-chart-bars) {
+  background: #172a48 !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign .member-chart-bars {
+  border-bottom-color: rgba(164, 187, 236, .28) !important;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 59px, rgba(164, 187, 236, .14) 60px) !important;
+}
+
+html[data-theme="dark"] body.dashboard-redesign.dashboard-redesign :is(.member-chart-y, .member-chart-column span, .member-insights-grid :is(small, span), .member-insights-footer span) {
+  color: #aebddd !important;
+}
+
+/* Final contrast pass: this file is injected after the page styles, so these
+   semantic colors win over legacy modules that still carry pale-theme values. */
+html[data-theme="dark"] body[class] {
+  --ink: #f5f7fb !important;
+  --navy: #f5f7fb !important;
+  --navy-2: #e4eaf3 !important;
+  --muted: #c2cbd7 !important;
+  --text-body: #d5dde8 !important;
+  --text-strong: #f5f7fb !important;
+  --line: #40516a !important;
+  --surface: #111d30 !important;
+  --surface-soft: #17263b !important;
+  color: #f5f7fb !important;
+}
+
+html[data-theme="dark"] body[class] :where(h1, h2, h3, h4, h5, h6, strong, b, th) {
+  color: #f5f7fb !important;
+  -webkit-text-fill-color: #f5f7fb !important;
+}
+
+html[data-theme="dark"] body[class] :where(
+  main p, main li, main dd, main dt, main label, main small, main legend,
+  main figcaption, main caption, main td, main summary,
+  main .muted, main .text-muted, main [class*="muted"],
+  .site-footer p, .site-footer li, .site-footer small
+) {
+  color: #d5dde8 !important;
+  -webkit-text-fill-color: #d5dde8 !important;
+}
+
+html[data-theme="dark"] body[class] :where(main a:not(.btn):not([class*="button"]):not([class*="btn"]), .site-footer a) {
+  color: #b8c7ff !important;
+  -webkit-text-fill-color: #b8c7ff !important;
+}
+
+html[data-theme="dark"] body[class] :where(
+  button, .btn, input[type="submit"], input[type="button"], input[type="reset"]
+) {
+  color: #f7f9ff !important;
+  -webkit-text-fill-color: #f7f9ff !important;
+}
+
+html[data-theme="dark"] body[class] :where(
+  .btn-primary, button.btn-primary, a.btn-primary,
+  .primary-button, .button-primary, .cta-primary, .auth-register
+) {
+  background: #4568e8 !important;
+  border-color: #88a6ff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html[data-theme="dark"] body[class] :where(input, select, textarea) {
+  background: #0d1728 !important;
+  border-color: #40516a !important;
+  color: #f5f7fb !important;
+  -webkit-text-fill-color: #f5f7fb !important;
+}
+
+html[data-theme="dark"] body[class] :where(input, select, textarea)::placeholder {
+  color: #b6c1d0 !important;
+  -webkit-text-fill-color: #b6c1d0 !important;
+  opacity: 1 !important;
+}

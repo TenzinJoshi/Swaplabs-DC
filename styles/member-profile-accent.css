@@ -1,0 +1,147 @@
+/* Only a viewed member's profile uses these colors. Keep the navigation,
+   footer, viewer's theme, and other pages independent of the profile owner. */
+html body .member-portfolio-page[data-portfolio-accent] {
+  --portfolio-accent: #5b5be7;
+  --portfolio-accent-soft: #eef0ff;
+  background: var(--portfolio-accent) !important;
+}
+
+html body .member-portfolio-page[data-portfolio-accent="blue"] {
+  --portfolio-accent: #2f86e8;
+  --portfolio-accent-soft: #e8f2ff;
+}
+
+html body .member-portfolio-page[data-portfolio-accent="pink"] {
+  --portfolio-accent: #c65393;
+  --portfolio-accent-soft: #fff0f7;
+}
+
+html body .member-portfolio-page[data-portfolio-accent="purple"] {
+  --portfolio-accent: #8057c7;
+  --portfolio-accent-soft: #f2edff;
+}
+
+html body .member-portfolio-page[data-portfolio-accent="green"] {
+  --portfolio-accent: #249879;
+  --portfolio-accent-soft: #e8f8f1;
+}
+
+html body .member-portfolio-page[data-portfolio-accent="orange"] {
+  --portfolio-accent: #c86b25;
+  --portfolio-accent-soft: #fff2e4;
+}
+
+html body .member-portfolio-page[data-portfolio-accent] :is(.member-portfolio-hero, .member-portfolio-body) {
+  background: transparent !important;
+  border: 0;
+}
+
+html body .member-portfolio-page[data-portfolio-accent] .member-portfolio-hero::before {
+  background: var(--portfolio-accent);
+}
+
+/* A deeper shade of the same accent gives white identity text sufficient
+   contrast even with the brighter blue, pink, green, and orange choices. */
+html body .member-portfolio-page[data-portfolio-accent] .member-portfolio-hero-shell {
+  --visibility-heading: #ffffff;
+  --visibility-body: #ffffff;
+  --visibility-muted: #ffffff;
+  --text-strong: #ffffff;
+  --text-body: #ffffff;
+  --muted: #ffffff;
+  padding: clamp(20px, 3vw, 36px);
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--portfolio-accent) 65%, #172a46);
+}
+
+html body .member-portfolio-page[data-portfolio-accent] :is(
+  .portfolio-identity h1, .portfolio-username, .portfolio-headline,
+  .portfolio-identity-meta, .portfolio-identity-meta span,
+  .portfolio-identity-meta i, .portfolio-hero-actions .portfolio-admin-access-note
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+html body .member-portfolio-page[data-portfolio-accent] .portfolio-breadcrumb {
+  width: fit-content;
+  max-width: 100%;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+html body .member-portfolio-page[data-portfolio-accent] .portfolio-breadcrumb :is(a, span, i) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+html body .member-portfolio-page[data-portfolio-accent] .portfolio-hero-actions .btn {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+html body .member-portfolio-page[data-portfolio-accent] #memberPortfolioActions .btn-primary,
+html body .member-portfolio-page[data-portfolio-accent] #memberPortfolioConnection .btn-primary {
+  background: #172a46 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(23, 42, 70, .16);
+}
+
+/* Opaque cards keep long profile content readable in light and dark themes;
+   the member's accent remains visible behind every section. */
+html body .member-portfolio-page[data-portfolio-accent] :is(.portfolio-panel, .portfolio-stat-grid) {
+  --visibility-heading: #172a46;
+  --visibility-body: #172a46;
+  --visibility-muted: #4f5e70;
+  --surface: #ffffff;
+  --surface-soft: #f1f5f1;
+  --navy: #172a46;
+  --text-strong: #172a46;
+  --text-body: #4f5e70;
+  --muted: #4f5e70;
+  background: #ffffff !important;
+  color: #172a46 !important;
+  border-color: rgba(23, 42, 70, .18) !important;
+}
+
+html body .member-portfolio-page[data-portfolio-accent] .portfolio-stat-grid {
+  border: 1px solid rgba(23, 42, 70, .18);
+  border-radius: 24px;
+}
+
+html body .member-portfolio-page[data-portfolio-accent] .portfolio-stat-grid :is(strong, small) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+@media (max-width: 700px) {
+  html body .member-portfolio-page[data-portfolio-accent] .portfolio-identity {
+    flex-wrap: wrap;
+    gap: 18px;
+    width: 100%;
+  }
+
+  html body .member-portfolio-page[data-portfolio-accent] .portfolio-identity-copy {
+    flex: 1 1 240px;
+    overflow-wrap: anywhere;
+  }
+
+  html body .member-portfolio-page[data-portfolio-accent] .portfolio-hero-actions {
+    width: 100%;
+  }
+
+  html body .member-portfolio-page[data-portfolio-accent] .portfolio-hero-actions .btn {
+    min-height: 44px;
+    max-width: 100%;
+    white-space: normal;
+  }
+}

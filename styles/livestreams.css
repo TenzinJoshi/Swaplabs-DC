@@ -1,0 +1,148 @@
+.livestream-page { background: #f5f6fb; }
+.livestream-hero { background: radial-gradient(circle at 92% 10%, rgba(102, 83, 228, .17), transparent 34%), linear-gradient(135deg, #fff 0%, #f3f4ff 62%, #fff1f8 100%); }
+.livestream-hero-card { overflow: hidden; }
+.livestream-pulse-stats { margin: 18px 0 24px; }
+.livestream-pulse-stats span { min-width: 0; }
+.livestream-pulse-stats strong { font-size: 1.55rem; }
+.livestream-tier-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px; border: 1px solid #e4e6f2; border-radius: 16px; background: #fafaff; }
+.livestream-tier-preview .platform-mini-label { grid-column: 1/-1; }
+.livestream-tier-preview div { display: grid; gap: 2px; }
+.livestream-tier-preview strong { color: #5a54c7; font-size: 1.1rem; }
+.livestream-tier-preview small { color: #718096; font-size: .68rem; }
+.livestream-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) 190px 190px; gap: 12px; align-items: center; padding: 12px; border: 1px solid #dfe3ed; border-radius: 18px; background: #fff; box-shadow: 0 12px 32px rgba(35, 44, 73, .06); }
+.livestream-search { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border-radius: 12px; background: #f5f6fb; color: #657089; }
+.livestream-search input { width: 100%; border: 0; outline: 0; background: transparent; color: #1f2937; font: inherit; }
+.livestream-toolbar select { min-height: 48px; padding: 0 12px; border: 1px solid #dfe3ed; border-radius: 12px; background: #fff; color: #344054; font: inherit; }
+.livestream-results-head { display: flex; justify-content: space-between; gap: 15px; margin: 16px 2px; color: #778199; font-size: .78rem; }
+.livestream-results-head span:first-child { color: #414b63; font-weight: 800; }
+.livestream-grid { display: grid; gap: 24px; }
+.livestream-status-row { display: grid; gap: 13px; }
+.livestream-status-row-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 0 2px; }
+.livestream-status-row-head > div { min-width: 0; }
+.livestream-status-row-head .platform-kicker { margin-bottom: 7px; }
+.livestream-status-row-head p { margin: 0; color: #778199; font-size: .78rem; line-height: 1.45; }
+.livestream-status-row-head > strong { display: inline-grid; min-width: 34px; height: 30px; place-items: center; padding: 0 9px; border: 1px solid #dfe3ed; border-radius: 999px; color: #5c56bd; background: #fff; font-size: .75rem; }
+.livestream-row-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.livestream-row-empty { display: flex; grid-column: 1 / -1; align-items: center; gap: 13px; min-height: 92px; padding: 18px 20px; border: 1px dashed #cfd5e3; border-radius: 17px; color: #778199; background: rgba(255,255,255,.58); }
+.livestream-row-empty > i { color: #8a82dc; font-size: 1.7rem; }
+.livestream-row-empty div { display: grid; gap: 3px; }
+.livestream-row-empty strong { color: #424c64; font-size: .83rem; }
+.livestream-row-empty span { font-size: .74rem; }
+.livestream-card { min-width: 0; overflow: hidden; border: 1px solid #dfe3ed; border-radius: 21px; background: #fff; box-shadow: 0 13px 30px rgba(35, 44, 73, .06); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.livestream-card:hover { transform: translateY(-3px); border-color: #aaa8ec; box-shadow: 0 20px 40px rgba(62, 70, 130, .13); }
+.livestream-card.is-live { border-color: #e5a4c2; }
+.livestream-card.is-cancelled { opacity: .84; }
+.livestream-card-stage { position: relative; display: block; width: 100%; height: 175px; padding: 0; border: 0; overflow: hidden; cursor: pointer; background: linear-gradient(135deg, #17243d, #6155bb 56%, #cc6b9e); }
+.stream-art { display: grid; place-items: center; width: 100%; height: 100%; color: rgba(255, 255, 255, .88); font-size: 4rem; opacity: .72; }
+.stream-art:after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 15%, rgba(255,255,255,.22), transparent 30%), linear-gradient(125deg, transparent 45%, rgba(255,255,255,.08) 46%, transparent 47%); }
+.stream-status-pill { display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; border-radius: 999px; color: #667085; background: #eef0f6; font-size: .65rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.stream-status-pill.live { color: #fff; background: #ce588c; }
+.stream-status-pill.live i { color: #ffc5da; font-size: .5rem; }
+.stream-status-pill.scheduled { color: #4d54ae; background: #e9e9ff; }
+.stream-status-pill.ended { color: #657089; background: #eef0f6; }
+.stream-status-pill.cancelled { color: #a14d68; background: #fbe8ef; }
+.livestream-card-stage > .stream-status-pill { position: absolute; top: 13px; left: 13px; }
+.stream-card-viewers { position: absolute; right: 13px; bottom: 13px; display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; border-radius: 999px; color: #fff; background: rgba(12, 18, 34, .68); font-size: .72rem; font-weight: 800; }
+.livestream-card-body { padding: 17px; }
+.livestream-card-kicker, .livestream-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #7b8499; font-size: .72rem; }
+.livestream-card-kicker span:first-child { color: #655cc9; font-weight: 800; }
+.livestream-card h3 { margin: 9px 0 7px; font-size: 1.08rem; line-height: 1.2; }
+.livestream-card h3 button { padding: 0; border: 0; background: transparent; color: #1c2740; font: inherit; font-weight: 800; text-align: left; cursor: pointer; }
+.livestream-card p { min-height: 44px; margin: 0 0 14px; color: #68738a; font-size: .82rem; line-height: 1.55; }
+.livestream-card-footer { padding-top: 12px; border-top: 1px solid #edf0f5; }
+.stream-host { display: inline-flex; align-items: center; gap: 7px; min-width: 0; color: #475169; font-weight: 700; }
+.stream-avatar, .chat-avatar { display: inline-grid; flex: 0 0 auto; place-items: center; width: 27px; height: 27px; border-radius: 50%; color: #fff; background: linear-gradient(135deg, #566de7, #b965a7); font-size: .59rem; font-weight: 800; }
+.livestream-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+.livestream-card-tags span { color: #6975a2; font-size: .7rem; }
+.livestream-empty { grid-column: 1/-1; }
+.livestream-watch-section { border-top: 1px solid #e0e3ef; background: #111827; color: #fff; }
+.livestream-watch-section .platform-kicker { border-color: rgba(255,255,255,.15); color: #c6c3ff; background: rgba(255,255,255,.07); }
+.livestream-watch-section .platform-heading h2, .livestream-watch-section .platform-heading p { color: #fff; }
+.livestream-watch-section .platform-heading p { color: #b8c0d2; }
+.livestream-watch-layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(320px, .55fr); gap: 15px; align-items: stretch; }
+.livestream-stage-shell { min-width: 0; }
+.livestream-stage { position: relative; display: grid; min-height: 440px; place-items: center; overflow: hidden; border: 1px solid #344157; border-radius: 18px 18px 0 0; background: radial-gradient(circle at 25% 25%, #344171, transparent 35%), linear-gradient(145deg, #0b1324, #222744 60%, #5a3159); }
+.livestream-stage video { width: 100%; height: 100%; min-height: 440px; object-fit: cover; }
+.livestream-stage video[hidden] { display: none; }
+.stage-placeholder { display: grid; place-items: center; gap: 8px; padding: 30px; text-align: center; color: #dce2f0; }
+.stage-placeholder i { color: #aa9af4; font-size: 4rem; }
+.stage-placeholder strong { font-size: 1.25rem; }
+.stage-placeholder span { color: #a8b2c6; font-size: .85rem; }
+.stage-live-badge, .stage-viewer-count { position: absolute; top: 16px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; color: #cbd5e1; background: rgba(7, 12, 24, .72); font-size: .69rem; font-weight: 800; letter-spacing: .05em; }
+.stage-live-badge { left: 16px; }
+.stage-live-badge.is-live { color: #fff; background: #c75c8d; }
+.stage-viewer-count { right: 16px; letter-spacing: 0; }
+.livestream-watch-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 15px 17px; border: 1px solid #344157; border-top: 0; border-radius: 0 0 18px 18px; background: #182235; }
+.livestream-watch-controls > div:first-child { display: grid; gap: 4px; }
+.livestream-watch-controls strong { color: #f6f8ff; }
+.livestream-watch-controls span { color: #aab4c8; font-size: .78rem; }
+.watch-control-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.watch-control-actions .btn { min-height: 38px; border-color: #465271; color: #eaf0ff; background: #1f2a40; }
+.watch-control-actions .btn-primary { border-color: transparent; color: #fff; background: linear-gradient(135deg, #5d77eb, #b45aa7); }
+.watch-control-actions .btn-danger { border-color: rgba(235, 121, 148, .55); color: #ffd1df; background: rgba(180, 65, 108, .22); }
+.livestream-chat-panel { display: flex; min-height: 540px; flex-direction: column; overflow: hidden; border: 1px solid #344157; border-radius: 18px; background: #182235; }
+.livestream-chat-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 16px; border-bottom: 1px solid #344157; }
+.livestream-chat-head > div { display: grid; gap: 4px; }
+.livestream-chat-head strong { color: #e6ebf7; font-size: .85rem; }
+.chat-live-dot { color: #f394bb; font-size: .7rem; font-weight: 800; }
+.chat-live-dot i { color: #8be0bd; font-size: .49rem; }
+.livestream-chat-stream { flex: 1; max-height: 400px; overflow: auto; padding: 15px; }
+.chat-empty { display: grid; place-items: center; gap: 7px; min-height: 220px; color: #8995ac; text-align: center; font-size: .78rem; }
+.chat-empty i { color: #837be4; font-size: 2rem; }
+.chat-empty p { margin: 0; }
+.chat-message { display: grid; grid-template-columns: 28px 1fr; gap: 8px; margin-bottom: 15px; }
+.chat-message.has-donation { padding: 8px; border-radius: 11px; background: rgba(197, 101, 160, .13); }
+.chat-message-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.chat-message-meta strong { color: #ecf1fb; font-size: .74rem; }
+.chat-message-meta time { color: #7785a0; font-size: .65rem; }
+.chat-message p { margin: 3px 0 0; color: #c4ccda; font-size: .78rem; line-height: 1.45; word-break: break-word; }
+.chat-donation { display: inline-flex; align-items: center; gap: 3px; padding: 2px 6px; border-radius: 999px; color: #ffd39b; background: rgba(213, 148, 75, .16); font-size: .61rem; font-weight: 800; }
+.livestream-chat-form { padding: 12px; border-top: 1px solid #344157; }
+.livestream-chat-form textarea { width: 100%; resize: vertical; padding: 10px; border: 1px solid #465271; border-radius: 10px; outline: 0; color: #e9eef8; background: #10192a; font: inherit; font-size: .78rem; }
+.livestream-chat-form textarea:focus { border-color: #9c91ec; box-shadow: 0 0 0 3px rgba(145, 134, 238, .18); }
+.chat-form-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; }
+.donation-input { display: flex; align-items: center; gap: 5px; color: #b6c0d2; font-size: .67rem; }
+.donation-input i { color: #f3bf75; }
+.donation-input input { width: 64px; padding: 7px 5px; border: 1px solid #465271; border-radius: 7px; color: #e9eef8; background: #10192a; }
+.livestream-chat-form .form-status { margin-top: 7px; font-size: .7rem; }
+.livestream-chat-form .form-status.success { color: #8ee2bd; }
+.livestream-chat-form .form-status.error { color: #ffb5c8; }
+.livestream-host-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr); gap: 40px; align-items: start; }
+.livestream-host-status { display: flex; align-items: center; flex-wrap: wrap; gap: 11px; margin: 23px 0; padding: 13px 15px; border: 1px solid #dfe3ed; border-radius: 14px; color: #69738a; background: #fff; font-size: .82rem; }
+.livestream-host-status > i { color: #655cc9; font-size: 1.25rem; }
+.livestream-host-status span { flex: 1 1 180px; }
+.livestream-host-status .btn { min-height: 34px; padding: 8px 12px; }
+.livestream-form { padding: 24px; }
+.livestream-form .platform-form-head i { color: #6a5dd5; font-size: 2rem; }
+.livestream-my-list { margin-top: 18px; }
+.my-stream-list { display: grid; gap: 10px; }
+.my-stream-row { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 14px; border: 1px solid #dfe3ed; border-radius: 14px; background: #fff; }
+.my-stream-row > div:first-child { min-width: 0; }
+.my-stream-row h3 { margin: 7px 0 2px; color: #27334e; font-size: .96rem; }
+.my-stream-row p { margin: 0; color: #758097; font-size: .73rem; }
+.my-stream-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.my-stream-actions .btn { min-height: 34px; padding: 7px 10px; font-size: .73rem; }
+.my-stream-actions .btn-danger { border-color: #e5afc3; color: #a83e64; background: #fff4f8; }
+.livestream-tier-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 15px; }
+.livestream-tier-card { padding: 21px; border: 1px solid #dfe3ed; border-radius: 17px; background: #fff; box-shadow: 0 12px 28px rgba(35, 44, 73, .05); }
+.livestream-tier-card.featured { border-color: #aaa7ee; box-shadow: 0 15px 35px rgba(92, 84, 199, .16); }
+.livestream-tier-card strong { color: #5d55c8; font-size: 1.75rem; }
+.livestream-tier-card > span { margin-left: 4px; color: #7b8499; font-size: .72rem; }
+.livestream-tier-card h3 { margin: 9px 0 6px; color: #27334e; font-size: .98rem; }
+.livestream-tier-card p { margin: 0; color: #778197; font-size: .77rem; line-height: 1.5; }
+.livestream-safety-note { max-width: 800px; margin: 24px auto 0; justify-content: center; }
+html[data-theme="dark"] .livestream-page { background: var(--paper); }
+html[data-theme="dark"] .livestream-hero { background: radial-gradient(circle at 92% 10%, rgba(122, 104, 240, .22), transparent 34%), linear-gradient(135deg, #111a2a 0%, #171e35 62%, #2b1d32 100%); }
+html[data-theme="dark"] :is(.livestream-toolbar,.livestream-card,.livestream-row-empty,.livestream-status-row-head > strong,.my-stream-row,.livestream-tier-card) { border-color: var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+html[data-theme="dark"] .livestream-search { background: var(--surface-soft); color: var(--muted); }
+html[data-theme="dark"] .livestream-search input,
+html[data-theme="dark"] .livestream-toolbar select { color: var(--ink); }
+html[data-theme="dark"] .livestream-toolbar select { border-color: var(--line); background: var(--surface-soft); }
+html[data-theme="dark"] :is(.livestream-status-row-head p,.livestream-row-empty,.livestream-card p,.livestream-card-kicker,.livestream-card-footer,.my-stream-row p,.livestream-tier-card p) { color: var(--muted); }
+html[data-theme="dark"] :is(.livestream-card h3 button,.my-stream-row h3,.livestream-tier-card h3) { color: var(--navy); }
+html[data-theme="dark"] .livestream-card-footer { border-color: var(--line); }
+html[data-theme="dark"] .stream-status-pill.ended { color: var(--muted); background: var(--surface-soft); }
+html[data-theme="dark"] .stream-status-pill.cancelled { color: #ffc1d2; background: #3b2632; }
+@media (max-width: 1050px) { .livestream-row-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .livestream-tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .livestream-watch-layout { grid-template-columns: 1fr; } .livestream-chat-panel { min-height: 430px; } }
+@media (max-width: 760px) { .livestream-toolbar { grid-template-columns: 1fr; } .livestream-row-grid, .livestream-tier-grid, .livestream-host-layout { grid-template-columns: 1fr; } .livestream-stage, .livestream-stage video { min-height: 300px; } .livestream-watch-controls { align-items: flex-start; flex-direction: column; } .watch-control-actions { justify-content: flex-start; } .livestream-results-head { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 500px) { .livestream-tier-preview { grid-template-columns: 1fr; } .livestream-tier-preview .platform-mini-label { grid-column: auto; } .livestream-card-stage { height: 150px; } .livestream-chat-panel { min-height: 400px; } .my-stream-row { align-items: flex-start; flex-direction: column; } .my-stream-actions { justify-content: flex-start; } }

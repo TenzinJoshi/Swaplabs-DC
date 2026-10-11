@@ -1,0 +1,106 @@
+/*
+ * Scroll surfaces
+ *
+ * Keep long workspaces usable without trapping small-screen pages inside
+ * nested panels. Desktop matching has two independent columns; the admin
+ * shell has an independent rail and content area. Phones and small tablets
+ * fall back to one natural document scroll so touch scrolling stays simple.
+ */
+
+/* Skill matching: keep the filters and results available side by side. */
+@media (min-width: 901px) {
+  html body.member-portal-body:has(.matching-workspace) {
+    overflow-x: hidden;
+  }
+
+  html body.member-portal-body:has(.matching-workspace) .matching-workspace {
+    align-items: start;
+  }
+
+  html body.member-portal-body:has(.matching-workspace) .matching-filter-panel,
+  html body.member-portal-body:has(.matching-workspace) .matching-results-panel {
+    min-height: 0;
+    max-height: calc(100dvh - 132px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html body.member-portal-body:has(.matching-workspace) .matching-filter-panel {
+    position: sticky;
+    top: 102px;
+  }
+}
+
+/* Admin command center: the fixed rail and main workspace scroll separately. */
+@media (min-width: 601px) {
+  html body.workspace-admin {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  html body.workspace-admin .admin-main {
+    height: calc(100dvh - var(--header-space));
+    min-height: 0 !important;
+    max-height: calc(100dvh - var(--header-space));
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html body.workspace-admin .admin-section-nav {
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+
+  html body.workspace-admin :is(.admin-main, .admin-section-nav, .admin-table-scroll) {
+    scrollbar-width: thin;
+  }
+}
+
+/* A single page scroll is the least surprising interaction on small screens. */
+@media (max-width: 900px) {
+  html body.member-portal-body:has(.matching-workspace) .matching-filter-panel,
+  html body.member-portal-body:has(.matching-workspace) .matching-results-panel {
+    max-height: none;
+    overflow: visible;
+    overscroll-behavior: auto;
+    scrollbar-gutter: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  html body.workspace-admin {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: auto;
+  }
+
+  html body.workspace-admin .admin-main {
+    height: auto;
+    min-height: calc(100dvh - var(--header-space));
+    max-height: none;
+    overflow: visible;
+    overscroll-behavior: auto;
+    scrollbar-gutter: auto;
+  }
+
+  html body.workspace-admin .admin-section-nav {
+    touch-action: pan-x;
+    overscroll-behavior: contain;
+  }
+}
+
+/* Let wheel and trackpad gestures continue into the admin workspace when the
+   records table itself has reached its edge or is shorter than its viewport. */
+@media (min-width: 601px) {
+  html body.workspace-admin .admin-table-scroll {
+    overscroll-behavior: auto;
+  }
+}

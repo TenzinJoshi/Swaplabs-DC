@@ -1,0 +1,821 @@
+/*
+ * Settings page
+ * -------------
+ * Keep profile forms and their existing JS hooks intact, but give the route
+ * the visual hierarchy of a real account settings workspace.
+ */
+
+.settings-page {
+  --settings-ink: #10192c;
+  --settings-muted: #62708a;
+  --settings-line: rgba(103, 113, 205, .18);
+  --settings-purple: #635bdb;
+  --settings-blue: #315bea;
+  background:
+    radial-gradient(circle at 92% 9%, rgba(213, 188, 237, .3), transparent 29rem),
+    linear-gradient(180deg, #f7f8ff 0, #fbfbfd 24rem, #f7f8fb 100%);
+}
+
+.settings-page .settings-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(42px, 6vw, 76px) 0 clamp(34px, 5vw, 58px);
+  background:
+    radial-gradient(circle at 87% 0%, rgba(255, 198, 214, .34), transparent 27rem),
+    radial-gradient(circle at 15% 20%, rgba(172, 208, 255, .3), transparent 24rem),
+    linear-gradient(135deg, #f4f6ff 0%, #fbfbfd 55%, #fff6fb 100%);
+  border-bottom: 1px solid rgba(103, 113, 205, .16);
+}
+
+.settings-page .settings-hero::after {
+  content: "";
+  position: absolute;
+  right: 7%;
+  bottom: -100px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(99, 91, 219, .12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 26px rgba(99, 91, 219, .035), 0 0 0 54px rgba(99, 91, 219, .025);
+  pointer-events: none;
+}
+
+.settings-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.settings-hero-copy { min-width: 0; }
+
+.settings-hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--settings-purple);
+  letter-spacing: .08em;
+}
+
+.settings-hero .eyebrow i { font-size: 1.05rem; }
+
+.settings-page .settings-hero h1 {
+  margin: 14px 0 10px;
+  color: var(--settings-ink);
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: .96;
+  letter-spacing: -.075em;
+}
+
+.settings-page .settings-hero p {
+  max-width: 610px;
+  margin: 0;
+  color: var(--settings-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.settings-hero-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: min(100%, 330px);
+  padding: 17px 19px;
+  border: 1px solid rgba(143, 213, 194, .58);
+  border-radius: 18px;
+  background: rgba(239, 253, 248, .8);
+  color: #125a4a;
+  box-shadow: 0 14px 32px rgba(38, 76, 86, .07);
+}
+
+.settings-hero-card > i {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  background: #c9f1e2;
+  color: #16745a;
+  font-size: 1.25rem;
+}
+
+.settings-hero-card strong,
+.settings-hero-card span { display: block; }
+
+.settings-hero-card strong { font-size: .82rem; }
+
+.settings-hero-card span {
+  margin-top: 3px;
+  color: #47766e;
+  font-size: .7rem;
+  line-height: 1.45;
+}
+
+.settings-page .account-section {
+  padding-top: 34px;
+  background: transparent;
+}
+
+.settings-page .profile-layout {
+  grid-template-columns: 252px minmax(0, 1fr);
+  gap: 28px;
+}
+
+.settings-page .profile-sidebar {
+  top: calc(var(--header-space, 90px) + 24px);
+  gap: 13px;
+}
+
+.settings-page .profile-summary {
+  position: relative;
+  overflow: hidden;
+  padding: 23px 20px 20px;
+  border-color: rgba(99, 91, 219, .2);
+  background:
+    radial-gradient(circle at 100% 0, rgba(196, 184, 252, .34), transparent 9rem),
+    rgba(255, 255, 255, .88);
+}
+
+.settings-page .profile-summary::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, #ff8f79, #4d7cf4 52%, #6b5bdd);
+}
+
+.settings-page .profile-avatar-xl {
+  width: 76px;
+  height: 76px;
+  border-radius: 24px;
+  box-shadow: 0 12px 22px rgba(74, 73, 176, .16);
+}
+
+.settings-page .profile-nav {
+  display: grid;
+  gap: 3px;
+  padding: 13px 10px 11px;
+  border-color: rgba(103, 113, 205, .17);
+  background: rgba(255, 255, 255, .85);
+}
+
+.settings-nav-label {
+  padding: 8px 12px 4px;
+  color: #8a94a8;
+  font-size: .61rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.settings-page .profile-nav a {
+  min-height: 40px;
+  padding: 9px 11px;
+  color: #526079;
+  font-size: .76rem;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.settings-page .profile-nav a i {
+  width: 20px;
+  color: #7b78d7;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.settings-page .profile-nav a:hover {
+  transform: translateX(2px);
+  background: #f1f1ff;
+  color: var(--settings-purple);
+}
+
+.settings-page .profile-nav a[aria-current="location"] {
+  background: linear-gradient(90deg, #efefff, #f8f7ff);
+  border-color: rgba(99, 91, 219, .2);
+  color: var(--settings-purple);
+}
+
+.settings-page .profile-nav a[aria-current="location"] i { color: var(--settings-purple); }
+
+.settings-sidebar-footer {
+  display: grid;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid rgba(239, 139, 121, .25);
+  border-radius: 19px;
+  background: rgba(255, 250, 248, .88);
+}
+
+.settings-sidebar-note {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  color: #76525a;
+}
+
+.settings-sidebar-note > i {
+  margin-top: 2px;
+  color: #d27668;
+  font-size: 1.1rem;
+}
+
+.settings-sidebar-note strong,
+.settings-sidebar-note small { display: block; }
+
+.settings-sidebar-note strong { color: #613943; font-size: .75rem; }
+
+.settings-sidebar-note small {
+  margin-top: 3px;
+  color: #876971;
+  font-size: .66rem;
+  line-height: 1.45;
+}
+
+.settings-logout-button {
+  justify-content: center;
+  width: 100%;
+  min-height: 42px;
+  border-color: #efb7ae;
+  background: #fff;
+  color: #a34e44;
+}
+
+.settings-logout-button:hover {
+  border-color: #d97b6d;
+  background: #fff2f0;
+  color: #8d3d34;
+}
+
+.settings-page .profile-content { min-width: 0; }
+
+.settings-page .profile-card {
+  border-color: rgba(103, 113, 205, .16);
+  border-radius: 22px;
+  box-shadow: 0 18px 42px rgba(42, 52, 112, .065);
+}
+
+.settings-page .profile-content > #profileForm > .profile-card,
+.settings-page .profile-content > .account-data-card,
+.settings-page .profile-content > #passwordForm {
+  background: rgba(255, 255, 255, .92);
+}
+
+.settings-page .profile-content > #profileForm > .profile-card:not(.settings-card),
+.settings-page .profile-content > .account-data-card,
+.settings-page .profile-content > #passwordForm {
+  padding: clamp(23px, 3vw, 32px);
+}
+
+.settings-page .profile-card h2 {
+  font-size: 1.35rem;
+  letter-spacing: -.035em;
+}
+
+.settings-page .profile-card > .muted { line-height: 1.55; }
+
+.settings-page .profile-save-state-bar {
+  border-color: rgba(99, 91, 219, .2);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, .95);
+  box-shadow: 0 12px 28px rgba(48, 58, 133, .1);
+}
+
+.settings-page .settings-card { padding: 0 !important; }
+
+.settings-page .settings-card > .settings-heading,
+.settings-page .account-data-card > .settings-heading {
+  padding: 28px 30px 23px;
+  background: linear-gradient(90deg, rgba(244, 244, 255, .75), rgba(255, 255, 255, .4));
+}
+
+.settings-page .settings-group { padding: 27px 30px; }
+
+.settings-page .settings-save-bar {
+  padding: 20px 30px 26px;
+  background: #fbfbff;
+}
+
+.settings-page .account-data-card > form,
+.settings-page .account-data-card > .account-deletion-box {
+  margin-inline: 30px;
+}
+
+.settings-page .account-data-card > form { margin-top: 25px; }
+
+.settings-page .account-data-card > .account-deletion-box { margin-bottom: 30px; }
+
+.settings-page #passwordForm {
+  position: relative;
+  overflow: hidden;
+}
+
+.settings-page #passwordForm::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, #635bdb, #477ff0, #8fd5c2);
+}
+
+html[data-theme="dark"] .settings-page {
+  --settings-ink: #f1f4fb;
+  --settings-muted: #aeb8c9;
+  --settings-line: rgba(154, 160, 240, .2);
+  background: #0b1017;
+}
+
+html[data-theme="dark"] .settings-page .settings-hero {
+  background:
+    radial-gradient(circle at 87% 0, rgba(105, 76, 138, .32), transparent 27rem),
+    linear-gradient(135deg, #121c2b, #171b2a 60%, #231b2b);
+  border-color: #2c3848;
+}
+
+html[data-theme="dark"] .settings-hero-card {
+  background: rgba(22, 57, 55, .72);
+  border-color: rgba(143, 213, 194, .35);
+}
+
+html[data-theme="dark"] .settings-hero-card span { color: #9ed2c6; }
+
+html[data-theme="dark"] .settings-page .profile-summary,
+html[data-theme="dark"] .settings-page .profile-nav,
+html[data-theme="dark"] .settings-page .profile-content > #profileForm > .profile-card,
+html[data-theme="dark"] .settings-page .profile-content > .account-data-card,
+html[data-theme="dark"] .settings-page .profile-content > #passwordForm,
+html[data-theme="dark"] .settings-page .profile-save-state-bar {
+  background: #151d28;
+  border-color: #2d3a4b;
+}
+
+html[data-theme="dark"] .settings-page .profile-nav a { color: #b5bfce; }
+html[data-theme="dark"] .settings-page .profile-nav a:hover { background: #24263d; color: #d8d2ff; }
+html[data-theme="dark"] .settings-page .profile-nav a[aria-current="location"] { background: #292849; color: #d8d2ff; }
+html[data-theme="dark"] .settings-nav-label { color: #8894aa; }
+html[data-theme="dark"] .settings-sidebar-footer { background: #21181e; border-color: #673443; }
+html[data-theme="dark"] .settings-sidebar-note strong { color: #ffb4c0; }
+html[data-theme="dark"] .settings-sidebar-note small { color: #e2adb6; }
+html[data-theme="dark"] .settings-logout-button { background: #291d23; border-color: #77424d; color: #ffb4c0; }
+html[data-theme="dark"] .settings-logout-button:hover { background: #3a252d; }
+html[data-theme="dark"] .settings-page .settings-card > .settings-heading,
+html[data-theme="dark"] .settings-page .account-data-card > .settings-heading,
+html[data-theme="dark"] .settings-page .settings-save-bar { background: #111923; }
+
+@media (max-width: 860px) {
+  .settings-hero-inner { align-items: stretch; flex-direction: column; }
+  .settings-hero-card { width: min(100%, 440px); }
+  .settings-page .profile-layout { grid-template-columns: minmax(0, 1fr); }
+  .settings-page .profile-sidebar { position: static; }
+  .settings-page .profile-summary { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; text-align: left; align-items: center; }
+  .settings-page .profile-summary .profile-avatar-xl { grid-row: span 3; margin: 0; }
+  .settings-page .profile-summary .profile-badges { justify-content: flex-start; }
+  .settings-page .profile-quick-stats { grid-column: 1 / -1; }
+  .settings-page .profile-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+  .settings-page .settings-nav-label { width: 100%; padding-top: 11px; }
+  .settings-page .profile-nav a { flex: 1 1 170px; }
+}
+
+@media (max-width: 590px) {
+  .settings-page .settings-hero { padding: 33px 0 28px; }
+  .settings-page .settings-hero h1 { font-size: clamp(2.55rem, 15vw, 3.7rem); }
+  .settings-page .account-section { padding: 20px 14px 60px; }
+  .settings-page .profile-summary { display: block; text-align: center; }
+  .settings-page .profile-summary .profile-avatar-xl { margin: 0 auto 14px; }
+  .settings-page .profile-summary .profile-badges { justify-content: center; }
+  .settings-page .settings-card > .settings-heading,
+  .settings-page .account-data-card > .settings-heading { padding: 21px 19px; }
+  .settings-page .settings-group { padding: 20px 19px; }
+  .settings-page .settings-save-bar { padding: 17px 19px 21px; }
+  .settings-page .account-data-card > form,
+  .settings-page .account-data-card > .account-deletion-box { margin-inline: 19px; }
+  .settings-page .account-data-card > form { margin-top: 19px; }
+  .settings-page .account-data-card > .account-deletion-box { margin-bottom: 19px; }
+  .settings-page .profile-save-state-bar { left: 14px; right: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .settings-page .profile-nav a { transition: none; }
+}
+
+/* Reference layout: a settings rail, centered account identity, and a
+ * searchable workspace. This intentionally changes the composition while
+ * leaving every existing profile form in the same document flow. */
+
+.settings-page .settings-hero {
+  padding: 24px 0 22px;
+  background: var(--surface, #fff);
+  border-bottom: 1px solid var(--settings-line);
+}
+
+.settings-page .settings-hero::after,
+.settings-page .settings-hero-card { display: none; }
+
+.settings-page .settings-hero-inner { align-items: center; }
+
+.settings-page .settings-hero .eyebrow {
+  color: var(--settings-muted);
+  font-size: .72rem;
+  letter-spacing: .12em;
+}
+
+.settings-page .settings-hero h1 {
+  margin: 5px 0 0;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  letter-spacing: -.055em;
+}
+
+.settings-page .settings-hero p { display: none; }
+
+.settings-page .account-section {
+  padding: 24px 0 84px;
+  background: transparent;
+}
+
+.settings-page .profile-layout {
+  grid-template-columns: 252px minmax(0, 860px);
+  justify-content: center;
+  gap: 28px 42px;
+  align-items: start;
+}
+
+.settings-page .profile-sidebar {
+  position: sticky;
+  top: calc(var(--header-space, 90px) + 18px);
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.settings-page .profile-summary.settings-account-identity {
+  position: relative;
+  overflow: visible;
+  min-height: 226px;
+  margin: 0 0 13px;
+  padding: 15px 18px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+
+.settings-page .settings-account-identity::before { display: none; }
+
+.settings-page .settings-account-identity .profile-avatar-xl {
+  width: 118px;
+  height: 118px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  border: 4px solid var(--surface, #fff);
+  box-shadow: 0 0 0 2px rgba(99, 91, 219, .3), 0 18px 34px rgba(53, 68, 153, .18);
+  font-size: 1.75rem;
+}
+
+.settings-page .settings-account-identity h2 {
+  margin: 0;
+  color: var(--settings-ink);
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  letter-spacing: -.055em;
+}
+
+.settings-page .settings-account-identity > p {
+  margin: 6px 0 11px;
+  color: var(--settings-muted);
+  font-size: .9rem;
+}
+
+.settings-page .settings-account-identity .profile-badges { justify-content: center; }
+
+.settings-page .settings-account-identity .profile-quick-stats {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(110px, 1fr));
+  width: min(100%, 300px);
+  margin-top: 17px;
+  padding-top: 13px;
+  border-top: 1px solid var(--settings-line);
+}
+
+.settings-page .profile-nav {
+  position: static;
+  align-self: start;
+  max-height: calc(100vh - var(--header-space, 90px) - 28px);
+  overflow: auto;
+  padding: 9px;
+  border: 0;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.settings-page .profile-nav::before {
+  content: "SwapLabs account";
+  display: block;
+  padding: 0 13px 11px;
+  color: var(--settings-muted);
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.settings-page .settings-nav-label { padding: 12px 13px 5px; }
+
+.settings-page .profile-nav a {
+  min-height: 48px;
+  padding: 10px 13px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--settings-muted);
+  font-size: .84rem;
+}
+
+.settings-page .profile-nav a i {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #d8edff;
+  color: #17659f;
+  font-size: 1.05rem;
+}
+
+.settings-page .profile-nav a:nth-of-type(2) i { background: #d7c8ff; color: #6542b0; }
+.settings-page .profile-nav a:nth-of-type(3) i { background: #b9efcf; color: #27744e; }
+.settings-page .profile-nav a:nth-of-type(4) i { background: #c4e8ff; color: #1c639a; }
+.settings-page .profile-nav a:nth-of-type(5) i { background: #bfe5ff; color: #236b9b; }
+.settings-page .profile-nav a:nth-of-type(6) i { background: #ffd1a7; color: #a45719; }
+.settings-page .profile-nav a:nth-of-type(7) i { background: #f6b6e2; color: #9e347a; }
+
+.settings-page .profile-nav a:hover {
+  transform: none;
+  background: color-mix(in srgb, var(--indigo-soft) 70%, transparent);
+  color: var(--settings-ink);
+}
+
+.settings-page .profile-nav a[aria-current="location"] {
+  background: #d8eeff;
+  color: #07578a;
+}
+
+.settings-page .profile-nav a[aria-current="location"] i {
+  background: #a9ddff;
+  color: #07578a;
+}
+
+.settings-page .settings-sidebar-footer {
+  padding: 14px;
+  border: 1px solid rgba(239, 139, 121, .25);
+  border-radius: 18px;
+  background: color-mix(in srgb, #fff8f6 88%, var(--surface));
+}
+
+.settings-page .settings-sidebar-note { gap: 8px; }
+
+.settings-page .settings-logout-button {
+  min-height: 43px;
+  border-radius: 999px;
+  font-size: .82rem;
+}
+
+.settings-account-tools {
+  display: grid;
+  gap: 15px;
+  margin: 0 0 25px;
+}
+
+.settings-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 720px);
+  min-height: 58px;
+  margin-inline: auto;
+  padding: 0 19px;
+  border: 1px solid rgba(103, 113, 205, .15);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 80%, #e8e9ed);
+  box-shadow: inset 0 1px 1px rgba(18, 26, 55, .03);
+}
+
+.settings-search > i { color: var(--settings-muted); font-size: 1.35rem; }
+
+.settings-search input {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--settings-ink);
+  font-size: .98rem;
+}
+
+.settings-search input::placeholder { color: var(--settings-muted); }
+
+.settings-quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+}
+
+.settings-quick-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 7px 13px;
+  border: 1px solid rgba(103, 113, 205, .3);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--settings-ink);
+  font-size: .75rem;
+  font-weight: 750;
+}
+
+.settings-quick-links a:hover {
+  border-color: var(--settings-purple);
+  background: var(--indigo-soft);
+  color: var(--settings-purple);
+}
+
+.settings-page .profile-content > #profileForm > .profile-card,
+.settings-page .profile-content > .account-data-card,
+.settings-page .profile-content > #passwordForm {
+  border-radius: 20px;
+}
+
+html[data-theme="dark"] .settings-page .settings-hero {
+  background: #202124;
+  border-color: #3b3d41;
+}
+
+html[data-theme="dark"] .settings-page .settings-hero .eyebrow { color: #c5c8ce; }
+
+html[data-theme="dark"] .settings-page .settings-account-identity .profile-avatar-xl {
+  border-color: #202124;
+  box-shadow: 0 0 0 2px rgba(143, 213, 194, .45), 0 18px 34px rgba(0, 0, 0, .3);
+}
+
+html[data-theme="dark"] .settings-page .profile-nav a[aria-current="location"] {
+  background: #075985;
+  color: #e0f2fe;
+}
+
+html[data-theme="dark"] .settings-page .profile-nav a[aria-current="location"] i {
+  background: #bae6fd;
+  color: #075985;
+}
+
+html[data-theme="dark"] .settings-search {
+  border-color: #45474c;
+  background: #303134;
+}
+
+html[data-theme="dark"] .settings-quick-links a {
+  border-color: #686b70;
+  color: #e5e7eb;
+}
+
+html[data-theme="dark"] .settings-quick-links a:hover { background: #292849; }
+
+html[data-theme="dark"] .settings-page .profile-nav a:hover { background: #292849; color: #f1f4fb; }
+
+@media (max-width: 860px) {
+  .settings-page .profile-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .settings-page .profile-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .settings-page .profile-summary.settings-account-identity {
+    display: block;
+    text-align: center;
+  }
+
+  .settings-page .settings-account-identity .profile-avatar-xl {
+    margin: 0 auto 16px;
+  }
+
+  .settings-page .profile-nav {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: none;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .settings-page .profile-nav::before,
+  .settings-page .settings-nav-label { width: 100%; }
+
+  .settings-page .profile-nav a { flex: 1 1 180px; }
+  .settings-page .settings-sidebar-footer { max-width: 360px; }
+}
+
+@media (max-width: 590px) {
+  .settings-page .settings-hero { padding: 19px 0 17px; }
+  .settings-page .account-section { padding: 17px 14px 60px; }
+  .settings-page .profile-summary.settings-account-identity { min-height: 205px; padding-top: 3px; }
+  .settings-page .settings-account-identity .profile-avatar-xl { width: 96px; height: 96px; }
+  .settings-page .settings-quick-links a { flex: 1 1 calc(50% - 9px); justify-content: center; }
+  .settings-page .settings-search { min-height: 52px; }
+}
+
+/* Make the selected and pressed settings controls unmistakable. */
+.settings-page .profile-nav a[aria-current="location"] {
+  background: #315bea !important;
+  border: 1px solid #173a9a !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 800;
+  box-shadow: inset 4px 0 0 #ff8f79, 0 7px 18px rgba(49, 91, 234, .2);
+}
+
+.settings-page .profile-nav a[aria-current="location"] i {
+  background: #ffffff !important;
+  color: #173a9a !important;
+}
+
+.settings-page .profile-nav a:active {
+  background: #173a9a !important;
+  border-color: #102b75 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transform: scale(.98);
+  box-shadow: inset 4px 0 0 #ff8f79, 0 3px 10px rgba(16, 43, 117, .24);
+}
+
+.settings-page .profile-nav a:active i {
+  background: #dbeafe !important;
+  color: #173a9a !important;
+}
+
+.settings-page .profile-nav a[aria-current="location"]:focus-visible,
+.settings-page #passwordForm .form-actions .btn:focus-visible {
+  outline: 3px solid #ff8f79 !important;
+  outline-offset: 3px;
+}
+
+.settings-page #passwordForm .form-actions .btn {
+  background: #f0fff9 !important;
+  border-color: #63c9b1 !important;
+  color: #0b604c !important;
+  -webkit-text-fill-color: #0b604c !important;
+  font-weight: 800;
+}
+
+.settings-page #passwordForm .form-actions .btn:hover,
+.settings-page #passwordForm .form-actions .btn:focus-visible,
+.settings-page #passwordForm .form-actions .btn:active {
+  background: #0f766e !important;
+  border-color: #0f766e !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, .16), 0 8px 18px rgba(15, 118, 110, .22);
+}
+
+html[data-theme="dark"] .settings-page .profile-nav a[aria-current="location"] {
+  background: #315bea !important;
+  border-color: #b8c1ff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: inset 4px 0 0 #ffb39f, 0 8px 18px rgba(0, 0, 0, .28);
+}
+
+html[data-theme="dark"] .settings-page .profile-nav a[aria-current="location"] i {
+  background: #ffffff !important;
+  color: #173a9a !important;
+}
+
+html[data-theme="dark"] .settings-page .profile-nav a:active {
+  background: #173a9a !important;
+  border-color: #dbeafe !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html[data-theme="dark"] .settings-page #passwordForm .form-actions .btn {
+  background: #153d36 !important;
+  border-color: #63c9b1 !important;
+  color: #d7fff3 !important;
+  -webkit-text-fill-color: #d7fff3 !important;
+}
+
+html[data-theme="dark"] .settings-page #passwordForm .form-actions .btn:hover,
+html[data-theme="dark"] .settings-page #passwordForm .form-actions .btn:focus-visible,
+html[data-theme="dark"] .settings-page #passwordForm .form-actions .btn:active {
+  background: #2bb89c !important;
+  border-color: #8fe6d0 !important;
+  color: #071c18 !important;
+  -webkit-text-fill-color: #071c18 !important;
+}

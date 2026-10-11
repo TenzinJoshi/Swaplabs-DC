@@ -1,0 +1,58 @@
+/* SwapLabs design tokens: one calm, optimistic system across every route. */
+:root {
+  --navy: #172a46;
+  --navy-2: #2a4162;
+  --ink: #172a46;
+  --muted: #657184;
+  --paper: #f8f7f3;
+  --white: #ffffff;
+  --line: #d9dad6;
+  --indigo: #b8a7e8;
+  --indigo-soft: #eeeaf9;
+  --blue: #8fd5c2;
+  --pink: #ff6b5a;
+  --green: #8fd5c2;
+  --mint: #8fd5c2;
+  --shadow: 0 18px 45px rgba(23, 42, 70, .10);
+  --radius: 20px;
+  --max: 1240px;
+  --surface: #ffffff;
+  --surface-soft: #f1f5f1;
+  --text-strong: #172a46;
+  --text-body: #4f5e70;
+  --text-on-light: #172a46;
+  --text-on-light-muted: #4f5e70;
+  --gradient-heading: linear-gradient(112deg, #172a46 0%, #172a46 48%, #c95a50 78%, #8270c6 100%);
+  --gradient-heading-inverse: linear-gradient(112deg, #f8f7f3 0%, #ffb0a5 50%, #b8a7e8 100%);
+  --gradient-pale-surface: linear-gradient(135deg, #ffffff 0%, #f8f7f3 58%, #f1ecfb 100%);
+  --gradient-dark-surface: linear-gradient(135deg, #172a46 0%, #203a5c 62%, #2b4760 100%);
+  --gradient-action: linear-gradient(110deg, #ff6b5a 0%, #eb6558 100%);
+}
+
+html[data-theme="dark"] {
+  --navy: #f8f7f3;
+  --navy-2: #e8e4f5;
+  --ink: #f2f4f6;
+  --muted: #b8c2cf;
+  --paper: #101c2d;
+  --white: #172a46;
+  --line: #344a63;
+  --indigo: #c4b8f0;
+  --indigo-soft: #2d2a48;
+  --blue: #9be0cc;
+  --pink: #ff8c7e;
+  --green: #9be0cc;
+  --mint: #9be0cc;
+  --shadow: 0 18px 45px rgba(0, 0, 0, .26);
+  --surface: #172a46;
+  --surface-soft: #15263b;
+  --text-strong: #f8f7f3;
+  --text-body: #c9d1db;
+  --text-on-light: #172a46;
+  --text-on-light-muted: #4f5e70;
+  --gradient-heading: linear-gradient(112deg, #f8f7f3 0%, #ffb0a5 53%, #c4b8f0 100%);
+  --gradient-heading-inverse: linear-gradient(112deg, #172a46 0%, #ff6b5a 55%, #b8a7e8 100%);
+  --gradient-pale-surface: linear-gradient(135deg, #172a46 0%, #15263b 58%, #2a2850 100%);
+  --gradient-dark-surface: linear-gradient(135deg, #0c1726 0%, #12253b 62%, #1a3042 100%);
+  --gradient-action: linear-gradient(110deg, #ff6b5a 0%, #e65d51 100%);
+}

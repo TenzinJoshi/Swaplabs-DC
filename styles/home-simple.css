@@ -1,0 +1,322 @@
+/*
+   relayskills homepage: calm, focused first impression.
+   This layer is intentionally scoped to body.home-simple so the deeper
+   platform surfaces keep their existing navigation and component density.
+*/
+
+body.home-simple {
+  background: var(--relayskills-warm-white) !important;
+}
+
+body.home-simple main {
+  background: var(--relayskills-warm-white);
+}
+
+/* Keep the header useful, but remove the decorative pill stack. */
+body.home-simple .site-header {
+  --header-height: 66px;
+  --header-top: 14px;
+  --header-space: 92px;
+}
+
+body.home-simple .site-header .nav {
+  width: min(calc(100% - 32px), 1200px);
+  height: var(--header-height);
+  gap: 14px;
+  padding: 0 10px 0 12px;
+  border-radius: 18px;
+}
+
+body.home-simple .site-header .nav::before {
+  border-color: rgba(23, 42, 70, .14);
+  border-radius: inherit;
+  background: var(--relayskills-warm-white) !important;
+  box-shadow: 0 9px 26px rgba(23, 42, 70, .08);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.home-simple .site-header .brand {
+  min-width: auto;
+  gap: 9px;
+  padding: 2px 8px 2px 2px;
+  border-radius: 12px;
+}
+
+body.home-simple .site-header .brand-logo-shell {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px !important;
+  box-shadow: none;
+}
+
+body.home-simple .site-header .brand > span:last-child {
+  font-size: .95rem;
+}
+
+body.home-simple .site-header .brand-copy small,
+body.home-simple .header-identity-badge,
+body.home-simple .nav-trust-note {
+  display: none !important;
+}
+
+body.home-simple .nav-links {
+  flex: 0 1 auto;
+  gap: 2px;
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+}
+
+body.home-simple .nav-links a {
+  min-height: 38px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: .72rem;
+}
+
+body.home-simple .nav-links a.nav-swap-now {
+  order: 4;
+  background: var(--relayskills-coral);
+  box-shadow: none;
+}
+
+body.home-simple .nav-links a.nav-swap-now:hover,
+body.home-simple .nav-links a.nav-swap-now.active {
+  background: #e85f53;
+  box-shadow: none;
+}
+
+body.home-simple .directory-menu-button,
+body.home-simple .site-header .auth-nav .btn,
+body.home-simple .menu-btn {
+  height: 40px;
+  border-radius: 11px;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.home-simple .directory-menu-button:hover,
+body.home-simple .nav-directory.open .directory-menu-button,
+body.home-simple .site-header .auth-nav .btn:not(.btn-primary):hover,
+body.home-simple .menu-btn:hover {
+  background: rgba(143, 213, 194, .18);
+}
+
+body.home-simple .site-header .auth-org-link,
+body.home-simple .site-header .auth-nav .auth-icon-btn[href="credits.html"] {
+  display: none !important;
+}
+
+body.home-simple .site-header .auth-nav {
+  gap: 4px;
+}
+
+body.home-simple .site-header .auth-nav .btn-primary {
+  min-width: auto;
+  padding-inline: 13px;
+  box-shadow: none;
+}
+
+/* Hero: one message, one action pair, one quiet exchange example. */
+body.home-simple .hero {
+  min-height: 0;
+  padding: clamp(52px, 8vw, 96px) 0 clamp(54px, 8vw, 96px);
+  background: var(--relayskills-warm-white) !important;
+  border-bottom: 1px solid rgba(23, 42, 70, .1);
+}
+
+body.home-simple .hero::before,
+body.home-simple .hero::after {
+  display: none !important;
+}
+
+body.home-simple .hero-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .72fr);
+  gap: clamp(36px, 7vw, 96px);
+  align-items: center;
+}
+
+body.home-simple .hero h1 {
+  max-width: 760px;
+  margin: 0 0 22px;
+  font-size: clamp(3.25rem, 6.2vw, 6.4rem);
+  line-height: .98;
+}
+
+body.home-simple .hero .gradient-text {
+  min-height: 0;
+  margin: 0;
+  background: none !important;
+  background-image: none !important;
+  color: var(--relayskills-navy) !important;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: var(--relayskills-navy) !important;
+}
+
+body.home-simple .hero-copy {
+  max-width: 570px;
+  margin: 0;
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+body.home-simple .home-skill-typewriter {
+  display: none;
+}
+
+body.home-simple .hero-actions {
+  gap: 10px;
+  margin-top: 28px;
+}
+
+body.home-simple .hero-actions .btn {
+  min-height: 44px;
+}
+
+body.home-simple .hero-actions .btn:nth-child(3),
+body.home-simple .hero-proof {
+  display: none;
+}
+
+body.home-simple .match-panel {
+  width: 100%;
+  max-width: 500px;
+  justify-self: end;
+  padding: 22px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(23, 42, 70, .08) !important;
+}
+
+body.home-simple .relayskills-exchange-visual {
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 14px;
+  margin: 0 0 17px;
+  padding: 0 0 17px;
+  border: 0;
+  border-bottom: 1px solid rgba(23, 42, 70, .1);
+  border-radius: 0;
+  background: transparent;
+}
+
+body.home-simple .relayskills-mark-frame {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+}
+
+body.home-simple .relayskills-exchange-visual h3 {
+  margin: 1px 0 5px;
+  font-size: 1.1rem;
+}
+
+body.home-simple .relayskills-exchange-visual p {
+  font-size: .79rem;
+  line-height: 1.5;
+}
+
+body.home-simple .knowledge-exchange-card {
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+body.home-simple .exchange-person {
+  padding: 12px;
+  border: 1px solid rgba(23, 42, 70, .1);
+  border-radius: 14px;
+}
+
+body.home-simple .exchange-person small {
+  display: none;
+}
+
+body.home-simple .exchange-person strong {
+  font-size: .8rem;
+}
+
+body.home-simple .exchange-arrow {
+  width: 26px;
+  height: 26px;
+}
+
+body.home-simple .momentum-head,
+body.home-simple .momentum-actions,
+body.home-simple .momentum-live-strip {
+  display: none;
+}
+
+body.home-simple .home-story-section {
+  padding-top: clamp(58px, 8vw, 96px);
+}
+
+@media (max-width: 980px) {
+  body.home-simple .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.home-simple .match-panel {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 840px) {
+  body.home-simple .site-header {
+    --header-height: 60px;
+    --header-top: 10px;
+    --header-space: 82px;
+  }
+
+  body.home-simple .site-header .nav {
+    height: var(--header-height);
+    border-radius: 16px;
+  }
+
+  body.home-simple .site-header .brand-logo-shell {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 640px) {
+  body.home-simple .hero {
+    padding-top: 42px;
+  }
+
+  body.home-simple .hero h1 {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+  }
+
+  body.home-simple .hero-copy {
+    font-size: .98rem;
+  }
+
+  body.home-simple .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.home-simple .hero-actions .btn {
+    width: 100%;
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  body.home-simple .hero-actions {
+    grid-template-columns: 1fr;
+  }
+
+  body.home-simple .knowledge-exchange-card {
+    grid-template-columns: 1fr;
+  }
+
+  body.home-simple .exchange-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+}

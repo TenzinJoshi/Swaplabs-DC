@@ -1,0 +1,1321 @@
+/* Calm, single-form account and support surfaces. */
+
+.quick-register-page {
+  background: var(--paper);
+}
+
+.quick-register-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 82px 0 58px;
+  border-bottom: 1px solid var(--line);
+  background: var(--gradient-pale-surface);
+}
+
+.quick-register-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .55fr);
+  gap: 54px;
+  align-items: end;
+}
+
+.quick-register-hero h1 {
+  max-width: 780px;
+  margin: 17px 0 18px;
+  color: var(--navy);
+  font-size: clamp(2.8rem, 5.7vw, 5.8rem);
+  line-height: .95;
+  letter-spacing: -.07em;
+}
+
+.quick-register-hero p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--text-body);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.quick-register-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 30px;
+}
+
+.quick-register-proof span {
+  display: grid;
+  gap: 1px;
+}
+
+.quick-register-proof strong {
+  color: var(--indigo);
+  font-size: 1.35rem;
+  line-height: 1.1;
+  letter-spacing: -.04em;
+}
+
+.quick-register-proof small {
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.quick-register-hero-card {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid color-mix(in srgb, var(--indigo) 20%, var(--line));
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--surface) 86%, var(--indigo-soft));
+  box-shadow: var(--brand-shadow-soft, 0 18px 50px rgba(23, 42, 70, .09));
+}
+
+.quick-register-hero-icon,
+.quick-register-aside-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: var(--indigo);
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.quick-register-hero-card strong {
+  display: block;
+  margin: 2px 0 3px;
+  color: var(--navy);
+  font-size: .95rem;
+}
+
+.quick-register-hero-card p {
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+.quick-register-section {
+  padding-top: 42px;
+}
+
+.quick-register-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, .34fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.quick-register-card {
+  padding: clamp(22px, 4vw, 38px);
+}
+
+.quick-register-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.quick-register-heading h2 {
+  margin: 6px 0 4px;
+  color: var(--navy);
+  font-size: clamp(1.8rem, 3vw, 2.55rem);
+  letter-spacing: -.06em;
+}
+
+.quick-register-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.quick-register-kicker {
+  color: var(--indigo);
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.quick-register-form-block {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.quick-register-block-heading {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  margin-bottom: 17px;
+}
+
+.quick-register-block-heading > span {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: var(--indigo-soft);
+  color: var(--indigo);
+  font-size: .65rem;
+  font-weight: 850;
+}
+
+.quick-register-block-heading strong,
+.quick-register-block-heading small {
+  display: block;
+}
+
+.quick-register-block-heading strong {
+  color: var(--navy);
+  font-size: .9rem;
+}
+
+.quick-register-block-heading small {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: .73rem;
+  line-height: 1.45;
+}
+
+.quick-register-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.quick-register-fields .full {
+  grid-column: 1 / -1;
+}
+
+.quick-register-fields .field {
+  margin-bottom: 0;
+}
+
+.quick-register-fields .field input,
+.quick-register-fields .field select {
+  min-height: 48px;
+}
+
+.quick-register-fields .field.has-error :is(input, select, textarea) {
+  border-color: #d94d62;
+  box-shadow: 0 0 0 3px rgba(217, 77, 98, .16);
+}
+
+.quick-register-fields .username-field[data-username-state="available"] input {
+  border-color: #1f9d55;
+  box-shadow: 0 0 0 3px rgba(31, 157, 85, .13);
+}
+
+.quick-register-fields .username-field[data-username-state="checking"] input {
+  border-color: #7b61ff;
+  box-shadow: 0 0 0 3px rgba(123, 97, 255, .13);
+}
+
+.quick-register-card .username-live-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 7px;
+  font-size: .73rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.quick-register-card .username-live-feedback[hidden] {
+  display: none;
+}
+
+.quick-register-card .username-live-feedback::before {
+  content: "!";
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  border-radius: 50%;
+  background: #d94d62;
+  color: #fff;
+  font-size: .66rem;
+  font-weight: 900;
+}
+
+.quick-register-card .username-live-feedback.is-available {
+  color: #087443;
+}
+
+.quick-register-card .username-live-feedback.is-available::before {
+  content: "✓";
+  background: #1f9d55;
+}
+
+.quick-register-card .username-live-feedback.is-checking {
+  color: #6652c7;
+}
+
+.quick-register-card .username-live-feedback.is-checking::before {
+  content: "…";
+  background: #7b61ff;
+}
+
+.quick-register-card .username-live-feedback.is-error {
+  color: #b42318;
+}
+
+.quick-register-card .field-error {
+  display: block;
+  margin-top: 7px;
+  color: #b42318;
+  font-size: .73rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.quick-register-card .field-error[hidden] {
+  display: none;
+}
+
+.quick-register-card .terms-row.has-error {
+  display: grid;
+  grid-template-columns: 17px minmax(0, 1fr);
+  align-items: start;
+  color: #b42318;
+}
+
+.quick-register-card .terms-row.has-error .field-error {
+  grid-column: 2;
+  margin-top: 0;
+}
+
+.quick-register-safety-fields {
+  align-items: stretch;
+}
+
+.quick-register-age-result {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--indigo) 20%, var(--line));
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--indigo-soft) 52%, var(--surface));
+  color: var(--indigo);
+}
+
+.quick-register-age-result > i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  font-size: 1.15rem;
+}
+
+.quick-register-age-result > span {
+  display: grid;
+  gap: 1px;
+}
+
+.quick-register-age-result strong,
+.quick-register-age-result small,
+.quick-register-age-result output {
+  display: block;
+}
+
+.quick-register-age-result strong {
+  color: var(--navy);
+  font-size: .78rem;
+}
+
+.quick-register-age-result small {
+  color: var(--muted);
+  font-size: .68rem;
+  line-height: 1.4;
+}
+
+.quick-register-age-result output {
+  margin-top: 4px;
+  color: var(--indigo);
+  font-size: 1.15rem;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.quick-register-guardian {
+  margin: 18px 0 0;
+  padding: 18px;
+  border-color: color-mix(in srgb, var(--pink) 25%, var(--line));
+  background: color-mix(in srgb, var(--pink) 4%, var(--surface));
+}
+
+.quick-register-guardian .form-section-head {
+  margin-bottom: 16px;
+}
+
+.quick-register-guardian .form-section-head h3 {
+  margin: 0 0 3px;
+  color: var(--navy);
+  font-size: 1rem;
+}
+
+.quick-register-guardian .form-section-head p {
+  margin: 0;
+  font-size: .74rem;
+}
+
+.quick-register-guardian .terms-row {
+  margin-top: 16px;
+}
+
+.quick-register-terms {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.quick-register-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.quick-register-actions .muted {
+  font-size: .76rem;
+}
+
+.quick-register-actions .muted a,
+.quick-register-contact-card a {
+  color: var(--indigo);
+  font-weight: 800;
+}
+
+.quick-register-aside {
+  display: grid;
+  gap: 14px;
+}
+
+.quick-register-aside-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 14px 34px rgba(16, 24, 40, .045);
+}
+
+.quick-register-aside-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 16px;
+  background: var(--indigo-soft);
+  color: var(--indigo);
+}
+
+.quick-register-aside-card h2 {
+  margin: 0 0 6px;
+  color: var(--navy);
+  font-size: 1.35rem;
+  letter-spacing: -.045em;
+}
+
+.quick-register-aside-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+.quick-register-aside-card ul {
+  display: grid;
+  gap: 11px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quick-register-aside-card li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--text-body);
+  font-size: .76rem;
+  line-height: 1.45;
+}
+
+.quick-register-aside-card li i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--green);
+}
+
+.quick-register-contact-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: color-mix(in srgb, var(--indigo-soft) 42%, var(--surface));
+}
+
+.quick-register-contact-card > i {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--indigo);
+  font-size: 1.25rem;
+}
+
+.quick-register-contact-card strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--navy);
+  font-size: .84rem;
+}
+
+.quick-register-contact-card a {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  margin-top: 9px;
+  font-size: .74rem;
+}
+
+html[data-theme="dark"] .quick-register-hero-card,
+html[data-theme="dark"] .quick-register-age-result,
+html[data-theme="dark"] .quick-register-contact-card {
+  background: color-mix(in srgb, var(--surface) 86%, var(--indigo-soft));
+}
+
+html[data-theme="dark"] .quick-register-fields .field-error {
+  color: #ff9a9a;
+}
+
+html[data-theme="dark"] .quick-register-card .username-live-feedback.is-available {
+  color: #75e0a7;
+}
+
+html[data-theme="dark"] .quick-register-card .username-live-feedback.is-checking {
+  color: #c6baff;
+}
+
+html[data-theme="dark"] .quick-register-card .terms-row.has-error {
+  color: #ff9a9a;
+}
+
+@media(max-width:900px) {
+  .quick-register-hero-grid,
+  .quick-register-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-register-hero-card {
+    max-width: 620px;
+  }
+
+  .quick-register-aside {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width:640px) {
+  .quick-register-hero {
+    padding: 46px 0 38px;
+  }
+
+  .quick-register-hero h1 {
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
+  }
+
+  .quick-register-hero p {
+    font-size: .92rem;
+  }
+
+  .quick-register-proof {
+    gap: 20px;
+  }
+
+  .quick-register-section {
+    padding-top: 28px;
+  }
+
+  .quick-register-card {
+    padding: 20px 17px;
+    border-radius: 17px;
+  }
+
+  .quick-register-heading {
+    padding-bottom: 20px;
+  }
+
+  .quick-register-heading h2 {
+    font-size: 1.9rem;
+  }
+
+  .quick-register-fields,
+  .quick-register-aside {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-register-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+.quick-register-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Interest-led onboarding --------------------------------------------------
+   The selector deliberately feels like a calm, searchable version of the
+   reference interest picker: broad fields first, then concrete specialties. */
+.registration-interest-stage {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid color-mix(in srgb, var(--indigo) 22%, var(--line));
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--surface) 96%, var(--indigo-soft));
+  box-shadow: 0 15px 38px rgba(25, 39, 70, .05);
+}
+
+.registration-interest-stage[hidden],
+.registration-interest-panel[hidden],
+.registration-interest-child-note[hidden] {
+  display: none;
+}
+
+.registration-interest-progress {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 4px 0 20px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: color-mix(in srgb, var(--surface) 84%, var(--indigo-soft));
+}
+
+.registration-interest-progress > i {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.registration-interest-progress button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+.registration-interest-progress button span {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: var(--line);
+  color: var(--text-body);
+  font-size: .68rem;
+}
+
+.registration-interest-progress button.is-active {
+  background: var(--indigo);
+  color: #fff;
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--indigo) 20%, transparent);
+}
+
+.registration-interest-progress button.is-active span,
+.registration-interest-progress button.is-complete span {
+  background: rgba(255, 255, 255, .2);
+  color: #fff;
+}
+
+.registration-interest-progress button.is-complete {
+  color: var(--indigo);
+}
+
+.registration-interest-progress button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.registration-interest-child-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 0 0 18px;
+  padding: 12px 13px;
+  border: 1px solid color-mix(in srgb, var(--pink) 24%, var(--line));
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--pink) 6%, var(--surface));
+  color: var(--text-body);
+  font-size: .76rem;
+  line-height: 1.45;
+}
+
+.registration-interest-child-note > i {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--pink);
+  font-size: 1.1rem;
+}
+
+.registration-interest-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.registration-interest-column {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: color-mix(in srgb, var(--surface) 92%, var(--paper));
+}
+
+.registration-interest-column-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.registration-interest-column-head h3,
+.registration-interest-detail-head h3 {
+  margin: 6px 0 0;
+  color: var(--navy);
+  font-size: 1.05rem;
+  letter-spacing: -.035em;
+}
+
+.registration-interest-column-head > strong {
+  flex: 0 0 auto;
+  color: var(--indigo);
+  font-size: .67rem;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.registration-interest-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--indigo);
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.registration-interest-label.is-learning {
+  color: var(--blue, #4b83f5);
+}
+
+.registration-interest-label i {
+  font-size: .95rem;
+}
+
+.registration-interest-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 11px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--muted);
+}
+
+.registration-interest-search:focus-within {
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--indigo) 17%, transparent);
+}
+
+.registration-interest-search > i {
+  flex: 0 0 auto;
+  color: var(--indigo);
+  font-size: 1.1rem;
+}
+
+.registration-interest-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text-strong);
+  font: inherit;
+  font-size: .78rem;
+}
+
+.registration-interest-search input::placeholder {
+  color: var(--muted);
+}
+
+.registration-interest-list-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 10px 2px 7px;
+  color: var(--muted);
+  font-size: .65rem;
+}
+
+.registration-interest-list-meta button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--indigo);
+  font: inherit;
+  font-weight: 800;
+}
+
+.registration-interest-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  max-height: 340px;
+  padding: 2px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.registration-interest-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  min-height: 43px;
+  padding: 8px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-body);
+  font: inherit;
+  font-size: .7rem;
+  font-weight: 750;
+  line-height: 1.15;
+  text-align: left;
+  transition: border-color .16s ease, background .16s ease, color .16s ease, transform .16s ease;
+}
+
+.registration-interest-option:hover,
+.registration-interest-option:focus-visible {
+  border-color: var(--indigo);
+  color: var(--indigo);
+  transform: translateY(-1px);
+}
+
+.registration-interest-option > i:first-child {
+  flex: 0 0 auto;
+  color: var(--indigo);
+  font-size: .95rem;
+}
+
+.registration-interest-option > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.registration-interest-option > i:last-child {
+  display: none;
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: currentColor;
+  font-size: .85rem;
+}
+
+.registration-interest-option.is-selected {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--indigo), var(--blue, #4b83f5));
+  color: #fff;
+  box-shadow: 0 8px 16px color-mix(in srgb, var(--indigo) 22%, transparent);
+}
+
+.registration-interest-option.is-selected > i:first-child,
+.registration-interest-option.is-selected > i:last-child {
+  color: #fff;
+}
+
+.registration-interest-option.is-selected > i:last-child {
+  display: inline-flex;
+}
+
+.registration-interest-empty {
+  margin: 12px 2px 2px;
+  color: var(--muted);
+  font-size: .74rem;
+}
+
+.registration-interest-empty[hidden] {
+  display: none;
+}
+
+.registration-interest-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.registration-interest-status {
+  min-height: 1.35em;
+  margin: 0;
+  color: var(--muted);
+  font-size: .73rem;
+  line-height: 1.45;
+}
+
+.registration-interest-status.is-error {
+  color: #b42318;
+  font-weight: 750;
+}
+
+.registration-interest-detail-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.registration-interest-detail-head p {
+  max-width: 650px;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: .77rem;
+  line-height: 1.55;
+}
+
+.registration-interest-detail-groups {
+  display: block;
+}
+
+.registration-interest-selected-fields {
+  margin-bottom: 14px;
+  padding: 13px;
+  border: 1px solid color-mix(in srgb, var(--indigo) 20%, var(--line));
+  border-radius: 15px;
+  background: color-mix(in srgb, var(--indigo-soft) 42%, var(--surface));
+}
+
+.registration-interest-selected-fields-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.registration-interest-selected-fields-head strong {
+  color: var(--navy);
+  font-size: .8rem;
+}
+
+.registration-interest-selected-fields-head span {
+  color: var(--muted);
+  font-size: .68rem;
+}
+
+.registration-interest-field-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.registration-interest-field-chip {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--paper);
+}
+
+.registration-interest-field-chip.is-active {
+  border-color: color-mix(in srgb, var(--indigo) 50%, var(--line));
+  box-shadow: 0 5px 14px color-mix(in srgb, var(--indigo) 12%, transparent);
+}
+
+.registration-interest-field-tab {
+  display: grid;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--text-body);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.registration-interest-field-tab:hover,
+.registration-interest-field-tab:focus-visible {
+  color: var(--indigo);
+  outline: 0;
+}
+
+.registration-interest-field-tab > span {
+  color: var(--muted);
+  font-size: .58rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.registration-interest-field-tab > strong {
+  max-width: 190px;
+  overflow: hidden;
+  color: inherit;
+  font-size: .72rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.registration-interest-field-tab > small {
+  color: var(--muted);
+  font-size: .61rem;
+  line-height: 1.25;
+}
+
+.registration-interest-field-remove {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  border: 0;
+  border-left: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.registration-interest-field-remove:hover,
+.registration-interest-field-remove:focus-visible,
+.registration-interest-remove-field:hover,
+.registration-interest-remove-field:focus-visible {
+  background: color-mix(in srgb, #b42318 8%, transparent);
+  color: #b42318;
+  outline: 0;
+}
+
+.registration-interest-detail-card-active {
+  padding: 15px;
+}
+
+.registration-interest-detail-card-active > header {
+  align-items: center;
+}
+
+.registration-interest-detail-card-active > header > div {
+  min-width: 0;
+}
+
+.registration-interest-detail-card-active > header strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--navy);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.registration-interest-remove-field {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 5px;
+  padding: 7px 9px;
+  border: 1px solid color-mix(in srgb, #b42318 22%, var(--line));
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: .65rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.registration-interest-detail-more {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px dashed color-mix(in srgb, var(--indigo) 32%, var(--line));
+  border-radius: 8px;
+  background: transparent;
+  color: var(--indigo);
+  font: inherit;
+  font-size: .68rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.registration-interest-detail-more:hover,
+.registration-interest-detail-more:focus-visible {
+  background: var(--indigo-soft);
+  outline: 0;
+}
+
+.registration-interest-detail-selection-note {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.registration-interest-detail-selection-note span {
+  color: var(--indigo);
+  font-size: .67rem;
+  font-weight: 850;
+}
+
+.registration-interest-detail-selection-note small {
+  color: var(--muted);
+  font-size: .65rem;
+}
+
+.registration-interest-detail-mode {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 93%, var(--paper));
+}
+
+.registration-interest-detail-mode > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.registration-interest-detail-mode > header h4 {
+  margin: 0;
+  color: var(--navy);
+  font-size: .82rem;
+}
+
+.registration-interest-detail-mode > header span {
+  color: var(--muted);
+  font-size: .65rem;
+}
+
+.registration-interest-detail-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.registration-interest-detail-card {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.registration-interest-detail-card > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.registration-interest-detail-card > header strong {
+  color: var(--navy);
+  font-size: .75rem;
+  line-height: 1.25;
+}
+
+.registration-interest-detail-card > header span {
+  flex: 0 0 auto;
+  color: var(--indigo);
+  font-size: .64rem;
+  font-weight: 800;
+}
+
+.registration-interest-detail-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 35px;
+  margin-bottom: 8px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.registration-interest-detail-search:focus-within {
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--indigo) 14%, transparent);
+}
+
+.registration-interest-detail-search i {
+  font-size: .9rem;
+}
+
+.registration-interest-detail-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text-strong);
+  font: inherit;
+  font-size: .68rem;
+}
+
+.registration-interest-detail-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+  max-height: 260px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.registration-interest-detail-option {
+  min-width: 0;
+  padding: 7px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-body);
+  font: inherit;
+  font-size: .63rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.registration-interest-detail-option:hover,
+.registration-interest-detail-option:focus-visible {
+  border-color: var(--indigo);
+  color: var(--indigo);
+}
+
+.registration-interest-detail-option.is-selected {
+  border-color: color-mix(in srgb, var(--indigo) 42%, var(--line));
+  background: var(--indigo-soft);
+  color: var(--indigo);
+}
+
+.registration-interest-detail-empty {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: .66rem;
+}
+
+html[data-theme="dark"] .registration-interest-stage,
+html[data-theme="dark"] .registration-interest-column,
+html[data-theme="dark"] .registration-interest-detail-mode,
+html[data-theme="dark"] .registration-interest-detail-card {
+  background: #151922;
+  border-color: #343b4c;
+}
+
+html[data-theme="dark"] .registration-interest-progress,
+html[data-theme="dark"] .registration-interest-search,
+html[data-theme="dark"] .registration-interest-detail-search,
+html[data-theme="dark"] .registration-interest-option,
+html[data-theme="dark"] .registration-interest-detail-option {
+  background: #0f131b;
+  border-color: #343b4c;
+}
+
+html[data-theme="dark"] .registration-interest-option.is-selected {
+  background: linear-gradient(135deg, #6f5bda, #4b83f5);
+  border-color: transparent;
+  color: #fff;
+}
+
+html[data-theme="dark"] .registration-interest-detail-option.is-selected {
+  background: #2a2750;
+  border-color: #6657c4;
+  color: #cfc8ff;
+}
+
+html[data-theme="dark"] .registration-interest-child-note {
+  background: #261c30;
+  border-color: #63415d;
+}
+
+@media (max-width: 760px) {
+  .registration-interest-stage {
+    padding: 17px;
+    border-radius: 18px;
+  }
+
+  .registration-interest-columns,
+  .registration-interest-detail-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .registration-interest-options {
+    max-height: 300px;
+  }
+
+  .registration-interest-detail-head {
+    flex-direction: column;
+  }
+
+  .registration-interest-detail-head .btn {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .registration-interest-progress {
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .registration-interest-progress > i {
+    align-self: center;
+  }
+
+  .registration-interest-progress button {
+    flex: 1;
+    justify-content: center;
+    padding-inline: 6px;
+    font-size: .64rem;
+  }
+
+  .registration-interest-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .registration-interest-actions .btn {
+    width: 100%;
+  }
+
+  .registration-interest-option {
+    min-height: 41px;
+    font-size: .68rem;
+  }
+}

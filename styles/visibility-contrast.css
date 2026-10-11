@@ -1,0 +1,1416 @@
+/*
+ * SwapLabs visibility contract.
+ *
+ * This file is intentionally loaded last. Route styles can still choose the
+ * surface, spacing, and accent palette, but readable foregrounds are shared
+ * across every route, theme, workspace, and preference state.
+ */
+
+:root,
+html[data-theme="light"] {
+  --visibility-ink: #111827;
+  --visibility-heading: #0f172a;
+  --visibility-body: #334155;
+  --visibility-muted: #475569;
+  --visibility-link: #1d4ed8;
+  --visibility-line: #94a3b8;
+  --visibility-input: #ffffff;
+  --visibility-inverse: #f8fafc;
+  --visibility-inverse-body: #e2e8f0;
+  --visibility-inverse-muted: #cbd5e1;
+  --visibility-inverse-link: #bfdbfe;
+  --visibility-dark-surface: #111827;
+  --visibility-dark-surface-raised: #1f2937;
+}
+
+html[data-theme="dark"] {
+  --visibility-ink: #f8fafc;
+  --visibility-heading: #f8fafc;
+  --visibility-body: #e2e8f0;
+  --visibility-muted: #cbd5e1;
+  --visibility-link: #bfdbfe;
+  --visibility-line: #64748b;
+  --visibility-input: #111827;
+  --visibility-inverse: #f8fafc;
+  --visibility-inverse-body: #e2e8f0;
+  --visibility-inverse-muted: #cbd5e1;
+  --visibility-inverse-link: #bfdbfe;
+  --visibility-dark-surface: #050b14;
+  --visibility-dark-surface-raised: #111827;
+}
+
+html body,
+html body[class] {
+  color: var(--visibility-ink) !important;
+  text-rendering: optimizeLegibility;
+}
+
+/* Normal page copy: solid colors prevent pale legacy variables and failed
+   gradient text from turning useful information into visual noise. */
+html body :where(h1, h2, h3, h4, h5, h6, strong, b, th) {
+  color: var(--visibility-heading) !important;
+  -webkit-text-fill-color: var(--visibility-heading) !important;
+}
+
+html body :where(
+  p, li, dd, dt, label, legend, figcaption, caption, td, time, summary,
+  blockquote, main small, main .muted, main .text-muted,
+  main [class*="muted"], .site-footer p, .site-footer li, .site-footer small
+) {
+  color: var(--visibility-body) !important;
+  -webkit-text-fill-color: var(--visibility-body) !important;
+  opacity: 1 !important;
+}
+
+html body :where(main a:not(.btn):not([class*="button"]):not([class*="btn"]), .site-footer a) {
+  color: var(--visibility-link) !important;
+  -webkit-text-fill-color: var(--visibility-link) !important;
+  text-decoration-thickness: .1em;
+  text-underline-offset: .16em;
+}
+
+/* The named inverse surfaces remain dark in light mode and must keep their
+   foreground light. This includes the panel shown in the supplied report. */
+html body :where(
+  .auth-benefits, .cta-band, .site-footer, .footer-top, .footer-cta,
+  .dark-feature-card, .dark-panel, .dark-surface, .feature-dark, .hero-dark,
+  .community-principles-card, .donation-hero, .login-popup-rail,
+  .admin-section-nav, .admin-command-strip, .workspace-bar,
+  .error-404-hero
+) {
+  color: var(--visibility-inverse) !important;
+}
+
+html body :where(
+  .auth-benefits, .cta-band, .site-footer, .footer-top, .footer-cta,
+  .dark-feature-card, .dark-panel, .dark-surface, .feature-dark, .hero-dark,
+  .community-principles-card, .donation-hero, .login-popup-rail,
+  .admin-section-nav, .admin-command-strip, .workspace-bar,
+  .error-404-hero
+) :where(h1, h2, h3, h4, h5, h6, strong, b, th) {
+  color: var(--visibility-inverse) !important;
+  -webkit-text-fill-color: var(--visibility-inverse) !important;
+}
+
+html body :where(
+  .auth-benefits, .cta-band, .site-footer, .footer-top, .footer-cta,
+  .dark-feature-card, .dark-panel, .dark-surface, .feature-dark, .hero-dark,
+  .community-principles-card, .donation-hero, .login-popup-rail,
+  .admin-section-nav, .admin-command-strip, .workspace-bar,
+  .error-404-hero
+) :where(p, li, dd, dt, label, small, time, span, figcaption, caption) {
+  color: var(--visibility-inverse-body) !important;
+  -webkit-text-fill-color: var(--visibility-inverse-body) !important;
+  opacity: 1 !important;
+}
+
+html body :where(
+  .auth-benefits, .cta-band, .site-footer, .footer-top, .footer-cta,
+  .dark-feature-card, .dark-panel, .dark-surface, .feature-dark, .hero-dark,
+  .community-principles-card, .donation-hero, .login-popup-rail,
+  .admin-section-nav, .admin-command-strip, .workspace-bar,
+  .error-404-hero
+) a:not(.btn):not([class*="button"]):not([class*="btn"]) {
+  color: var(--visibility-inverse-link) !important;
+  -webkit-text-fill-color: var(--visibility-inverse-link) !important;
+}
+
+/* Community principles is a deliberate dark island in both themes. Keep its
+   kicker dark-on-light, and its heading/copy light-on-dark. */
+html body .community-principles-card {
+  background: linear-gradient(135deg, #111827 0%, #1f3a5f 100%) !important;
+  border-color: #45617f !important;
+  color: #f8fafc !important;
+}
+
+html body .community-principles-card .eyebrow {
+  background: #dff7ed !important;
+  border-color: #8fd5c2 !important;
+  color: #064e3b !important;
+  -webkit-text-fill-color: #064e3b !important;
+}
+
+html body .community-principles-card :where(h1, h2, h3, h4, strong, b) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body .community-principles-card :where(p, li, small, span) {
+  color: #e2e8f0 !important;
+  -webkit-text-fill-color: #e2e8f0 !important;
+  opacity: 1 !important;
+}
+
+html body .community-principles-card .community-principle-list > div {
+  background: rgba(255, 255, 255, .1) !important;
+  border-color: rgba(226, 232, 240, .35) !important;
+}
+
+/* Controls use solid, predictable foreground/background pairs in both modes. */
+html body :where(
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]),
+  textarea, select
+) {
+  background: var(--visibility-input) !important;
+  border-color: var(--visibility-line) !important;
+  color: var(--visibility-ink) !important;
+  -webkit-text-fill-color: var(--visibility-ink) !important;
+}
+
+html body :where(input, textarea, select)::placeholder {
+  color: var(--visibility-muted) !important;
+  -webkit-text-fill-color: var(--visibility-muted) !important;
+  opacity: 1 !important;
+}
+
+html body :where(button, [role="button"], .btn, input[type="submit"], input[type="button"], input[type="reset"]) {
+  color: var(--visibility-ink) !important;
+  -webkit-text-fill-color: var(--visibility-ink) !important;
+  opacity: 1 !important;
+}
+
+html body :where(.btn-primary, button.btn-primary, a.btn-primary,
+  .primary-button, .button-primary, .cta-primary, input[type="submit"]) {
+  background: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html[data-theme="dark"] body :where(
+  .btn:not(.btn-primary), button:not(.btn-primary), [role="button"]:not(.btn-primary),
+  .btn-secondary, .secondary-button, .btn-outline, .ghost-button
+) {
+  background: #1f2937 !important;
+  border-color: #64748b !important;
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+html body :where(
+  .auth-benefits, .cta-band, .site-footer, .footer-top, .footer-cta,
+  .dark-feature-card, .dark-panel, .dark-surface, .feature-dark, .hero-dark,
+  .community-principles-card, .donation-hero, .login-popup-rail,
+  .admin-section-nav, .admin-command-strip, .workspace-bar,
+  .error-404-hero
+) :where(button, [role="button"], .btn, .btn:not(.btn-primary)) {
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+html body :where(button:disabled, input:disabled, select:disabled, textarea:disabled) {
+  opacity: .78 !important;
+}
+
+html body :where(button, a, input, select, textarea, summary, [role="button"], [tabindex]):focus-visible {
+  outline: 3px solid #1d4ed8 !important;
+  outline-offset: 3px !important;
+}
+
+html[data-theme="dark"] body :where(button, a, input, select, textarea, summary, [role="button"], [tabindex]):focus-visible {
+  outline-color: #bfdbfe !important;
+}
+
+/* Labels, badges, and status text should never rely on a pale accent alone. */
+html body :where(.tag, .badge, .pill, .chip, .status-pill, .filter-chip, .category-pill) {
+  background: #eef2ff !important;
+  border-color: #93c5fd !important;
+  color: #1e3a8a !important;
+  -webkit-text-fill-color: #1e3a8a !important;
+}
+
+html[data-theme="dark"] body :where(.tag, .badge, .pill, .chip, .status-pill, .filter-chip, .category-pill) {
+  background: #1e293b !important;
+  border-color: #64748b !important;
+  color: #dbeafe !important;
+  -webkit-text-fill-color: #dbeafe !important;
+}
+
+html.pref-high-contrast body :where(p, li, dd, dt, label, small, time, span) {
+  opacity: 1 !important;
+}
+
+html.pref-high-contrast body :where(.btn, input, select, textarea, .card, .panel, .profile-card) {
+  border-width: 2px !important;
+}
+
+@media (forced-colors: active) {
+  html body,
+  html body[class],
+  html body :where(h1, h2, h3, h4, h5, h6, p, li, label, small, span, strong, a) {
+    background: Canvas !important;
+    color: CanvasText !important;
+    -webkit-text-fill-color: CanvasText !important;
+  }
+
+  html body :where(a, a:not(.btn)) {
+    color: LinkText !important;
+    text-decoration: underline !important;
+  }
+
+  html body :where(button, .btn, input, select, textarea) {
+    background: ButtonFace !important;
+    border: 2px solid ButtonText !important;
+    color: ButtonText !important;
+    -webkit-text-fill-color: ButtonText !important;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Classic SwapLabs visibility palette
+   -------------------------------------------------------------------------
+   This file is the last contrast contract on the site. Keep its readability
+   guarantees, but use the restored navy/warm-white/coral/lilac/mint colors
+   instead of the later blue utility palette.
+*/
+:root,
+html[data-theme="light"] {
+  --visibility-ink: #172a46;
+  --visibility-heading: #172a46;
+  --visibility-body: #4f5e70;
+  --visibility-muted: #657184;
+  --visibility-link: #386fd8;
+  --visibility-line: #d9dad6;
+  --visibility-input: #ffffff;
+  --visibility-inverse: #f8f7f3;
+  --visibility-inverse-body: #e3e9ef;
+  --visibility-inverse-muted: #b8c2cf;
+  --visibility-inverse-link: #b8a7e8;
+  --visibility-dark-surface: #172a46;
+  --visibility-dark-surface-raised: #2a4162;
+}
+
+html[data-theme="dark"] {
+  --visibility-ink: #f8f7f3;
+  --visibility-heading: #f8f7f3;
+  --visibility-body: #c9d1db;
+  --visibility-muted: #b8c2cf;
+  --visibility-link: #9be0cc;
+  --visibility-line: #344a63;
+  --visibility-input: #172a46;
+  --visibility-inverse: #f8f7f3;
+  --visibility-inverse-body: #c9d1db;
+  --visibility-inverse-muted: #b8c2cf;
+  --visibility-inverse-link: #c4b8f0;
+  --visibility-dark-surface: #0c1726;
+  --visibility-dark-surface-raised: #172a46;
+}
+
+html body:not(#relay-visibility-specificity-boost),
+html body:not(#relay-visibility-specificity-boost)[class] {
+  background-color: var(--rs-page, #f8f7f3) !important;
+  color: var(--visibility-ink) !important;
+  --nav-text: #4f5e70 !important;
+  --nav-heading: #172a46 !important;
+  --navx-text: #4f5e70 !important;
+  --navx-heading: #172a46 !important;
+  --nav-hover: rgba(143, 213, 194, .24) !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) {
+  background-image: var(--brand-wash) !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost) {
+  --nav-text: #c9d1db !important;
+  --nav-heading: #f8f7f3 !important;
+  --navx-text: #c9d1db !important;
+  --navx-heading: #f8f7f3 !important;
+  --nav-hover: rgba(143, 213, 194, .14) !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .btn-primary, button.btn-primary, a.btn-primary,
+  .primary-button, .button-primary, .cta-primary, input[type="submit"]
+) {
+  background: var(--rs-gradient-action, linear-gradient(110deg, #ff6b5a, #eb6558)) !important;
+  border-color: var(--rs-action, #ff6b5a) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .btn-primary:hover, button.btn-primary:hover, a.btn-primary:hover,
+  .primary-button:hover, .button-primary:hover, .cta-primary:hover,
+  input[type="submit"]:hover
+) {
+  background: #e85f53 !important;
+  border-color: #e85f53 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  button, [role="button"], .btn, input[type="submit"], input[type="button"],
+  input[type="reset"]
+) {
+  color: var(--visibility-ink) !important;
+  -webkit-text-fill-color: var(--visibility-ink) !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  button, a, input, select, textarea, summary
+):focus-visible {
+  outline-color: #ff6b5a !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .tag, .badge, .pill, .chip, .status-pill, .filter-chip, .category-pill
+) {
+  background: #eeeaf9 !important;
+  border-color: #b8a7e8 !important;
+  color: #6f5bbd !important;
+  -webkit-text-fill-color: #6f5bbd !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary {
+  background: #172a46 !important;
+  border-color: #52617b !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary > i {
+  color: #8fd5c2 !important;
+  -webkit-text-fill-color: #8fd5c2 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure)[open] > summary,
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary:active {
+  background: #2a4162 !important;
+  border-color: #b8a7e8 !important;
+}
+
+html:not([data-theme="dark"]) body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal,
+html:not([data-theme="dark"]) body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal :is(small, strong, div > span) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+html:not([data-theme="dark"]) body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal small,
+html:not([data-theme="dark"]) body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal div > span {
+  color: #4f5e70 !important;
+  -webkit-text-fill-color: #4f5e70 !important;
+}
+
+/*
+ * Some legacy route styles use a more specific, important dark-theme rule.
+ * Keep this final contract stronger than those historical palette passes so
+ * a theme switch cannot turn copy back into near-black text. The :not()
+ * argument is intentionally absent; it raises specificity without changing
+ * which elements match.
+ */
+html body:not(#relay-visibility-specificity-boost) {
+  --nav-text: #334155 !important;
+  --nav-heading: #111827 !important;
+  --navx-text: #334155 !important;
+  --navx-heading: #111827 !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost) {
+  --nav-text: #f8fafc !important;
+  --nav-heading: #f8fafc !important;
+  --navx-text: #f8fafc !important;
+  --navx-heading: #f8fafc !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  h1, h2, h3, h4, h5, h6, strong, b, th
+) {
+  color: var(--visibility-heading) !important;
+  -webkit-text-fill-color: var(--visibility-heading) !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  p, li, dd, dt, label, legend, figcaption, caption, td, time, summary,
+  blockquote, small, .muted, .text-muted, [class*="muted"]
+) {
+  color: var(--visibility-body) !important;
+  -webkit-text-fill-color: var(--visibility-body) !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .site-header .brand, .site-header .brand *,
+  .site-header .nav-links a, .site-header .nav-links button,
+  .site-header .nav-links span, .site-header .nav-actions a,
+  .site-header .nav-actions button, .site-header .nav-actions span,
+  .static-site-header a, .static-site-header button,
+  .static-site-header span
+) {
+  color: var(--nav-text) !important;
+  -webkit-text-fill-color: var(--nav-text) !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .site-header .brand-wordmark-relay, .site-header .nav-links .nav-create,
+  .site-header .nav-links .nav-create span
+) {
+  color: #c24124 !important;
+  -webkit-text-fill-color: #c24124 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .site-header .nav-links a.active, .site-header .nav-links a.active *,
+  .site-header .nav-actions .btn-primary, .site-header .nav-actions .btn-primary *
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost) :where(
+  .site-header .brand, .site-header .brand *,
+  .site-header .nav-links a, .site-header .nav-links button,
+  .site-header .nav-links span, .site-header .nav-actions a,
+  .site-header .nav-actions button, .site-header .nav-actions span,
+  .static-site-header a, .static-site-header button,
+  .static-site-header span
+) {
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost) :where(
+  .site-header .brand-wordmark-relay, .site-header .nav-links .nav-create,
+  .site-header .nav-links .nav-create span
+) {
+  color: #ffb08e !important;
+  -webkit-text-fill-color: #ffb08e !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .auth-benefits, .cta-band, .site-footer, .footer-top, .footer-cta,
+  .dark-feature-card, .dark-panel, .dark-surface, .feature-dark, .hero-dark,
+  .community-principles-card, .donation-hero, .login-popup-rail,
+  .admin-section-nav, .admin-command-strip, .workspace-bar,
+  .error-404-hero
+) {
+  color: var(--visibility-inverse) !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .auth-benefits, .cta-band, .site-footer, .footer-top, .footer-cta,
+  .dark-feature-card, .dark-panel, .dark-surface, .feature-dark, .hero-dark,
+  .community-principles-card, .donation-hero, .login-popup-rail,
+  .admin-section-nav, .admin-command-strip, .workspace-bar,
+  .error-404-hero
+) :where(h1, h2, h3, h4, h5, h6, strong, b, th) {
+  color: var(--visibility-inverse) !important;
+  -webkit-text-fill-color: var(--visibility-inverse) !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .auth-benefits, .cta-band, .site-footer, .footer-top, .footer-cta,
+  .dark-feature-card, .dark-panel, .dark-surface, .feature-dark, .hero-dark,
+  .community-principles-card, .donation-hero, .login-popup-rail,
+  .admin-section-nav, .admin-command-strip, .workspace-bar,
+  .error-404-hero
+) :where(p, li, dd, dt, label, small, time, span, figcaption, caption) {
+  color: var(--visibility-inverse-body) !important;
+  -webkit-text-fill-color: var(--visibility-inverse-body) !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .community-principles-card {
+  background: linear-gradient(135deg, #111827 0%, #1f3a5f 100%) !important;
+  border-color: #45617f !important;
+  color: #f8fafc !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .community-principles-card .eyebrow {
+  background: #dff7ed !important;
+  border-color: #8fd5c2 !important;
+  color: #064e3b !important;
+  -webkit-text-fill-color: #064e3b !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .community-principles-card :where(
+  h1, h2, h3, h4, strong, b
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .community-principles-card :where(
+  p, li, small, span
+) {
+  color: #e2e8f0 !important;
+  -webkit-text-fill-color: #e2e8f0 !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  button, [role="button"], .btn, input[type="submit"], input[type="button"],
+  input[type="reset"]
+) {
+  color: var(--visibility-ink) !important;
+  -webkit-text-fill-color: var(--visibility-ink) !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost) :where(
+  button:not(.btn-primary), [role="button"]:not(.btn-primary),
+  .btn:not(.btn-primary), .btn-secondary, .secondary-button, .btn-outline,
+  .ghost-button
+) {
+  background: #1f2937 !important;
+  border-color: #64748b !important;
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :where(
+  .btn-primary, button.btn-primary, a.btn-primary,
+  .primary-button, .button-primary, .cta-primary, input[type="submit"]
+) {
+  background: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Compact footer disclosures are dark controls even on the light site. Keep
+   their labels readable after the global summary/text contract is applied,
+   and make an opened or pressed disclosure visibly active. */
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary {
+  background: #172a46 !important;
+  border-color: #9cb4d4 !important;
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary > * {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary > i {
+  color: #bfdbfe !important;
+  -webkit-text-fill-color: #bfdbfe !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary > small {
+  color: #dbeafe !important;
+  -webkit-text-fill-color: #dbeafe !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary:hover,
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary:focus-visible {
+  background: #243d62 !important;
+  border-color: #bfdbfe !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure)[open] > summary,
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary:active {
+  background: #315bea !important;
+  border-color: #b8c1ff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(184, 193, 255, .2), 0 8px 18px rgba(8, 20, 49, .24);
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure)[open] > summary > i,
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary:active > i {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure)[open] > summary > small,
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact :is(.footer-directory-disclosure, .footer-updates-disclosure) > summary:active > small {
+  color: #eef2ff !important;
+  -webkit-text-fill-color: #eef2ff !important;
+}
+
+/* Dashboard summary cards are essential account information. Keep their
+   labels and values readable while the rest of the dashboard reveal motion
+   settles, and give both themes an explicit card-safe foreground. */
+html:not([data-theme="dark"]) body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal {
+  opacity: 1 !important;
+  color: #172344 !important;
+  -webkit-text-fill-color: #172344 !important;
+}
+
+html:not([data-theme="dark"]) body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal :is(small, strong, div > span) {
+  opacity: 1 !important;
+  color: #172344 !important;
+  -webkit-text-fill-color: #172344 !important;
+}
+
+html:not([data-theme="dark"]) body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal small,
+html:not([data-theme="dark"]) body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal div > span {
+  color: #52617a !important;
+  -webkit-text-fill-color: #52617a !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal {
+  opacity: 1 !important;
+  color: #f6f8ff !important;
+  -webkit-text-fill-color: #f6f8ff !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal :is(small, strong, div > span) {
+  opacity: 1 !important;
+  color: #f6f8ff !important;
+  -webkit-text-fill-color: #f6f8ff !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal small,
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost).dashboard-redesign.dashboard-journey-page .dashboard-stat-card.dashboard-reveal div > span {
+  color: #cbd6eb !important;
+  -webkit-text-fill-color: #cbd6eb !important;
+}
+
+@media (forced-colors: active) {
+  html body:not(#relay-visibility-specificity-boost),
+  html body:not(#relay-visibility-specificity-boost) :where(
+    h1, h2, h3, h4, h5, h6, p, li, label, small, span, strong, a
+  ) {
+    background: Canvas !important;
+    color: CanvasText !important;
+    -webkit-text-fill-color: CanvasText !important;
+  }
+
+  html body:not(#relay-visibility-specificity-boost) :where(a, a:not(.btn)) {
+    color: LinkText !important;
+    -webkit-text-fill-color: LinkText !important;
+    text-decoration: underline !important;
+  }
+
+  html body:not(#relay-visibility-specificity-boost) :where(
+    button, .btn, input, select, textarea
+  ) {
+    background: ButtonFace !important;
+    border: 2px solid ButtonText !important;
+    color: ButtonText !important;
+    -webkit-text-fill-color: ButtonText !important;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Final classic palette lock
+   -------------------------------------------------------------------------
+   The shared usability stylesheet contains a few important, route-agnostic
+   cobalt declarations. Keep this contract at the absolute end of the loaded
+   visibility layer so those legacy declarations cannot wash out the original
+   SwapLabs palette on any page.
+*/
+html body:not(#relay-visibility-specificity-boost),
+html body:not(#relay-visibility-specificity-boost)[class] {
+  --rs-ink: #172a46 !important;
+  --rs-cobalt: #4b83f5 !important;
+  --rs-violet: #8270c6 !important;
+  --rs-apricot: #ff6b5a !important;
+  --rs-cloud: #f8f7f3 !important;
+  --rs-bluewash: #eef3ff !important;
+  --rs-peach: #fff0ed !important;
+  --rs-line: #d9dad6 !important;
+  --rs-muted: #657184 !important;
+  --rs-page: #f8f7f3 !important;
+  --rs-action: #ff6b5a !important;
+  --rs-action-text: #ffffff !important;
+  --rs-gradient-action: linear-gradient(110deg, #ff6b5a 0%, #eb6558 100%) !important;
+  --relayskills-navy: #172a46 !important;
+  --relayskills-navy-2: #2a4162 !important;
+  --relayskills-blue: #4b83f5 !important;
+  --relayskills-blue-strong: #386fd8 !important;
+  --relayskills-iris: #b8a7e8 !important;
+  --relayskills-purple: #8270c6 !important;
+  --relayskills-coral: #ff6b5a !important;
+  --relayskills-orange: #ff8a65 !important;
+  --relayskills-mint: #8fd5c2 !important;
+  --relayskills-muted: #657184 !important;
+  --relayskills-line: #d9dad6 !important;
+  --relayskills-warm-white: #f8f7f3 !important;
+  --navy: #172a46 !important;
+  --navy-2: #2a4162 !important;
+  --ink: #172a46 !important;
+  --muted: #657184 !important;
+  --paper: #f8f7f3 !important;
+  --line: #d9dad6 !important;
+  --indigo: #b8a7e8 !important;
+  --blue: #8fd5c2 !important;
+  --pink: #ff6b5a !important;
+  --green: #8fd5c2 !important;
+  --surface-soft: #f1f5f1 !important;
+  --text-strong: #172a46 !important;
+  --text-body: #4f5e70 !important;
+  --action-surface: #ff6b5a !important;
+  background-color: #f8f7f3 !important;
+  background-image: var(--brand-wash) !important;
+  color: #172a46 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :is(
+  .btn-primary, button.btn-primary, a.btn-primary,
+  .primary-button, .button-primary, .cta-primary, input[type="submit"]
+) {
+  background: linear-gradient(110deg, #ff6b5a 0%, #eb6558 100%) !important;
+  border-color: #ff6b5a !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) :is(
+  .btn-primary:hover, button.btn-primary:hover, a.btn-primary:hover,
+  .primary-button:hover, .button-primary:hover, .cta-primary:hover,
+  input[type="submit"]:hover
+) {
+  background: #e85f53 !important;
+  border-color: #e85f53 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Administration uses its own high-specificity shell. Bring that shell back
+   into the same classic system instead of leaving a cobalt/purple island. */
+html body.workspace-admin.workspace-admin.workspace-admin {
+  --admin-bg: #f8f7f3 !important;
+  --admin-surface: #ffffff !important;
+  --admin-surface-soft: #f1f5f1 !important;
+  --admin-ink: #172a46 !important;
+  --admin-body: #4f5e70 !important;
+  --admin-muted: #657184 !important;
+  --admin-line: #d9dad6 !important;
+  --admin-navy: #172a46 !important;
+  --admin-navy-soft: #2a4162 !important;
+  --admin-blue: #4b83f5 !important;
+  --admin-coral: #ff6b5a !important;
+  --admin-mint: #8fd5c2 !important;
+  --admin-lilac: #b8a7e8 !important;
+  --admin-green: #0d8f72 !important;
+  background: #f8f7f3 !important;
+  color: #172a46 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-section-nav {
+  background: linear-gradient(155deg, #172a46 0%, #2a4162 100%) !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-command-strip,
+html body.workspace-admin.workspace-admin.workspace-admin .workspace-bar {
+  background: linear-gradient(118deg, #172a46 0%, #2a4162 62%, #8270c6 100%) !important;
+  border-color: rgba(184, 167, 232, .45) !important;
+  box-shadow: 0 20px 42px rgba(23, 42, 70, .18) !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-main {
+  background: #f8f7f3 !important;
+  border-color: #d9dad6 !important;
+  color: #172a46 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard-section {
+  background: #ffffff !important;
+  border-color: #d9dad6 !important;
+  color: #172a46 !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-section-nav .admin-nav-group-buttons button.active,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-command-actions .btn.btn-primary,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard a.btn.btn-primary,
+html body.workspace-admin.workspace-admin.workspace-admin .admin-dashboard button.btn-primary {
+  background: linear-gradient(110deg, #ff6b5a 0%, #eb6558 100%) !important;
+  border-color: #ff6b5a !important;
+  color: #ffffff !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-section-mini-chart i {
+  background: linear-gradient(135deg, #8270c6, #b8a7e8) !important;
+}
+
+html body.workspace-admin.workspace-admin.workspace-admin .admin-message-guide {
+  background: linear-gradient(145deg, #eeeaf9, #ffffff) !important;
+  border-color: #cfc9ed !important;
+  color: #172a46 !important;
+}
+
+/* The assistant is present across routes; keep its launcher branded lilac
+   and coral rather than inheriting the newer cobalt action gradient. */
+html body:not(#relay-visibility-specificity-boost) .swapbot-launch {
+  background: linear-gradient(120deg, #8270c6 0%, #b8a7e8 100%) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 18px 42px rgba(23, 42, 70, .20), inset 0 1px rgba(255, 255, 255, .28) !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .swapbot-online {
+  border-color: #172a46 !important;
+  background: #ff6b5a !important;
+  box-shadow: 0 0 0 4px rgba(255, 107, 90, .18) !important;
+}
+
+/* Shared header: keep the familiar warm shell and blue/lilac navigation
+   accents, while reserving coral for the primary action. */
+html body:not(#relay-visibility-specificity-boost) .site-header,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav::before {
+  background-color: rgba(248, 247, 243, .94) !important;
+  background-image: none !important;
+  border-color: rgba(23, 42, 70, .15) !important;
+  color: #172a46 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-actions,
+html body:not(#relay-visibility-specificity-boost) .site-header .auth-nav,
+html body:not(#relay-visibility-specificity-boost) .site-header .menu-btn,
+html body:not(#relay-visibility-specificity-boost) .site-header .auth-nav .btn:not(.btn-primary) {
+  color: #172a46 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links > a.nav-major,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links .nav-hover-group .nav-major,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-actions > *,
+html body:not(#relay-visibility-specificity-boost) .site-header .auth-nav > * {
+  color: #4f5e70 !important;
+  -webkit-text-fill-color: #4f5e70 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links > a.nav-major.active,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links .nav-hover-group .nav-major.active,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links > a.nav-major:hover,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links .nav-hover-group:hover .nav-major {
+  background: linear-gradient(135deg, #4b83f5 0%, #8270c6 100%) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links > a.nav-major.active i,
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links .nav-hover-group .nav-major.active i {
+  color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links > a.nav-major.nav-create:not(.active),
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-links .nav-hover-group.nav-create .nav-major:not(.active),
+html body:not(#relay-visibility-specificity-boost) .site-header .brand-wordmark-relay {
+  color: #ff6b5a !important;
+  -webkit-text-fill-color: #ff6b5a !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-header .brand-wordmark-skills {
+  color: #4b83f5 !important;
+  -webkit-text-fill-color: #4b83f5 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-search-menu .nav-site-search button {
+  background: #8270c6 !important;
+  color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-header .nav-actions .btn-primary,
+html body:not(#relay-visibility-specificity-boost) .site-header .auth-nav .btn-primary,
+html body:not(#relay-visibility-specificity-boost) .site-header a.btn-primary {
+  background: linear-gradient(110deg, #ff6b5a 0%, #eb6558 100%) !important;
+  border-color: #ff6b5a !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact a.footer-directory-disclosure {
+  background: #172a46 !important;
+  border-color: #9cb4d4 !important;
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact a.footer-directory-disclosure > i {
+  color: #bfdbfe !important;
+  -webkit-text-fill-color: #bfdbfe !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact a.footer-directory-disclosure > small {
+  color: #dbeafe !important;
+  -webkit-text-fill-color: #dbeafe !important;
+}
+
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact a.footer-directory-disclosure:hover,
+html body:not(#relay-visibility-specificity-boost) .site-footer.site-footer--compact a.footer-directory-disclosure:focus-visible {
+  background: #243d62 !important;
+  border-color: #bfdbfe !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* -------------------------------------------------------------------------
+   Final contrast invariants
+   -------------------------------------------------------------------------
+   Keep the foreground tied to the surface it sits on. A few legacy route
+   styles set pale text on white cards (especially labels and spans), while
+   other route styles set dark text on filled blue controls. These rules are
+   deliberately last and high-specificity so every route follows the same
+   readable contract.
+*/
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(
+  .card, .panel, .surface, .match-panel, .match-result,
+  .feature-panel, .feature-card, .feature-list-row, .feature-empty, .feature-callout,
+  .insight-card, .related-card, .profile-card, .auth-card, .form-section,
+  .platform-card, .platform-form-shell, .platform-side-card, .platform-hero-card,
+  .workspace-panel, .story-panel, .ecosystem-card, .check-item, .deep-faq,
+  .form-card, .faq-item, .price-card, .notification-section, .notification-item,
+  .follow-request-card, .live-member-card, .ops-panel, .voice-card, .chart-card,
+  .dashboard-panel, .dashboard-stat-card, .dashboard-study-card, .dashboard-wide-panel,
+  .dashboard-discovery-panel, .dashboard-journey-panel, .member-chart-panel,
+  .member-insights-panel, .portal-empty, .dashboard-match-card, .portfolio-panel,
+  .rs-live-metrics, .rs-float-label, .rs-match-person, .rs-match-result,
+  .rs-chat-bubble, .rs-mini-calendar, .rs-reflection, .rs-tool-card,
+  .rs-ritual, .rs-constellation-story, .rs-constellation-node, .rs-next-move-card,
+  .home-demo-network, .home-demo-member, .home-reference-member,
+  .home-reference-learners, .home-reference-story,
+  .admin-dashboard, .admin-dashboard-section, .admin-panel, .admin-extra-insights,
+  .admin-analytics-collapsible, .admin-insights-panel, .admin-section-analytics,
+  .admin-stat, .admin-support-card, .admin-message-guide, .admin-create-guide
+) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(
+  .card, .panel, .surface, .match-panel, .match-result,
+  .feature-panel, .feature-card, .feature-list-row, .feature-empty, .feature-callout,
+  .insight-card, .related-card, .profile-card, .auth-card, .form-section,
+  .platform-card, .platform-form-shell, .platform-side-card, .platform-hero-card,
+  .workspace-panel, .story-panel, .ecosystem-card, .check-item, .deep-faq,
+  .form-card, .faq-item, .price-card, .notification-section, .notification-item,
+  .follow-request-card, .live-member-card, .ops-panel, .voice-card, .chart-card,
+  .dashboard-panel, .dashboard-stat-card, .dashboard-study-card, .dashboard-wide-panel,
+  .dashboard-discovery-panel, .dashboard-journey-panel, .member-chart-panel,
+  .member-insights-panel, .portal-empty, .dashboard-match-card, .portfolio-panel,
+  .rs-live-metrics, .rs-float-label, .rs-match-person, .rs-match-result,
+  .rs-chat-bubble, .rs-mini-calendar, .rs-reflection, .rs-tool-card,
+  .rs-ritual, .rs-constellation-story, .rs-constellation-node, .rs-next-move-card,
+  .home-demo-network, .home-demo-member, .home-reference-member,
+  .home-reference-learners, .home-reference-story,
+  .admin-dashboard, .admin-dashboard-section, .admin-panel, .admin-extra-insights,
+  .admin-analytics-collapsible, .admin-insights-panel, .admin-section-analytics,
+  .admin-stat, .admin-support-card, .admin-message-guide, .admin-create-guide
+) :is(
+  h1, h2, h3, h4, h5, h6, p, span, small, strong, b, a, li, label, legend,
+  figcaption, caption, td, th, dt, dd, time, summary, button, [role="button"], em
+) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(
+  .btn-primary, button.btn-primary, a.btn-primary, .primary-button,
+  .button-primary, .cta-primary, input[type="submit"], .rs-button-primary,
+  .nav-swap-now, .home-reference-create, .workspace-admin .admin-nav-group-buttons button.active,
+  .dashboard-redesign .workspace-bar nav a.selected, .admin-section-nav,
+  .admin-command-strip, .dashboard-focus-strip,
+  .dashboard-redesign .member-portal-hero,
+  .workspace-admin .workspace-bar,
+  .workspace-member:not(.dashboard-redesign) .workspace-bar,
+  .site-footer, .footer-top, .footer-cta,
+  .community-principles-card, .dark-feature-card, .dark-panel, .dark-surface,
+  .feature-dark, .hero-dark, .donation-hero, .login-popup-rail,
+  .rs-marquee, .rs-community, .rs-exchange-symbol, .rs-skill-card,
+  .rs-chat-bubble:nth-child(2), .rs-constellation-core,
+  .rs-constellation-node[aria-current="true"], .rs-week .picked,
+  .phonebook-hero-icon
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(
+  .btn-primary, button.btn-primary, a.btn-primary, .primary-button,
+  .button-primary, .cta-primary, input[type="submit"], .rs-button-primary,
+  .nav-swap-now, .home-reference-create, .workspace-admin .admin-nav-group-buttons button.active,
+  .dashboard-redesign .workspace-bar nav a.selected, .admin-section-nav,
+  .admin-command-strip, .dashboard-focus-strip,
+  .workspace-admin .workspace-bar,
+  .workspace-member:not(.dashboard-redesign) .workspace-bar,
+  .site-footer, .footer-top, .footer-cta,
+  .community-principles-card, .dark-feature-card, .dark-panel, .dark-surface,
+  .feature-dark, .hero-dark, .donation-hero, .login-popup-rail,
+  .rs-marquee, .rs-community, .rs-exchange-symbol, .rs-skill-card,
+  .rs-chat-bubble:nth-child(2), .rs-constellation-core,
+  .rs-constellation-node[aria-current="true"], .rs-week .picked,
+  .phonebook-hero-icon
+) :is(
+  h1, h2, h3, h4, h5, h6, p, span, small, strong, b, a, li, label, legend,
+  figcaption, caption, td, th, dt, dd, time, summary, button, [role="button"], em
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Filled dark/blue sections can contain white controls and pale chips. Those
+   nested light surfaces keep their own dark foreground. */
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(
+  .admin-command-strip .btn-primary,
+  .dashboard-focus-strip .btn-primary,
+  .rs-button-light, .rs-button-outline,
+  .workspace-member:not(.dashboard-redesign) .member-portal-hero .btn:not(.btn-primary)
+) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+html body.home-simple.home-reference-page:not(#relay-visibility-specificity-boost) .site-header .nav-links a.active,
+html body.home-simple.home-reference-page:not(#relay-visibility-specificity-boost) .site-header .nav-links a.active *,
+html body.dashboard-redesign:not(#relay-visibility-specificity-boost) .workspace-bar,
+html body.dashboard-redesign:not(#relay-visibility-specificity-boost) .workspace-bar .workspace-brand,
+html body.dashboard-redesign:not(#relay-visibility-specificity-boost) .workspace-bar .workspace-brand *,
+html body.dashboard-redesign:not(#relay-visibility-specificity-boost) .workspace-bar nav a:not(.selected),
+html body.dashboard-redesign:not(#relay-visibility-specificity-boost) .workspace-bar .workspace-tools > a:not(.workspace-profile),
+html body.dashboard-redesign:not(#relay-visibility-specificity-boost) .workspace-bar .workspace-tools > button,
+html body.workspace-member:not(.dashboard-redesign):not(#relay-visibility-specificity-boost) .member-portal-hero,
+html body.workspace-member:not(.dashboard-redesign):not(#relay-visibility-specificity-boost) .member-portal-hero :is(h1, h2, h3, p, span, small, strong, b, a, button) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+html body.dashboard-redesign:not(#relay-visibility-specificity-boost) .workspace-bar .workspace-tools > a.workspace-profile,
+html body.dashboard-redesign:not(#relay-visibility-specificity-boost) .workspace-bar .workspace-tools > a.workspace-profile * {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) .rs-skill-card.rs-skill-create,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) .rs-skill-card.rs-skill-create :is(h1, h2, h3, h4, h5, h6, p, span, small, strong, b, a, li, em) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+/* The dashboard hero is blue, but it contains light cards and controls. Keep
+   those nested light surfaces on the dark-text side of the contrast rule. */
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .eyebrow,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .eyebrow * {
+  background-color: #dff6ed !important;
+  border-color: #a9dfce !important;
+  color: #174d3f !important;
+  -webkit-text-fill-color: #174d3f !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-hero-actions .btn:not(.btn-primary),
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-hero-actions .btn:not(.btn-primary) * {
+  background-color: #f8f7f3 !important;
+  border-color: #d9dad6 !important;
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card :is(small, strong, div > span) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card :is(small, div > span) {
+  color: #4f5e70 !important;
+  -webkit-text-fill-color: #4f5e70 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card .dashboard-stat-icon.blue,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card .dashboard-stat-icon.blue *,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(2) .dashboard-stat-icon,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(2) .dashboard-stat-icon *,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(3) .dashboard-stat-icon,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(3) .dashboard-stat-icon *,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(4) .dashboard-stat-icon,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(4) .dashboard-stat-icon * {
+  opacity: 1 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card .dashboard-stat-icon.blue,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card .dashboard-stat-icon.blue * {
+  background-color: #e7efff !important;
+  color: #3159a5 !important;
+  -webkit-text-fill-color: #3159a5 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(2) .dashboard-stat-icon,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(2) .dashboard-stat-icon * {
+  background-color: #fff0ed !important;
+  color: #b84b45 !important;
+  -webkit-text-fill-color: #b84b45 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(3) .dashboard-stat-icon,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(3) .dashboard-stat-icon * {
+  background-color: #eeeaf9 !important;
+  color: #5f4ba6 !important;
+  -webkit-text-fill-color: #5f4ba6 !important;
+}
+
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(4) .dashboard-stat-icon,
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .member-portal-hero .dashboard-stat-card:nth-child(4) .dashboard-stat-icon * {
+  background-color: #e5f7ef !important;
+  color: #14765e !important;
+  -webkit-text-fill-color: #14765e !important;
+}
+
+/* Skill matching uses a pale hero, unlike the dashboard's dark hero. Do not
+   apply the generic inverse-surface foregrounds to this light surface. */
+html body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero {
+  color: #172a46 !important;
+  background: linear-gradient(120deg, #ffffff 0%, #f2f5ff 58%, #fff5f2 100%) !important;
+  border-color: #d8dfed !important;
+}
+
+html body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero :is(h1, h2, h3, h4, h5, h6, strong, b) {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+  opacity: 1 !important;
+}
+
+html body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero :is(p, li, small, span, a:not(.btn)) {
+  color: #465570 !important;
+  -webkit-text-fill-color: #465570 !important;
+  opacity: 1 !important;
+}
+
+html body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero .eyebrow {
+  display: inline-flex !important;
+  align-items: center;
+  gap: .45rem;
+  width: fit-content;
+  max-width: 100%;
+  padding: .48rem .86rem !important;
+  border: 1px solid #9bd9c4 !important;
+  border-radius: 999px !important;
+  color: #145b45 !important;
+  -webkit-text-fill-color: #145b45 !important;
+  background: #e0f7ed !important;
+}
+
+html body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero .eyebrow i {
+  color: #117657 !important;
+  -webkit-text-fill-color: #117657 !important;
+}
+
+html body.member-portal-body main[data-member-portal="matching"] .matching-score-preview {
+  border-color: #d5deed !important;
+  border-radius: 25px !important;
+  background: #ffffff !important;
+  color: #172a46 !important;
+}
+
+html body.member-portal-body main[data-member-portal="matching"] .matching-score-preview h2 {
+  color: #172a46 !important;
+  -webkit-text-fill-color: #172a46 !important;
+}
+
+html body.member-portal-body main[data-member-portal="matching"] .matching-score-preview p {
+  color: #465570 !important;
+  -webkit-text-fill-color: #465570 !important;
+}
+
+html body.member-portal-body main[data-member-portal="matching"] .matching-score-preview .tag {
+  display: inline-flex !important;
+  width: fit-content;
+  padding: .42rem .75rem !important;
+  border: 1px solid #c9c0f2 !important;
+  border-radius: 999px !important;
+  color: #493a9d !important;
+  -webkit-text-fill-color: #493a9d !important;
+  background: #f0edff !important;
+}
+
+html[data-theme="dark"] body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero {
+  color: #f8f7f3 !important;
+  background: linear-gradient(120deg, #101721 0%, #121a25 58%, #1b151d 100%) !important;
+  border-color: #34445a !important;
+}
+
+html[data-theme="dark"] body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero :is(h1, h2, h3, h4, h5, h6, strong, b) {
+  color: #fffdf8 !important;
+  -webkit-text-fill-color: #fffdf8 !important;
+}
+
+html[data-theme="dark"] body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero :is(p, li, small, span, a:not(.btn)) {
+  color: #d7e0eb !important;
+  -webkit-text-fill-color: #d7e0eb !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] body.member-portal-body main[data-member-portal="matching"] .matching-portal-hero .eyebrow {
+  background: #dff7ed !important;
+  border-color: #8fd5c2 !important;
+  color: #145b45 !important;
+  -webkit-text-fill-color: #145b45 !important;
+}
+
+html[data-theme="dark"] body.member-portal-body main[data-member-portal="matching"] .matching-score-preview {
+  border-color: #40516a !important;
+  background: #172334 !important;
+  color: #f8f7f3 !important;
+}
+
+html[data-theme="dark"] body.member-portal-body main[data-member-portal="matching"] .matching-score-preview h2 {
+  color: #fffdf8 !important;
+  -webkit-text-fill-color: #fffdf8 !important;
+}
+
+html[data-theme="dark"] body.member-portal-body main[data-member-portal="matching"] .matching-score-preview p {
+  color: #d7e0eb !important;
+  -webkit-text-fill-color: #d7e0eb !important;
+}
+
+html[data-theme="dark"] body.member-portal-body main[data-member-portal="matching"] .matching-score-preview .tag {
+  background: #342d64 !important;
+  border-color: #7367bd !important;
+  color: #f4f0ff !important;
+  -webkit-text-fill-color: #f4f0ff !important;
+}
+
+/* Eyebrows and section kickers are chips, never sharp-cornered label bars. */
+html body :where(.eyebrow, .section-kicker, .platform-kicker, .ops-kicker, .ops-overline, .portal-kicker) {
+  display: inline-flex !important;
+  align-items: center;
+  gap: .42rem;
+  width: fit-content !important;
+  max-width: 100%;
+  padding: .42rem .78rem !important;
+  border-radius: 999px !important;
+  line-height: 1.25;
+  vertical-align: middle;
+}
+
+/* Scroll reveals are progressive enhancement: content stays visible if the
+   shared script is unavailable, and reduced-motion users never get hidden
+   content or animated transitions. */
+html.scroll-system-ready body :where([data-reveal], [data-scroll-reveal], .scroll-reveal) {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity .45s ease, transform .45s cubic-bezier(.2, .8, .2, 1);
+}
+
+html.scroll-system-ready body :where([data-reveal].is-visible, [data-scroll-reveal].is-visible, .scroll-reveal.is-visible) {
+  opacity: 1;
+  transform: none;
+}
+
+html body :where([id]) { scroll-margin-top: clamp(16px, 8vh, 104px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html.scroll-system-ready body :where([data-reveal], [data-scroll-reveal], .scroll-reveal) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  html body *,
+  html body *::before,
+  html body *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+html.relayskills-reduced-motion.scroll-system-ready body :where([data-reveal], [data-scroll-reveal], .scroll-reveal) {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* -------------------------------------------------------------------------
+   Dark-mode readability contract (final cascade)
+   -------------------------------------------------------------------------
+   The legacy card palette above intentionally protects light-mode cards, but
+   its high-specificity selectors can otherwise win over page-level dark-mode
+   rules. Keep this contract at the very end so dark surfaces never receive
+   navy text on navy backgrounds.
+*/
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) {
+  color: #ffffff !important;
+  --rs-body: #ffffff !important;
+  --rs-muted: #ffffff !important;
+  --relayskills-muted: #ffffff !important;
+  --text-body: #ffffff !important;
+  --muted: #ffffff !important;
+  --dash-muted: #ffffff !important;
+  --dash-ink-soft: #ffffff !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(
+  h1, h2, h3, h4, h5, h6,
+  p, li, dt, dd, label, small, strong, b, em, mark,
+  summary, caption, figcaption, time,
+  a:not(.btn):not(.button):not([class*="icon"]),
+  button, .btn, input[type="submit"], input[type="button"], input[type="reset"]
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(
+  .card, .panel, .surface, .match-panel, .match-result,
+  .feature-panel, .feature-card, .feature-list-row, .feature-empty, .feature-callout,
+  .insight-card, .related-card, .profile-card, .auth-card, .form-section,
+  .platform-card, .platform-form-shell, .platform-side-card, .platform-hero-card,
+  .workspace-panel, .story-panel, .ecosystem-card, .check-item, .deep-faq,
+  .form-card, .faq-item, .price-card, .notification-section, .notification-item,
+  .follow-request-card, .live-member-card, .ops-panel, .voice-card, .chart-card,
+  .dashboard-panel, .dashboard-stat-card, .dashboard-study-card, .dashboard-wide-panel,
+  .dashboard-discovery-panel, .dashboard-journey-panel, .member-chart-panel,
+  .member-insights-panel, .portal-empty, .dashboard-match-card, .portfolio-panel,
+  .rs-live-metrics, .rs-float-label, .rs-match-person, .rs-match-result,
+  .rs-chat-bubble, .rs-mini-calendar, .rs-reflection, .rs-tool-card,
+  .rs-ritual, .rs-constellation-story, .rs-constellation-node, .rs-next-move-card,
+  .home-demo-network, .home-demo-member, .home-reference-member,
+  .home-reference-learners, .home-reference-story,
+  .admin-dashboard, .admin-dashboard-section, .admin-panel, .admin-extra-insights,
+  .admin-analytics-collapsible, .admin-insights-panel, .admin-section-analytics,
+  .admin-stat, .admin-support-card, .admin-message-guide, .admin-create-guide
+) :is(
+  h1, h2, h3, h4, h5, h6, p, span, small, strong, b, a, li, label, legend,
+  figcaption, caption, td, th, dt, dd, time, summary, button, [role="button"], em
+) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(input, select, textarea) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(input, select, textarea)::placeholder {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Preserve dark labels on controls that deliberately keep a light fill. */
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock) :is(
+  .member-portal-hero .btn:not(.btn-primary),
+  .dashboard-hero-actions .btn:not(.btn-primary),
+  .site-header .auth-nav .btn:not(.btn-primary)
+) {
+  color: #172344 !important;
+  -webkit-text-fill-color: #172344 !important;
+}
+
+/* Catch plain spans and component-specific labels that do not use a
+   semantic text element. The extra non-matching ID keeps this final rule
+   ahead of older page-specific color declarations. */
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock):not(#relay-dark-mode-white-text) :is(
+  main, .site-footer, .admin-sidebar, .admin-dashboard
+) * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Preserve dark labels on light-filled controls after the catch-all rule. */
+html[data-theme="dark"] body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock):not(#relay-dark-mode-white-text) :is(
+  main .member-portal-hero .btn:not(.btn-primary),
+  main .dashboard-hero-actions .btn:not(.btn-primary),
+  .site-header .auth-nav .btn:not(.btn-primary)
+) {
+  color: #172344 !important;
+  -webkit-text-fill-color: #172344 !important;
+}

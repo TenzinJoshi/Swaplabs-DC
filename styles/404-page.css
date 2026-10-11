@@ -1,0 +1,236 @@
+:root {
+  color-scheme: light;
+  --404-surface: #f7f8fc;
+  --404-ink: #14213d;
+  --404-copy: #52617b;
+  --404-nav: rgba(255, 255, 255, .9);
+  --404-line: rgba(20, 33, 61, .14);
+  --404-button: #3d72ff;
+  --404-button-hover: #2858e8;
+  --404-button-ink: #ffffff;
+  --404-art: url("../assets/404/404-contour-light.png");
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --404-surface: #080d1b;
+  --404-ink: #f8fbff;
+  --404-copy: #d9e2f0;
+  --404-nav: rgba(8, 12, 23, .91);
+  --404-line: rgba(221, 229, 255, .17);
+  --404-button: #c8f56a;
+  --404-button-hover: #ddff97;
+  --404-button-ink: #081019;
+  --404-art: url("../assets/404/404-contour-dark.png");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  background: var(--404-surface);
+}
+
+body.error-404-page {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  color: var(--404-ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--404-surface);
+}
+
+body.error-404-page > [data-site-header] {
+  position: relative;
+  z-index: 10;
+  flex: 0 0 var(--header-space, 104px);
+}
+
+body.error-404-page .site-header .nav::before,
+body.error-404-page .static-site-header {
+  border-color: var(--404-line) !important;
+  background: var(--404-nav) !important;
+}
+
+body.error-404-page .site-header .nav::before {
+  box-shadow: 0 20px 52px rgba(18, 32, 61, .13), inset 0 1px rgba(255, 255, 255, .32) !important;
+}
+
+html[data-theme="dark"] body.error-404-page .site-header .nav::before {
+  box-shadow: 0 20px 52px rgba(0, 0, 0, .48), inset 0 1px rgba(255, 255, 255, .08) !important;
+}
+
+.error-404-page-main {
+  flex: 1 0 auto;
+  min-height: max(620px, calc(100svh - var(--header-space, 104px)));
+  background: var(--404-surface);
+}
+
+.error-404-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  min-height: max(620px, calc(100svh - var(--header-space, 104px)));
+  overflow: hidden;
+  background-color: var(--404-surface);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .15)),
+    var(--404-art);
+  background-position: center;
+  background-size: cover;
+}
+
+html[data-theme="dark"] .error-404-hero {
+  background-image:
+    linear-gradient(180deg, rgba(3, 7, 18, .06), rgba(3, 7, 18, .19)),
+    var(--404-art);
+}
+
+.error-404-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, .34), transparent 42%),
+    linear-gradient(90deg, rgba(255, 255, 255, .1), transparent 24%, transparent 76%, rgba(255, 255, 255, .1));
+}
+
+html[data-theme="dark"] .error-404-hero::before {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(16, 25, 55, .34), transparent 42%),
+    linear-gradient(90deg, rgba(3, 7, 18, .12), transparent 24%, transparent 76%, rgba(3, 7, 18, .12));
+}
+
+.error-404-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100% - 2rem, 1120px);
+  padding: clamp(3rem, 8vh, 6.5rem) 1rem clamp(4rem, 10vh, 8rem);
+  gap: clamp(3.5rem, 8vh, 5rem);
+  text-align: center;
+}
+
+.error-404-code {
+  margin: 0;
+  color: var(--404-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(7.5rem, 24vw, 31rem);
+  font-weight: 400;
+  line-height: .78;
+  letter-spacing: -.055em;
+  opacity: .92;
+  text-indent: -.04em;
+  user-select: none;
+}
+
+.error-404-content h1 {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--404-ink) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 2.65vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.error-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8rem;
+  margin-top: clamp(1.7rem, 3vh, 2.5rem);
+  padding: .82rem 1.45rem;
+  border: 1px solid transparent;
+  border-radius: .42rem;
+  color: var(--404-button-ink) !important;
+  -webkit-text-fill-color: var(--404-button-ink);
+  background: var(--404-button);
+  box-shadow: 0 .9rem 2rem rgba(61, 114, 255, .22);
+  font-size: .74rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.error-button:hover {
+  color: var(--404-button-ink) !important;
+  -webkit-text-fill-color: var(--404-button-ink);
+  background: var(--404-button-hover);
+  box-shadow: 0 1.1rem 2.4rem rgba(61, 114, 255, .3);
+  transform: translateY(-2px);
+}
+
+.error-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--404-button) 62%, white);
+  outline-offset: 4px;
+}
+
+html[data-theme="dark"] .error-button {
+  box-shadow: 0 .9rem 2rem rgba(200, 245, 106, .15);
+}
+
+html[data-theme="dark"] .error-button:hover {
+  box-shadow: 0 1.1rem 2.4rem rgba(200, 245, 106, .22);
+}
+
+body.error-404-page :is(.swapbot-launch, .swapbot-panel, .back-to-top, .page-social-dock) {
+  display: none !important;
+}
+
+@media (max-width: 840px) {
+  .error-404-page-main,
+  .error-404-hero {
+    min-height: max(560px, calc(100svh - var(--header-space, 92px)));
+  }
+
+  .error-404-content {
+    width: min(100% - 1rem, 620px);
+    padding-inline: .5rem;
+  }
+
+  .error-404-code {
+    font-size: clamp(7.5rem, 37vw, 15rem);
+  }
+
+  .error-404-content { gap: clamp(3rem, 7vh, 4rem); }
+}
+
+@media (max-width: 500px) {
+  .error-404-page-main,
+  .error-404-hero {
+    min-height: max(520px, calc(100svh - var(--header-space, 84px)));
+  }
+
+  .error-404-content h1 {
+    max-width: 18rem;
+    font-size: 1.45rem;
+  }
+
+  .error-404-content { gap: 2.8rem; }
+
+  .error-button {
+    min-width: 10.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-button {
+    transition: none;
+  }
+}

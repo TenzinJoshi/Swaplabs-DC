@@ -1,0 +1,52 @@
+/* Marker typography for main page and section headings only. */
+@font-face {
+  font-family: "Permanent Marker";
+  src: url("/assets/fonts/permanent-marker-latin.woff2?v=20261003-marker1") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --relay-marker-font: "Permanent Marker", "Segoe Print", "Noto Sans", system-ui, sans-serif;
+}
+
+/* h1/h2 are the main page and section headings. Smaller card headings,
+   navigation, body copy, controls, and chart labels keep their original faces.
+   Include heading spans, but never replace the dedicated icon glyph fonts. */
+:root:root:root:root :is(h1, h2, h1 *, h2 *):not(:where(
+  .bx, .bxs, .bxl, [class^="bx-"], [class*=" bx-"],
+  .fa, .fas, .far, .fab, .fal, .fad, .fa-solid, .fa-regular, .fa-brands,
+  .material-icons, .material-icons-outlined, .material-symbols-outlined,
+  .material-symbols-rounded, .material-symbols-sharp, box-icon, ion-icon
+)) {
+  font-family: var(--relay-marker-font) !important;
+  font-synthesis: none;
+}
+
+/* Marker strokes need breathing room, especially when labels wrap. */
+:root:root:root:root :is(h1, h2) {
+  overflow-wrap: break-word;
+  letter-spacing: -.015em !important;
+  line-height: 1.2 !important;
+}
+
+/* Contain the existing tilted marquee without making a horizontal page scroll. */
+body:is(.home-reference-page, .home-scroll-journey) .rs-home {
+  overflow-x: clip !important;
+}
+
+/* Keep the existing navy dashboard's intended white heading/copy. The
+   nested pale statistic cards and controls retain their dark foregrounds. */
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .dashboard-hero-grid :is(h1, h1 span, p),
+html body:not(#relay-visibility-specificity-boost):not(#relay-contrast-lock).dashboard-redesign .dashboard-overview-heading h2 {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+
+@media (max-width: 840px) {
+  :root:root:root:root :is(h1, h2, h1 span, h2 span) {
+    white-space: normal !important;
+    text-wrap: balance;
+  }
+}

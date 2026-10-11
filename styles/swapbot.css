@@ -1,0 +1,164 @@
+/* SwapBot polish: keep the existing guide content, but make the panel calmer and
+   keep its icon and composer aligned at every viewport size. */
+/* Suggestion chips are a horizontal scroller by design. Clip the root when the
+   fixed panel is mounted so its off-screen chips cannot widen the page. */
+html:has(.swapbot-panel) { overflow-x: hidden; }
+.swapbot-panel {
+  isolation: isolate;
+  min-height: 0;
+}
+
+.swapbot-launch-icon,
+.swapbot-avatar {
+  align-items: center;
+  justify-items: center;
+  place-items: center;
+}
+
+.swapbot-launch-icon > .bx,
+.swapbot-avatar > .bx {
+  display: grid;
+  width: 1em;
+  height: 1em;
+  place-items: center;
+  margin: 0;
+  line-height: 1;
+  font-style: normal;
+}
+
+.swapbot-avatar {
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  font-size: 1.36rem;
+}
+
+.swapbot-messages {
+  min-height: 0;
+  padding: 17px 14px 14px;
+  overscroll-behavior: contain;
+}
+
+.swapbot-prompt-area {
+  display: grid;
+  gap: 0;
+}
+
+.swapbot-mode-row {
+  gap: 7px;
+  padding: 9px 12px 4px;
+}
+
+.swapbot-mode-row button {
+  min-height: 34px;
+  padding-inline: 6px;
+}
+
+.swapbot-suggestions {
+  gap: 6px;
+  padding: 6px 12px 10px;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+}
+
+.swapbot-suggestions::-webkit-scrollbar {
+  display: none;
+}
+
+.swapbot-suggestions button {
+  min-height: 30px;
+  padding: 6px 9px;
+}
+
+.swapbot-form {
+  grid-template-columns: minmax(0, 1fr) 44px;
+  align-items: stretch;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.swapbot-input-shell {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  min-height: 42px;
+  gap: 8px;
+  padding: 0 11px;
+}
+
+.swapbot-input-shell > i {
+  display: grid;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  margin: 0;
+  line-height: 1;
+}
+
+.swapbot-form input {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.swapbot-form > button {
+  width: 44px;
+  height: 42px;
+  min-width: 44px;
+  min-height: 42px;
+  padding: 0;
+  place-items: center;
+  line-height: 1;
+}
+
+.swapbot-form > button > .bx {
+  display: grid;
+  width: 1em;
+  height: 1em;
+  place-items: center;
+  line-height: 1;
+}
+
+.swapbot-foot {
+  min-height: 28px;
+  padding: 7px 12px;
+}
+
+@media (max-width: 600px) {
+  .swapbot-panel {
+    right: 8px;
+    bottom: 76px;
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 92px);
+    border-radius: 20px;
+  }
+
+  .swapbot-head {
+    min-height: 72px;
+    padding: 13px 14px;
+  }
+
+  .swapbot-mode-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+html[data-theme="dark"] .swapbot-prompt-area,
+html[data-theme="dark"] .swapbot-form,
+html[data-theme="dark"] .swapbot-foot {
+  background: #141a23;
+  border-color: #2c3747;
+}
+
+html[data-theme="dark"] .swapbot-mode-row button,
+html[data-theme="dark"] .swapbot-suggestions button,
+html[data-theme="dark"] .swapbot-input-shell {
+  background: #111720;
+  border-color: #303a49;
+}
