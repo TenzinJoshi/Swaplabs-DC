@@ -1,6 +1,10 @@
 # SwapLabs
 
-SwapLabs is a local skill-exchange platform inspired by RelaySkills. This repository contains the app source, original SwapLabs branding and acknowledgement pages, and synthetic demo fixtures. It does not include local member accounts, message attachments, profile uploads, or runtime databases.
+SwapLabs is a local skill-exchange platform inspired by RelaySkills. This repository contains the app source, original SwapLabs branding and acknowledgement pages, and synthetic demo fixtures.
+
+## Public data note
+
+Real member data is not included here. This public repository contains no real user accounts, private messages or attachments, profile uploads, credentials, or local runtime databases. A fresh clone starts with a new local database and media store. Any demo records are synthetic and clearly marked as demos.
 
 ## Run locally
 
