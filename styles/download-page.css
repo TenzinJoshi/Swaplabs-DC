@@ -23,7 +23,7 @@
 .download-page .download-kicker { padding: .55rem .8rem; border: 1px solid rgb(223 231 255 / 23%); border-radius: 999px; background: rgb(255 255 255 / 7%); letter-spacing: .045em; text-transform: none; }
 .download-page .download-kicker-dot { width: .5rem; height: .5rem; flex: 0 0 auto; border-radius: 50%; background: #a893ff; box-shadow: 0 0 0 .25rem rgb(168 147 255 / 15%); }
 .download-page .download-hero h1 { max-width: 12ch; margin: 1.6rem 0 1.15rem; color: #fff; font-size: clamp(3.3rem, 7.2vw, 6.4rem); font-weight: 850; letter-spacing: -.065em; line-height: .98; }
-.download-page .download-hero h1 span { color: #c7c7ff; background: linear-gradient(95deg, #8cb6ff 0%, #c0a0ff 58%, #f0aaff 100%); background-clip: text; -webkit-text-fill-color: transparent; }
+.download-page .download-hero h1 span { color: #fff; background: none; -webkit-text-fill-color: #fff; }
 .download-page .download-lede { max-width: 39rem; margin: 0; color: #eef2ff; font-size: clamp(1.05rem, 1.55vw, 1.25rem); line-height: 1.7; }
 .download-page .download-hero-actions { margin-top: 2rem; }
 .download-page .download-button { display: inline-flex; min-height: 4.2rem; align-items: center; justify-content: center; gap: .9rem; padding: .9rem 1.2rem; border: 1px solid #fff; border-radius: 1rem; color: #fff; background: linear-gradient(105deg, #335fe8, #694de1 70%, #8552d8); box-shadow: 0 14px 35px rgb(3 9 28 / 30%), inset 0 1px 0 rgb(255 255 255 / 25%); font-size: 1.1rem; font-weight: 800; text-align: center; text-decoration: none; transition: transform .18s ease, box-shadow .18s ease, filter .18s ease; }
@@ -123,7 +123,7 @@
 
 @media (max-width: 620px) {
   .download-page .download-hero { padding: 3rem 0 3.5rem; }
-  .download-page .download-hero h1 { max-width: 11ch; margin-top: 1.35rem; font-size: clamp(3rem, 14vw, 4.5rem); }
+  .download-page .download-hero h1 { max-width: 100%; margin-top: 1.35rem; font-size: clamp(2.2rem, 9vw, 3rem); }
   .download-page .download-kicker { align-items: flex-start; border-radius: .85rem; font-size: .82rem; }
   .download-page .download-button { width: 100%; min-height: 3.9rem; justify-content: space-between; gap: .55rem; padding: .8rem .95rem; font-size: 1rem; }
   .download-page .download-button > span:nth-child(2) { flex: 1; }
