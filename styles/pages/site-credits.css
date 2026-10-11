@@ -1,0 +1,49 @@
+/* Scoped editorial layout: does not override the shared navigation or other pages. */
+.project-credits { padding-bottom: 64px; }
+.credits-hero { padding-top: 64px; padding-bottom: 44px; }
+.credits-hero h1 { font-size: clamp(2.1rem, 4.3vw, 4rem); line-height: 1.1; margin: 20px 0 24px; max-width: 980px; }
+.credits-hero p { max-width: 900px; margin-bottom: 18px; color: var(--text-body); line-height: 1.8; }
+.credits-hero .credits-lead { font-size: 1.2rem; }
+.project-credits a:not(.btn) { color: var(--indigo); text-decoration: underline; text-underline-offset: 3px; }
+.credits-layout { display: grid; grid-template-columns: 220px minmax(0,1fr); align-items: start; gap: 36px; }
+.credits-index { position: sticky; top: 104px; padding: 22px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.credits-index nav { display: grid; gap: 13px; }
+.credits-index strong { margin-bottom: 6px; }
+.credits-index a { font-size: .88rem; }
+.credits-reading { min-width: 0; }
+.credits-section { scroll-margin-top: 104px; padding: 32px; margin-bottom: 24px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); }
+.credits-section h2 { font-size: clamp(1.55rem, 2.8vw, 2rem); line-height: 1.25; margin: 12px 0 22px; }
+.credits-section h3 { font-size: 1.12rem; margin: 27px 0 10px; }
+.credits-section p, .credits-section dd { color: var(--text-body); line-height: 1.85; }
+.credits-section p { margin-bottom: 19px; }
+.credits-section p:last-child { margin-bottom: 0; }
+.credits-contributions, .credits-tools { display: grid; gap: 16px; margin: 24px 0; }
+.credits-contributions { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.credits-contributions article, .credits-tools article { background: var(--surface-soft); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+.credits-contributions h3, .credits-tools h3 { margin-top: 0; }
+.credits-note { font-size: .88rem; border-left: 3px solid var(--indigo); padding-left: 16px; }
+.credits-flow { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; list-style-position: inside; padding: 0; margin: 26px 0; }
+.credits-flow li { padding: 18px; border-radius: 14px; background: var(--indigo-soft); }
+.credits-flow span { display: block; margin-top: 8px; color: var(--text-body); font-size: .9rem; line-height: 1.6; }
+.credits-definitions dt { font-weight: 750; margin-top: 24px; margin-bottom: 8px; }
+.credits-definitions dd { margin: 0; }
+.credits-table-wrap { overflow-x: auto; margin: 24px 0; }
+.credits-table-wrap table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.credits-table-wrap caption { text-align: left; font-weight: 700; margin-bottom: 12px; }
+.credits-table-wrap th, .credits-table-wrap td { text-align: left; vertical-align: top; padding: 15px 12px; border-bottom: 1px solid var(--line); }
+.credits-table-wrap th { background: var(--surface-soft); }
+.project-credits code { font-size: .88em; overflow-wrap: anywhere; }
+.credits-signoff { padding-top: 20px; border-top: 1px solid var(--line); }
+@media (max-width: 850px) {
+  .credits-layout { grid-template-columns: 1fr; gap: 22px; }
+  .credits-index { position: static; }
+  .credits-index nav { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .credits-index strong { grid-column: 1/-1; }
+  .credits-hero { padding-top: 36px; }
+  .credits-section { scroll-margin-top: 88px; }
+}
+@media (max-width: 540px) {
+  .credits-section { padding: 22px 18px; }
+  .credits-contributions, .credits-flow { grid-template-columns: 1fr; }
+  .credits-hero .credits-lead { font-size: 1.05rem; }
+}
