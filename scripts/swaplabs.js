@@ -968,6 +968,7 @@
     ],
     Company: [
       ['About', 'about.html'],
+      ['Download SwapLabs', 'download.html'],
       ['Careers', 'careers.html'],
       ['Pricing', 'pricing.html'],
       ['Roadmap', 'roadmap.html'],
@@ -1158,7 +1159,7 @@
       items: [
         ['Help center', 'help-center.html'], ['Contact us', 'contact.html'], ['Complaints', 'complaint.html'],
         ['Feedback', 'feedback.html'], ['Student safety', 'student-safety.html'], ['Report', 'report.html'],
-        ['How it works', 'how-it-works.html'], ['FAQ', 'faq.html'], ['Privacy', 'privacy.html'], ['Terms', 'terms.html']
+        ['How it works', 'how-it-works.html'], ['FAQ', 'faq.html'], ['Privacy', 'privacy.html'], ['Terms', 'terms.html'], ['Download SwapLabs', 'download.html']
       ]
     }
   ];
@@ -1235,7 +1236,7 @@
         </div>
       </div>
       <div class="footer-compact-content" aria-label="Popular SwapLabs pages">
-        <div class="footer-compact-about"><span class="footer-compact-kicker">A place to share what you know</span><p>Meet people, exchange practical skills, and keep learning together.</p><a href="about.html">More about SwapLabs <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a><nav class="footer-compact-links" aria-label="Quick links"><a href="help-center.html">Help</a><a href="contact.html">Contact</a><a href="mailto:support.swaplabs@gmail.com">Email</a></nav></div>
+        <div class="footer-compact-about"><span class="footer-compact-kicker">A place to share what you know</span><p>Meet people, exchange practical skills, and keep learning together.</p><a href="about.html">More about SwapLabs <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a><nav class="footer-compact-links" aria-label="Quick links"><a href="download.html">Download SwapLabs</a><a href="help-center.html">Help</a><a href="contact.html">Contact</a><a href="mailto:support.swaplabs@gmail.com">Email</a></nav></div>
         <nav class="footer-compact-column" aria-label="Explore learning"><h3>Explore</h3><a href="browse-skills.html">Browse skills</a><a href="skill-matching.html">Find a match</a><a href="courses.html">Courses</a><a href="workshops.html">Workshops</a></nav>
         <nav class="footer-compact-column" aria-label="Community links"><h3>Community</h3><a href="community.html">Community</a><a href="phonebook.html">Members directory</a><a href="groups.html">Groups</a><a href="forums.html">Discussion forums</a></nav>
         <nav class="footer-compact-column" aria-label="Company and support"><h3>Company & support</h3><a href="how-it-works.html">How it works</a><a href="help-center.html">Help center</a><a href="faq.html">Frequently asked questions</a><a href="contact.html">Contact us</a></nav>

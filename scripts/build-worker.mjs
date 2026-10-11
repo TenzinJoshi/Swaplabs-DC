@@ -6,11 +6,11 @@ const templatePath = join(projectRoot, "server", "index.template.js");
 const outputPath = join(projectRoot, "dist", "server", "index.js");
 const staticDirectory = join(projectRoot, "dist", "public");
 const publicExtensions = new Set([
-  ".html", ".css", ".js", ".jpg", ".jpeg", ".png", ".webp", ".gif", ".ico", ".svg", ".woff2", ".txt", ".xml", ".ogg"
+  ".html", ".css", ".js", ".jpg", ".jpeg", ".png", ".webp", ".gif", ".ico", ".svg", ".woff2", ".txt", ".xml", ".ogg", ".zip"
 ]);
 const excludedDirectories = new Set([
   ".git", ".openai", "dist", "db", "drizzle", "server",
-  "node_modules", "data", "uploads", "audits", "tmp", "output", "font-lab",
+  "node_modules", "data", "audits", "tmp", "output", "font-lab",
   ".perf-originals", "screenshots", "screenshot", "test", "tests", "__tests__", "fixtures"
 ]);
 const excludedFiles = new Set([
