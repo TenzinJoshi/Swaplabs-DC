@@ -1,6 +1,6 @@
 # SwapLabs
 
-SwapLabs is a local skill-exchange platform inspired by RelaySkills. This repository contains the app source, original SwapLabs branding and acknowledgement pages, and synthetic demo fixtures.
+SwapLabs began as my project for the Design Championship 2026. While building it, I realized learning was becoming more expensive and inaccessible, which led me to create RelaySkills as a free, full-fledged peer-to-peer learning community. Read the [RelaySkills story](ABOUT_RELAYSKILLS.md) and visit [relayskills.com](https://relayskills.com/). SwapLabs remains a separate project with its own name, branding, credits, and acknowledgements.
 
 ## Public data note
 
