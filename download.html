@@ -68,7 +68,7 @@
 
       <section class="download-section download-run" id="run-locally" aria-labelledby="run-title">
         <div class="container download-run-grid">
-          <div class="download-run-intro"><span class="download-eyebrow">A few minutes to launch</span><h2 id="run-title">Run SwapLabs on your computer.</h2><p>The local app uses a local SQLite database and local media storage. Nothing needs to be deployed to try the site.</p><p class="download-readme-note">The ZIP includes a README with detailed setup notes.</p></div>
+          <div class="download-run-intro"><span class="download-eyebrow">A few minutes to launch</span><h2 id="run-title">Run SwapLabs on your computer.</h2><p>The local app uses a local SQLite database and local media storage. Nothing needs to be deployed to try the site.</p><p class="download-readme-note">The ZIP includes a README with detailed setup notes. Running <code>pnpm start</code> also rebuilds the download ZIP locally; the archive does not contain a copy of itself.</p></div>
           <div class="download-steps">
             <article class="download-step"><span class="download-step-number">1</span><div><h3>Download and unzip</h3><p>Save the ZIP, then extract the <strong>SwapLabs</strong> folder somewhere you can write to.</p></div></article>
             <article class="download-step"><span class="download-step-number">2</span><div><h3>Install the prerequisites</h3><p>Use <strong>Node.js 20+</strong>, <strong>Python 3</strong>, and <strong>pnpm 10.4+</strong>. pnpm 11 needs Node.js 22 or newer.</p></div></article>
@@ -107,7 +107,9 @@
             <details><summary>What is SwapLabs?</summary><p>SwapLabs is a student-built skill-exchange platform. People can share what they know, learn from one another, find a match, and build a learning routine around time and practical skills.</p></details>
             <details><summary>Does the local app need an account?</summary><p>You can browse the site locally. Create a new local account to explore account-based features; public member data is not preloaded.</p></details>
             <details><summary>Which features need external setup?</summary><p>Email delivery and Google sign-in are not configured in the local copy. Live calls between separate networks may need a TURN relay. The included README describes the local setup.</p></details>
-            <details><summary>Where are the original credits?</summary><p>The SwapLabs name, logo, credits, and acknowledgement pages are kept in the source package. SwapLabs is an independent project inspired by peer learning; it is not affiliated with RelaySkills.</p></details>
+            <details><summary>Why is the ZIP not inside itself?</summary><p>The archive cannot contain a full copy of itself. After you extract it, <code>pnpm start</code> builds a fresh public-source ZIP on your computer, so the download button works from the locally running site.</p></details>
+            <details><summary>What is RelaySkills?</summary><p><a href="https://relayskills.com/">RelaySkills.com</a> is a thriving peer-learning community built around people, skills, and shared spaces: people search, connect, practise together, and keep learning. The ZIP includes a separate RelaySkills community overview. SwapLabs is independent and is not affiliated with RelaySkills.</p></details>
+            <details><summary>Where are the original credits?</summary><p>The SwapLabs name, logo, credits, and acknowledgement pages are kept in the source package.</p></details>
           </div>
         </div>
       </section>

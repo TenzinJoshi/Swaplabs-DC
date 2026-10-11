@@ -15,7 +15,7 @@ pnpm install --frozen-lockfile
 pnpm start
 ```
 
-The app is served at [http://localhost:8000](http://localhost:8000). The first launch builds the local Worker, applies the checked-in database migrations, and creates a fresh local database and media store. Register a new account in the app. On macOS, run `chmod +x "Start SwapLabs.command"` once if you want to launch it by double-clicking that file.
+The app is served at [http://localhost:8000](http://localhost:8000). The first launch builds the local Worker, applies the checked-in database migrations, and creates a fresh local database and media store. It also builds the public-source ZIP locally; the ZIP does not contain itself. Register a new account in the app. On macOS, run `chmod +x "Start SwapLabs.command"` once if you want to launch it by double-clicking that file.
 
 Local database, media, Wrangler state, and credentials belong on your computer. They are ignored by Git. Email delivery and Google sign-in are not configured in this local app. Live calls between separate networks may need a TURN relay.
 
