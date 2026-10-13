@@ -1,6 +1,6 @@
 # SwapLabs
 
-SwapLabs began as my project for the Design Championship 2026. While building it, I realized learning was becoming more expensive and inaccessible, which led me to create RelaySkills as a free, full-fledged peer-to-peer learning community. Read the [RelaySkills story](ABOUT_RELAYSKILLS.md) and visit [relayskills.com](https://relayskills.com/). SwapLabs remains a separate project with its own name, branding, credits, and acknowledgements.
+SwapLabs began as my project for the Design Championship 2026. After I completed the competition, I realized how meaningful the idea behind this website could be and how much it could offer students, teachers, and learners of all kinds. I created RelaySkills afterward as a free, full-fledged peer-to-peer learning community. Read the [story of RelaySkills](ABOUT_RELAYSKILLS.md) and visit [relayskills.com](https://relayskills.com/). SwapLabs remains a separate project with its own name, branding, credits, and acknowledgements.
 
 ## Public data note
 
