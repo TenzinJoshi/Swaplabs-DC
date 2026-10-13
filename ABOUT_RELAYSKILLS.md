@@ -4,7 +4,7 @@
 
 I’m Tenzin Gyatso Joshi, a Class 9F student at Seth Anandram Jaipuria School in Lucknow. I registered for the Design Championship 2026, where I was tasked with creating SwapLabs for the competition.
 
-While building SwapLabs, I realized that learning was becoming more and more expensive and inaccessible. That experience led me to create [RelaySkills](https://relayskills.com/) as a free, full-fledged peer-to-peer learning community, so people can teach and learn from one another and help make the Learning Mission dream come true.
+After the Design Championship competition was over, I realized how meaningful the idea behind SwapLabs could be and how much it could offer students, teachers, and learners of all kinds. I then created [RelaySkills](https://relayskills.com/) as a free, full-fledged peer-to-peer learning platform and community, so people can teach and learn from one another and help make the Learning Mission dream come true.
 
 ## The RelaySkills community
 
@@ -14,7 +14,7 @@ Learn more at [relayskills.com](https://relayskills.com/) and explore the [Relay
 
 ## Relationship to SwapLabs
 
-SwapLabs is the separate competition project that led me to this idea. It keeps its own name, branding, credits, and acknowledgements. RelaySkills is a separate community with its own identity.
+SwapLabs was my Design Championship project, which I completed before creating RelaySkills. After the competition, its potential inspired me to create a separate community for students, teachers, and learners. SwapLabs keeps its own name, branding, credits, and acknowledgements; RelaySkills has its own identity.
 
 ## Data in this repository
 
