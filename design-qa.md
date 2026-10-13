@@ -2,7 +2,7 @@
 
 **Final result: passed**  
 Checked: 2026-10-10  
-Source reference: [relayskills.com](https://relayskills.com/)  
+Visual reference: [relayskills.com](https://relayskills.com/)  
 Local implementation: `http://localhost:8000/`
 
 ## Visual comparison
@@ -10,7 +10,7 @@ Local implementation: `http://localhost:8000/`
 - Desktop home, 1440 × 900 CSS pixels: `audits/source-captures/index-desktop.png` compared with `audits/local-captures/home-desktop.png`.
 - Mobile home, 390 × 844 CSS pixels: `audits/source-captures/index-mobile.png` compared with `audits/local-captures/home-mobile.png`.
 - Supporting mobile views: `audits/local-captures/browse-skills-mobile.png` and `audits/local-captures/login-mobile.png`.
-- The header, navigation, hero, typography, spacing, artwork, content sections, and footer follow the RelaySkills page structure. The SwapLabs name, supplied logo, and SwapLabs wording remain in place. The live totals reflect the local database.
+- The header, navigation, hero, typography, spacing, artwork, content sections, and footer adapt selected layout patterns from the RelaySkills site for SwapLabs. The SwapLabs name, supplied logo, and SwapLabs wording remain in place. The live totals reflect the local database. RelaySkills was created after the Design Championship competition.
 - The original SwapLabs `logo.jpg`, `credits.html`, `site-credits.html`, and `styles/pages/site-credits.css` match the original files byte for byte.
 
 ## Checks performed
@@ -26,4 +26,4 @@ Local implementation: `http://localhost:8000/`
 
 Google sign-in and outbound email are disabled. Password recovery displays its code in the local page. Calls use direct local or peer-to-peer connections; calling between devices on separate networks may require a TURN relay, which is not configured here.
 
-The folder contains a local copy of account data and uploaded files. Keep it private.
+The original development folder contains a copy of local account data and uploaded files and must stay private. That private data is excluded from the public source package.
